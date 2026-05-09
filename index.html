@@ -8,7 +8,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <script>
     tailwind.config = {
       theme: {
@@ -16,6 +16,7 @@
           fontFamily: {
             display: ['Fraunces', 'serif'],
             body: ['Inter', 'sans-serif'],
+            logo: ['"DM Sans"', 'Inter', 'sans-serif'],
           },
           colors: {
             ink:   '#0a0a0a',
@@ -24,9 +25,9 @@
             cream: '#ebe4d8',
             blush: '#e8d5cc',
             moss:  '#3d4a3a',
-            hasaki:     '#0BAA51',
-            hasakiDark: '#087a3b',
-            hasakiPale: '#e6f7ed',
+            hasaki:     '#1FB5AC',
+            hasakiDark: '#178d86',
+            hasakiPale: '#e6f7f5',
             ash:   '#8a8580',
           },
           letterSpacing: {
@@ -147,7 +148,7 @@
             </div>
             <a href="#" class="block group">
               <div class="aspect-[4/5] bg-cream overflow-hidden">
-                <img src="https://picsum.photos/seed/skinritual/600/750" alt="" class="w-full h-full object-cover editorial group-hover:scale-105 transition-transform duration-700" />
+                <img src="https://loremflickr.com/600/750/skincare,bottles?lock=102" alt="" class="w-full h-full object-cover editorial group-hover:scale-105 transition-transform duration-700" />
               </div>
               <p class="serif text-lg mt-4 normal-case tracking-normal">The Glow Ritual</p>
               <p class="text-xs text-ink/60 normal-case tracking-normal mt-1">Discover the 7-step routine →</p>
@@ -160,9 +161,16 @@
       </nav>
 
       <!-- Logo -->
-      <a href="#" class="justify-self-center lg:justify-self-center text-center leading-none" aria-label="hasaki — home">
-        <div class="serif text-3xl md:text-4xl font-semibold tracking-mega lowercase text-hasaki">hasaki<span class="text-hasakiDark">.</span></div>
-        <div class="text-[9px] md:text-[10px] tracking-[0.35em] uppercase text-ink/60 mt-1">Save More Always</div>
+      <a href="#" class="justify-self-center lg:justify-self-center text-center leading-none flex flex-col items-center" aria-label="hasaki — Save More Always">
+        <span class="inline-flex items-end gap-1.5 font-logo text-hasaki text-[28px] md:text-[34px] font-extrabold lowercase leading-none" style="letter-spacing:-0.04em;">
+          <!-- Leaf mark -->
+          <svg viewBox="0 0 32 32" class="w-5 h-5 md:w-[22px] md:h-[22px] -mb-0.5 shrink-0" aria-hidden="true">
+            <path d="M28 4C16 4 6 12 6 22c0 3 1 5 2 6 1-9 8-15 18-17-1 7-7 14-15 16 1 1 3 1 5 1 9 0 16-8 16-18 0-2 0-4-1-6h-3z" fill="#1FB5AC"/>
+            <circle cx="9" cy="26" r="2.5" fill="#1FB5AC"/>
+          </svg>
+          <span>hasaki<span class="text-hasakiDark">.</span></span>
+        </span>
+        <span class="text-[9px] md:text-[10px] tracking-[0.4em] uppercase text-ink/55 mt-1.5 font-medium">Save More Always</span>
       </a>
 
       <!-- Right utilities -->
@@ -186,7 +194,7 @@
 <!-- HERO -->
 <section class="relative bg-ink text-bone overflow-hidden">
   <div class="absolute inset-0">
-    <img src="https://picsum.photos/seed/hasaki-hero-editorial/1920/1100" alt="" class="w-full h-full object-cover editorial opacity-80" />
+    <img src="https://loremflickr.com/1920/1100/cosmetics,beauty,model?lock=101" alt="" class="w-full h-full object-cover editorial opacity-80" />
     <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent"></div>
     <div class="absolute inset-0 bg-gradient-to-r from-ink/60 via-transparent to-ink/30"></div>
   </div>
@@ -256,7 +264,7 @@
       <!-- Skincare large -->
       <a href="#skincare" class="pcard col-span-2 md:col-span-3 row-span-2 aspect-[4/5] md:aspect-auto md:h-[640px] bg-cream group block">
         <div class="img absolute inset-0">
-          <img src="https://picsum.photos/seed/skincare-cat/900/1200" alt="" class="w-full h-full object-cover editorial" />
+          <img src="https://loremflickr.com/900/1200/skincare,bottle,minimal?lock=103" alt="" class="w-full h-full object-cover editorial" />
         </div>
         <div class="absolute inset-0 bg-gradient-to-t from-ink/60 to-transparent"></div>
         <div class="absolute left-6 bottom-6 text-bone">
@@ -268,7 +276,7 @@
 
       <a href="#makeup" class="pcard col-span-1 md:col-span-3 aspect-[4/3] md:aspect-auto md:h-[312px] bg-blush group block">
         <div class="img absolute inset-0">
-          <img src="https://picsum.photos/seed/makeup-lipstick/900/600" alt="" class="w-full h-full object-cover editorial" />
+          <img src="https://loremflickr.com/900/600/lipstick,makeup?lock=104" alt="" class="w-full h-full object-cover editorial" />
         </div>
         <div class="absolute inset-0 bg-ink/20"></div>
         <div class="absolute left-6 bottom-6 text-bone">
@@ -279,7 +287,7 @@
 
       <a href="#fragrance" class="pcard col-span-1 md:col-span-2 aspect-square md:aspect-auto md:h-[312px] bg-moss group block">
         <div class="img absolute inset-0">
-          <img src="https://picsum.photos/seed/perfume-noir/600/600" alt="" class="w-full h-full object-cover editorial mix-blend-luminosity" />
+          <img src="https://loremflickr.com/600/600/perfume,bottle,black?lock=105" alt="" class="w-full h-full object-cover editorial mix-blend-luminosity" />
         </div>
         <div class="absolute inset-0 bg-moss/60"></div>
         <div class="absolute left-6 bottom-6 text-bone">
@@ -290,7 +298,7 @@
 
       <a href="#" class="pcard col-span-1 aspect-square bg-ink text-bone group block">
         <div class="img absolute inset-0 opacity-70">
-          <img src="https://picsum.photos/seed/haircare-mood/500/500" alt="" class="w-full h-full object-cover editorial" />
+          <img src="https://loremflickr.com/500/500/haircare,hair?lock=106" alt="" class="w-full h-full object-cover editorial" />
         </div>
         <div class="absolute left-4 bottom-4">
           <p class="text-[10px] tracking-[0.3em] uppercase opacity-80 mb-1">04</p>
@@ -300,7 +308,7 @@
 
       <a href="#" class="pcard col-span-1 aspect-square bg-cream group block">
         <div class="img absolute inset-0">
-          <img src="https://picsum.photos/seed/body-spa/500/500" alt="" class="w-full h-full object-cover editorial" />
+          <img src="https://loremflickr.com/500/500/spa,body,lotion?lock=107" alt="" class="w-full h-full object-cover editorial" />
         </div>
         <div class="absolute inset-0 bg-bone/20"></div>
         <div class="absolute left-4 bottom-4 text-ink">
@@ -327,7 +335,7 @@
   <div class="max-w-[1500px] mx-auto px-6 grid md:grid-cols-12 gap-10 items-center">
     <div class="md:col-span-7 reveal">
       <div class="aspect-[5/6] bg-soot overflow-hidden">
-        <img src="https://picsum.photos/seed/editorial-pink-noir/1000/1200" alt="" class="w-full h-full object-cover editorial" />
+        <img src="https://loremflickr.com/1000/1200/beauty,model,editorial?lock=108" alt="" class="w-full h-full object-cover editorial" />
       </div>
     </div>
     <div class="md:col-span-5 reveal">
@@ -383,7 +391,7 @@
       <article class="pcard reveal group">
         <div class="relative aspect-[4/5] bg-cream overflow-hidden">
           <div class="img absolute inset-0">
-            <img src="https://picsum.photos/seed/laneige-sleeping/600/750" alt="" class="w-full h-full object-cover" />
+            <img src="https://loremflickr.com/600/750/lipbalm,pink,cosmetic?lock=109" alt="" class="w-full h-full object-cover" />
           </div>
           <span class="absolute top-3 left-3 bg-ink text-bone text-[10px] tracking-[0.25em] uppercase px-2.5 py-1">Best</span>
           <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/80 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition">
@@ -413,7 +421,7 @@
       <article class="pcard reveal group">
         <div class="relative aspect-[4/5] bg-blush overflow-hidden">
           <div class="img absolute inset-0">
-            <img src="https://picsum.photos/seed/cosrx-snail/600/750" alt="" class="w-full h-full object-cover" />
+            <img src="https://loremflickr.com/600/750/serum,bottle,korean?lock=110" alt="" class="w-full h-full object-cover" />
           </div>
           <span class="absolute top-3 left-3 bg-hasaki text-bone text-[10px] tracking-[0.25em] uppercase px-2.5 py-1">New</span>
           <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/80 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition">
@@ -438,7 +446,7 @@
       <article class="pcard reveal group">
         <div class="relative aspect-[4/5] bg-ink text-bone overflow-hidden">
           <div class="img absolute inset-0 opacity-90">
-            <img src="https://picsum.photos/seed/ysl-libre-bottle/600/750" alt="" class="w-full h-full object-cover editorial" />
+            <img src="https://loremflickr.com/600/750/perfume,gold,bottle?lock=111" alt="" class="w-full h-full object-cover editorial" />
           </div>
           <span class="absolute top-3 left-3 bg-bone text-ink text-[10px] tracking-[0.25em] uppercase px-2.5 py-1">Limited</span>
           <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/20 backdrop-blur grid place-items-center hover:bg-bone hover:text-ink transition">
@@ -463,7 +471,7 @@
       <article class="pcard reveal group">
         <div class="relative aspect-[4/5] bg-cream overflow-hidden">
           <div class="img absolute inset-0">
-            <img src="https://picsum.photos/seed/laroche-sunscreen/600/750" alt="" class="w-full h-full object-cover" />
+            <img src="https://loremflickr.com/600/750/sunscreen,bottle,white?lock=112" alt="" class="w-full h-full object-cover" />
           </div>
           <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/80 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
@@ -487,7 +495,7 @@
       <article class="pcard reveal group">
         <div class="relative aspect-[4/5] bg-blush overflow-hidden">
           <div class="img absolute inset-0">
-            <img src="https://picsum.photos/seed/dior-rouge/600/750" alt="" class="w-full h-full object-cover" />
+            <img src="https://loremflickr.com/600/750/lipstick,red,luxury?lock=113" alt="" class="w-full h-full object-cover" />
           </div>
           <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/80 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
@@ -516,7 +524,7 @@
       <article class="pcard reveal group">
         <div class="relative aspect-[4/5] bg-moss text-bone overflow-hidden">
           <div class="img absolute inset-0 opacity-90">
-            <img src="https://picsum.photos/seed/innisfree-green/600/750" alt="" class="w-full h-full object-cover editorial" />
+            <img src="https://loremflickr.com/600/750/serum,green,skincare?lock=114" alt="" class="w-full h-full object-cover editorial" />
           </div>
           <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/20 backdrop-blur grid place-items-center hover:bg-bone hover:text-ink transition">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
@@ -540,7 +548,7 @@
       <article class="pcard reveal group">
         <div class="relative aspect-[4/5] bg-cream overflow-hidden">
           <div class="img absolute inset-0">
-            <img src="https://picsum.photos/seed/anessa-sun/600/750" alt="" class="w-full h-full object-cover" />
+            <img src="https://loremflickr.com/600/750/sunscreen,gold,bottle?lock=115" alt="" class="w-full h-full object-cover" />
           </div>
           <span class="absolute top-3 left-3 bg-ink text-bone text-[10px] tracking-[0.25em] uppercase px-2.5 py-1">Best</span>
           <div class="quick">
@@ -562,7 +570,7 @@
       <article class="pcard reveal group">
         <div class="relative aspect-[4/5] bg-blush overflow-hidden">
           <div class="img absolute inset-0">
-            <img src="https://picsum.photos/seed/the-ordinary-niac/600/750" alt="" class="w-full h-full object-cover" />
+            <img src="https://loremflickr.com/600/750/serum,dropper,minimalist?lock=116" alt="" class="w-full h-full object-cover" />
           </div>
           <div class="quick">
             <button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">Add to bag</button>
@@ -666,10 +674,10 @@
     <div class="md:col-span-7 reveal">
       <div class="grid grid-cols-2 gap-3 md:gap-4">
         <div class="aspect-[3/4] bg-cream overflow-hidden translate-y-8">
-          <img src="https://picsum.photos/seed/hasaki-store-front/600/800" alt="" class="w-full h-full object-cover editorial" />
+          <img src="https://loremflickr.com/600/800/cosmetics,store,boutique?lock=127" alt="" class="w-full h-full object-cover editorial" />
         </div>
         <div class="aspect-[3/4] bg-cream overflow-hidden">
-          <img src="https://picsum.photos/seed/hasaki-clinic-spa/600/800" alt="" class="w-full h-full object-cover editorial" />
+          <img src="https://loremflickr.com/600/800/spa,interior,beauty?lock=128" alt="" class="w-full h-full object-cover editorial" />
         </div>
       </div>
 
@@ -715,7 +723,7 @@
         <h3 class="serif text-3xl tracking-tightest mb-4">Cleanse</h3>
         <p class="text-bone/75 text-sm leading-relaxed mb-8">A gentle oil-then-foam double cleanse. Lifts away makeup, sweat and pollutants without compromising the skin barrier.</p>
         <div class="aspect-[4/3] bg-bone/5 overflow-hidden mb-6">
-          <img src="https://picsum.photos/seed/ritual-cleanse/600/450" alt="" class="w-full h-full object-cover editorial" />
+          <img src="https://loremflickr.com/600/450/cleanser,foam,face?lock=123" alt="" class="w-full h-full object-cover editorial" />
         </div>
         <a href="#" class="ulink text-[11px] tracking-[0.25em] uppercase">Discover → 24 products</a>
       </article>
@@ -724,7 +732,7 @@
         <h3 class="serif text-3xl tracking-tightest mb-4">Treat</h3>
         <p class="text-bone/75 text-sm leading-relaxed mb-8">An active layer — Vitamin C in the morning, Retinol at night. Each drop is a small promise to your skin.</p>
         <div class="aspect-[4/3] bg-bone/5 overflow-hidden mb-6">
-          <img src="https://picsum.photos/seed/ritual-serum/600/450" alt="" class="w-full h-full object-cover editorial" />
+          <img src="https://loremflickr.com/600/450/serum,dropper,beauty?lock=124" alt="" class="w-full h-full object-cover editorial" />
         </div>
         <a href="#" class="ulink text-[11px] tracking-[0.25em] uppercase">Discover → 38 products</a>
       </article>
@@ -733,7 +741,7 @@
         <h3 class="serif text-3xl tracking-tightest mb-4">Protect</h3>
         <p class="text-bone/75 text-sm leading-relaxed mb-8">Moisturizer, then SPF50+. Seal in actives, block UV and shield from urban pollution. Every single day.</p>
         <div class="aspect-[4/3] bg-bone/5 overflow-hidden mb-6">
-          <img src="https://picsum.photos/seed/ritual-spf/600/450" alt="" class="w-full h-full object-cover editorial" />
+          <img src="https://loremflickr.com/600/450/sunscreen,cream,white?lock=125" alt="" class="w-full h-full object-cover editorial" />
         </div>
         <a href="#" class="ulink text-[11px] tracking-[0.25em] uppercase">Discover → 17 products</a>
       </article>
@@ -758,37 +766,37 @@
     <div class="flex gap-5 px-6 max-w-none w-max">
       <a href="#" class="pcard w-[260px] md:w-[300px] shrink-0 group">
         <div class="relative aspect-[3/4] bg-cream overflow-hidden">
-          <div class="img absolute inset-0"><img src="https://picsum.photos/seed/charlotte-pillow/600/800" class="w-full h-full object-cover" alt=""/></div>
+          <div class="img absolute inset-0"><img src="https://loremflickr.com/600/800/lipstick,nude,pink?lock=117" class="w-full h-full object-cover" alt=""/></div>
         </div>
         <div class="pt-3"><p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Charlotte Tilbury</p><h3 class="serif text-base mt-1">Pillow Talk Lipstick</h3><p class="font-medium mt-2">$39</p></div>
       </a>
       <a href="#" class="pcard w-[260px] md:w-[300px] shrink-0 group">
         <div class="relative aspect-[3/4] bg-blush overflow-hidden">
-          <div class="img absolute inset-0"><img src="https://picsum.photos/seed/glow-recipe-watermelon/600/800" class="w-full h-full object-cover" alt=""/></div>
+          <div class="img absolute inset-0"><img src="https://loremflickr.com/600/800/serum,pink,bottle?lock=118" class="w-full h-full object-cover" alt=""/></div>
         </div>
         <div class="pt-3"><p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Glow Recipe</p><h3 class="serif text-base mt-1">Watermelon Glow Niacinamide Dew Drops</h3><p class="font-medium mt-2">$46</p></div>
       </a>
       <a href="#" class="pcard w-[260px] md:w-[300px] shrink-0 group">
         <div class="relative aspect-[3/4] bg-ink overflow-hidden">
-          <div class="img absolute inset-0 opacity-90"><img src="https://picsum.photos/seed/tom-ford-noir/600/800" class="w-full h-full object-cover editorial" alt=""/></div>
+          <div class="img absolute inset-0 opacity-90"><img src="https://loremflickr.com/600/800/perfume,black,bottle?lock=119" class="w-full h-full object-cover editorial" alt=""/></div>
         </div>
         <div class="pt-3"><p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Tom Ford</p><h3 class="serif text-base mt-1">Black Orchid Eau de Parfum</h3><p class="font-medium mt-2">$185</p></div>
       </a>
       <a href="#" class="pcard w-[260px] md:w-[300px] shrink-0 group">
         <div class="relative aspect-[3/4] bg-cream overflow-hidden">
-          <div class="img absolute inset-0"><img src="https://picsum.photos/seed/sulwhasoo-first/600/800" class="w-full h-full object-cover" alt=""/></div>
+          <div class="img absolute inset-0"><img src="https://loremflickr.com/600/800/skincare,korean,gold?lock=120" class="w-full h-full object-cover" alt=""/></div>
         </div>
         <div class="pt-3"><p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Sulwhasoo</p><h3 class="serif text-base mt-1">First Care Activating Serum</h3><p class="font-medium mt-2">$78</p></div>
       </a>
       <a href="#" class="pcard w-[260px] md:w-[300px] shrink-0 group">
         <div class="relative aspect-[3/4] bg-blush overflow-hidden">
-          <div class="img absolute inset-0"><img src="https://picsum.photos/seed/maybelline-mascara/600/800" class="w-full h-full object-cover" alt=""/></div>
+          <div class="img absolute inset-0"><img src="https://loremflickr.com/600/800/mascara,makeup,black?lock=121" class="w-full h-full object-cover" alt=""/></div>
         </div>
         <div class="pt-3"><p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Maybelline</p><h3 class="serif text-base mt-1">Sky High Volume Mascara</h3><p class="font-medium mt-2">$11</p></div>
       </a>
       <a href="#" class="pcard w-[260px] md:w-[300px] shrink-0 group">
         <div class="relative aspect-[3/4] bg-moss overflow-hidden">
-          <div class="img absolute inset-0 opacity-90"><img src="https://picsum.photos/seed/jomalone-wood/600/800" class="w-full h-full object-cover editorial" alt=""/></div>
+          <div class="img absolute inset-0 opacity-90"><img src="https://loremflickr.com/600/800/cologne,perfume,bottle?lock=122" class="w-full h-full object-cover editorial" alt=""/></div>
         </div>
         <div class="pt-3"><p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Jo Malone</p><h3 class="serif text-base mt-1">Wood Sage &amp; Sea Salt Cologne</h3><p class="font-medium mt-2">$142</p></div>
       </a>
@@ -799,7 +807,7 @@
 <!-- PERFUME — full-bleed editorial -->
 <section id="fragrance" class="relative bg-ink text-bone overflow-hidden">
   <div class="absolute inset-0 opacity-60">
-    <img src="https://picsum.photos/seed/perfume-mist-dark/1900/1100" alt="" class="w-full h-full object-cover editorial" />
+    <img src="https://loremflickr.com/1900/1100/perfume,black,bottle?lock=126" alt="" class="w-full h-full object-cover editorial" />
   </div>
   <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-transparent"></div>
   <div class="relative max-w-[1500px] mx-auto px-6 py-28 md:py-40 grid md:grid-cols-12 gap-12">
@@ -886,8 +894,14 @@
   <div class="max-w-[1500px] mx-auto px-6 py-20">
     <div class="grid md:grid-cols-12 gap-10 md:gap-8">
       <div class="md:col-span-4">
-        <div class="serif text-4xl tracking-mega lowercase text-hasaki">hasaki<span class="text-bone">.</span></div>
-        <p class="text-[11px] tracking-[0.35em] uppercase text-bone/60 mt-2">Save More Always</p>
+        <div class="inline-flex items-end gap-2 font-logo text-hasaki text-4xl font-extrabold lowercase leading-none" style="letter-spacing:-0.04em;">
+          <svg viewBox="0 0 32 32" class="w-7 h-7 -mb-1 shrink-0" aria-hidden="true">
+            <path d="M28 4C16 4 6 12 6 22c0 3 1 5 2 6 1-9 8-15 18-17-1 7-7 14-15 16 1 1 3 1 5 1 9 0 16-8 16-18 0-2 0-4-1-6h-3z" fill="#1FB5AC"/>
+            <circle cx="9" cy="26" r="2.5" fill="#1FB5AC"/>
+          </svg>
+          <span>hasaki<span class="text-bone">.</span></span>
+        </div>
+        <p class="text-[11px] tracking-[0.4em] uppercase text-bone/60 mt-3">Save More Always</p>
         <p class="mt-6 text-bone/70 max-w-sm leading-relaxed">
           Founded 2016 in Ho Chi Minh City — Vietnam's leading authentic beauty retailer. 140+ stores, 800+ official brand partners. Now shipping to 30+ countries.
         </p>
@@ -943,7 +957,7 @@
 
     <!-- Big logotype -->
     <div class="mt-20 border-t border-bone/15 pt-10 overflow-hidden">
-      <p class="serif text-[24vw] md:text-[16vw] leading-none tracking-mega lowercase select-none -mb-6"><span class="text-hasaki">hasaki</span><span class="text-bone">.</span></p>
+      <p class="font-logo text-[24vw] md:text-[16vw] leading-none lowercase font-black select-none -mb-6 text-center" style="letter-spacing:-0.06em;"><span class="text-hasaki">hasaki</span><span class="text-bone">.</span></p>
       <p class="text-center text-[11px] md:text-sm tracking-[0.5em] uppercase text-bone/70 mt-4">Save More Always</p>
     </div>
 
