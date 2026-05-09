@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="vi" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HASAKI — Mỹ phẩm & Sức khỏe chính hãng</title>
-  <meta name="description" content="HASAKI.VN — Hệ thống bán lẻ mỹ phẩm, chăm sóc da, trang điểm và nước hoa chính hãng hàng đầu Việt Nam." />
+  <title>HASAKI — Authentic Beauty &amp; Wellness</title>
+  <meta name="description" content="HASAKI — A modern beauty house. Skincare, makeup, fragrance, and wellness from 800+ globally curated brands. Now shipping worldwide." />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -40,7 +40,6 @@
     body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
     h1,h2,h3,h4,.serif { font-family: 'Fraunces', serif; font-optical-sizing: auto; }
 
-    /* Marquee */
     .marquee { display: flex; overflow: hidden; gap: 0; }
     .marquee-track { display: flex; gap: 4rem; white-space: nowrap; animation: scroll 40s linear infinite; }
     @keyframes scroll {
@@ -49,38 +48,30 @@
     }
     .marquee:hover .marquee-track { animation-play-state: paused; }
 
-    /* Reveal on scroll */
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
     .reveal.in { opacity: 1; transform: translateY(0); }
 
-    /* Product card */
     .pcard { position: relative; overflow: hidden; }
     .pcard .img { transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
     .pcard:hover .img { transform: scale(1.06); }
     .pcard .quick { position: absolute; left: 1rem; right: 1rem; bottom: 1rem; transform: translateY(120%); transition: transform .5s cubic-bezier(.2,.7,.2,1); }
     .pcard:hover .quick { transform: translateY(0); }
 
-    /* Editorial image — duotone-ish moody filter */
     .editorial { filter: contrast(1.05) saturate(.9) brightness(.96); }
 
-    /* Underline link */
     .ulink { position: relative; display: inline-block; }
     .ulink::after { content:''; position:absolute; left:0; right:0; bottom:-2px; height:1px; background: currentColor; transform: scaleX(1); transform-origin: right; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
     .ulink:hover::after { transform: scaleX(0); transform-origin: left; }
 
-    /* Mega menu */
     .mega { display: none; }
     .has-mega:hover .mega, .mega:hover { display: grid; }
 
-    /* Number ticker */
     .tick { font-feature-settings: "tnum" 1; }
 
-    /* Custom scrollbar for shelf */
     .shelf::-webkit-scrollbar { height: 4px; }
     .shelf::-webkit-scrollbar-track { background: #ebe4d8; }
     .shelf::-webkit-scrollbar-thumb { background: #0a0a0a; }
 
-    /* Hero kinetic text */
     @keyframes drift {
       0%,100% { transform: translateX(0); }
       50%     { transform: translateX(-1.5%); }
@@ -92,7 +83,6 @@
       .reveal { opacity: 1; transform: none; }
     }
 
-    /* Color swatch dots */
     .swatch { width: 12px; height: 12px; border-radius: 999px; display: inline-block; border: 1px solid rgba(0,0,0,.15); }
   </style>
 </head>
@@ -102,19 +92,19 @@
 <div class="bg-ink text-bone text-[11px] tracking-[0.25em] uppercase">
   <div class="max-w-[1500px] mx-auto px-6 py-2.5 flex items-center justify-between">
     <div class="hidden md:flex items-center gap-6 text-bone/70">
-      <span>Hotline · 1900 6750</span>
-      <span>Hệ thống 100+ cửa hàng toàn quốc</span>
+      <span>Care · 1-888-HASAKI-1</span>
+      <span>120+ stores worldwide</span>
     </div>
     <div class="marquee md:hidden flex-1">
       <div class="marquee-track">
-        <span>Miễn phí giao hàng cho đơn từ 250.000₫ &nbsp;·&nbsp; Đổi trả 30 ngày &nbsp;·&nbsp; 100% chính hãng &nbsp;·&nbsp;</span>
-        <span>Miễn phí giao hàng cho đơn từ 250.000₫ &nbsp;·&nbsp; Đổi trả 30 ngày &nbsp;·&nbsp; 100% chính hãng &nbsp;·&nbsp;</span>
+        <span>Free shipping over $35 &nbsp;·&nbsp; Free 30-day returns &nbsp;·&nbsp; 100% authentic &nbsp;·&nbsp;</span>
+        <span>Free shipping over $35 &nbsp;·&nbsp; Free 30-day returns &nbsp;·&nbsp; 100% authentic &nbsp;·&nbsp;</span>
       </div>
     </div>
     <div class="hidden md:flex items-center gap-6 text-bone/70">
-      <span>Miễn phí vận chuyển từ 250.000₫</span>
-      <span class="border-l border-bone/20 pl-6">VI · EN</span>
-      <span>VND</span>
+      <span>Free shipping over $35</span>
+      <span class="border-l border-bone/20 pl-6">EN · VI</span>
+      <span>USD</span>
     </div>
   </div>
 </div>
@@ -126,45 +116,45 @@
       <!-- Left nav -->
       <nav class="hidden lg:flex items-center gap-8 text-[13px] tracking-[0.18em] uppercase">
         <div class="has-mega relative">
-          <a href="#" class="ulink py-6">Mới về</a>
+          <a href="#" class="ulink py-6">New In</a>
         </div>
         <div class="has-mega relative">
-          <a href="#cham-soc-da" class="ulink py-6">Chăm sóc da</a>
+          <a href="#skincare" class="ulink py-6">Skincare</a>
           <div class="mega absolute left-0 top-full w-[820px] bg-bone border border-ink/10 grid grid-cols-3 gap-8 p-10">
             <div>
-              <p class="serif italic text-ink/50 text-sm mb-4">Phân loại</p>
+              <p class="serif italic text-ink/50 text-sm mb-4">By category</p>
               <ul class="space-y-2 normal-case tracking-normal text-sm">
-                <li><a href="#" class="ulink">Sữa rửa mặt</a></li>
-                <li><a href="#" class="ulink">Tẩy trang</a></li>
-                <li><a href="#" class="ulink">Toner & Lotion</a></li>
-                <li><a href="#" class="ulink">Serum & Tinh chất</a></li>
-                <li><a href="#" class="ulink">Kem dưỡng ẩm</a></li>
-                <li><a href="#" class="ulink">Mặt nạ</a></li>
-                <li><a href="#" class="ulink">Chống nắng</a></li>
+                <li><a href="#" class="ulink">Cleansers</a></li>
+                <li><a href="#" class="ulink">Makeup remover</a></li>
+                <li><a href="#" class="ulink">Toner &amp; Essence</a></li>
+                <li><a href="#" class="ulink">Serums</a></li>
+                <li><a href="#" class="ulink">Moisturizers</a></li>
+                <li><a href="#" class="ulink">Masks</a></li>
+                <li><a href="#" class="ulink">Sunscreen</a></li>
               </ul>
             </div>
             <div>
-              <p class="serif italic text-ink/50 text-sm mb-4">Vấn đề da</p>
+              <p class="serif italic text-ink/50 text-sm mb-4">By concern</p>
               <ul class="space-y-2 normal-case tracking-normal text-sm">
-                <li><a href="#" class="ulink">Mụn & Thâm</a></li>
-                <li><a href="#" class="ulink">Lão hóa</a></li>
-                <li><a href="#" class="ulink">Da nhạy cảm</a></li>
-                <li><a href="#" class="ulink">Dưỡng trắng</a></li>
-                <li><a href="#" class="ulink">Cấp ẩm sâu</a></li>
+                <li><a href="#" class="ulink">Acne &amp; Dark spots</a></li>
+                <li><a href="#" class="ulink">Anti-aging</a></li>
+                <li><a href="#" class="ulink">Sensitive skin</a></li>
+                <li><a href="#" class="ulink">Brightening</a></li>
+                <li><a href="#" class="ulink">Deep hydration</a></li>
               </ul>
             </div>
             <a href="#" class="block group">
               <div class="aspect-[4/5] bg-cream overflow-hidden">
                 <img src="https://picsum.photos/seed/skinritual/600/750" alt="" class="w-full h-full object-cover editorial group-hover:scale-105 transition-transform duration-700" />
               </div>
-              <p class="serif text-lg mt-4 normal-case tracking-normal">Nghi thức da rạng rỡ</p>
-              <p class="text-xs text-ink/60 normal-case tracking-normal mt-1">Khám phá routine 7 bước →</p>
+              <p class="serif text-lg mt-4 normal-case tracking-normal">The Glow Ritual</p>
+              <p class="text-xs text-ink/60 normal-case tracking-normal mt-1">Discover the 7-step routine →</p>
             </a>
           </div>
         </div>
-        <a href="#trang-diem" class="ulink py-6">Trang điểm</a>
-        <a href="#nuoc-hoa" class="ulink py-6">Nước hoa</a>
-        <a href="#thuong-hieu" class="ulink py-6">Thương hiệu</a>
+        <a href="#makeup" class="ulink py-6">Makeup</a>
+        <a href="#fragrance" class="ulink py-6">Fragrance</a>
+        <a href="#brands" class="ulink py-6">Brands</a>
       </nav>
 
       <!-- Logo -->
@@ -174,14 +164,14 @@
 
       <!-- Right utilities -->
       <div class="flex items-center justify-end gap-2 md:gap-5">
-        <button aria-label="Tìm kiếm" class="hidden md:flex items-center gap-2 border border-ink/20 hover:border-ink rounded-full px-4 py-2 text-sm text-ink/70 transition w-56">
+        <button aria-label="Search" class="hidden md:flex items-center gap-2 border border-ink/20 hover:border-ink rounded-full px-4 py-2 text-sm text-ink/70 transition w-56">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-          <span>Tìm sản phẩm, thương hiệu…</span>
+          <span>Search products, brands…</span>
         </button>
-        <button aria-label="Tìm kiếm" class="md:hidden p-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
-        <a href="#" aria-label="Tài khoản" class="p-2 hover:text-clay transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></a>
-        <a href="#" aria-label="Yêu thích" class="hidden md:block p-2 hover:text-clay transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></a>
-        <a href="#" aria-label="Giỏ hàng" class="relative p-2 hover:text-clay transition">
+        <button aria-label="Search" class="md:hidden p-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
+        <a href="#" aria-label="Account" class="p-2 hover:text-clay transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></a>
+        <a href="#" aria-label="Wishlist" class="hidden md:block p-2 hover:text-clay transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></a>
+        <a href="#" aria-label="Bag" class="relative p-2 hover:text-clay transition">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><path d="M6 7h12l-1.5 12.5a2 2 0 0 1-2 1.7H9.5a2 2 0 0 1-2-1.7L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
           <span class="absolute -top-0.5 -right-0.5 bg-ink text-bone text-[10px] w-4 h-4 rounded-full grid place-items-center">2</span>
         </a>
@@ -201,22 +191,22 @@
   <div class="relative max-w-[1500px] mx-auto px-6 pt-24 md:pt-32 pb-20 md:pb-32 min-h-[88vh] flex flex-col justify-end">
     <div class="grid md:grid-cols-12 gap-8 items-end">
       <div class="md:col-span-8">
-        <p class="text-xs tracking-[0.4em] uppercase text-bone/70 mb-6 reveal">Bộ sưu tập Xuân — Hè 2026</p>
+        <p class="text-xs tracking-[0.4em] uppercase text-bone/70 mb-6 reveal">Spring — Summer 2026</p>
         <h1 class="serif font-light tracking-mega leading-[0.86] text-[15vw] md:text-[10.5vw] reveal drift">
-          <span class="block">Vẻ đẹp,</span>
-          <span class="block italic font-normal text-clay">không biên giới.</span>
+          <span class="block">Beauty,</span>
+          <span class="block italic font-normal text-clay">without borders.</span>
         </h1>
         <div class="mt-10 flex flex-wrap items-center gap-4 reveal">
           <a href="#products" class="group inline-flex items-center gap-3 bg-bone text-ink px-7 py-4 text-sm tracking-[0.18em] uppercase hover:bg-clay hover:text-bone transition">
-            Khám phá ngay
+            Shop the edit
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2 group-hover:translate-x-1 transition"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
-          <a href="#story" class="ulink text-sm tracking-[0.18em] uppercase text-bone/80 hover:text-bone">Câu chuyện làm đẹp</a>
+          <a href="#story" class="ulink text-sm tracking-[0.18em] uppercase text-bone/80 hover:text-bone">Read the journal</a>
         </div>
       </div>
       <div class="md:col-span-4 hidden md:block reveal">
         <p class="serif italic text-bone/80 text-lg leading-relaxed border-l border-bone/30 pl-6">
-          “Làn da của bạn xứng đáng với nghi thức được tạo nên từ tự nhiên, khoa học và sự dịu dàng.”
+          “Your skin deserves a ritual born of nature, science, and a quieter kind of luxury.”
         </p>
         <p class="mt-4 text-xs tracking-[0.25em] uppercase text-bone/60 pl-6">— Hasaki Editorial</p>
       </div>
@@ -225,7 +215,7 @@
 
   <!-- Scroll cue -->
   <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-bone/60 text-[10px] tracking-[0.4em] uppercase flex flex-col items-center gap-2">
-    <span>Cuộn xuống</span>
+    <span>Scroll</span>
     <span class="block w-px h-10 bg-bone/40"></span>
   </div>
 </section>
@@ -234,16 +224,16 @@
 <section class="bg-bone border-y border-ink/10">
   <div class="marquee py-5">
     <div class="marquee-track serif italic text-ink/80 text-2xl md:text-3xl">
-      <span>Chính hãng 100%</span><span class="text-clay">✦</span>
-      <span>Giao trong 2 giờ tại HCM &amp; HN</span><span class="text-clay">✦</span>
-      <span>Đổi trả 30 ngày</span><span class="text-clay">✦</span>
-      <span>Tích điểm Hasaki Pink</span><span class="text-clay">✦</span>
-      <span>Tư vấn da miễn phí</span><span class="text-clay">✦</span>
-      <span>Chính hãng 100%</span><span class="text-clay">✦</span>
-      <span>Giao trong 2 giờ tại HCM &amp; HN</span><span class="text-clay">✦</span>
-      <span>Đổi trả 30 ngày</span><span class="text-clay">✦</span>
-      <span>Tích điểm Hasaki Pink</span><span class="text-clay">✦</span>
-      <span>Tư vấn da miễn phí</span><span class="text-clay">✦</span>
+      <span>100% authentic</span><span class="text-clay">✦</span>
+      <span>2-hour delivery in select cities</span><span class="text-clay">✦</span>
+      <span>Free 30-day returns</span><span class="text-clay">✦</span>
+      <span>Hasaki Pink rewards</span><span class="text-clay">✦</span>
+      <span>Free skin consultation</span><span class="text-clay">✦</span>
+      <span>100% authentic</span><span class="text-clay">✦</span>
+      <span>2-hour delivery in select cities</span><span class="text-clay">✦</span>
+      <span>Free 30-day returns</span><span class="text-clay">✦</span>
+      <span>Hasaki Pink rewards</span><span class="text-clay">✦</span>
+      <span>Free skin consultation</span><span class="text-clay">✦</span>
     </div>
   </div>
 </section>
@@ -253,45 +243,45 @@
   <div class="max-w-[1500px] mx-auto px-6">
     <div class="flex items-end justify-between mb-12 reveal">
       <div>
-        <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3">01 — Danh mục</p>
-        <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">Mua sắm theo<br/><span class="italic text-clay">cảm hứng.</span></h2>
+        <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3">01 — Categories</p>
+        <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">Shop by<br/><span class="italic text-clay">mood.</span></h2>
       </div>
-      <a href="#" class="ulink hidden md:inline-block text-sm tracking-[0.18em] uppercase">Xem tất cả →</a>
+      <a href="#" class="ulink hidden md:inline-block text-sm tracking-[0.18em] uppercase">View all →</a>
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-6 gap-3 md:gap-4">
       <!-- Skincare large -->
-      <a href="#cham-soc-da" class="pcard col-span-2 md:col-span-3 row-span-2 aspect-[4/5] md:aspect-auto md:h-[640px] bg-cream group block">
+      <a href="#skincare" class="pcard col-span-2 md:col-span-3 row-span-2 aspect-[4/5] md:aspect-auto md:h-[640px] bg-cream group block">
         <div class="img absolute inset-0">
           <img src="https://picsum.photos/seed/skincare-cat/900/1200" alt="" class="w-full h-full object-cover editorial" />
         </div>
         <div class="absolute inset-0 bg-gradient-to-t from-ink/60 to-transparent"></div>
         <div class="absolute left-6 bottom-6 text-bone">
           <p class="text-[11px] tracking-[0.3em] uppercase opacity-80 mb-2">01</p>
-          <h3 class="serif text-4xl md:text-6xl tracking-tightest leading-[0.95]">Chăm sóc da</h3>
-          <p class="mt-3 text-sm opacity-90 max-w-sm">Routine từ Nhật, Hàn &amp; Pháp — cho làn da khỏe rạng.</p>
+          <h3 class="serif text-4xl md:text-6xl tracking-tightest leading-[0.95]">Skincare</h3>
+          <p class="mt-3 text-sm opacity-90 max-w-sm">Rituals from Tokyo, Seoul &amp; Paris — for skin that glows.</p>
         </div>
       </a>
 
-      <a href="#trang-diem" class="pcard col-span-1 md:col-span-3 aspect-[4/3] md:aspect-auto md:h-[312px] bg-blush group block">
+      <a href="#makeup" class="pcard col-span-1 md:col-span-3 aspect-[4/3] md:aspect-auto md:h-[312px] bg-blush group block">
         <div class="img absolute inset-0">
           <img src="https://picsum.photos/seed/makeup-lipstick/900/600" alt="" class="w-full h-full object-cover editorial" />
         </div>
         <div class="absolute inset-0 bg-ink/20"></div>
         <div class="absolute left-6 bottom-6 text-bone">
           <p class="text-[11px] tracking-[0.3em] uppercase opacity-80 mb-2">02</p>
-          <h3 class="serif text-3xl md:text-5xl tracking-tightest">Trang điểm</h3>
+          <h3 class="serif text-3xl md:text-5xl tracking-tightest">Makeup</h3>
         </div>
       </a>
 
-      <a href="#nuoc-hoa" class="pcard col-span-1 md:col-span-2 aspect-square md:aspect-auto md:h-[312px] bg-moss group block">
+      <a href="#fragrance" class="pcard col-span-1 md:col-span-2 aspect-square md:aspect-auto md:h-[312px] bg-moss group block">
         <div class="img absolute inset-0">
           <img src="https://picsum.photos/seed/perfume-noir/600/600" alt="" class="w-full h-full object-cover editorial mix-blend-luminosity" />
         </div>
         <div class="absolute inset-0 bg-moss/60"></div>
         <div class="absolute left-6 bottom-6 text-bone">
           <p class="text-[11px] tracking-[0.3em] uppercase opacity-80 mb-2">03</p>
-          <h3 class="serif text-3xl md:text-4xl tracking-tightest">Nước hoa</h3>
+          <h3 class="serif text-3xl md:text-4xl tracking-tightest">Fragrance</h3>
         </div>
       </a>
 
@@ -301,7 +291,7 @@
         </div>
         <div class="absolute left-4 bottom-4">
           <p class="text-[10px] tracking-[0.3em] uppercase opacity-80 mb-1">04</p>
-          <h3 class="serif text-2xl md:text-3xl">Tóc</h3>
+          <h3 class="serif text-2xl md:text-3xl">Hair</h3>
         </div>
       </a>
 
@@ -312,7 +302,7 @@
         <div class="absolute inset-0 bg-bone/20"></div>
         <div class="absolute left-4 bottom-4 text-ink">
           <p class="text-[10px] tracking-[0.3em] uppercase opacity-70 mb-1">05</p>
-          <h3 class="serif text-2xl md:text-3xl">Cơ thể</h3>
+          <h3 class="serif text-2xl md:text-3xl">Body</h3>
         </div>
       </a>
 
@@ -320,8 +310,8 @@
         <div class="absolute inset-0 grid place-items-center">
           <div class="text-center">
             <p class="text-[10px] tracking-[0.3em] uppercase opacity-80 mb-2">06</p>
-            <h3 class="serif text-2xl md:text-3xl">Sức khỏe</h3>
-            <p class="text-xs mt-2 opacity-90">Wellness · Vitamin</p>
+            <h3 class="serif text-2xl md:text-3xl">Wellness</h3>
+            <p class="text-xs mt-2 opacity-90">Vitamins · Inner beauty</p>
           </div>
         </div>
       </a>
@@ -338,30 +328,30 @@
       </div>
     </div>
     <div class="md:col-span-5 reveal">
-      <p class="text-xs tracking-[0.3em] uppercase text-bone/60 mb-6">Editorial · Số 12</p>
+      <p class="text-xs tracking-[0.3em] uppercase text-bone/60 mb-6">Editorial · Issue 12</p>
       <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.92]">
-        Da dẻ là <span class="italic text-clay">bản tuyên ngôn</span> của bạn.
+        Your skin is your <span class="italic text-clay">statement.</span>
       </h2>
       <p class="mt-8 text-bone/80 leading-relaxed max-w-md">
-        Một khái niệm mới về làm đẹp — nơi nghi thức chăm sóc gặp gỡ thiết kế hiện đại. Lựa chọn của bạn nói lên con người bạn, và chúng tôi giúp lựa chọn ấy thật trọn vẹn.
+        A new kind of beauty house — where ritual meets modern design. The choices you make say something about who you are. We help you make them well.
       </p>
       <div class="mt-10 flex flex-wrap gap-4">
-        <a href="#" class="inline-flex items-center gap-2 border border-bone/40 hover:bg-bone hover:text-ink px-7 py-4 text-sm tracking-[0.18em] uppercase transition">Đọc bài viết</a>
+        <a href="#" class="inline-flex items-center gap-2 border border-bone/40 hover:bg-bone hover:text-ink px-7 py-4 text-sm tracking-[0.18em] uppercase transition">Read the article</a>
         <a href="#" class="ulink py-4 text-sm tracking-[0.18em] uppercase text-bone/80">Lookbook 2026 →</a>
       </div>
 
       <div class="mt-16 grid grid-cols-3 gap-6 border-t border-bone/15 pt-10">
         <div>
           <p class="serif text-4xl tick">2.5M+</p>
-          <p class="text-[11px] tracking-[0.25em] uppercase text-bone/60 mt-1">Khách hàng</p>
+          <p class="text-[11px] tracking-[0.25em] uppercase text-bone/60 mt-1">Customers</p>
         </div>
         <div>
           <p class="serif text-4xl tick">800+</p>
-          <p class="text-[11px] tracking-[0.25em] uppercase text-bone/60 mt-1">Thương hiệu</p>
+          <p class="text-[11px] tracking-[0.25em] uppercase text-bone/60 mt-1">Brands</p>
         </div>
         <div>
-          <p class="serif text-4xl tick">100+</p>
-          <p class="text-[11px] tracking-[0.25em] uppercase text-bone/60 mt-1">Cửa hàng</p>
+          <p class="serif text-4xl tick">120+</p>
+          <p class="text-[11px] tracking-[0.25em] uppercase text-bone/60 mt-1">Stores</p>
         </div>
       </div>
     </div>
@@ -373,11 +363,11 @@
   <div class="max-w-[1500px] mx-auto px-6">
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 reveal">
       <div>
-        <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3">02 — Bán chạy</p>
-        <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">Được yêu thích<br/><span class="italic text-clay">tuần này.</span></h2>
+        <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3">02 — Bestsellers</p>
+        <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">Loved this<br/><span class="italic text-clay">week.</span></h2>
       </div>
       <div class="flex flex-wrap gap-2 text-[12px] tracking-[0.2em] uppercase">
-        <button class="px-4 py-2 bg-ink text-bone">Tất cả</button>
+        <button class="px-4 py-2 bg-ink text-bone">All</button>
         <button class="px-4 py-2 border border-ink/20 hover:bg-ink hover:text-bone transition">Skincare</button>
         <button class="px-4 py-2 border border-ink/20 hover:bg-ink hover:text-bone transition">Makeup</button>
         <button class="px-4 py-2 border border-ink/20 hover:bg-ink hover:text-bone transition">Fragrance</button>
@@ -393,24 +383,24 @@
             <img src="https://picsum.photos/seed/laneige-sleeping/600/750" alt="" class="w-full h-full object-cover" />
           </div>
           <span class="absolute top-3 left-3 bg-ink text-bone text-[10px] tracking-[0.25em] uppercase px-2.5 py-1">Best</span>
-          <button aria-label="Yêu thích" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/80 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition">
+          <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/80 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </button>
           <div class="quick">
-            <button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-clay transition">Thêm vào giỏ</button>
+            <button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-clay transition">Add to bag</button>
           </div>
         </div>
         <div class="pt-4 px-1">
           <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Laneige</p>
-          <h3 class="serif text-lg leading-snug mt-1">Mặt nạ ngủ Lip Sleeping Berry</h3>
+          <h3 class="serif text-lg leading-snug mt-1">Lip Sleeping Mask — Berry</h3>
           <div class="flex items-center gap-2 mt-2">
             <span class="swatch" style="background:#b03a3a"></span>
             <span class="swatch" style="background:#7a2638"></span>
             <span class="swatch" style="background:#d98080"></span>
           </div>
           <div class="flex items-baseline gap-3 mt-3">
-            <span class="font-medium">449.000₫</span>
-            <span class="text-ink/40 line-through text-sm">540.000₫</span>
+            <span class="font-medium">$18</span>
+            <span class="text-ink/40 line-through text-sm">$22</span>
             <span class="ml-auto text-[11px] tracking-[0.2em] uppercase text-clay">−17%</span>
           </div>
         </div>
@@ -422,20 +412,20 @@
           <div class="img absolute inset-0">
             <img src="https://picsum.photos/seed/cosrx-snail/600/750" alt="" class="w-full h-full object-cover" />
           </div>
-          <span class="absolute top-3 left-3 bg-clay text-bone text-[10px] tracking-[0.25em] uppercase px-2.5 py-1">Mới</span>
-          <button aria-label="Yêu thích" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/80 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition">
+          <span class="absolute top-3 left-3 bg-clay text-bone text-[10px] tracking-[0.25em] uppercase px-2.5 py-1">New</span>
+          <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/80 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </button>
           <div class="quick">
-            <button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-clay transition">Thêm vào giỏ</button>
+            <button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-clay transition">Add to bag</button>
           </div>
         </div>
         <div class="pt-4 px-1">
           <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">COSRX</p>
-          <h3 class="serif text-lg leading-snug mt-1">Tinh chất ốc sên Advanced 96</h3>
-          <p class="text-xs text-ink/50 mt-1">Cấp ẩm · Phục hồi · 100ml</p>
+          <h3 class="serif text-lg leading-snug mt-1">Advanced Snail 96 Mucin Power Essence</h3>
+          <p class="text-xs text-ink/50 mt-1">Hydrate · Repair · 100ml</p>
           <div class="flex items-baseline gap-3 mt-3">
-            <span class="font-medium">385.000₫</span>
+            <span class="font-medium">$15</span>
             <span class="ml-auto text-[11px] tracking-[0.2em] uppercase text-ink/50">★ 4.9</span>
           </div>
         </div>
@@ -448,19 +438,19 @@
             <img src="https://picsum.photos/seed/ysl-libre-bottle/600/750" alt="" class="w-full h-full object-cover editorial" />
           </div>
           <span class="absolute top-3 left-3 bg-bone text-ink text-[10px] tracking-[0.25em] uppercase px-2.5 py-1">Limited</span>
-          <button aria-label="Yêu thích" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/20 backdrop-blur grid place-items-center hover:bg-bone hover:text-ink transition">
+          <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/20 backdrop-blur grid place-items-center hover:bg-bone hover:text-ink transition">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </button>
           <div class="quick">
-            <button class="w-full bg-bone text-ink py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-clay hover:text-bone transition">Thêm vào giỏ</button>
+            <button class="w-full bg-bone text-ink py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-clay hover:text-bone transition">Add to bag</button>
           </div>
         </div>
         <div class="pt-4 px-1">
           <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">YSL Beauty</p>
           <h3 class="serif text-lg leading-snug mt-1">Libre Eau de Parfum 90ml</h3>
-          <p class="text-xs text-ink/50 mt-1">Hoa cam · Nhài · Lavender</p>
+          <p class="text-xs text-ink/50 mt-1">Orange blossom · Jasmine · Lavender</p>
           <div class="flex items-baseline gap-3 mt-3">
-            <span class="font-medium">3.290.000₫</span>
+            <span class="font-medium">$135</span>
             <span class="ml-auto text-[11px] tracking-[0.2em] uppercase text-ink/50">★ 4.8</span>
           </div>
         </div>
@@ -472,20 +462,20 @@
           <div class="img absolute inset-0">
             <img src="https://picsum.photos/seed/laroche-sunscreen/600/750" alt="" class="w-full h-full object-cover" />
           </div>
-          <button aria-label="Yêu thích" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/80 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition">
+          <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/80 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </button>
           <div class="quick">
-            <button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-clay transition">Thêm vào giỏ</button>
+            <button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-clay transition">Add to bag</button>
           </div>
         </div>
         <div class="pt-4 px-1">
           <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">La Roche-Posay</p>
-          <h3 class="serif text-lg leading-snug mt-1">Kem chống nắng Anthelios UVMune SPF50+</h3>
-          <p class="text-xs text-ink/50 mt-1">Da nhạy cảm · 50ml</p>
+          <h3 class="serif text-lg leading-snug mt-1">Anthelios UVMune 400 SPF50+ Sunscreen</h3>
+          <p class="text-xs text-ink/50 mt-1">Sensitive skin · 50ml</p>
           <div class="flex items-baseline gap-3 mt-3">
-            <span class="font-medium">525.000₫</span>
-            <span class="text-ink/40 line-through text-sm">620.000₫</span>
+            <span class="font-medium">$22</span>
+            <span class="text-ink/40 line-through text-sm">$26</span>
           </div>
         </div>
       </article>
@@ -496,16 +486,16 @@
           <div class="img absolute inset-0">
             <img src="https://picsum.photos/seed/dior-rouge/600/750" alt="" class="w-full h-full object-cover" />
           </div>
-          <button aria-label="Yêu thích" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/80 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition">
+          <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/80 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </button>
           <div class="quick">
-            <button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-clay transition">Thêm vào giỏ</button>
+            <button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-clay transition">Add to bag</button>
           </div>
         </div>
         <div class="pt-4 px-1">
           <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Dior</p>
-          <h3 class="serif text-lg leading-snug mt-1">Son Rouge Dior 999 Velvet</h3>
+          <h3 class="serif text-lg leading-snug mt-1">Rouge Dior 999 Velvet Lipstick</h3>
           <div class="flex items-center gap-2 mt-2">
             <span class="swatch" style="background:#7a1018"></span>
             <span class="swatch" style="background:#b3252b"></span>
@@ -513,7 +503,7 @@
             <span class="text-[10px] text-ink/50 ml-1">+12</span>
           </div>
           <div class="flex items-baseline gap-3 mt-3">
-            <span class="font-medium">1.250.000₫</span>
+            <span class="font-medium">$52</span>
             <span class="ml-auto text-[11px] tracking-[0.2em] uppercase text-ink/50">★ 4.9</span>
           </div>
         </div>
@@ -525,20 +515,20 @@
           <div class="img absolute inset-0 opacity-90">
             <img src="https://picsum.photos/seed/innisfree-green/600/750" alt="" class="w-full h-full object-cover editorial" />
           </div>
-          <button aria-label="Yêu thích" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/20 backdrop-blur grid place-items-center hover:bg-bone hover:text-ink transition">
+          <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/20 backdrop-blur grid place-items-center hover:bg-bone hover:text-ink transition">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </button>
           <div class="quick">
-            <button class="w-full bg-bone text-ink py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-clay hover:text-bone transition">Thêm vào giỏ</button>
+            <button class="w-full bg-bone text-ink py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-clay hover:text-bone transition">Add to bag</button>
           </div>
         </div>
         <div class="pt-4 px-1">
           <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Innisfree</p>
-          <h3 class="serif text-lg leading-snug mt-1">Tinh chất Trà xanh Hadabisei Green Tea</h3>
-          <p class="text-xs text-ink/50 mt-1">Da dầu · Mụn · 50ml</p>
+          <h3 class="serif text-lg leading-snug mt-1">Green Tea Seed Hyaluronic Serum</h3>
+          <p class="text-xs text-ink/50 mt-1">Oily skin · Acne · 50ml</p>
           <div class="flex items-baseline gap-3 mt-3">
-            <span class="font-medium">429.000₫</span>
-            <span class="ml-auto text-[11px] tracking-[0.2em] uppercase text-clay">Mới</span>
+            <span class="font-medium">$17</span>
+            <span class="ml-auto text-[11px] tracking-[0.2em] uppercase text-clay">New</span>
           </div>
         </div>
       </article>
@@ -551,15 +541,15 @@
           </div>
           <span class="absolute top-3 left-3 bg-ink text-bone text-[10px] tracking-[0.25em] uppercase px-2.5 py-1">Best</span>
           <div class="quick">
-            <button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-clay transition">Thêm vào giỏ</button>
+            <button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-clay transition">Add to bag</button>
           </div>
         </div>
         <div class="pt-4 px-1">
           <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Anessa</p>
-          <h3 class="serif text-lg leading-snug mt-1">Sữa chống nắng Perfect UV SPF50+</h3>
-          <p class="text-xs text-ink/50 mt-1">Vàng huyền thoại · 60ml</p>
+          <h3 class="serif text-lg leading-snug mt-1">Perfect UV Sunscreen Skincare Milk SPF50+</h3>
+          <p class="text-xs text-ink/50 mt-1">The legendary gold · 60ml</p>
           <div class="flex items-baseline gap-3 mt-3">
-            <span class="font-medium">615.000₫</span>
+            <span class="font-medium">$25</span>
             <span class="ml-auto text-[11px] tracking-[0.2em] uppercase text-ink/50">★ 4.9</span>
           </div>
         </div>
@@ -572,15 +562,15 @@
             <img src="https://picsum.photos/seed/the-ordinary-niac/600/750" alt="" class="w-full h-full object-cover" />
           </div>
           <div class="quick">
-            <button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-clay transition">Thêm vào giỏ</button>
+            <button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-clay transition">Add to bag</button>
           </div>
         </div>
         <div class="pt-4 px-1">
           <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">The Ordinary</p>
-          <h3 class="serif text-lg leading-snug mt-1">Niacinamide 10% + Zinc 1%</h3>
-          <p class="text-xs text-ink/50 mt-1">Mờ thâm · Se khít · 30ml</p>
+          <h3 class="serif text-lg leading-snug mt-1">Niacinamide 10% + Zinc 1% Serum</h3>
+          <p class="text-xs text-ink/50 mt-1">Blemishes · Pores · 30ml</p>
           <div class="flex items-baseline gap-3 mt-3">
-            <span class="font-medium">295.000₫</span>
+            <span class="font-medium">$12</span>
             <span class="ml-auto text-[11px] tracking-[0.2em] uppercase text-ink/50">★ 4.7</span>
           </div>
         </div>
@@ -588,7 +578,7 @@
     </div>
 
     <div class="mt-14 text-center reveal">
-      <a href="#" class="inline-flex items-center gap-3 border border-ink hover:bg-ink hover:text-bone px-9 py-4 text-sm tracking-[0.18em] uppercase transition">Xem toàn bộ 1.240 sản phẩm</a>
+      <a href="#" class="inline-flex items-center gap-3 border border-ink hover:bg-ink hover:text-bone px-9 py-4 text-sm tracking-[0.18em] uppercase transition">View all 1,240 products</a>
     </div>
   </div>
 </section>
@@ -598,25 +588,25 @@
   <div class="max-w-[1500px] mx-auto px-6 text-center">
     <p class="text-xs tracking-[0.4em] uppercase text-bone/70 mb-6 reveal">Hasaki Pink Membership</p>
     <h2 class="serif font-light tracking-mega leading-[0.86] text-[18vw] md:text-[12vw] reveal">
-      <span class="block italic">Thưởng cho làn da</span>
-      <span class="block">— của bạn.</span>
+      <span class="block italic">Rewards for</span>
+      <span class="block">— your skin.</span>
     </h2>
     <p class="mt-8 max-w-xl mx-auto text-bone/85 reveal">
-      Tích điểm cho mỗi đơn hàng. Đổi ưu đãi, quà tặng độc quyền, và trải nghiệm spa tại 100+ chi nhánh Hasaki Clinic & Spa trên toàn quốc.
+      Earn points on every order. Redeem exclusive perks, gifts and signature spa experiences at 120+ Hasaki Clinic &amp; Spa locations worldwide.
     </p>
-    <a href="#" class="mt-10 inline-flex items-center gap-3 bg-ink text-bone hover:bg-bone hover:text-ink px-8 py-4 text-sm tracking-[0.18em] uppercase transition reveal">Đăng ký miễn phí</a>
+    <a href="#" class="mt-10 inline-flex items-center gap-3 bg-ink text-bone hover:bg-bone hover:text-ink px-8 py-4 text-sm tracking-[0.18em] uppercase transition reveal">Join free</a>
   </div>
 </section>
 
 <!-- BRANDS -->
-<section id="thuong-hieu" class="py-20 md:py-28">
+<section id="brands" class="py-20 md:py-28">
   <div class="max-w-[1500px] mx-auto px-6">
     <div class="flex items-end justify-between mb-12 reveal">
       <div>
-        <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3">03 — Thương hiệu</p>
-        <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">800+ thương hiệu<br/><span class="italic text-clay">được tuyển chọn.</span></h2>
+        <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3">03 — Brands</p>
+        <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">800+ houses,<br/><span class="italic text-clay">carefully curated.</span></h2>
       </div>
-      <a href="#" class="ulink hidden md:inline-block text-sm tracking-[0.18em] uppercase">Tất cả thương hiệu →</a>
+      <a href="#" class="ulink hidden md:inline-block text-sm tracking-[0.18em] uppercase">All brands →</a>
     </div>
 
     <div class="grid grid-cols-3 md:grid-cols-6 border border-ink/15">
@@ -645,124 +635,123 @@
 </section>
 
 <!-- THE RITUAL — 3 step lookbook -->
-<section id="cham-soc-da" class="bg-soot text-bone py-24 md:py-32">
+<section id="skincare" class="bg-soot text-bone py-24 md:py-32">
   <div class="max-w-[1500px] mx-auto px-6">
     <div class="grid md:grid-cols-12 mb-16 reveal">
       <div class="md:col-span-5">
-        <p class="text-xs tracking-[0.3em] uppercase text-bone/60 mb-3">04 — Nghi thức</p>
-        <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">Ba bước,<br/><span class="italic text-clay">vô vàn vẻ đẹp.</span></h2>
+        <p class="text-xs tracking-[0.3em] uppercase text-bone/60 mb-3">04 — The Ritual</p>
+        <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">Three steps,<br/><span class="italic text-clay">infinite glow.</span></h2>
       </div>
       <p class="md:col-span-5 md:col-start-8 self-end text-bone/75 leading-relaxed">
-        Nghi thức buổi sáng và tối của Hasaki được phát triển bởi đội ngũ chuyên gia da liễu, tinh chỉnh để phù hợp với khí hậu và làn da phụ nữ Việt.
+        Designed by our team of dermatologists, the Hasaki morning and evening rituals are tuned for modern climates and the realities of daily life.
       </p>
     </div>
 
     <div class="grid md:grid-cols-3 gap-px bg-bone/10">
       <article class="bg-soot p-8 md:p-12 reveal">
         <p class="serif text-7xl tracking-mega text-bone/20 mb-8">01</p>
-        <h3 class="serif text-3xl tracking-tightest mb-4">Làm sạch</h3>
-        <p class="text-bone/75 text-sm leading-relaxed mb-8">Tẩy trang dầu rồi sữa rửa mặt dịu nhẹ. Loại bỏ bụi, dầu thừa và lớp trang điểm — không phá vỡ hàng rào bảo vệ da.</p>
+        <h3 class="serif text-3xl tracking-tightest mb-4">Cleanse</h3>
+        <p class="text-bone/75 text-sm leading-relaxed mb-8">A gentle oil-then-foam double cleanse. Lifts away makeup, sweat and pollutants without compromising the skin barrier.</p>
         <div class="aspect-[4/3] bg-bone/5 overflow-hidden mb-6">
           <img src="https://picsum.photos/seed/ritual-cleanse/600/450" alt="" class="w-full h-full object-cover editorial" />
         </div>
-        <a href="#" class="ulink text-[11px] tracking-[0.25em] uppercase">Khám phá → 24 sản phẩm</a>
+        <a href="#" class="ulink text-[11px] tracking-[0.25em] uppercase">Discover → 24 products</a>
       </article>
       <article class="bg-soot p-8 md:p-12 reveal">
         <p class="serif text-7xl tracking-mega text-bone/20 mb-8">02</p>
-        <h3 class="serif text-3xl tracking-tightest mb-4">Tinh chất</h3>
-        <p class="text-bone/75 text-sm leading-relaxed mb-8">Lớp tinh chất hoạt chất — Vitamin C cho buổi sáng, Retinol cho ban đêm. Mỗi giọt là một lời hứa với làn da.</p>
+        <h3 class="serif text-3xl tracking-tightest mb-4">Treat</h3>
+        <p class="text-bone/75 text-sm leading-relaxed mb-8">An active layer — Vitamin C in the morning, Retinol at night. Each drop is a small promise to your skin.</p>
         <div class="aspect-[4/3] bg-bone/5 overflow-hidden mb-6">
           <img src="https://picsum.photos/seed/ritual-serum/600/450" alt="" class="w-full h-full object-cover editorial" />
         </div>
-        <a href="#" class="ulink text-[11px] tracking-[0.25em] uppercase">Khám phá → 38 sản phẩm</a>
+        <a href="#" class="ulink text-[11px] tracking-[0.25em] uppercase">Discover → 38 products</a>
       </article>
       <article class="bg-soot p-8 md:p-12 reveal">
         <p class="serif text-7xl tracking-mega text-bone/20 mb-8">03</p>
-        <h3 class="serif text-3xl tracking-tightest mb-4">Khoá ẩm</h3>
-        <p class="text-bone/75 text-sm leading-relaxed mb-8">Kem dưỡng và chống nắng SPF50+. Giữ trọn dưỡng chất, bảo vệ da khỏi tia UV và ô nhiễm thành phố.</p>
+        <h3 class="serif text-3xl tracking-tightest mb-4">Protect</h3>
+        <p class="text-bone/75 text-sm leading-relaxed mb-8">Moisturizer, then SPF50+. Seal in actives, block UV and shield from urban pollution. Every single day.</p>
         <div class="aspect-[4/3] bg-bone/5 overflow-hidden mb-6">
           <img src="https://picsum.photos/seed/ritual-spf/600/450" alt="" class="w-full h-full object-cover editorial" />
         </div>
-        <a href="#" class="ulink text-[11px] tracking-[0.25em] uppercase">Khám phá → 17 sản phẩm</a>
+        <a href="#" class="ulink text-[11px] tracking-[0.25em] uppercase">Discover → 17 products</a>
       </article>
     </div>
   </div>
 </section>
 
 <!-- TRENDING — horizontal shelf -->
-<section id="trang-diem" class="py-20 md:py-28">
+<section id="makeup" class="py-20 md:py-28">
   <div class="max-w-[1500px] mx-auto px-6 mb-10 flex items-end justify-between reveal">
     <div>
       <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3">05 — Trending</p>
-      <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">Đang được<br/><span class="italic text-clay">săn lùng.</span></h2>
+      <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">On every<br/><span class="italic text-clay">wishlist.</span></h2>
     </div>
     <div class="hidden md:flex gap-2">
-      <button aria-label="Trước" class="w-12 h-12 border border-ink hover:bg-ink hover:text-bone transition grid place-items-center"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
-      <button aria-label="Sau" class="w-12 h-12 border border-ink hover:bg-ink hover:text-bone transition grid place-items-center"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
+      <button aria-label="Previous" class="w-12 h-12 border border-ink hover:bg-ink hover:text-bone transition grid place-items-center"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+      <button aria-label="Next" class="w-12 h-12 border border-ink hover:bg-ink hover:text-bone transition grid place-items-center"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
     </div>
   </div>
 
   <div class="shelf overflow-x-auto pb-6">
     <div class="flex gap-5 px-6 max-w-none w-max">
-      <!-- 6 mini cards -->
       <a href="#" class="pcard w-[260px] md:w-[300px] shrink-0 group">
         <div class="relative aspect-[3/4] bg-cream overflow-hidden">
           <div class="img absolute inset-0"><img src="https://picsum.photos/seed/charlotte-pillow/600/800" class="w-full h-full object-cover" alt=""/></div>
         </div>
-        <div class="pt-3"><p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Charlotte Tilbury</p><h3 class="serif text-base mt-1">Pillow Talk Lipstick</h3><p class="font-medium mt-2">980.000₫</p></div>
+        <div class="pt-3"><p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Charlotte Tilbury</p><h3 class="serif text-base mt-1">Pillow Talk Lipstick</h3><p class="font-medium mt-2">$39</p></div>
       </a>
       <a href="#" class="pcard w-[260px] md:w-[300px] shrink-0 group">
         <div class="relative aspect-[3/4] bg-blush overflow-hidden">
           <div class="img absolute inset-0"><img src="https://picsum.photos/seed/glow-recipe-watermelon/600/800" class="w-full h-full object-cover" alt=""/></div>
         </div>
-        <div class="pt-3"><p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Glow Recipe</p><h3 class="serif text-base mt-1">Watermelon Glow Niacinamide Dew Drops</h3><p class="font-medium mt-2">1.150.000₫</p></div>
+        <div class="pt-3"><p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Glow Recipe</p><h3 class="serif text-base mt-1">Watermelon Glow Niacinamide Dew Drops</h3><p class="font-medium mt-2">$46</p></div>
       </a>
       <a href="#" class="pcard w-[260px] md:w-[300px] shrink-0 group">
         <div class="relative aspect-[3/4] bg-ink overflow-hidden">
           <div class="img absolute inset-0 opacity-90"><img src="https://picsum.photos/seed/tom-ford-noir/600/800" class="w-full h-full object-cover editorial" alt=""/></div>
         </div>
-        <div class="pt-3"><p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Tom Ford</p><h3 class="serif text-base mt-1">Black Orchid Eau de Parfum</h3><p class="font-medium mt-2">4.580.000₫</p></div>
+        <div class="pt-3"><p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Tom Ford</p><h3 class="serif text-base mt-1">Black Orchid Eau de Parfum</h3><p class="font-medium mt-2">$185</p></div>
       </a>
       <a href="#" class="pcard w-[260px] md:w-[300px] shrink-0 group">
         <div class="relative aspect-[3/4] bg-cream overflow-hidden">
           <div class="img absolute inset-0"><img src="https://picsum.photos/seed/sulwhasoo-first/600/800" class="w-full h-full object-cover" alt=""/></div>
         </div>
-        <div class="pt-3"><p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Sulwhasoo</p><h3 class="serif text-base mt-1">First Care Activating Serum</h3><p class="font-medium mt-2">1.890.000₫</p></div>
+        <div class="pt-3"><p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Sulwhasoo</p><h3 class="serif text-base mt-1">First Care Activating Serum</h3><p class="font-medium mt-2">$78</p></div>
       </a>
       <a href="#" class="pcard w-[260px] md:w-[300px] shrink-0 group">
         <div class="relative aspect-[3/4] bg-blush overflow-hidden">
           <div class="img absolute inset-0"><img src="https://picsum.photos/seed/maybelline-mascara/600/800" class="w-full h-full object-cover" alt=""/></div>
         </div>
-        <div class="pt-3"><p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Maybelline</p><h3 class="serif text-base mt-1">Sky High Volume Mascara</h3><p class="font-medium mt-2">259.000₫</p></div>
+        <div class="pt-3"><p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Maybelline</p><h3 class="serif text-base mt-1">Sky High Volume Mascara</h3><p class="font-medium mt-2">$11</p></div>
       </a>
       <a href="#" class="pcard w-[260px] md:w-[300px] shrink-0 group">
         <div class="relative aspect-[3/4] bg-moss overflow-hidden">
           <div class="img absolute inset-0 opacity-90"><img src="https://picsum.photos/seed/jomalone-wood/600/800" class="w-full h-full object-cover editorial" alt=""/></div>
         </div>
-        <div class="pt-3"><p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Jo Malone</p><h3 class="serif text-base mt-1">Wood Sage &amp; Sea Salt Cologne</h3><p class="font-medium mt-2">3.490.000₫</p></div>
+        <div class="pt-3"><p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Jo Malone</p><h3 class="serif text-base mt-1">Wood Sage &amp; Sea Salt Cologne</h3><p class="font-medium mt-2">$142</p></div>
       </a>
     </div>
   </div>
 </section>
 
 <!-- PERFUME — full-bleed editorial -->
-<section id="nuoc-hoa" class="relative bg-ink text-bone overflow-hidden">
+<section id="fragrance" class="relative bg-ink text-bone overflow-hidden">
   <div class="absolute inset-0 opacity-60">
     <img src="https://picsum.photos/seed/perfume-mist-dark/1900/1100" alt="" class="w-full h-full object-cover editorial" />
   </div>
   <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-transparent"></div>
   <div class="relative max-w-[1500px] mx-auto px-6 py-28 md:py-40 grid md:grid-cols-12 gap-12">
     <div class="md:col-span-7">
-      <p class="text-xs tracking-[0.3em] uppercase text-bone/60 mb-6 reveal">06 — Mùi hương của bạn</p>
+      <p class="text-xs tracking-[0.3em] uppercase text-bone/60 mb-6 reveal">06 — Find your scent</p>
       <h2 class="serif font-light tracking-mega leading-[0.9] text-[14vw] md:text-[8vw] reveal">
-        Một mùi hương,<br/><span class="italic text-clay">một ký ức.</span>
+        One scent,<br/><span class="italic text-clay">one memory.</span>
       </h2>
       <p class="mt-8 max-w-md text-bone/80 reveal">
-        Hơn 320 mùi hương từ niche đến haute parfumerie. Tìm chữ ký mùi của riêng bạn với bài quiz Fragrance Finder.
+        Over 320 fragrances from niche houses to haute parfumerie. Discover your signature with our Fragrance Finder quiz.
       </p>
       <div class="mt-10 flex flex-wrap gap-4 reveal">
-        <a href="#" class="bg-bone text-ink px-7 py-4 text-sm tracking-[0.18em] uppercase hover:bg-clay hover:text-bone transition">Làm bài quiz</a>
-        <a href="#" class="ulink text-sm tracking-[0.18em] uppercase text-bone/80 py-4">Xem nước hoa →</a>
+        <a href="#" class="bg-bone text-ink px-7 py-4 text-sm tracking-[0.18em] uppercase hover:bg-clay hover:text-bone transition">Take the quiz</a>
+        <a href="#" class="ulink text-sm tracking-[0.18em] uppercase text-bone/80 py-4">Shop fragrance →</a>
       </div>
     </div>
   </div>
@@ -772,22 +761,22 @@
 <section class="py-20 md:py-28">
   <div class="max-w-[1500px] mx-auto px-6 grid md:grid-cols-3 gap-10">
     <div class="reveal">
-      <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3">07 — Phản hồi</p>
-      <h2 class="serif text-4xl md:text-5xl tracking-tightest leading-[0.95]">Khách hàng<br/><span class="italic text-clay">nói gì?</span></h2>
+      <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3">07 — Reviews</p>
+      <h2 class="serif text-4xl md:text-5xl tracking-tightest leading-[0.95]">What our<br/><span class="italic text-clay">customers say.</span></h2>
       <div class="flex items-center gap-2 mt-8 text-clay">
         <span>★★★★★</span>
-        <span class="text-ink text-sm">4.9 / 5 — hơn 380.000 đánh giá</span>
+        <span class="text-ink text-sm">4.9 / 5 — 380,000+ reviews</span>
       </div>
     </div>
     <figure class="reveal">
       <div class="text-clay text-3xl serif mb-3">"</div>
-      <blockquote class="serif italic text-2xl leading-snug">Mua mỹ phẩm tại Hasaki như ghé một nơi quen — chính hãng, giao siêu nhanh, và chị tư vấn rất tử tế.</blockquote>
-      <figcaption class="mt-6 text-sm text-ink/60">— Mai Anh, Quận 1, TP.HCM</figcaption>
+      <blockquote class="serif italic text-2xl leading-snug">Hasaki feels like the favorite shop you keep going back to — authentic, fast, and the staff actually know their stuff.</blockquote>
+      <figcaption class="mt-6 text-sm text-ink/60">— Mai A., Los Angeles</figcaption>
     </figure>
     <figure class="reveal">
       <div class="text-clay text-3xl serif mb-3">"</div>
-      <blockquote class="serif italic text-2xl leading-snug">Routine 7 bước họ gợi ý hoàn toàn thay đổi làn da mình sau 2 tháng. Tin được Hasaki.</blockquote>
-      <figcaption class="mt-6 text-sm text-ink/60">— Linh Phạm, Hà Nội</figcaption>
+      <blockquote class="serif italic text-2xl leading-snug">The 7-step routine they recommended completely changed my skin in two months. Genuinely a Hasaki convert.</blockquote>
+      <figcaption class="mt-6 text-sm text-ink/60">— Linh P., Brooklyn, NY</figcaption>
     </figure>
   </div>
 </section>
@@ -797,19 +786,19 @@
   <div class="max-w-[1500px] mx-auto px-6 py-14 grid grid-cols-2 md:grid-cols-4 gap-y-8 md:gap-x-10">
     <div class="flex items-start gap-4 reveal">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-7 h-7 stroke-[1.5] text-clay shrink-0"><path d="M2 7h16l3 5v6h-3M2 7v11h13M2 7l3-3h10l3 3"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
-      <div><h4 class="serif text-lg">Giao 2 giờ</h4><p class="text-sm text-ink/60 mt-1">Tại HCM &amp; Hà Nội</p></div>
+      <div><h4 class="serif text-lg">Fast delivery</h4><p class="text-sm text-ink/60 mt-1">2-hour in select cities</p></div>
     </div>
     <div class="flex items-start gap-4 reveal">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-7 h-7 stroke-[1.5] text-clay shrink-0"><path d="M9 12l2 2 4-4"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      <div><h4 class="serif text-lg">100% Chính hãng</h4><p class="text-sm text-ink/60 mt-1">Hợp tác trực tiếp với hãng</p></div>
+      <div><h4 class="serif text-lg">100% authentic</h4><p class="text-sm text-ink/60 mt-1">Sourced direct from brands</p></div>
     </div>
     <div class="flex items-start gap-4 reveal">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-7 h-7 stroke-[1.5] text-clay shrink-0"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
-      <div><h4 class="serif text-lg">Đổi trả 30 ngày</h4><p class="text-sm text-ink/60 mt-1">Miễn phí, không câu hỏi</p></div>
+      <div><h4 class="serif text-lg">30-day returns</h4><p class="text-sm text-ink/60 mt-1">Free, no questions asked</p></div>
     </div>
     <div class="flex items-start gap-4 reveal">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-7 h-7 stroke-[1.5] text-clay shrink-0"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"/></svg>
-      <div><h4 class="serif text-lg">Tư vấn 24/7</h4><p class="text-sm text-ink/60 mt-1">Chuyên viên da liễu</p></div>
+      <div><h4 class="serif text-lg">24/7 support</h4><p class="text-sm text-ink/60 mt-1">Licensed skin experts</p></div>
     </div>
   </div>
 </section>
@@ -817,16 +806,16 @@
 <!-- NEWSLETTER -->
 <section class="bg-cream py-24 md:py-32">
   <div class="max-w-3xl mx-auto px-6 text-center">
-    <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-6 reveal">Hasaki Letter</p>
-    <h2 class="serif text-5xl md:text-7xl tracking-mega leading-[0.92] reveal">Được biết đến<br/><span class="italic text-clay">trước tiên.</span></h2>
-    <p class="mt-6 text-ink/70 reveal">Sản phẩm mới, ưu đãi độc quyền và mẹo làm đẹp gửi đến hộp thư của bạn — mỗi tuần một thứ Năm.</p>
+    <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-6 reveal">The Hasaki Letter</p>
+    <h2 class="serif text-5xl md:text-7xl tracking-mega leading-[0.92] reveal">Be the first<br/><span class="italic text-clay">to know.</span></h2>
+    <p class="mt-6 text-ink/70 reveal">New launches, exclusive offers and beauty notes — sent to your inbox every Thursday.</p>
 
     <form class="mt-10 flex flex-col sm:flex-row gap-3 reveal">
-      <input type="email" required placeholder="Email của bạn"
+      <input type="email" required placeholder="Your email address"
              class="flex-1 bg-transparent border-b border-ink/40 focus:border-ink focus:outline-none px-2 py-4 placeholder-ink/50 text-base" />
-      <button class="bg-ink text-bone px-8 py-4 text-sm tracking-[0.18em] uppercase hover:bg-clay transition">Đăng ký</button>
+      <button class="bg-ink text-bone px-8 py-4 text-sm tracking-[0.18em] uppercase hover:bg-clay transition">Subscribe</button>
     </form>
-    <p class="text-xs text-ink/50 mt-4">Bằng cách đăng ký, bạn đồng ý với <a href="#" class="ulink">Chính sách bảo mật</a> của Hasaki.</p>
+    <p class="text-xs text-ink/50 mt-4">By subscribing you agree to Hasaki's <a href="#" class="ulink">Privacy Policy</a>.</p>
   </div>
 </section>
 
@@ -837,54 +826,54 @@
       <div class="md:col-span-4">
         <div class="serif text-4xl tracking-mega">HASAKI<span class="text-clay">.</span></div>
         <p class="mt-6 text-bone/70 max-w-sm leading-relaxed">
-          Hệ thống bán lẻ mỹ phẩm và sức khỏe được tin yêu nhất Việt Nam. Hơn 100 cửa hàng từ Hà Nội tới Cần Thơ.
+          A modern beauty house — born in Vietnam, now shipping worldwide. Over 120 stores across Asia, Europe and the Americas.
         </p>
         <div class="mt-8 flex gap-3">
           <a href="#" aria-label="Instagram" class="w-10 h-10 grid place-items-center border border-bone/20 hover:bg-bone hover:text-ink transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
           <a href="#" aria-label="Facebook" class="w-10 h-10 grid place-items-center border border-bone/20 hover:bg-bone hover:text-ink transition"><svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M22 12a10 10 0 1 0-11.6 9.9V14.9H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.5 2.9h-2.3V22A10 10 0 0 0 22 12z"/></svg></a>
           <a href="#" aria-label="TikTok" class="w-10 h-10 grid place-items-center border border-bone/20 hover:bg-bone hover:text-ink transition"><svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M19.6 7.7a6.3 6.3 0 0 1-3.7-1.2v8.4a5.6 5.6 0 1 1-4.8-5.5v2.8a2.8 2.8 0 1 0 2 2.7V2h2.8a3.6 3.6 0 0 0 3.7 3.6v2.1z"/></svg></a>
           <a href="#" aria-label="YouTube" class="w-10 h-10 grid place-items-center border border-bone/20 hover:bg-bone hover:text-ink transition"><svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M23 12s0-3.3-.4-4.9c-.2-.9-.9-1.6-1.8-1.8C19.2 5 12 5 12 5s-7.2 0-8.8.3c-.9.2-1.6.9-1.8 1.8C1 8.7 1 12 1 12s0 3.3.4 4.9c.2.9.9 1.6 1.8 1.8C4.8 19 12 19 12 19s7.2 0 8.8-.3c.9-.2 1.6-.9 1.8-1.8.4-1.6.4-4.9.4-4.9zM10 15.5v-7L16 12l-6 3.5z"/></svg></a>
-          <a href="#" aria-label="Zalo" class="w-10 h-10 grid place-items-center border border-bone/20 hover:bg-bone hover:text-ink transition text-[10px] font-bold tracking-wider">Zalo</a>
+          <a href="#" aria-label="Pinterest" class="w-10 h-10 grid place-items-center border border-bone/20 hover:bg-bone hover:text-ink transition text-[10px] font-bold tracking-wider">Pin</a>
         </div>
       </div>
 
       <div class="md:col-span-2">
-        <h5 class="text-xs tracking-[0.25em] uppercase text-bone/60 mb-5">Mua sắm</h5>
+        <h5 class="text-xs tracking-[0.25em] uppercase text-bone/60 mb-5">Shop</h5>
         <ul class="space-y-3 text-sm">
-          <li><a href="#" class="ulink text-bone/85">Chăm sóc da</a></li>
-          <li><a href="#" class="ulink text-bone/85">Trang điểm</a></li>
-          <li><a href="#" class="ulink text-bone/85">Nước hoa</a></li>
-          <li><a href="#" class="ulink text-bone/85">Chăm sóc tóc</a></li>
-          <li><a href="#" class="ulink text-bone/85">Cơ thể</a></li>
-          <li><a href="#" class="ulink text-bone/85">Sức khỏe</a></li>
+          <li><a href="#" class="ulink text-bone/85">Skincare</a></li>
+          <li><a href="#" class="ulink text-bone/85">Makeup</a></li>
+          <li><a href="#" class="ulink text-bone/85">Fragrance</a></li>
+          <li><a href="#" class="ulink text-bone/85">Hair</a></li>
+          <li><a href="#" class="ulink text-bone/85">Body</a></li>
+          <li><a href="#" class="ulink text-bone/85">Wellness</a></li>
         </ul>
       </div>
       <div class="md:col-span-2">
-        <h5 class="text-xs tracking-[0.25em] uppercase text-bone/60 mb-5">Hỗ trợ</h5>
+        <h5 class="text-xs tracking-[0.25em] uppercase text-bone/60 mb-5">Help</h5>
         <ul class="space-y-3 text-sm">
-          <li><a href="#" class="ulink text-bone/85">Trung tâm trợ giúp</a></li>
-          <li><a href="#" class="ulink text-bone/85">Vận chuyển</a></li>
-          <li><a href="#" class="ulink text-bone/85">Đổi trả &amp; Hoàn tiền</a></li>
-          <li><a href="#" class="ulink text-bone/85">Tra cứu đơn hàng</a></li>
-          <li><a href="#" class="ulink text-bone/85">Liên hệ</a></li>
+          <li><a href="#" class="ulink text-bone/85">Help center</a></li>
+          <li><a href="#" class="ulink text-bone/85">Shipping</a></li>
+          <li><a href="#" class="ulink text-bone/85">Returns &amp; refunds</a></li>
+          <li><a href="#" class="ulink text-bone/85">Track your order</a></li>
+          <li><a href="#" class="ulink text-bone/85">Contact us</a></li>
         </ul>
       </div>
       <div class="md:col-span-2">
-        <h5 class="text-xs tracking-[0.25em] uppercase text-bone/60 mb-5">Hasaki</h5>
+        <h5 class="text-xs tracking-[0.25em] uppercase text-bone/60 mb-5">About</h5>
         <ul class="space-y-3 text-sm">
-          <li><a href="#" class="ulink text-bone/85">Về chúng tôi</a></li>
-          <li><a href="#" class="ulink text-bone/85">Hệ thống cửa hàng</a></li>
+          <li><a href="#" class="ulink text-bone/85">Our story</a></li>
+          <li><a href="#" class="ulink text-bone/85">Store locator</a></li>
           <li><a href="#" class="ulink text-bone/85">Hasaki Clinic &amp; Spa</a></li>
-          <li><a href="#" class="ulink text-bone/85">Tuyển dụng</a></li>
-          <li><a href="#" class="ulink text-bone/85">Báo chí</a></li>
+          <li><a href="#" class="ulink text-bone/85">Careers</a></li>
+          <li><a href="#" class="ulink text-bone/85">Press</a></li>
         </ul>
       </div>
       <div class="md:col-span-2">
-        <h5 class="text-xs tracking-[0.25em] uppercase text-bone/60 mb-5">Liên hệ</h5>
+        <h5 class="text-xs tracking-[0.25em] uppercase text-bone/60 mb-5">Contact</h5>
         <ul class="space-y-3 text-sm text-bone/85">
-          <li>Hotline:<br/><span class="serif text-2xl text-bone">1900 6750</span></li>
-          <li>cskh@hasaki.vn</li>
-          <li>7:30 — 22:00 hằng ngày</li>
+          <li>Customer care:<br/><span class="serif text-2xl text-bone">1-888-427-2541</span></li>
+          <li>care@hasaki.com</li>
+          <li>Mon — Sun · 7:30am to 10:00pm ET</li>
         </ul>
       </div>
     </div>
@@ -895,19 +884,18 @@
     </div>
 
     <div class="mt-10 flex flex-col md:flex-row md:items-center justify-between gap-4 text-xs text-bone/55">
-      <p>© 2026 Công ty Cổ phần Hasaki Beauty &amp; S.P.A. — Mã số thuế 0314169097.</p>
+      <p>© 2026 Hasaki Beauty Inc. — All rights reserved.</p>
       <div class="flex flex-wrap gap-6">
-        <a href="#" class="ulink">Điều khoản</a>
-        <a href="#" class="ulink">Bảo mật</a>
-        <a href="#" class="ulink">Cookie</a>
-        <span>Đã đăng ký Bộ Công Thương</span>
+        <a href="#" class="ulink">Terms</a>
+        <a href="#" class="ulink">Privacy</a>
+        <a href="#" class="ulink">Cookies</a>
+        <span>Shipping to 30+ countries</span>
       </div>
     </div>
   </div>
 </footer>
 
 <script>
-  // Reveal on scroll
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
