@@ -92,6 +92,19 @@
 </head>
 <body class="bg-bone text-ink">
 
+<!-- SVG icon set: product silhouettes used across cards -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="ic-bottle" viewBox="0 0 100 160"><rect x="42" y="10" width="16" height="20" rx="2" opacity="0.55"/><rect x="44" y="28" width="12" height="8" opacity="0.8"/><rect x="25" y="36" width="50" height="110" rx="4"/></symbol>
+  <symbol id="ic-pump" viewBox="0 0 100 160"><path d="M38 5 L48 5 L48 15 L58 15 L58 25 L38 25 Z" opacity="0.7"/><rect x="35" y="25" width="30" height="10" rx="2" opacity="0.85"/><rect x="25" y="35" width="50" height="115" rx="4"/></symbol>
+  <symbol id="ic-jar" viewBox="0 0 100 160"><rect x="20" y="40" width="60" height="22" rx="3" opacity="0.65"/><rect x="15" y="55" width="70" height="80" rx="4"/></symbol>
+  <symbol id="ic-tube" viewBox="0 0 100 160"><rect x="40" y="10" width="20" height="14" rx="2" opacity="0.7"/><path d="M28 24 L72 24 L78 145 Q78 150 73 150 L27 150 Q22 150 22 145 Z"/><rect x="25" y="148" width="50" height="6" opacity="0.55"/></symbol>
+  <symbol id="ic-lipstick" viewBox="0 0 100 160"><rect x="32" y="60" width="36" height="80" rx="2"/><rect x="38" y="20" width="24" height="40" rx="2" opacity="0.7"/><path d="M38 25 L62 25 L50 12 Z" opacity="0.9"/></symbol>
+  <symbol id="ic-perfume" viewBox="0 0 100 160"><rect x="40" y="5" width="20" height="18" rx="2" opacity="0.5"/><rect x="44" y="22" width="12" height="10" opacity="0.75"/><path d="M22 32 L78 32 L78 145 Q78 150 73 150 L27 150 Q22 150 22 145 Z"/></symbol>
+  <symbol id="ic-dropper" viewBox="0 0 100 160"><rect x="38" y="10" width="24" height="20" rx="2" opacity="0.7"/><rect x="28" y="30" width="44" height="100" rx="4"/><line x1="42" y1="55" x2="42" y2="115" stroke="#fff" stroke-width="2.5" opacity="0.35"/></symbol>
+  <symbol id="ic-mascara" viewBox="0 0 100 160"><rect x="45" y="10" width="10" height="80" opacity="0.55"/><rect x="35" y="80" width="30" height="70" rx="3"/></symbol>
+  <symbol id="ic-palette" viewBox="0 0 140 100"><rect x="5" y="20" width="130" height="70" rx="4"/><circle cx="35" cy="55" r="10" opacity="0.55"/><circle cx="60" cy="55" r="10" opacity="0.7"/><circle cx="85" cy="55" r="10" opacity="0.4"/><circle cx="110" cy="55" r="10" opacity="0.85"/></symbol>
+</svg>
+
 <!-- Announcement bar -->
 <div class="bg-ink text-bone text-[11px] tracking-[0.25em] uppercase">
   <div class="max-w-[1500px] mx-auto px-6 py-2.5 flex items-center justify-between">
@@ -148,8 +161,15 @@
               </ul>
             </div>
             <a href="#" class="block group">
-              <div class="aspect-[4/5] bg-cream overflow-hidden">
-                <img src="https://loremflickr.com/600/750/skincare,bottles,white,minimal?lock=202" alt="" class="w-full h-full object-cover editorial group-hover:scale-105 transition-transform duration-700" />
+              <div class="aspect-[4/5] bg-hasakiPale overflow-hidden relative">
+                <div class="absolute inset-0 grid place-items-center">
+                  <div class="flex items-end gap-1.5">
+                    <svg viewBox="0 0 100 160" class="h-32 w-auto" style="color:#306E51"><use href="#ic-pump"/></svg>
+                    <svg viewBox="0 0 100 160" class="h-24 w-auto" style="color:#1f4d38"><use href="#ic-dropper"/></svg>
+                    <svg viewBox="0 0 100 160" class="h-28 w-auto" style="color:#5b8fb8"><use href="#ic-tube"/></svg>
+                  </div>
+                </div>
+                <span class="absolute bottom-3 left-3 text-[10px] tracking-[0.2em] uppercase text-ink/50">Routine · 7 steps</span>
               </div>
               <p class="serif text-lg mt-4 normal-case tracking-normal">The Glow Ritual</p>
               <p class="text-xs text-ink/60 normal-case tracking-normal mt-1">Discover the 7-step routine →</p>
@@ -188,43 +208,58 @@
   </div>
 </header>
 
-<!-- HERO -->
-<section class="relative bg-ink text-bone overflow-hidden">
-  <div class="absolute inset-0">
-    <img src="https://loremflickr.com/1920/1100/cosmetics,flatlay,products,gold?lock=201" alt="" class="w-full h-full object-cover editorial opacity-80" />
-    <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent"></div>
-    <div class="absolute inset-0 bg-gradient-to-r from-ink/60 via-transparent to-ink/30"></div>
+<!-- HERO — bright beauty store hero -->
+<section class="relative bg-blush overflow-hidden">
+  <!-- Soft gradient backdrop -->
+  <div class="absolute inset-0 bg-gradient-to-br from-blush via-cream to-hasakiPale"></div>
+
+  <!-- Decorative product silhouettes scattered -->
+  <div class="absolute inset-0 pointer-events-none hidden md:block">
+    <svg viewBox="0 0 100 160" class="absolute right-[8%] top-[18%] h-[55%] opacity-90" style="color:#306E51"><use href="#ic-perfume"/></svg>
+    <svg viewBox="0 0 100 160" class="absolute right-[26%] top-[32%] h-[40%] opacity-80" style="color:#9d2a4d"><use href="#ic-lipstick"/></svg>
+    <svg viewBox="0 0 100 160" class="absolute right-[40%] top-[22%] h-[48%] opacity-70" style="color:#1f4d38"><use href="#ic-dropper"/></svg>
+    <svg viewBox="0 0 100 160" class="absolute right-[52%] top-[40%] h-[35%] opacity-60" style="color:#a86b4a"><use href="#ic-jar"/></svg>
   </div>
 
-  <div class="relative max-w-[1500px] mx-auto px-6 pt-24 md:pt-32 pb-20 md:pb-32 min-h-[88vh] flex flex-col justify-end">
+  <div class="relative max-w-[1500px] mx-auto px-6 pt-20 md:pt-28 pb-16 md:pb-24 min-h-[80vh] flex flex-col justify-end">
     <div class="grid md:grid-cols-12 gap-8 items-end">
-      <div class="md:col-span-8">
-        <p class="text-xs tracking-[0.4em] uppercase text-bone/70 mb-6 reveal">Spring — Summer 2026</p>
-        <h1 class="serif font-light tracking-mega leading-[0.86] text-[15vw] md:text-[10.5vw] reveal drift">
-          <span class="block">Beauty,</span>
-          <span class="block italic font-normal text-hasaki">without borders.</span>
+      <div class="md:col-span-7">
+        <div class="flex items-center gap-3 mb-6 reveal">
+          <span class="bg-hasaki text-bone text-[10px] tracking-[0.3em] uppercase px-3 py-1.5">★ New · LA Flagship Open</span>
+          <span class="text-[11px] tracking-[0.25em] uppercase text-ink/55">Spring 2026</span>
+        </div>
+        <h1 class="serif font-light tracking-mega leading-[0.86] text-[15vw] md:text-[9.5vw] reveal text-ink">
+          <span class="block">Beauty</span>
+          <span class="block italic font-normal text-hasaki">made honest.</span>
         </h1>
-        <div class="mt-10 flex flex-wrap items-center gap-4 reveal">
-          <a href="#products" class="group inline-flex items-center gap-3 bg-bone text-ink px-7 py-4 text-sm tracking-[0.18em] uppercase hover:bg-hasaki hover:text-bone transition">
-            Shop the edit
+        <p class="mt-6 max-w-md text-ink/70 text-base md:text-lg leading-relaxed reveal">
+          500+ authentic brands. 12,000+ products. Real prices, every day. Welcome to the beauty store Vietnam's loved for a decade — now in Los Angeles.
+        </p>
+        <div class="mt-8 flex flex-wrap items-center gap-4 reveal">
+          <a href="#products" class="group inline-flex items-center gap-3 bg-ink text-bone px-7 py-4 text-sm tracking-[0.18em] uppercase hover:bg-hasaki transition">
+            Shop bestsellers
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2 group-hover:translate-x-1 transition"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
-          <a href="#story" class="ulink text-sm tracking-[0.18em] uppercase text-bone/80 hover:text-bone">Read the journal</a>
+          <a href="#concerns" class="inline-flex items-center gap-3 border border-ink/40 hover:bg-ink hover:text-bone px-7 py-4 text-sm tracking-[0.18em] uppercase transition">Take the skin quiz</a>
         </div>
-      </div>
-      <div class="md:col-span-4 hidden md:block reveal">
-        <p class="serif italic text-bone/80 text-lg leading-relaxed border-l border-hasaki pl-6">
-          “Authentic beauty shouldn't cost more than it has to. That's been our promise since 2016 — and we mean to keep it.”
-        </p>
-        <p class="mt-4 text-xs tracking-[0.25em] uppercase text-bone/60 pl-6">— hasaki. <span class="text-hasaki">·</span> Save More Always</p>
+        <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] tracking-[0.2em] uppercase text-ink/55 reveal">
+          <span class="flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-3.5 h-3.5 stroke-[2] text-hasaki"><path d="M9 12l2 2 4-4"/></svg> 100% Authentic</span>
+          <span class="flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-3.5 h-3.5 stroke-[2] text-hasaki"><path d="M9 12l2 2 4-4"/></svg> Free shipping over $35</span>
+          <span class="flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-3.5 h-3.5 stroke-[2] text-hasaki"><path d="M9 12l2 2 4-4"/></svg> 3 free samples · every order</span>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Scroll cue -->
-  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-bone/60 text-[10px] tracking-[0.4em] uppercase flex flex-col items-center gap-2">
-    <span>Scroll</span>
-    <span class="block w-px h-10 bg-bone/40"></span>
+  <!-- Bottom price-promise strip -->
+  <div class="relative bg-ink text-bone py-4">
+    <div class="max-w-[1500px] mx-auto px-6 flex flex-wrap justify-center md:justify-between gap-y-3 gap-x-8 text-[11px] md:text-xs tracking-[0.25em] uppercase">
+      <span class="text-hasaki font-medium">★ Save More Always</span>
+      <span>2-Hour Delivery in LA &amp; HCMC</span>
+      <span>Cruelty-Free · Derm-Tested</span>
+      <span>30-Day Free Returns</span>
+      <span>Hasaki Member · 10% Back</span>
+    </div>
   </div>
 </section>
 
@@ -246,6 +281,36 @@
   </div>
 </section>
 
+<!-- DEAL STRIP — promo banners -->
+<section class="bg-bone py-6 md:py-8 border-b border-ink/10">
+  <div class="max-w-[1500px] mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
+    <a href="#" class="group flex items-center gap-4 bg-blush p-5 hover:bg-ink hover:text-bone transition">
+      <svg viewBox="0 0 100 160" class="h-14 w-auto text-rose-700 group-hover:text-bone shrink-0" style="color:#9d2a4d"><use href="#ic-lipstick"/></svg>
+      <div class="flex-1">
+        <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki group-hover:text-hasaki/90 mb-1">Limited time</p>
+        <p class="serif text-xl leading-tight">20% off all <span class="italic">lip products</span></p>
+        <p class="text-[11px] text-ink/60 group-hover:text-bone/70 mt-1">Code <span class="font-bold">LIPLOVE</span> · ends Sunday →</p>
+      </div>
+    </a>
+    <a href="#" class="group flex items-center gap-4 bg-cream p-5 hover:bg-ink hover:text-bone transition">
+      <svg viewBox="0 0 100 160" class="h-14 w-auto shrink-0" style="color:#a87f63"><use href="#ic-perfume"/></svg>
+      <div class="flex-1">
+        <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-1">Gift with purchase</p>
+        <p class="serif text-xl leading-tight">Free travel size with any <span class="italic">$50 fragrance</span></p>
+        <p class="text-[11px] text-ink/60 group-hover:text-bone/70 mt-1">Auto-applied at checkout →</p>
+      </div>
+    </a>
+    <a href="#" class="group flex items-center gap-4 bg-hasakiPale p-5 hover:bg-hasaki hover:text-bone transition">
+      <svg viewBox="0 0 100 160" class="h-14 w-auto shrink-0" style="color:#306E51"><use href="#ic-dropper"/></svg>
+      <div class="flex-1">
+        <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki group-hover:text-bone mb-1">Every order</p>
+        <p class="serif text-xl leading-tight">3 free samples — <span class="italic">your choice</span></p>
+        <p class="text-[11px] text-ink/60 group-hover:text-bone/70 mt-1">Pick at checkout · 200+ to try →</p>
+      </div>
+    </a>
+  </div>
+</section>
+
 <!-- CATEGORIES — editorial mosaic -->
 <section id="categories" class="py-20 md:py-28">
   <div class="max-w-[1500px] mx-auto px-6">
@@ -259,68 +324,73 @@
 
     <div class="grid grid-cols-2 md:grid-cols-6 gap-3 md:gap-4">
       <!-- Skincare large -->
-      <a href="#skincare" class="pcard col-span-2 md:col-span-3 row-span-2 aspect-[4/5] md:aspect-auto md:h-[640px] bg-cream group block">
-        <div class="img absolute inset-0">
-          <img src="https://loremflickr.com/900/1200/skincare,bottles,collection,white?lock=203" alt="" class="w-full h-full object-cover editorial" />
+      <a href="#skincare" class="pcard col-span-2 md:col-span-3 row-span-2 aspect-[4/5] md:aspect-auto md:h-[640px] bg-hasakiPale group block hover:bg-hasaki transition">
+        <div class="absolute inset-0 grid place-items-center">
+          <div class="flex items-end gap-3 -translate-x-2">
+            <svg viewBox="0 0 100 160" class="h-44 md:h-72 w-auto text-hasaki group-hover:text-bone transition" style="color:#306E51"><use href="#ic-pump"/></svg>
+            <svg viewBox="0 0 100 160" class="h-32 md:h-56 w-auto text-hasakiDark group-hover:text-bone transition" style="color:#1f4d38"><use href="#ic-dropper"/></svg>
+            <svg viewBox="0 0 100 160" class="h-40 md:h-64 w-auto group-hover:text-bone transition" style="color:#5b8fb8"><use href="#ic-tube"/></svg>
+          </div>
         </div>
-        <div class="absolute inset-0 bg-gradient-to-t from-ink/60 to-transparent"></div>
-        <div class="absolute left-6 bottom-6 text-bone">
-          <p class="text-[11px] tracking-[0.3em] uppercase opacity-80 mb-2">01</p>
+        <div class="absolute left-6 bottom-6 text-ink group-hover:text-bone transition">
+          <p class="text-[11px] tracking-[0.3em] uppercase opacity-70 mb-2">01 · 1,247 products</p>
           <h3 class="serif text-4xl md:text-6xl tracking-tightest leading-[0.95]">Skincare</h3>
-          <p class="mt-3 text-sm opacity-90 max-w-sm">Rituals from Tokyo, Seoul &amp; Paris — for skin that glows.</p>
+          <p class="mt-3 text-sm opacity-80 max-w-sm">Cleansers, serums, sunscreens — for every skin type.</p>
+          <p class="mt-4 text-[11px] tracking-[0.25em] uppercase">Shop skincare →</p>
         </div>
       </a>
 
-      <a href="#makeup" class="pcard col-span-1 md:col-span-3 aspect-[4/3] md:aspect-auto md:h-[312px] bg-blush group block">
-        <div class="img absolute inset-0">
-          <img src="https://loremflickr.com/900/600/lipstick,palette,collection,flatlay?lock=204" alt="" class="w-full h-full object-cover editorial" />
+      <a href="#makeup" class="pcard col-span-1 md:col-span-3 aspect-[4/3] md:aspect-auto md:h-[312px] bg-blush group block hover:bg-ink hover:text-bone transition">
+        <div class="absolute inset-0 grid place-items-center">
+          <div class="flex items-end gap-2 -translate-x-2">
+            <svg viewBox="0 0 100 160" class="h-32 md:h-44 w-auto" style="color:#9d2a4d"><use href="#ic-lipstick"/></svg>
+            <svg viewBox="0 0 140 100" class="h-20 md:h-28 w-auto translate-y-2" style="color:#7a2638"><use href="#ic-palette"/></svg>
+            <svg viewBox="0 0 100 160" class="h-28 md:h-36 w-auto" style="color:#1a1a1a"><use href="#ic-mascara"/></svg>
+          </div>
         </div>
-        <div class="absolute inset-0 bg-ink/20"></div>
-        <div class="absolute left-6 bottom-6 text-bone">
-          <p class="text-[11px] tracking-[0.3em] uppercase opacity-80 mb-2">02</p>
+        <div class="absolute left-6 bottom-6">
+          <p class="text-[11px] tracking-[0.3em] uppercase opacity-70 mb-2">02 · 884 products</p>
           <h3 class="serif text-3xl md:text-5xl tracking-tightest">Makeup</h3>
         </div>
       </a>
 
-      <a href="#fragrance" class="pcard col-span-1 md:col-span-2 aspect-square md:aspect-auto md:h-[312px] bg-moss group block">
-        <div class="img absolute inset-0">
-          <img src="https://loremflickr.com/600/600/perfume,bottle,glass?lock=205" alt="" class="w-full h-full object-cover editorial mix-blend-luminosity" />
+      <a href="#fragrance" class="pcard col-span-1 md:col-span-2 aspect-square md:aspect-auto md:h-[312px] bg-ink text-bone group block hover:bg-hasakiDark transition">
+        <div class="absolute inset-0 grid place-items-center">
+          <svg viewBox="0 0 100 160" class="h-32 md:h-44 w-auto" style="color:#cdb389"><use href="#ic-perfume"/></svg>
         </div>
-        <div class="absolute inset-0 bg-moss/60"></div>
-        <div class="absolute left-6 bottom-6 text-bone">
-          <p class="text-[11px] tracking-[0.3em] uppercase opacity-80 mb-2">03</p>
+        <div class="absolute left-6 bottom-6">
+          <p class="text-[11px] tracking-[0.3em] uppercase opacity-70 mb-2">03 · 326 scents</p>
           <h3 class="serif text-3xl md:text-4xl tracking-tightest">Fragrance</h3>
         </div>
       </a>
 
-      <a href="#" class="pcard col-span-1 aspect-square bg-ink text-bone group block">
-        <div class="img absolute inset-0 opacity-70">
-          <img src="https://loremflickr.com/500/500/haircare,bottle,shampoo?lock=206" alt="" class="w-full h-full object-cover editorial" />
+      <a href="#" class="pcard col-span-1 aspect-square bg-cream group block hover:bg-blush transition">
+        <div class="absolute inset-0 grid place-items-center">
+          <svg viewBox="0 0 100 160" class="h-24 md:h-32 w-auto" style="color:#a86b4a"><use href="#ic-bottle"/></svg>
         </div>
         <div class="absolute left-4 bottom-4">
-          <p class="text-[10px] tracking-[0.3em] uppercase opacity-80 mb-1">04</p>
+          <p class="text-[10px] tracking-[0.3em] uppercase text-ink/55 mb-1">04 · 412</p>
           <h3 class="serif text-2xl md:text-3xl">Hair</h3>
         </div>
       </a>
 
-      <a href="#" class="pcard col-span-1 aspect-square bg-cream group block">
-        <div class="img absolute inset-0">
-          <img src="https://loremflickr.com/500/500/bodycare,lotion,bottle?lock=207" alt="" class="w-full h-full object-cover editorial" />
+      <a href="#" class="pcard col-span-1 aspect-square bg-blush group block hover:bg-cream transition">
+        <div class="absolute inset-0 grid place-items-center">
+          <svg viewBox="0 0 100 160" class="h-24 md:h-32 w-auto" style="color:#c98985"><use href="#ic-pump"/></svg>
         </div>
-        <div class="absolute inset-0 bg-bone/20"></div>
         <div class="absolute left-4 bottom-4 text-ink">
-          <p class="text-[10px] tracking-[0.3em] uppercase opacity-70 mb-1">05</p>
+          <p class="text-[10px] tracking-[0.3em] uppercase opacity-65 mb-1">05 · 538</p>
           <h3 class="serif text-2xl md:text-3xl">Body</h3>
         </div>
       </a>
 
-      <a href="#" class="pcard col-span-2 md:col-span-1 aspect-[2/1] md:aspect-square bg-hasaki text-bone group block">
+      <a href="#" class="pcard col-span-2 md:col-span-1 aspect-[2/1] md:aspect-square bg-hasaki text-bone group block hover:bg-hasakiDark transition">
         <div class="absolute inset-0 grid place-items-center">
-          <div class="text-center">
-            <p class="text-[10px] tracking-[0.3em] uppercase opacity-80 mb-2">06</p>
-            <h3 class="serif text-2xl md:text-3xl">Wellness</h3>
-            <p class="text-xs mt-2 opacity-90">Vitamins · Inner beauty</p>
-          </div>
+          <svg viewBox="0 0 100 160" class="h-20 md:h-24 w-auto opacity-80" style="color:#fff"><use href="#ic-jar"/></svg>
+        </div>
+        <div class="absolute left-4 bottom-4">
+          <p class="text-[10px] tracking-[0.3em] uppercase opacity-80 mb-1">06 · 217</p>
+          <h3 class="serif text-2xl md:text-3xl">Wellness</h3>
         </div>
       </a>
     </div>
@@ -331,8 +401,22 @@
 <section id="story" class="bg-ink text-bone py-24 md:py-32">
   <div class="max-w-[1500px] mx-auto px-6 grid md:grid-cols-12 gap-10 items-center">
     <div class="md:col-span-7 reveal">
-      <div class="aspect-[5/6] bg-soot overflow-hidden">
-        <img src="https://loremflickr.com/1000/1200/cosmetics,flatlay,bottles,texture?lock=208" alt="" class="w-full h-full object-cover editorial" />
+      <div class="aspect-[5/6] bg-gradient-to-br from-hasakiDark via-hasaki to-hasakiDark relative overflow-hidden">
+        <!-- Floating product silhouettes -->
+        <div class="absolute inset-0">
+          <svg viewBox="0 0 100 160" class="absolute h-2/5 left-[8%] top-[15%] opacity-90" style="color:#f5f1ea"><use href="#ic-pump"/></svg>
+          <svg viewBox="0 0 100 160" class="absolute h-1/2 left-[36%] top-[30%]" style="color:#ebe4d8"><use href="#ic-bottle"/></svg>
+          <svg viewBox="0 0 100 160" class="absolute h-1/3 left-[64%] top-[18%] opacity-90" style="color:#f5f1ea"><use href="#ic-dropper"/></svg>
+          <svg viewBox="0 0 100 160" class="absolute h-1/4 left-[20%] bottom-[8%] opacity-80" style="color:#ebe4d8"><use href="#ic-jar"/></svg>
+          <svg viewBox="0 0 100 160" class="absolute h-2/5 left-[58%] bottom-[6%]" style="color:#f5f1ea"><use href="#ic-tube"/></svg>
+        </div>
+        <!-- Texture noise -->
+        <div class="absolute inset-0 bg-gradient-to-br from-bone/10 to-transparent"></div>
+        <!-- Caption -->
+        <div class="absolute left-6 bottom-6 text-bone/90">
+          <p class="text-[11px] tracking-[0.35em] uppercase">The Hasaki edit</p>
+          <p class="serif italic text-2xl mt-2">300+ stores · 500+ brands</p>
+        </div>
       </div>
     </div>
     <div class="md:col-span-5 reveal">
@@ -464,204 +548,153 @@
       </div>
     </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-x-3 gap-y-12 md:gap-x-5">
-      <!-- Product 1 -->
-      <article class="pcard reveal group">
-        <div class="relative aspect-[4/5] bg-cream overflow-hidden">
-          <div class="img absolute inset-0">
-            <img src="https://loremflickr.com/600/750/lipbalm,pink,cosmetic?lock=109" alt="" class="w-full h-full object-cover" />
-          </div>
-          <span class="absolute top-3 left-3 bg-ink text-bone text-[10px] tracking-[0.25em] uppercase px-2.5 py-1">Best</span>
-          <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/80 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          </button>
-          <div class="quick">
-            <button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">Add to bag</button>
-          </div>
-        </div>
-        <div class="pt-4 px-1">
-          <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Laneige</p>
-          <h3 class="serif text-lg leading-snug mt-1">Lip Sleeping Mask — Berry</h3>
-          <div class="flex items-center gap-2 mt-2">
-            <span class="swatch" style="background:#b03a3a"></span>
-            <span class="swatch" style="background:#7a2638"></span>
-            <span class="swatch" style="background:#d98080"></span>
-          </div>
-          <div class="flex items-baseline gap-3 mt-3">
-            <span class="font-medium">$18</span>
-            <span class="text-ink/40 line-through text-sm">$22</span>
-            <span class="ml-auto text-[11px] tracking-[0.2em] uppercase text-hasaki">−17%</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Product 2 -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-x-3 gap-y-10 md:gap-x-4">
+      <!-- Product 1 — Laneige -->
       <article class="pcard reveal group">
         <div class="relative aspect-[4/5] bg-blush overflow-hidden">
-          <div class="img absolute inset-0">
-            <img src="https://loremflickr.com/600/750/serum,bottle,korean?lock=110" alt="" class="w-full h-full object-cover" />
-          </div>
-          <span class="absolute top-3 left-3 bg-hasaki text-bone text-[10px] tracking-[0.25em] uppercase px-2.5 py-1">New</span>
-          <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/80 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          </button>
-          <div class="quick">
-            <button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">Add to bag</button>
-          </div>
+          <div class="absolute inset-0 grid place-items-center"><svg viewBox="0 0 100 160" class="h-3/5 w-auto" style="color:#9d2a4d"><use href="#ic-jar"/></svg></div>
+          <span class="absolute top-3 left-3 bg-rose-700 text-bone text-[10px] tracking-[0.2em] uppercase px-2.5 py-1" style="background:#9d2a4d">−18% off</span>
+          <span class="absolute bottom-3 left-3 text-[10px] tracking-[0.25em] uppercase text-ink/40">Lip mask · 20g</span>
+          <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/85 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <div class="quick"><button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">+ Add to bag</button></div>
         </div>
-        <div class="pt-4 px-1">
-          <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">COSRX</p>
-          <h3 class="serif text-lg leading-snug mt-1">Advanced Snail 96 Mucin Power Essence</h3>
-          <p class="text-xs text-ink/50 mt-1">Hydrate · Repair · 100ml</p>
-          <div class="flex items-baseline gap-3 mt-3">
-            <span class="font-medium">$15</span>
-            <span class="ml-auto text-[11px] tracking-[0.2em] uppercase text-ink/50">★ 4.9</span>
+        <div class="pt-3.5 px-1">
+          <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Laneige</p>
+          <h3 class="text-[15px] font-medium leading-snug mt-1.5">Lip Sleeping Mask — Berry</h3>
+          <div class="flex items-center gap-1.5 mt-2 text-[11px] text-ink/60"><span class="text-hasaki">★★★★★</span><span>4.9 (2,841)</span></div>
+          <div class="flex items-center gap-2 mt-2.5">
+            <span class="swatch" style="background:#9d2a4d"></span><span class="swatch" style="background:#7a2638"></span><span class="swatch" style="background:#d98080"></span>
+            <span class="text-[10px] text-ink/45 ml-1">3 shades</span>
           </div>
+          <div class="flex items-baseline gap-2 mt-3"><span class="font-bold text-base">$18</span><span class="text-ink/40 line-through text-xs">$22</span></div>
         </div>
       </article>
 
-      <!-- Product 3 -->
+      <!-- Product 2 — COSRX -->
+      <article class="pcard reveal group">
+        <div class="relative aspect-[4/5] bg-hasakiPale overflow-hidden">
+          <div class="absolute inset-0 grid place-items-center"><svg viewBox="0 0 100 160" class="h-3/5 w-auto" style="color:#306E51"><use href="#ic-pump"/></svg></div>
+          <span class="absolute top-3 left-3 bg-hasaki text-bone text-[10px] tracking-[0.2em] uppercase px-2.5 py-1">New</span>
+          <span class="absolute bottom-3 left-3 text-[10px] tracking-[0.25em] uppercase text-ink/45">Essence · 100 ml</span>
+          <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/85 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <div class="quick"><button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">+ Add to bag</button></div>
+        </div>
+        <div class="pt-3.5 px-1">
+          <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">COSRX</p>
+          <h3 class="text-[15px] font-medium leading-snug mt-1.5">Advanced Snail 96 Mucin Power Essence</h3>
+          <div class="flex items-center gap-1.5 mt-2 text-[11px] text-ink/60"><span class="text-hasaki">★★★★★</span><span>4.9 (8,512)</span></div>
+          <p class="text-[11px] text-ink/55 mt-2.5">Hydrate · Repair</p>
+          <div class="flex items-baseline gap-2 mt-3"><span class="font-bold text-base">$15</span></div>
+        </div>
+      </article>
+
+      <!-- Product 3 — YSL -->
       <article class="pcard reveal group">
         <div class="relative aspect-[4/5] bg-ink text-bone overflow-hidden">
-          <div class="img absolute inset-0 opacity-90">
-            <img src="https://loremflickr.com/600/750/perfume,gold,bottle?lock=111" alt="" class="w-full h-full object-cover editorial" />
-          </div>
-          <span class="absolute top-3 left-3 bg-bone text-ink text-[10px] tracking-[0.25em] uppercase px-2.5 py-1">Limited</span>
-          <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/20 backdrop-blur grid place-items-center hover:bg-bone hover:text-ink transition">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          </button>
-          <div class="quick">
-            <button class="w-full bg-bone text-ink py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki hover:text-bone transition">Add to bag</button>
-          </div>
+          <div class="absolute inset-0 grid place-items-center"><svg viewBox="0 0 100 160" class="h-3/5 w-auto" style="color:#d4af6e"><use href="#ic-perfume"/></svg></div>
+          <span class="absolute top-3 left-3 bg-bone text-ink text-[10px] tracking-[0.2em] uppercase px-2.5 py-1">Limited</span>
+          <span class="absolute bottom-3 left-3 text-[10px] tracking-[0.25em] uppercase text-bone/50">EDP · 90 ml</span>
+          <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/20 backdrop-blur grid place-items-center hover:bg-bone hover:text-ink transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <div class="quick"><button class="w-full bg-bone text-ink py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki hover:text-bone transition">+ Add to bag</button></div>
         </div>
-        <div class="pt-4 px-1">
+        <div class="pt-3.5 px-1">
           <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">YSL Beauty</p>
-          <h3 class="serif text-lg leading-snug mt-1">Libre Eau de Parfum 90ml</h3>
-          <p class="text-xs text-ink/50 mt-1">Orange blossom · Jasmine · Lavender</p>
-          <div class="flex items-baseline gap-3 mt-3">
-            <span class="font-medium">$135</span>
-            <span class="ml-auto text-[11px] tracking-[0.2em] uppercase text-ink/50">★ 4.8</span>
-          </div>
+          <h3 class="text-[15px] font-medium leading-snug mt-1.5">Libre Eau de Parfum 90ml</h3>
+          <div class="flex items-center gap-1.5 mt-2 text-[11px] text-ink/60"><span class="text-hasaki">★★★★★</span><span>4.8 (1,204)</span></div>
+          <p class="text-[11px] text-ink/55 mt-2.5">Floral · Lavender · Jasmine</p>
+          <div class="flex items-baseline gap-2 mt-3"><span class="font-bold text-base">$135</span></div>
         </div>
       </article>
 
-      <!-- Product 4 -->
+      <!-- Product 4 — La Roche-Posay -->
       <article class="pcard reveal group">
         <div class="relative aspect-[4/5] bg-cream overflow-hidden">
-          <div class="img absolute inset-0">
-            <img src="https://loremflickr.com/600/750/sunscreen,bottle,white?lock=112" alt="" class="w-full h-full object-cover" />
-          </div>
-          <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/80 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          </button>
-          <div class="quick">
-            <button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">Add to bag</button>
-          </div>
+          <div class="absolute inset-0 grid place-items-center"><svg viewBox="0 0 100 160" class="h-3/5 w-auto" style="color:#5b8fb8"><use href="#ic-tube"/></svg></div>
+          <span class="absolute top-3 left-3 bg-rose-700 text-bone text-[10px] tracking-[0.2em] uppercase px-2.5 py-1" style="background:#9d2a4d">−15%</span>
+          <span class="absolute bottom-3 left-3 text-[10px] tracking-[0.25em] uppercase text-ink/45">SPF50+ · 50 ml</span>
+          <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/85 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <div class="quick"><button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">+ Add to bag</button></div>
         </div>
-        <div class="pt-4 px-1">
+        <div class="pt-3.5 px-1">
           <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">La Roche-Posay</p>
-          <h3 class="serif text-lg leading-snug mt-1">Anthelios UVMune 400 SPF50+ Sunscreen</h3>
-          <p class="text-xs text-ink/50 mt-1">Sensitive skin · 50ml</p>
-          <div class="flex items-baseline gap-3 mt-3">
-            <span class="font-medium">$22</span>
-            <span class="text-ink/40 line-through text-sm">$26</span>
-          </div>
+          <h3 class="text-[15px] font-medium leading-snug mt-1.5">Anthelios UVMune 400 SPF50+ Sunscreen</h3>
+          <div class="flex items-center gap-1.5 mt-2 text-[11px] text-ink/60"><span class="text-hasaki">★★★★★</span><span>4.7 (3,915)</span></div>
+          <p class="text-[11px] text-ink/55 mt-2.5">Sensitive skin</p>
+          <div class="flex items-baseline gap-2 mt-3"><span class="font-bold text-base">$22</span><span class="text-ink/40 line-through text-xs">$26</span></div>
         </div>
       </article>
 
-      <!-- Product 5 -->
+      <!-- Product 5 — Dior -->
       <article class="pcard reveal group">
         <div class="relative aspect-[4/5] bg-blush overflow-hidden">
-          <div class="img absolute inset-0">
-            <img src="https://loremflickr.com/600/750/lipstick,red,luxury?lock=113" alt="" class="w-full h-full object-cover" />
-          </div>
-          <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/80 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          </button>
-          <div class="quick">
-            <button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">Add to bag</button>
-          </div>
+          <div class="absolute inset-0 grid place-items-center"><svg viewBox="0 0 100 160" class="h-3/5 w-auto" style="color:#7a1018"><use href="#ic-lipstick"/></svg></div>
+          <span class="absolute top-3 left-3 bg-ink text-bone text-[10px] tracking-[0.2em] uppercase px-2.5 py-1">Iconic</span>
+          <span class="absolute bottom-3 left-3 text-[10px] tracking-[0.25em] uppercase text-ink/45">Lipstick · 3.2 g</span>
+          <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/85 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <div class="quick"><button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">+ Add to bag</button></div>
         </div>
-        <div class="pt-4 px-1">
+        <div class="pt-3.5 px-1">
           <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Dior</p>
-          <h3 class="serif text-lg leading-snug mt-1">Rouge Dior 999 Velvet Lipstick</h3>
-          <div class="flex items-center gap-2 mt-2">
-            <span class="swatch" style="background:#7a1018"></span>
-            <span class="swatch" style="background:#b3252b"></span>
-            <span class="swatch" style="background:#3a0f12"></span>
-            <span class="text-[10px] text-ink/50 ml-1">+12</span>
+          <h3 class="text-[15px] font-medium leading-snug mt-1.5">Rouge Dior 999 Velvet Lipstick</h3>
+          <div class="flex items-center gap-1.5 mt-2 text-[11px] text-ink/60"><span class="text-hasaki">★★★★★</span><span>4.9 (12,403)</span></div>
+          <div class="flex items-center gap-2 mt-2.5">
+            <span class="swatch" style="background:#7a1018"></span><span class="swatch" style="background:#b3252b"></span><span class="swatch" style="background:#3a0f12"></span>
+            <span class="text-[10px] text-ink/45 ml-1">+12 shades</span>
           </div>
-          <div class="flex items-baseline gap-3 mt-3">
-            <span class="font-medium">$52</span>
-            <span class="ml-auto text-[11px] tracking-[0.2em] uppercase text-ink/50">★ 4.9</span>
-          </div>
+          <div class="flex items-baseline gap-2 mt-3"><span class="font-bold text-base">$52</span></div>
         </div>
       </article>
 
-      <!-- Product 6 -->
+      <!-- Product 6 — Innisfree -->
       <article class="pcard reveal group">
-        <div class="relative aspect-[4/5] bg-moss text-bone overflow-hidden">
-          <div class="img absolute inset-0 opacity-90">
-            <img src="https://loremflickr.com/600/750/serum,green,skincare?lock=114" alt="" class="w-full h-full object-cover editorial" />
-          </div>
-          <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/20 backdrop-blur grid place-items-center hover:bg-bone hover:text-ink transition">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          </button>
-          <div class="quick">
-            <button class="w-full bg-bone text-ink py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki hover:text-bone transition">Add to bag</button>
-          </div>
+        <div class="relative aspect-[4/5] bg-hasakiPale overflow-hidden">
+          <div class="absolute inset-0 grid place-items-center"><svg viewBox="0 0 100 160" class="h-3/5 w-auto" style="color:#3d4a3a"><use href="#ic-dropper"/></svg></div>
+          <span class="absolute top-3 left-3 bg-hasaki text-bone text-[10px] tracking-[0.2em] uppercase px-2.5 py-1">New</span>
+          <span class="absolute bottom-3 left-3 text-[10px] tracking-[0.25em] uppercase text-ink/45">Serum · 50 ml</span>
+          <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/85 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <div class="quick"><button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">+ Add to bag</button></div>
         </div>
-        <div class="pt-4 px-1">
+        <div class="pt-3.5 px-1">
           <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Innisfree</p>
-          <h3 class="serif text-lg leading-snug mt-1">Green Tea Seed Hyaluronic Serum</h3>
-          <p class="text-xs text-ink/50 mt-1">Oily skin · Acne · 50ml</p>
-          <div class="flex items-baseline gap-3 mt-3">
-            <span class="font-medium">$17</span>
-            <span class="ml-auto text-[11px] tracking-[0.2em] uppercase text-hasaki">New</span>
-          </div>
+          <h3 class="text-[15px] font-medium leading-snug mt-1.5">Green Tea Seed Hyaluronic Serum</h3>
+          <div class="flex items-center gap-1.5 mt-2 text-[11px] text-ink/60"><span class="text-hasaki">★★★★★</span><span>4.6 (1,729)</span></div>
+          <p class="text-[11px] text-ink/55 mt-2.5">Oily skin · Hydration</p>
+          <div class="flex items-baseline gap-2 mt-3"><span class="font-bold text-base">$17</span></div>
         </div>
       </article>
 
-      <!-- Product 7 -->
+      <!-- Product 7 — Anessa -->
       <article class="pcard reveal group">
         <div class="relative aspect-[4/5] bg-cream overflow-hidden">
-          <div class="img absolute inset-0">
-            <img src="https://loremflickr.com/600/750/sunscreen,gold,bottle?lock=115" alt="" class="w-full h-full object-cover" />
-          </div>
-          <span class="absolute top-3 left-3 bg-ink text-bone text-[10px] tracking-[0.25em] uppercase px-2.5 py-1">Best</span>
-          <div class="quick">
-            <button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">Add to bag</button>
-          </div>
+          <div class="absolute inset-0 grid place-items-center"><svg viewBox="0 0 100 160" class="h-3/5 w-auto" style="color:#c7a352"><use href="#ic-bottle"/></svg></div>
+          <span class="absolute top-3 left-3 bg-ink text-bone text-[10px] tracking-[0.2em] uppercase px-2.5 py-1">★ Best</span>
+          <span class="absolute bottom-3 left-3 text-[10px] tracking-[0.25em] uppercase text-ink/45">SPF50+ · 60 ml</span>
+          <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/85 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <div class="quick"><button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">+ Add to bag</button></div>
         </div>
-        <div class="pt-4 px-1">
+        <div class="pt-3.5 px-1">
           <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Anessa</p>
-          <h3 class="serif text-lg leading-snug mt-1">Perfect UV Sunscreen Skincare Milk SPF50+</h3>
-          <p class="text-xs text-ink/50 mt-1">The legendary gold · 60ml</p>
-          <div class="flex items-baseline gap-3 mt-3">
-            <span class="font-medium">$25</span>
-            <span class="ml-auto text-[11px] tracking-[0.2em] uppercase text-ink/50">★ 4.9</span>
-          </div>
+          <h3 class="text-[15px] font-medium leading-snug mt-1.5">Perfect UV Sunscreen Skincare Milk SPF50+</h3>
+          <div class="flex items-center gap-1.5 mt-2 text-[11px] text-ink/60"><span class="text-hasaki">★★★★★</span><span>4.9 (5,612)</span></div>
+          <p class="text-[11px] text-ink/55 mt-2.5">The legendary gold</p>
+          <div class="flex items-baseline gap-2 mt-3"><span class="font-bold text-base">$25</span></div>
         </div>
       </article>
 
-      <!-- Product 8 -->
+      <!-- Product 8 — The Ordinary -->
       <article class="pcard reveal group">
-        <div class="relative aspect-[4/5] bg-blush overflow-hidden">
-          <div class="img absolute inset-0">
-            <img src="https://loremflickr.com/600/750/serum,dropper,minimalist?lock=116" alt="" class="w-full h-full object-cover" />
-          </div>
-          <div class="quick">
-            <button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">Add to bag</button>
-          </div>
+        <div class="relative aspect-[4/5] bg-bone overflow-hidden border border-ink/5">
+          <div class="absolute inset-0 grid place-items-center"><svg viewBox="0 0 100 160" class="h-3/5 w-auto" style="color:#1a1a1a"><use href="#ic-dropper"/></svg></div>
+          <span class="absolute bottom-3 left-3 text-[10px] tracking-[0.25em] uppercase text-ink/45">Serum · 30 ml</span>
+          <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/85 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <div class="quick"><button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">+ Add to bag</button></div>
         </div>
-        <div class="pt-4 px-1">
+        <div class="pt-3.5 px-1">
           <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">The Ordinary</p>
-          <h3 class="serif text-lg leading-snug mt-1">Niacinamide 10% + Zinc 1% Serum</h3>
-          <p class="text-xs text-ink/50 mt-1">Blemishes · Pores · 30ml</p>
-          <div class="flex items-baseline gap-3 mt-3">
-            <span class="font-medium">$12</span>
-            <span class="ml-auto text-[11px] tracking-[0.2em] uppercase text-ink/50">★ 4.7</span>
-          </div>
+          <h3 class="text-[15px] font-medium leading-snug mt-1.5">Niacinamide 10% + Zinc 1% Serum</h3>
+          <div class="flex items-center gap-1.5 mt-2 text-[11px] text-ink/60"><span class="text-hasaki">★★★★★</span><span>4.7 (18,247)</span></div>
+          <p class="text-[11px] text-ink/55 mt-2.5">Blemishes · Pores</p>
+          <div class="flex items-baseline gap-2 mt-3"><span class="font-bold text-base">$12</span></div>
         </div>
       </article>
     </div>
@@ -847,11 +880,23 @@
 
     <div class="md:col-span-7 reveal">
       <div class="grid grid-cols-2 gap-3 md:gap-4">
-        <div class="aspect-[3/4] bg-cream overflow-hidden translate-y-8">
-          <img src="https://loremflickr.com/600/800/beauty,store,interior?lock=227" alt="" class="w-full h-full object-cover editorial" />
+        <div class="aspect-[3/4] bg-blush overflow-hidden translate-y-8 relative">
+          <div class="absolute inset-0 grid place-items-center">
+            <div class="flex items-end gap-2">
+              <svg viewBox="0 0 100 160" class="h-32 md:h-40 w-auto" style="color:#9d2a4d"><use href="#ic-lipstick"/></svg>
+              <svg viewBox="0 0 100 160" class="h-28 md:h-36 w-auto" style="color:#7a2638"><use href="#ic-perfume"/></svg>
+            </div>
+          </div>
+          <span class="absolute bottom-4 left-4 text-[10px] tracking-[0.25em] uppercase text-ink/50">Hasaki LA · Beverly Hills</span>
         </div>
-        <div class="aspect-[3/4] bg-cream overflow-hidden">
-          <img src="https://loremflickr.com/600/800/spa,treatment,clean?lock=228" alt="" class="w-full h-full object-cover editorial" />
+        <div class="aspect-[3/4] bg-hasakiPale overflow-hidden relative">
+          <div class="absolute inset-0 grid place-items-center">
+            <div class="flex items-end gap-2">
+              <svg viewBox="0 0 100 160" class="h-28 md:h-36 w-auto" style="color:#306E51"><use href="#ic-jar"/></svg>
+              <svg viewBox="0 0 100 160" class="h-32 md:h-40 w-auto" style="color:#1f4d38"><use href="#ic-pump"/></svg>
+            </div>
+          </div>
+          <span class="absolute bottom-4 left-4 text-[10px] tracking-[0.25em] uppercase text-ink/50">Hasaki Clinic &amp; Spa</span>
         </div>
       </div>
 
@@ -924,8 +969,8 @@
         <p class="serif text-7xl tracking-mega text-bone/20 mb-8">01</p>
         <h3 class="serif text-3xl tracking-tightest mb-4">Cleanse</h3>
         <p class="text-bone/75 text-sm leading-relaxed mb-8">A gentle oil-then-foam double cleanse. Lifts away makeup, sweat and pollutants without compromising the skin barrier.</p>
-        <div class="aspect-[4/3] bg-bone/5 overflow-hidden mb-6">
-          <img src="https://loremflickr.com/600/450/cleanser,bottle,white?lock=223" alt="" class="w-full h-full object-cover editorial" />
+        <div class="aspect-[4/3] bg-bone/5 overflow-hidden mb-6 grid place-items-center">
+          <svg viewBox="0 0 100 160" class="h-3/4 w-auto" style="color:#5b8fb8"><use href="#ic-pump"/></svg>
         </div>
         <a href="#" class="ulink text-[11px] tracking-[0.25em] uppercase">Discover → 24 products</a>
       </article>
@@ -933,8 +978,8 @@
         <p class="serif text-7xl tracking-mega text-bone/20 mb-8">02</p>
         <h3 class="serif text-3xl tracking-tightest mb-4">Treat</h3>
         <p class="text-bone/75 text-sm leading-relaxed mb-8">An active layer — Vitamin C in the morning, Retinol at night. Each drop is a small promise to your skin.</p>
-        <div class="aspect-[4/3] bg-bone/5 overflow-hidden mb-6">
-          <img src="https://loremflickr.com/600/450/serum,dropper,droplet?lock=224" alt="" class="w-full h-full object-cover editorial" />
+        <div class="aspect-[4/3] bg-bone/5 overflow-hidden mb-6 grid place-items-center">
+          <svg viewBox="0 0 100 160" class="h-3/4 w-auto" style="color:#cdb389"><use href="#ic-dropper"/></svg>
         </div>
         <a href="#" class="ulink text-[11px] tracking-[0.25em] uppercase">Discover → 38 products</a>
       </article>
@@ -942,8 +987,8 @@
         <p class="serif text-7xl tracking-mega text-bone/20 mb-8">03</p>
         <h3 class="serif text-3xl tracking-tightest mb-4">Protect</h3>
         <p class="text-bone/75 text-sm leading-relaxed mb-8">Moisturizer, then SPF50+. Seal in actives, block UV and shield from urban pollution. Every single day.</p>
-        <div class="aspect-[4/3] bg-bone/5 overflow-hidden mb-6">
-          <img src="https://loremflickr.com/600/450/sunscreen,bottle,white,clean?lock=225" alt="" class="w-full h-full object-cover editorial" />
+        <div class="aspect-[4/3] bg-bone/5 overflow-hidden mb-6 grid place-items-center">
+          <svg viewBox="0 0 100 160" class="h-3/4 w-auto" style="color:#f5f1ea"><use href="#ic-tube"/></svg>
         </div>
         <a href="#" class="ulink text-[11px] tracking-[0.25em] uppercase">Discover → 17 products</a>
       </article>
@@ -965,42 +1010,52 @@
   </div>
 
   <div class="shelf overflow-x-auto pb-6">
-    <div class="flex gap-5 px-6 max-w-none w-max">
-      <a href="#" class="pcard w-[260px] md:w-[300px] shrink-0 group">
-        <div class="relative aspect-[3/4] bg-cream overflow-hidden">
-          <div class="img absolute inset-0"><img src="https://loremflickr.com/600/800/lipstick,nude,pink?lock=117" class="w-full h-full object-cover" alt=""/></div>
-        </div>
-        <div class="pt-3"><p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Charlotte Tilbury</p><h3 class="serif text-base mt-1">Pillow Talk Lipstick</h3><p class="font-medium mt-2">$39</p></div>
-      </a>
-      <a href="#" class="pcard w-[260px] md:w-[300px] shrink-0 group">
+    <div class="flex gap-4 px-6 max-w-none w-max">
+      <a href="#" class="pcard w-[230px] md:w-[280px] shrink-0 group">
         <div class="relative aspect-[3/4] bg-blush overflow-hidden">
-          <div class="img absolute inset-0"><img src="https://loremflickr.com/600/800/serum,pink,bottle?lock=118" class="w-full h-full object-cover" alt=""/></div>
+          <div class="absolute inset-0 grid place-items-center"><svg viewBox="0 0 100 160" class="h-3/5 w-auto" style="color:#c98985"><use href="#ic-lipstick"/></svg></div>
+          <span class="absolute top-3 left-3 bg-ink text-bone text-[10px] tracking-[0.2em] uppercase px-2 py-0.5">Cult</span>
+          <span class="absolute bottom-3 left-3 text-[10px] tracking-[0.25em] uppercase text-ink/45">Lipstick · 3.5 g</span>
         </div>
-        <div class="pt-3"><p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Glow Recipe</p><h3 class="serif text-base mt-1">Watermelon Glow Niacinamide Dew Drops</h3><p class="font-medium mt-2">$46</p></div>
+        <div class="pt-3"><p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Charlotte Tilbury</p><h3 class="text-[14px] font-medium mt-1.5 leading-snug">Pillow Talk Lipstick</h3><div class="flex items-center gap-1.5 mt-1.5 text-[11px] text-ink/60"><span class="text-hasaki">★★★★★</span><span>4.8</span></div><p class="font-bold mt-2">$39</p></div>
       </a>
-      <a href="#" class="pcard w-[260px] md:w-[300px] shrink-0 group">
-        <div class="relative aspect-[3/4] bg-ink overflow-hidden">
-          <div class="img absolute inset-0 opacity-90"><img src="https://loremflickr.com/600/800/perfume,black,bottle?lock=119" class="w-full h-full object-cover editorial" alt=""/></div>
-        </div>
-        <div class="pt-3"><p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Tom Ford</p><h3 class="serif text-base mt-1">Black Orchid Eau de Parfum</h3><p class="font-medium mt-2">$185</p></div>
-      </a>
-      <a href="#" class="pcard w-[260px] md:w-[300px] shrink-0 group">
-        <div class="relative aspect-[3/4] bg-cream overflow-hidden">
-          <div class="img absolute inset-0"><img src="https://loremflickr.com/600/800/skincare,korean,gold?lock=120" class="w-full h-full object-cover" alt=""/></div>
-        </div>
-        <div class="pt-3"><p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Sulwhasoo</p><h3 class="serif text-base mt-1">First Care Activating Serum</h3><p class="font-medium mt-2">$78</p></div>
-      </a>
-      <a href="#" class="pcard w-[260px] md:w-[300px] shrink-0 group">
+      <a href="#" class="pcard w-[230px] md:w-[280px] shrink-0 group">
         <div class="relative aspect-[3/4] bg-blush overflow-hidden">
-          <div class="img absolute inset-0"><img src="https://loremflickr.com/600/800/mascara,makeup,black?lock=121" class="w-full h-full object-cover" alt=""/></div>
+          <div class="absolute inset-0 grid place-items-center"><svg viewBox="0 0 100 160" class="h-3/5 w-auto" style="color:#e08fa8"><use href="#ic-dropper"/></svg></div>
+          <span class="absolute top-3 left-3 bg-hasaki text-bone text-[10px] tracking-[0.2em] uppercase px-2 py-0.5">Hot</span>
+          <span class="absolute bottom-3 left-3 text-[10px] tracking-[0.25em] uppercase text-ink/45">Drops · 40 ml</span>
         </div>
-        <div class="pt-3"><p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Maybelline</p><h3 class="serif text-base mt-1">Sky High Volume Mascara</h3><p class="font-medium mt-2">$11</p></div>
+        <div class="pt-3"><p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Glow Recipe</p><h3 class="text-[14px] font-medium mt-1.5 leading-snug">Watermelon Glow Niacinamide Dew Drops</h3><div class="flex items-center gap-1.5 mt-1.5 text-[11px] text-ink/60"><span class="text-hasaki">★★★★★</span><span>4.7</span></div><p class="font-bold mt-2">$46</p></div>
       </a>
-      <a href="#" class="pcard w-[260px] md:w-[300px] shrink-0 group">
-        <div class="relative aspect-[3/4] bg-moss overflow-hidden">
-          <div class="img absolute inset-0 opacity-90"><img src="https://loremflickr.com/600/800/cologne,perfume,bottle?lock=122" class="w-full h-full object-cover editorial" alt=""/></div>
+      <a href="#" class="pcard w-[230px] md:w-[280px] shrink-0 group">
+        <div class="relative aspect-[3/4] bg-ink text-bone overflow-hidden">
+          <div class="absolute inset-0 grid place-items-center"><svg viewBox="0 0 100 160" class="h-3/5 w-auto" style="color:#5a3a3a"><use href="#ic-perfume"/></svg></div>
+          <span class="absolute top-3 left-3 bg-bone text-ink text-[10px] tracking-[0.2em] uppercase px-2 py-0.5">Iconic</span>
+          <span class="absolute bottom-3 left-3 text-[10px] tracking-[0.25em] uppercase text-bone/50">EDP · 50 ml</span>
         </div>
-        <div class="pt-3"><p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Jo Malone</p><h3 class="serif text-base mt-1">Wood Sage &amp; Sea Salt Cologne</h3><p class="font-medium mt-2">$142</p></div>
+        <div class="pt-3"><p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Tom Ford</p><h3 class="text-[14px] font-medium mt-1.5 leading-snug">Black Orchid Eau de Parfum</h3><div class="flex items-center gap-1.5 mt-1.5 text-[11px] text-ink/60"><span class="text-hasaki">★★★★★</span><span>4.9</span></div><p class="font-bold mt-2">$185</p></div>
+      </a>
+      <a href="#" class="pcard w-[230px] md:w-[280px] shrink-0 group">
+        <div class="relative aspect-[3/4] bg-cream overflow-hidden">
+          <div class="absolute inset-0 grid place-items-center"><svg viewBox="0 0 100 160" class="h-3/5 w-auto" style="color:#a06b3a"><use href="#ic-bottle"/></svg></div>
+          <span class="absolute bottom-3 left-3 text-[10px] tracking-[0.25em] uppercase text-ink/45">Serum · 60 ml</span>
+        </div>
+        <div class="pt-3"><p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Sulwhasoo</p><h3 class="text-[14px] font-medium mt-1.5 leading-snug">First Care Activating Serum</h3><div class="flex items-center gap-1.5 mt-1.5 text-[11px] text-ink/60"><span class="text-hasaki">★★★★★</span><span>4.8</span></div><p class="font-bold mt-2">$78</p></div>
+      </a>
+      <a href="#" class="pcard w-[230px] md:w-[280px] shrink-0 group">
+        <div class="relative aspect-[3/4] bg-blush overflow-hidden">
+          <div class="absolute inset-0 grid place-items-center"><svg viewBox="0 0 100 160" class="h-3/5 w-auto" style="color:#1a1a1a"><use href="#ic-mascara"/></svg></div>
+          <span class="absolute top-3 left-3 bg-rose-700 text-bone text-[10px] tracking-[0.2em] uppercase px-2 py-0.5" style="background:#9d2a4d">−20%</span>
+          <span class="absolute bottom-3 left-3 text-[10px] tracking-[0.25em] uppercase text-ink/45">Mascara · 7 ml</span>
+        </div>
+        <div class="pt-3"><p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Maybelline</p><h3 class="text-[14px] font-medium mt-1.5 leading-snug">Sky High Volume Mascara</h3><div class="flex items-center gap-1.5 mt-1.5 text-[11px] text-ink/60"><span class="text-hasaki">★★★★★</span><span>4.6</span></div><div class="flex items-baseline gap-2 mt-2"><span class="font-bold">$11</span><span class="text-ink/40 line-through text-xs">$14</span></div></div>
+      </a>
+      <a href="#" class="pcard w-[230px] md:w-[280px] shrink-0 group">
+        <div class="relative aspect-[3/4] bg-moss text-bone overflow-hidden">
+          <div class="absolute inset-0 grid place-items-center"><svg viewBox="0 0 100 160" class="h-3/5 w-auto" style="color:#cdb389"><use href="#ic-perfume"/></svg></div>
+          <span class="absolute bottom-3 left-3 text-[10px] tracking-[0.25em] uppercase text-bone/55">Cologne · 100 ml</span>
+        </div>
+        <div class="pt-3"><p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Jo Malone</p><h3 class="text-[14px] font-medium mt-1.5 leading-snug">Wood Sage &amp; Sea Salt Cologne</h3><div class="flex items-center gap-1.5 mt-1.5 text-[11px] text-ink/60"><span class="text-hasaki">★★★★★</span><span>4.7</span></div><p class="font-bold mt-2">$142</p></div>
       </a>
     </div>
   </div>
@@ -1008,10 +1063,13 @@
 
 <!-- PERFUME — full-bleed editorial -->
 <section id="fragrance" class="relative bg-ink text-bone overflow-hidden">
-  <div class="absolute inset-0 opacity-60">
-    <img src="https://loremflickr.com/1900/1100/perfume,bottles,glass,collection?lock=226" alt="" class="w-full h-full object-cover editorial" />
+  <!-- Floating perfume bottle row -->
+  <div class="absolute inset-y-0 right-0 w-1/2 hidden md:block">
+    <svg viewBox="0 0 100 160" class="absolute h-[60%] right-[6%] top-[15%] opacity-95" style="color:#cdb389"><use href="#ic-perfume"/></svg>
+    <svg viewBox="0 0 100 160" class="absolute h-[45%] right-[28%] top-[28%] opacity-80" style="color:#9d2a4d"><use href="#ic-perfume"/></svg>
+    <svg viewBox="0 0 100 160" class="absolute h-[50%] right-[48%] top-[20%] opacity-70" style="color:#5a3a3a"><use href="#ic-bottle"/></svg>
   </div>
-  <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-transparent"></div>
+  <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/40"></div>
   <div class="relative max-w-[1500px] mx-auto px-6 py-28 md:py-40 grid md:grid-cols-12 gap-12">
     <div class="md:col-span-7">
       <p class="text-xs tracking-[0.3em] uppercase text-bone/60 mb-6 reveal">09 — Find your scent</p>
