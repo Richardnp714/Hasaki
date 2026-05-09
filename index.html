@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HASAKI — Authentic Beauty &amp; Wellness</title>
-  <meta name="description" content="HASAKI — A modern beauty house. Skincare, makeup, fragrance, and wellness from 800+ globally curated brands. Now shipping worldwide." />
+  <title>hasaki. — Save More Always · Authentic Beauty &amp; Wellness</title>
+  <meta name="description" content="hasaki. — Vietnam's leading authentic beauty retailer since 2016. 140+ stores nationwide, 800+ brands, now shipping worldwide. Save More Always." />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,7 +24,9 @@
             cream: '#ebe4d8',
             blush: '#e8d5cc',
             moss:  '#3d4a3a',
-            clay:  '#a87f63',
+            hasaki:     '#0BAA51',
+            hasakiDark: '#087a3b',
+            hasakiPale: '#e6f7ed',
             ash:   '#8a8580',
           },
           letterSpacing: {
@@ -92,8 +94,8 @@
 <div class="bg-ink text-bone text-[11px] tracking-[0.25em] uppercase">
   <div class="max-w-[1500px] mx-auto px-6 py-2.5 flex items-center justify-between">
     <div class="hidden md:flex items-center gap-6 text-bone/70">
-      <span>Care · 1-888-HASAKI-1</span>
-      <span>120+ stores worldwide</span>
+      <span class="text-hasaki font-medium">Save More Always</span>
+      <span>140+ stores · Since 2016</span>
     </div>
     <div class="marquee md:hidden flex-1">
       <div class="marquee-track">
@@ -158,8 +160,9 @@
       </nav>
 
       <!-- Logo -->
-      <a href="#" class="justify-self-center lg:justify-self-center">
-        <div class="serif text-3xl md:text-4xl font-medium tracking-mega">HASAKI<span class="text-clay">.</span></div>
+      <a href="#" class="justify-self-center lg:justify-self-center text-center leading-none" aria-label="hasaki — home">
+        <div class="serif text-3xl md:text-4xl font-semibold tracking-mega lowercase text-hasaki">hasaki<span class="text-hasakiDark">.</span></div>
+        <div class="text-[9px] md:text-[10px] tracking-[0.35em] uppercase text-ink/60 mt-1">Save More Always</div>
       </a>
 
       <!-- Right utilities -->
@@ -169,9 +172,9 @@
           <span>Search products, brands…</span>
         </button>
         <button aria-label="Search" class="md:hidden p-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
-        <a href="#" aria-label="Account" class="p-2 hover:text-clay transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></a>
-        <a href="#" aria-label="Wishlist" class="hidden md:block p-2 hover:text-clay transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></a>
-        <a href="#" aria-label="Bag" class="relative p-2 hover:text-clay transition">
+        <a href="#" aria-label="Account" class="p-2 hover:text-hasaki transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></a>
+        <a href="#" aria-label="Wishlist" class="hidden md:block p-2 hover:text-hasaki transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></a>
+        <a href="#" aria-label="Bag" class="relative p-2 hover:text-hasaki transition">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><path d="M6 7h12l-1.5 12.5a2 2 0 0 1-2 1.7H9.5a2 2 0 0 1-2-1.7L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
           <span class="absolute -top-0.5 -right-0.5 bg-ink text-bone text-[10px] w-4 h-4 rounded-full grid place-items-center">2</span>
         </a>
@@ -194,10 +197,10 @@
         <p class="text-xs tracking-[0.4em] uppercase text-bone/70 mb-6 reveal">Spring — Summer 2026</p>
         <h1 class="serif font-light tracking-mega leading-[0.86] text-[15vw] md:text-[10.5vw] reveal drift">
           <span class="block">Beauty,</span>
-          <span class="block italic font-normal text-clay">without borders.</span>
+          <span class="block italic font-normal text-hasaki">without borders.</span>
         </h1>
         <div class="mt-10 flex flex-wrap items-center gap-4 reveal">
-          <a href="#products" class="group inline-flex items-center gap-3 bg-bone text-ink px-7 py-4 text-sm tracking-[0.18em] uppercase hover:bg-clay hover:text-bone transition">
+          <a href="#products" class="group inline-flex items-center gap-3 bg-bone text-ink px-7 py-4 text-sm tracking-[0.18em] uppercase hover:bg-hasaki hover:text-bone transition">
             Shop the edit
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2 group-hover:translate-x-1 transition"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
@@ -205,10 +208,10 @@
         </div>
       </div>
       <div class="md:col-span-4 hidden md:block reveal">
-        <p class="serif italic text-bone/80 text-lg leading-relaxed border-l border-bone/30 pl-6">
-          “Your skin deserves a ritual born of nature, science, and a quieter kind of luxury.”
+        <p class="serif italic text-bone/80 text-lg leading-relaxed border-l border-hasaki pl-6">
+          “Authentic beauty shouldn't cost more than it has to. That's been our promise since 2016 — and we mean to keep it.”
         </p>
-        <p class="mt-4 text-xs tracking-[0.25em] uppercase text-bone/60 pl-6">— Hasaki Editorial</p>
+        <p class="mt-4 text-xs tracking-[0.25em] uppercase text-bone/60 pl-6">— hasaki. <span class="text-hasaki">·</span> Save More Always</p>
       </div>
     </div>
   </div>
@@ -224,16 +227,16 @@
 <section class="bg-bone border-y border-ink/10">
   <div class="marquee py-5">
     <div class="marquee-track serif italic text-ink/80 text-2xl md:text-3xl">
-      <span>100% authentic</span><span class="text-clay">✦</span>
-      <span>2-hour delivery in select cities</span><span class="text-clay">✦</span>
-      <span>Free 30-day returns</span><span class="text-clay">✦</span>
-      <span>Hasaki Pink rewards</span><span class="text-clay">✦</span>
-      <span>Free skin consultation</span><span class="text-clay">✦</span>
-      <span>100% authentic</span><span class="text-clay">✦</span>
-      <span>2-hour delivery in select cities</span><span class="text-clay">✦</span>
-      <span>Free 30-day returns</span><span class="text-clay">✦</span>
-      <span>Hasaki Pink rewards</span><span class="text-clay">✦</span>
-      <span>Free skin consultation</span><span class="text-clay">✦</span>
+      <span>100% authentic</span><span class="text-hasaki">✦</span>
+      <span>2-hour delivery in select cities</span><span class="text-hasaki">✦</span>
+      <span>Free 30-day returns</span><span class="text-hasaki">✦</span>
+      <span>Hasaki Pink rewards</span><span class="text-hasaki">✦</span>
+      <span>Free skin consultation</span><span class="text-hasaki">✦</span>
+      <span>100% authentic</span><span class="text-hasaki">✦</span>
+      <span>2-hour delivery in select cities</span><span class="text-hasaki">✦</span>
+      <span>Free 30-day returns</span><span class="text-hasaki">✦</span>
+      <span>Hasaki Pink rewards</span><span class="text-hasaki">✦</span>
+      <span>Free skin consultation</span><span class="text-hasaki">✦</span>
     </div>
   </div>
 </section>
@@ -244,7 +247,7 @@
     <div class="flex items-end justify-between mb-12 reveal">
       <div>
         <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3">01 — Categories</p>
-        <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">Shop by<br/><span class="italic text-clay">mood.</span></h2>
+        <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">Shop by<br/><span class="italic text-hasaki">mood.</span></h2>
       </div>
       <a href="#" class="ulink hidden md:inline-block text-sm tracking-[0.18em] uppercase">View all →</a>
     </div>
@@ -306,7 +309,7 @@
         </div>
       </a>
 
-      <a href="#" class="pcard col-span-2 md:col-span-1 aspect-[2/1] md:aspect-square bg-clay text-bone group block">
+      <a href="#" class="pcard col-span-2 md:col-span-1 aspect-[2/1] md:aspect-square bg-hasaki text-bone group block">
         <div class="absolute inset-0 grid place-items-center">
           <div class="text-center">
             <p class="text-[10px] tracking-[0.3em] uppercase opacity-80 mb-2">06</p>
@@ -330,7 +333,7 @@
     <div class="md:col-span-5 reveal">
       <p class="text-xs tracking-[0.3em] uppercase text-bone/60 mb-6">Editorial · Issue 12</p>
       <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.92]">
-        Your skin is your <span class="italic text-clay">statement.</span>
+        Your skin is your <span class="italic text-hasaki">statement.</span>
       </h2>
       <p class="mt-8 text-bone/80 leading-relaxed max-w-md">
         A new kind of beauty house — where ritual meets modern design. The choices you make say something about who you are. We help you make them well.
@@ -364,7 +367,7 @@
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 reveal">
       <div>
         <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3">02 — Bestsellers</p>
-        <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">Loved this<br/><span class="italic text-clay">week.</span></h2>
+        <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">Loved this<br/><span class="italic text-hasaki">week.</span></h2>
       </div>
       <div class="flex flex-wrap gap-2 text-[12px] tracking-[0.2em] uppercase">
         <button class="px-4 py-2 bg-ink text-bone">All</button>
@@ -387,7 +390,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </button>
           <div class="quick">
-            <button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-clay transition">Add to bag</button>
+            <button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">Add to bag</button>
           </div>
         </div>
         <div class="pt-4 px-1">
@@ -401,7 +404,7 @@
           <div class="flex items-baseline gap-3 mt-3">
             <span class="font-medium">$18</span>
             <span class="text-ink/40 line-through text-sm">$22</span>
-            <span class="ml-auto text-[11px] tracking-[0.2em] uppercase text-clay">−17%</span>
+            <span class="ml-auto text-[11px] tracking-[0.2em] uppercase text-hasaki">−17%</span>
           </div>
         </div>
       </article>
@@ -412,12 +415,12 @@
           <div class="img absolute inset-0">
             <img src="https://picsum.photos/seed/cosrx-snail/600/750" alt="" class="w-full h-full object-cover" />
           </div>
-          <span class="absolute top-3 left-3 bg-clay text-bone text-[10px] tracking-[0.25em] uppercase px-2.5 py-1">New</span>
+          <span class="absolute top-3 left-3 bg-hasaki text-bone text-[10px] tracking-[0.25em] uppercase px-2.5 py-1">New</span>
           <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/80 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </button>
           <div class="quick">
-            <button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-clay transition">Add to bag</button>
+            <button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">Add to bag</button>
           </div>
         </div>
         <div class="pt-4 px-1">
@@ -442,7 +445,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </button>
           <div class="quick">
-            <button class="w-full bg-bone text-ink py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-clay hover:text-bone transition">Add to bag</button>
+            <button class="w-full bg-bone text-ink py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki hover:text-bone transition">Add to bag</button>
           </div>
         </div>
         <div class="pt-4 px-1">
@@ -466,7 +469,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </button>
           <div class="quick">
-            <button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-clay transition">Add to bag</button>
+            <button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">Add to bag</button>
           </div>
         </div>
         <div class="pt-4 px-1">
@@ -490,7 +493,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </button>
           <div class="quick">
-            <button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-clay transition">Add to bag</button>
+            <button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">Add to bag</button>
           </div>
         </div>
         <div class="pt-4 px-1">
@@ -519,7 +522,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </button>
           <div class="quick">
-            <button class="w-full bg-bone text-ink py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-clay hover:text-bone transition">Add to bag</button>
+            <button class="w-full bg-bone text-ink py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki hover:text-bone transition">Add to bag</button>
           </div>
         </div>
         <div class="pt-4 px-1">
@@ -528,7 +531,7 @@
           <p class="text-xs text-ink/50 mt-1">Oily skin · Acne · 50ml</p>
           <div class="flex items-baseline gap-3 mt-3">
             <span class="font-medium">$17</span>
-            <span class="ml-auto text-[11px] tracking-[0.2em] uppercase text-clay">New</span>
+            <span class="ml-auto text-[11px] tracking-[0.2em] uppercase text-hasaki">New</span>
           </div>
         </div>
       </article>
@@ -541,7 +544,7 @@
           </div>
           <span class="absolute top-3 left-3 bg-ink text-bone text-[10px] tracking-[0.25em] uppercase px-2.5 py-1">Best</span>
           <div class="quick">
-            <button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-clay transition">Add to bag</button>
+            <button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">Add to bag</button>
           </div>
         </div>
         <div class="pt-4 px-1">
@@ -562,7 +565,7 @@
             <img src="https://picsum.photos/seed/the-ordinary-niac/600/750" alt="" class="w-full h-full object-cover" />
           </div>
           <div class="quick">
-            <button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-clay transition">Add to bag</button>
+            <button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">Add to bag</button>
           </div>
         </div>
         <div class="pt-4 px-1">
@@ -583,18 +586,24 @@
   </div>
 </section>
 
-<!-- BIG TYPE BREAK -->
-<section class="bg-clay text-bone py-24 md:py-32 overflow-hidden">
-  <div class="max-w-[1500px] mx-auto px-6 text-center">
-    <p class="text-xs tracking-[0.4em] uppercase text-bone/70 mb-6 reveal">Hasaki Pink Membership</p>
-    <h2 class="serif font-light tracking-mega leading-[0.86] text-[18vw] md:text-[12vw] reveal">
-      <span class="block italic">Rewards for</span>
-      <span class="block">— your skin.</span>
+<!-- BIG TYPE BREAK — The slogan -->
+<section class="bg-hasaki text-bone py-24 md:py-36 overflow-hidden relative">
+  <div class="absolute inset-0 opacity-[0.07] pointer-events-none">
+    <div class="serif text-[40vw] leading-none tracking-mega absolute -top-10 -left-10 select-none">.</div>
+  </div>
+  <div class="relative max-w-[1500px] mx-auto px-6 text-center">
+    <p class="text-xs tracking-[0.4em] uppercase text-bone/80 mb-6 reveal">Our promise · since 2016</p>
+    <h2 class="serif font-light tracking-mega leading-[0.86] text-[20vw] md:text-[14vw] reveal">
+      <span class="block">Save more.</span>
+      <span class="block italic font-normal">Always<span class="text-bone">.</span></span>
     </h2>
-    <p class="mt-8 max-w-xl mx-auto text-bone/85 reveal">
-      Earn points on every order. Redeem exclusive perks, gifts and signature spa experiences at 120+ Hasaki Clinic &amp; Spa locations worldwide.
+    <p class="mt-10 max-w-xl mx-auto text-bone/90 reveal">
+      Authentic beauty at honest prices — direct from the brands we love. No counterfeits, no markups, no compromise. Just better beauty for every day.
     </p>
-    <a href="#" class="mt-10 inline-flex items-center gap-3 bg-ink text-bone hover:bg-bone hover:text-ink px-8 py-4 text-sm tracking-[0.18em] uppercase transition reveal">Join free</a>
+    <div class="mt-10 flex flex-wrap justify-center gap-4 reveal">
+      <a href="#" class="inline-flex items-center gap-3 bg-ink text-bone hover:bg-bone hover:text-ink px-8 py-4 text-sm tracking-[0.18em] uppercase transition">Join Hasaki Member · Free</a>
+      <a href="#about" class="inline-flex items-center gap-3 border border-bone/60 hover:bg-bone hover:text-hasaki px-8 py-4 text-sm tracking-[0.18em] uppercase transition">Our story</a>
+    </div>
   </div>
 </section>
 
@@ -604,7 +613,7 @@
     <div class="flex items-end justify-between mb-12 reveal">
       <div>
         <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3">03 — Brands</p>
-        <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">800+ houses,<br/><span class="italic text-clay">carefully curated.</span></h2>
+        <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">800+ houses,<br/><span class="italic text-hasaki">carefully curated.</span></h2>
       </div>
       <a href="#" class="ulink hidden md:inline-block text-sm tracking-[0.18em] uppercase">All brands →</a>
     </div>
@@ -634,13 +643,66 @@
   </div>
 </section>
 
+<!-- ABOUT — Since 2016 -->
+<section id="about" class="py-24 md:py-32 bg-bone">
+  <div class="max-w-[1500px] mx-auto px-6 grid md:grid-cols-12 gap-10 md:gap-16 items-center">
+    <div class="md:col-span-5 reveal">
+      <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3">About hasaki.</p>
+      <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">
+        Born in Vietnam,<br/><span class="italic text-hasaki">built on trust.</span>
+      </h2>
+      <p class="mt-8 text-ink/70 leading-relaxed max-w-md">
+        Founded in 2016 in Ho Chi Minh City, hasaki. set out with one stubborn idea: that authentic, world-class beauty shouldn't cost more than it has to. Ten years on, we're Vietnam's most trusted beauty retailer — 140+ stores, 800+ official brand partners, millions of customers — and now opening that promise to the world.
+      </p>
+      <p class="serif italic text-2xl mt-8 text-ink/90 leading-snug border-l-2 border-hasaki pl-5">
+        “Save More Always — that's not a slogan, it's a contract with every customer who walks through our doors.”
+      </p>
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a href="#" class="inline-flex items-center gap-3 bg-ink text-bone hover:bg-hasaki px-7 py-4 text-sm tracking-[0.18em] uppercase transition">Read our story</a>
+        <a href="#" class="ulink py-4 text-sm tracking-[0.18em] uppercase">Find a store →</a>
+      </div>
+    </div>
+
+    <div class="md:col-span-7 reveal">
+      <div class="grid grid-cols-2 gap-3 md:gap-4">
+        <div class="aspect-[3/4] bg-cream overflow-hidden translate-y-8">
+          <img src="https://picsum.photos/seed/hasaki-store-front/600/800" alt="" class="w-full h-full object-cover editorial" />
+        </div>
+        <div class="aspect-[3/4] bg-cream overflow-hidden">
+          <img src="https://picsum.photos/seed/hasaki-clinic-spa/600/800" alt="" class="w-full h-full object-cover editorial" />
+        </div>
+      </div>
+
+      <!-- Stats strip -->
+      <div class="mt-10 grid grid-cols-4 border-t border-ink/15 pt-8 gap-4">
+        <div>
+          <p class="serif text-3xl md:text-4xl text-hasaki">2016</p>
+          <p class="text-[10px] tracking-[0.25em] uppercase text-ink/55 mt-1">Founded</p>
+        </div>
+        <div>
+          <p class="serif text-3xl md:text-4xl text-hasaki tick">140<span class="text-ink/40">+</span></p>
+          <p class="text-[10px] tracking-[0.25em] uppercase text-ink/55 mt-1">Stores &amp; Clinics</p>
+        </div>
+        <div>
+          <p class="serif text-3xl md:text-4xl text-hasaki tick">800<span class="text-ink/40">+</span></p>
+          <p class="text-[10px] tracking-[0.25em] uppercase text-ink/55 mt-1">Brand partners</p>
+        </div>
+        <div>
+          <p class="serif text-3xl md:text-4xl text-hasaki tick">2.5M<span class="text-ink/40">+</span></p>
+          <p class="text-[10px] tracking-[0.25em] uppercase text-ink/55 mt-1">Customers</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- THE RITUAL — 3 step lookbook -->
 <section id="skincare" class="bg-soot text-bone py-24 md:py-32">
   <div class="max-w-[1500px] mx-auto px-6">
     <div class="grid md:grid-cols-12 mb-16 reveal">
       <div class="md:col-span-5">
         <p class="text-xs tracking-[0.3em] uppercase text-bone/60 mb-3">04 — The Ritual</p>
-        <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">Three steps,<br/><span class="italic text-clay">infinite glow.</span></h2>
+        <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">Three steps,<br/><span class="italic text-hasaki">infinite glow.</span></h2>
       </div>
       <p class="md:col-span-5 md:col-start-8 self-end text-bone/75 leading-relaxed">
         Designed by our team of dermatologists, the Hasaki morning and evening rituals are tuned for modern climates and the realities of daily life.
@@ -684,7 +746,7 @@
   <div class="max-w-[1500px] mx-auto px-6 mb-10 flex items-end justify-between reveal">
     <div>
       <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3">05 — Trending</p>
-      <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">On every<br/><span class="italic text-clay">wishlist.</span></h2>
+      <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">On every<br/><span class="italic text-hasaki">wishlist.</span></h2>
     </div>
     <div class="hidden md:flex gap-2">
       <button aria-label="Previous" class="w-12 h-12 border border-ink hover:bg-ink hover:text-bone transition grid place-items-center"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
@@ -744,13 +806,13 @@
     <div class="md:col-span-7">
       <p class="text-xs tracking-[0.3em] uppercase text-bone/60 mb-6 reveal">06 — Find your scent</p>
       <h2 class="serif font-light tracking-mega leading-[0.9] text-[14vw] md:text-[8vw] reveal">
-        One scent,<br/><span class="italic text-clay">one memory.</span>
+        One scent,<br/><span class="italic text-hasaki">one memory.</span>
       </h2>
       <p class="mt-8 max-w-md text-bone/80 reveal">
         Over 320 fragrances from niche houses to haute parfumerie. Discover your signature with our Fragrance Finder quiz.
       </p>
       <div class="mt-10 flex flex-wrap gap-4 reveal">
-        <a href="#" class="bg-bone text-ink px-7 py-4 text-sm tracking-[0.18em] uppercase hover:bg-clay hover:text-bone transition">Take the quiz</a>
+        <a href="#" class="bg-bone text-ink px-7 py-4 text-sm tracking-[0.18em] uppercase hover:bg-hasaki hover:text-bone transition">Take the quiz</a>
         <a href="#" class="ulink text-sm tracking-[0.18em] uppercase text-bone/80 py-4">Shop fragrance →</a>
       </div>
     </div>
@@ -762,19 +824,19 @@
   <div class="max-w-[1500px] mx-auto px-6 grid md:grid-cols-3 gap-10">
     <div class="reveal">
       <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3">07 — Reviews</p>
-      <h2 class="serif text-4xl md:text-5xl tracking-tightest leading-[0.95]">What our<br/><span class="italic text-clay">customers say.</span></h2>
-      <div class="flex items-center gap-2 mt-8 text-clay">
+      <h2 class="serif text-4xl md:text-5xl tracking-tightest leading-[0.95]">What our<br/><span class="italic text-hasaki">customers say.</span></h2>
+      <div class="flex items-center gap-2 mt-8 text-hasaki">
         <span>★★★★★</span>
         <span class="text-ink text-sm">4.9 / 5 — 380,000+ reviews</span>
       </div>
     </div>
     <figure class="reveal">
-      <div class="text-clay text-3xl serif mb-3">"</div>
+      <div class="text-hasaki text-3xl serif mb-3">"</div>
       <blockquote class="serif italic text-2xl leading-snug">Hasaki feels like the favorite shop you keep going back to — authentic, fast, and the staff actually know their stuff.</blockquote>
       <figcaption class="mt-6 text-sm text-ink/60">— Mai A., Los Angeles</figcaption>
     </figure>
     <figure class="reveal">
-      <div class="text-clay text-3xl serif mb-3">"</div>
+      <div class="text-hasaki text-3xl serif mb-3">"</div>
       <blockquote class="serif italic text-2xl leading-snug">The 7-step routine they recommended completely changed my skin in two months. Genuinely a Hasaki convert.</blockquote>
       <figcaption class="mt-6 text-sm text-ink/60">— Linh P., Brooklyn, NY</figcaption>
     </figure>
@@ -785,19 +847,19 @@
 <section class="bg-bone border-t border-ink/10">
   <div class="max-w-[1500px] mx-auto px-6 py-14 grid grid-cols-2 md:grid-cols-4 gap-y-8 md:gap-x-10">
     <div class="flex items-start gap-4 reveal">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-7 h-7 stroke-[1.5] text-clay shrink-0"><path d="M2 7h16l3 5v6h-3M2 7v11h13M2 7l3-3h10l3 3"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-7 h-7 stroke-[1.5] text-hasaki shrink-0"><path d="M2 7h16l3 5v6h-3M2 7v11h13M2 7l3-3h10l3 3"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
       <div><h4 class="serif text-lg">Fast delivery</h4><p class="text-sm text-ink/60 mt-1">2-hour in select cities</p></div>
     </div>
     <div class="flex items-start gap-4 reveal">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-7 h-7 stroke-[1.5] text-clay shrink-0"><path d="M9 12l2 2 4-4"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-7 h-7 stroke-[1.5] text-hasaki shrink-0"><path d="M9 12l2 2 4-4"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       <div><h4 class="serif text-lg">100% authentic</h4><p class="text-sm text-ink/60 mt-1">Sourced direct from brands</p></div>
     </div>
     <div class="flex items-start gap-4 reveal">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-7 h-7 stroke-[1.5] text-clay shrink-0"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-7 h-7 stroke-[1.5] text-hasaki shrink-0"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
       <div><h4 class="serif text-lg">30-day returns</h4><p class="text-sm text-ink/60 mt-1">Free, no questions asked</p></div>
     </div>
     <div class="flex items-start gap-4 reveal">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-7 h-7 stroke-[1.5] text-clay shrink-0"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-7 h-7 stroke-[1.5] text-hasaki shrink-0"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"/></svg>
       <div><h4 class="serif text-lg">24/7 support</h4><p class="text-sm text-ink/60 mt-1">Licensed skin experts</p></div>
     </div>
   </div>
@@ -807,13 +869,13 @@
 <section class="bg-cream py-24 md:py-32">
   <div class="max-w-3xl mx-auto px-6 text-center">
     <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-6 reveal">The Hasaki Letter</p>
-    <h2 class="serif text-5xl md:text-7xl tracking-mega leading-[0.92] reveal">Be the first<br/><span class="italic text-clay">to know.</span></h2>
+    <h2 class="serif text-5xl md:text-7xl tracking-mega leading-[0.92] reveal">Be the first<br/><span class="italic text-hasaki">to know.</span></h2>
     <p class="mt-6 text-ink/70 reveal">New launches, exclusive offers and beauty notes — sent to your inbox every Thursday.</p>
 
     <form class="mt-10 flex flex-col sm:flex-row gap-3 reveal">
       <input type="email" required placeholder="Your email address"
              class="flex-1 bg-transparent border-b border-ink/40 focus:border-ink focus:outline-none px-2 py-4 placeholder-ink/50 text-base" />
-      <button class="bg-ink text-bone px-8 py-4 text-sm tracking-[0.18em] uppercase hover:bg-clay transition">Subscribe</button>
+      <button class="bg-ink text-bone px-8 py-4 text-sm tracking-[0.18em] uppercase hover:bg-hasaki transition">Subscribe</button>
     </form>
     <p class="text-xs text-ink/50 mt-4">By subscribing you agree to Hasaki's <a href="#" class="ulink">Privacy Policy</a>.</p>
   </div>
@@ -824,9 +886,10 @@
   <div class="max-w-[1500px] mx-auto px-6 py-20">
     <div class="grid md:grid-cols-12 gap-10 md:gap-8">
       <div class="md:col-span-4">
-        <div class="serif text-4xl tracking-mega">HASAKI<span class="text-clay">.</span></div>
+        <div class="serif text-4xl tracking-mega lowercase text-hasaki">hasaki<span class="text-bone">.</span></div>
+        <p class="text-[11px] tracking-[0.35em] uppercase text-bone/60 mt-2">Save More Always</p>
         <p class="mt-6 text-bone/70 max-w-sm leading-relaxed">
-          A modern beauty house — born in Vietnam, now shipping worldwide. Over 120 stores across Asia, Europe and the Americas.
+          Founded 2016 in Ho Chi Minh City — Vietnam's leading authentic beauty retailer. 140+ stores, 800+ official brand partners. Now shipping to 30+ countries.
         </p>
         <div class="mt-8 flex gap-3">
           <a href="#" aria-label="Instagram" class="w-10 h-10 grid place-items-center border border-bone/20 hover:bg-bone hover:text-ink transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
@@ -880,11 +943,12 @@
 
     <!-- Big logotype -->
     <div class="mt-20 border-t border-bone/15 pt-10 overflow-hidden">
-      <p class="serif text-[24vw] md:text-[16vw] leading-none tracking-mega text-bone/95 select-none -mb-6">HASAKI<span class="text-clay">.</span></p>
+      <p class="serif text-[24vw] md:text-[16vw] leading-none tracking-mega lowercase select-none -mb-6"><span class="text-hasaki">hasaki</span><span class="text-bone">.</span></p>
+      <p class="text-center text-[11px] md:text-sm tracking-[0.5em] uppercase text-bone/70 mt-4">Save More Always</p>
     </div>
 
     <div class="mt-10 flex flex-col md:flex-row md:items-center justify-between gap-4 text-xs text-bone/55">
-      <p>© 2026 Hasaki Beauty Inc. — All rights reserved.</p>
+      <p>© 2026 Hasaki Beauty Joint Stock Company. — Founded 2016, Ho Chi Minh City. All rights reserved.</p>
       <div class="flex flex-wrap gap-6">
         <a href="#" class="ulink">Terms</a>
         <a href="#" class="ulink">Privacy</a>
