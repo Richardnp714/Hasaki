@@ -570,6 +570,8 @@
             <li><a href="account.html" class="ulink">My account</a></li>
             <li><a href="cart.html" class="ulink">Your bag</a></li>
             <li><a href="wishlist.html" class="ulink">Wishlist</a></li>
+            <li><a href="shadefinder.html" class="ulink">Find your shade</a></li>
+            <li><a href="quiz.html" class="ulink">Skin quiz</a></li>
             <li><a href="track.html" class="ulink">Track order</a></li>
             <li><a href="rewards.html" class="ulink">Hasaki Member</a></li>
             <li><a href="help.html" class="ulink">Help center</a></li>
