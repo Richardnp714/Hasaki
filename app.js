@@ -374,12 +374,22 @@
     // Place order on checkout
     const placeBtn = document.querySelector('[data-place-order]');
     if (placeBtn) {
+      // Empty-cart guard: if no items, redirect back to bag on page load
+      if (Cart.count() === 0) {
+        toast('Your bag is empty — add something first.');
+        setTimeout(() => { window.location.href = 'cart.html'; }, 1200);
+      }
       placeBtn.addEventListener('click', (e) => {
         e.preventDefault();
+        const items = Cart.load();
+        if (!items.length) {
+          toast('Your bag is empty.');
+          return;
+        }
         // Persist mock order
         const order = {
           id: 'HSK-' + Date.now().toString(36).toUpperCase(),
-          items: Cart.load(),
+          items: items,
           total: Cart.subtotal(),
           when: new Date().toISOString(),
         };
