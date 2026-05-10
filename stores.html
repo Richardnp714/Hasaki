@@ -17,78 +17,65 @@
   </div>
 </header>
 
-<section class="py-14 md:py-20 border-b border-ink/10 bg-hasakiPale">
-  <div class="max-w-[1500px] mx-auto px-6 text-center">
-    <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-4">120+ stores worldwide</p>
-    <h1 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">Find a <span class="italic text-hasaki">hasaki.</span></h1>
-    <p class="mt-5 text-ink/70 max-w-xl mx-auto">100+ retail stores across Vietnam · 18 Hasaki Clinic &amp; Spa locations · 1 newly-opened US flagship in Los Angeles.</p>
-    <form class="mt-8 max-w-md mx-auto flex gap-2" onsubmit="event.preventDefault();document.getElementById('storeStatus').textContent='Showing stores within 25 miles';">
-      <input type="text" placeholder="Enter ZIP or city" class="flex-1 bg-bone border border-ink/15 px-4 py-3 text-sm focus:border-ink focus:outline-none" />
-      <button class="bg-ink text-bone px-6 py-3 text-[11px] tracking-[0.18em] uppercase hover:bg-hasaki transition">Search</button>
-    </form>
-    <p id="storeStatus" class="mt-3 text-xs text-ink/55"></p>
+<section class="py-16 md:py-24 border-b border-ink/10 bg-hasakiPale">
+  <div class="max-w-2xl mx-auto px-6 text-center">
+    <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-4">Coming soon</p>
+    <h1 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">Our first US <span class="italic text-hasaki">flagship</span>.</h1>
+    <p class="mt-6 text-ink/70 max-w-lg mx-auto">We're bringing hasaki. to the US — starting in California. Sign up below and we'll be the first to let you know the moment our doors open.</p>
   </div>
 </section>
 
-<section class="py-12 md:py-16">
-  <div class="max-w-[1500px] mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-    <article class="bg-bone border border-ink/10 p-6 md:p-7">
-      <p class="text-[10px] tracking-[0.3em] uppercase text-hasaki mb-2">★ Newly opened · April 2026</p>
-      <h2 class="serif text-2xl tracking-tightest leading-tight">Hasaki LA · Beverly Hills</h2>
-      <p class="text-sm text-ink/65 mt-2">Flagship · Retail + Hasaki Clinic &amp; Spa</p>
-      <div class="mt-5 space-y-1 text-sm text-ink/80">
-        <p>9536 Brighton Way</p><p>Beverly Hills, CA 90210</p>
-        <p class="pt-2 text-ink/55 text-xs">Mon — Sat · 10am — 8pm · Sun · 11am — 6pm</p>
-        <p class="text-ink/55 text-xs">+1 (310) 555-2541</p>
+<section class="py-16 md:py-24">
+  <div class="max-w-3xl mx-auto px-6">
+    <article class="bg-bone border border-ink/15 p-8 md:p-12 text-center">
+      <span class="inline-block text-[10px] tracking-[0.3em] uppercase text-bone bg-hasaki px-4 py-1.5 mb-6">★ Coming soon</span>
+      <h2 class="serif text-4xl md:text-5xl tracking-tightest leading-[0.95]">California.</h2>
+      <p class="mt-4 text-ink/65 max-w-md mx-auto">Our first US flagship is on its way. Full retail experience plus our signature Hasaki Clinic &amp; Spa services.</p>
+
+      <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-px bg-ink/10 border border-ink/10 max-w-2xl mx-auto">
+        <div class="bg-bone p-5">
+          <p class="text-[10px] tracking-[0.3em] uppercase text-ink/55 mb-1.5">Region</p>
+          <p class="serif text-xl">California, USA</p>
+        </div>
+        <div class="bg-bone p-5">
+          <p class="text-[10px] tracking-[0.3em] uppercase text-ink/55 mb-1.5">Format</p>
+          <p class="serif text-xl">Retail · Spa · Clinic</p>
+        </div>
+        <div class="bg-bone p-5">
+          <p class="text-[10px] tracking-[0.3em] uppercase text-ink/55 mb-1.5">Opening</p>
+          <p class="serif text-xl">2026</p>
+        </div>
       </div>
-      <div class="mt-5 flex gap-3">
-        <a href="#" class="ulink text-[11px] tracking-[0.2em] uppercase">Get directions →</a>
-        <a href="#" class="ulink text-[11px] tracking-[0.2em] uppercase">Book a service →</a>
+
+      <form id="notifyForm" class="mt-10 max-w-md mx-auto">
+        <p class="text-[11px] tracking-[0.25em] uppercase text-ink/55 mb-3">Get notified when we open</p>
+        <div class="flex gap-2">
+          <input type="email" required placeholder="you@example.com" class="flex-1 bg-transparent border border-ink/15 px-4 py-3 text-sm focus:border-ink focus:outline-none" />
+          <button class="bg-ink text-bone px-6 py-3 text-[11px] tracking-[0.18em] uppercase hover:bg-hasaki transition">Notify me</button>
+        </div>
+        <p id="notifyMsg" class="text-[11px] text-hasaki mt-3 hidden">★ You're on the list — we'll be in touch.</p>
+      </form>
+
+      <div class="mt-10 pt-8 border-t border-ink/10 grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-ink/75">
+        <div>
+          <p class="text-[10px] tracking-[0.3em] uppercase text-hasaki mb-2">Customer care</p>
+          <a href="tel:18884272541" class="ulink">1-888-427-2541</a>
+        </div>
+        <div>
+          <p class="text-[10px] tracking-[0.3em] uppercase text-hasaki mb-2">Email</p>
+          <a href="mailto:care@hasaki.com" class="ulink">care@hasaki.com</a>
+        </div>
+        <div>
+          <p class="text-[10px] tracking-[0.3em] uppercase text-hasaki mb-2">Hours</p>
+          <p>Mon — Sun · 7:30am — 10:00pm ET</p>
+        </div>
       </div>
     </article>
-    <article class="bg-bone border border-ink/10 p-6 md:p-7">
-      <p class="text-[10px] tracking-[0.3em] uppercase text-hasaki mb-2">Flagship</p>
-      <h2 class="serif text-2xl tracking-tightest leading-tight">Hasaki Saigon Square</h2>
-      <p class="text-sm text-ink/65 mt-2">Retail · 4,200 sq. ft.</p>
-      <div class="mt-5 space-y-1 text-sm text-ink/80">
-        <p>77 Nam Kỳ Khởi Nghĩa</p><p>Quận 1, TP. Hồ Chí Minh</p>
-        <p class="pt-2 text-ink/55 text-xs">Daily · 9am — 10pm</p>
-        <p class="text-ink/55 text-xs">1900 6750</p>
-      </div>
-      <div class="mt-5 flex gap-3"><a href="#" class="ulink text-[11px] tracking-[0.2em] uppercase">Get directions →</a></div>
-    </article>
-    <article class="bg-bone border border-ink/10 p-6 md:p-7">
-      <p class="text-[10px] tracking-[0.3em] uppercase text-hasaki mb-2">Clinic &amp; Spa</p>
-      <h2 class="serif text-2xl tracking-tightest leading-tight">Hasaki Hà Nội · Lotte Center</h2>
-      <p class="text-sm text-ink/65 mt-2">Retail + Spa + Aesthetics Clinic</p>
-      <div class="mt-5 space-y-1 text-sm text-ink/80">
-        <p>54 Liễu Giai, Lotte Center</p><p>Ba Đình, Hà Nội</p>
-        <p class="pt-2 text-ink/55 text-xs">Daily · 10am — 10pm</p>
-      </div>
-      <div class="mt-5 flex gap-3"><a href="#" class="ulink text-[11px] tracking-[0.2em] uppercase">Get directions →</a><a href="#" class="ulink text-[11px] tracking-[0.2em] uppercase">Book a service →</a></div>
-    </article>
-    <article class="bg-bone border border-ink/10 p-6 md:p-7">
-      <h2 class="serif text-2xl tracking-tightest leading-tight">Hasaki Đà Nẵng</h2>
-      <p class="text-sm text-ink/65 mt-2">Retail</p>
-      <div class="mt-5 space-y-1 text-sm text-ink/80"><p>123 Nguyễn Văn Linh</p><p>Hải Châu, Đà Nẵng</p><p class="pt-2 text-ink/55 text-xs">Daily · 9am — 10pm</p></div>
-    </article>
-    <article class="bg-bone border border-ink/10 p-6 md:p-7">
-      <p class="text-[10px] tracking-[0.3em] uppercase text-hasaki mb-2">Coming soon · Summer 2026</p>
-      <h2 class="serif text-2xl tracking-tightest leading-tight">Hasaki NYC · SoHo</h2>
-      <p class="text-sm text-ink/65 mt-2">Retail · 3,200 sq. ft.</p>
-      <div class="mt-5 space-y-1 text-sm text-ink/80"><p>475 Broadway</p><p>New York, NY 10013</p><p class="pt-2 text-ink/55 text-xs">Opening July 2026</p></div>
-      <a href="#" class="mt-5 inline-flex ulink text-[11px] tracking-[0.2em] uppercase">Get notified →</a>
-    </article>
-    <article class="bg-bone border border-ink/10 p-6 md:p-7">
-      <p class="text-[10px] tracking-[0.3em] uppercase text-hasaki mb-2">Coming soon · Fall 2026</p>
-      <h2 class="serif text-2xl tracking-tightest leading-tight">Hasaki Houston · The Galleria</h2>
-      <div class="mt-5 space-y-1 text-sm text-ink/80"><p>5085 Westheimer Rd</p><p>Houston, TX 77056</p></div>
-    </article>
-    <article class="bg-bone border border-ink/10 p-6 md:p-7 md:col-span-2 lg:col-span-3 bg-cream">
-      <h2 class="serif text-2xl tracking-tightest">+ 117 more stores in Vietnam</h2>
-      <p class="text-sm text-ink/65 mt-1">Hồ Chí Minh, Hà Nội, Đà Nẵng, Cần Thơ, Hải Phòng, Nha Trang, Vũng Tàu, Huế, Đà Lạt and more.</p>
-      <a href="#" class="mt-3 inline-flex ulink text-[11px] tracking-[0.2em] uppercase">View all stores →</a>
-    </article>
+
+    <p class="text-center text-xs text-ink/55 mt-8">Until our doors open, shop the full hasaki. range online with free shipping over $35 and 30-day returns.</p>
+    <div class="text-center mt-4">
+      <a href="index.html" class="inline-flex items-center gap-2 bg-ink text-bone px-7 py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">Shop online →</a>
+    </div>
   </div>
 </section>
 
@@ -101,4 +88,13 @@
 
 <script src="i18n.js" defer></script>
 <script src="app.js" defer></script>
+<script>
+document.getElementById('notifyForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const input = e.target.querySelector('input[type="email"]');
+  if (!input.value) return;
+  input.value = '';
+  document.getElementById('notifyMsg').classList.remove('hidden');
+});
+</script>
 </body></html>
