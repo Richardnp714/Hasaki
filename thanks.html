@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order confirmed — hasaki.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="hasaki-logo.png" />
+  <script>
+    tailwind.config = { theme: { extend: {
+      fontFamily: { display: ['Fraunces','serif'], body: ['Inter','sans-serif'], logo: ['"DM Sans"','Inter','sans-serif'] },
+      colors: { ink:'#0a0a0a', bone:'#f5f1ea', cream:'#ebe4d8', blush:'#e8d5cc', hasaki:'#306E51', hasakiDark:'#1f4d38', hasakiPale:'#e8efea' },
+      letterSpacing: { tightest:'-.04em', mega:'-.06em' }
+    } } }
+  </script>
+  <style>
+    body{font-family:'Inter',sans-serif;background:#f5f1ea;color:#0a0a0a;-webkit-font-smoothing:antialiased}
+    h1,h2,h3,.serif{font-family:'Fraunces',serif}
+    .ulink{position:relative;display:inline-block}
+    .ulink::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:1px;background:currentColor;transform:scaleX(1);transform-origin:right;transition:transform .5s}
+    .ulink:hover::after{transform:scaleX(0);transform-origin:left}
+    @keyframes pop{ 0%{transform:scale(.6);opacity:0} 60%{transform:scale(1.08)} 100%{transform:scale(1);opacity:1} }
+    .pop{animation:pop .7s cubic-bezier(.2,.7,.2,1)}
+  </style>
+</head>
+<body class="bg-bone text-ink min-h-screen flex flex-col">
+
+<header class="border-b border-ink/10 py-5">
+  <div class="max-w-[1200px] mx-auto px-6 flex items-center justify-center">
+    <a href="index.html" class="inline-flex items-center gap-2 font-logo text-hasaki text-[26px] font-extrabold lowercase leading-none" style="letter-spacing:-0.04em;">
+      <img src="hasaki-logo.png" alt="" class="w-9 h-9 rounded-full" />
+      <span>hasaki<span class="text-hasakiDark">.</span></span>
+    </a>
+  </div>
+</header>
+
+<main class="flex-1 grid place-items-center py-16 md:py-24">
+  <div class="max-w-2xl mx-auto px-6 text-center">
+    <div class="pop w-20 h-20 mx-auto rounded-full bg-hasaki text-bone grid place-items-center mb-8">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-10 h-10 stroke-2"><path d="M5 13l4 4L19 7"/></svg>
+    </div>
+    <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-4" data-i18n="thx.eyebrow">Order confirmed</p>
+    <h1 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]" data-i18n="thx.title">Thank you.</h1>
+    <p class="mt-6 text-ink/70 text-lg" data-i18n="thx.body">Your order is on its way to making someone's skin happy. A confirmation email is on the way.</p>
+
+    <div class="mt-10 bg-bone border border-ink/10 p-6 md:p-8 text-left">
+      <div class="flex items-center justify-between pb-4 border-b border-ink/10">
+        <div>
+          <p class="text-[11px] tracking-[0.25em] uppercase text-ink/55" data-i18n="thx.order">Order number</p>
+          <p class="serif text-2xl mt-1" id="orderId">HSK-XXXXXX</p>
+        </div>
+        <div class="text-right">
+          <p class="text-[11px] tracking-[0.25em] uppercase text-ink/55" data-i18n="thx.total">Total</p>
+          <p class="serif text-2xl mt-1" id="orderTotal">$0.00</p>
+        </div>
+      </div>
+      <ul id="orderItems" class="divide-y divide-ink/10"></ul>
+      <div class="pt-5 border-t border-ink/10 flex items-center gap-3 text-sm text-ink/65">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2 text-hasaki"><path d="M2 7h16l3 5v6h-3M2 7v11h13M2 7l3-3h10l3 3"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+        <span data-i18n="thx.shipping">Shipping in 1–2 business days · tracking link by email</span>
+      </div>
+    </div>
+
+    <div class="mt-10 flex flex-wrap justify-center gap-4">
+      <a href="index.html" class="inline-flex items-center gap-3 bg-ink text-bone px-7 py-4 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition" data-i18n="thx.cta1">Continue shopping</a>
+      <a href="#" class="ulink py-4 text-[11px] tracking-[0.25em] uppercase" data-i18n="thx.cta2">Track your order →</a>
+    </div>
+  </div>
+</main>
+
+<footer class="border-t border-ink/10 py-6">
+  <div class="max-w-[1200px] mx-auto px-6 text-xs text-ink/55 text-center">
+    © 2026 Hasaki Beauty &amp; Clinic Joint Stock Company.
+  </div>
+</footer>
+
+<script>
+  const order = JSON.parse(sessionStorage.getItem('hasaki-order') || 'null');
+  const money = (n) => '$' + (Math.round(n * 100) / 100).toFixed(2);
+  if (order) {
+    document.getElementById('orderId').textContent = order.id;
+    document.getElementById('orderTotal').textContent = money(order.total + order.total * 0.0825);
+    document.getElementById('orderItems').innerHTML = order.items.map(it =>
+      `<li class="flex items-start gap-4 py-4">
+        ${it.image ? `<div class="w-14 h-16 bg-cream shrink-0 overflow-hidden"><img src="${it.image}" class="w-full h-full object-cover" alt=""/></div>` : ''}
+        <div class="flex-1">
+          <p class="text-[10px] tracking-[0.2em] uppercase text-ink/50">${it.brand || ''}</p>
+          <p class="text-sm font-medium leading-snug">${it.name}</p>
+          <p class="text-xs text-ink/55 mt-1">Qty ${it.qty}${it.size ? ' · ' + it.size : ''}</p>
+        </div>
+        <span class="text-sm font-medium">${money(it.price * it.qty)}</span>
+      </li>`).join('');
+  }
+</script>
+<script src="i18n.js" defer></script>
+</body>
+</html>

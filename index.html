@@ -301,55 +301,22 @@
         <div class="has-mega relative">
           <a href="cart.html" aria-label="Bag — view cart" data-i18n-attr="aria-label:cart.aria" class="relative p-2 hover:text-hasaki transition block">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><path d="M6 7h12l-1.5 12.5a2 2 0 0 1-2 1.7H9.5a2 2 0 0 1-2-1.7L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
-            <span class="absolute -top-0.5 -right-0.5 bg-ink text-bone text-[10px] w-4 h-4 rounded-full grid place-items-center">2</span>
+            <span class="absolute -top-0.5 -right-0.5 bg-ink text-bone text-[10px] w-4 h-4 rounded-full grid place-items-center" data-cart-count>0</span>
           </a>
           <!-- Cart drop-down preview -->
           <div class="mega absolute right-0 top-full w-[380px] bg-bone border border-ink/10 shadow-2xl text-ink normal-case tracking-normal">
             <!-- Header -->
             <div class="flex items-center justify-between px-5 py-4 border-b border-ink/10">
               <p class="serif text-lg leading-tight" data-i18n="cart.title">Your bag</p>
-              <span class="text-[11px] tracking-[0.25em] uppercase text-ink/55" data-i18n="cart.items">2 items</span>
+              <span class="text-[11px] tracking-[0.25em] uppercase text-ink/55" data-i18n="cart.items" data-cart-preview-count>0 items</span>
             </div>
-            <!-- Items -->
-            <ul class="divide-y divide-ink/10">
-              <li class="flex items-start gap-3 px-5 py-4">
-                <a href="cart.html" class="relative w-16 h-20 bg-blush shrink-0 overflow-hidden block">
-                  <img src="https://images.unsplash.com/photo-1631214540242-3a4d1c5fa3b8?w=200&h=250&fit=crop&q=80&auto=format" alt="Dior Rouge 999" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='images/products/dior-rouge-999.jpg'" />
-                </a>
-                <div class="flex-1 min-w-0">
-                  <p class="text-[10px] tracking-[0.2em] uppercase text-ink/50">Dior</p>
-                  <h3 class="text-sm font-medium leading-snug mt-0.5">Rouge Dior 999 Velvet</h3>
-                  <div class="flex items-center justify-between mt-2">
-                    <span class="text-xs text-ink/60"><span data-i18n="cart.qty">Qty</span> 1 · 3.2 g</span>
-                    <span class="text-sm font-medium">$52</span>
-                  </div>
-                </div>
-                <button aria-label="Remove" class="text-ink/35 hover:text-ink shrink-0 mt-1">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-3.5 h-3.5 stroke-2"><path d="M6 18L18 6M6 6l12 12"/></svg>
-                </button>
-              </li>
-              <li class="flex items-start gap-3 px-5 py-4">
-                <a href="cart.html" class="relative w-16 h-20 bg-hasakiPale shrink-0 overflow-hidden block">
-                  <img src="https://images.unsplash.com/photo-1570194065650-d99fb4abbd90?w=200&h=250&fit=crop&q=80&auto=format" alt="Innisfree Green Tea Serum" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='images/products/innisfree-green-tea.jpg'" />
-                </a>
-                <div class="flex-1 min-w-0">
-                  <p class="text-[10px] tracking-[0.2em] uppercase text-ink/50">Innisfree</p>
-                  <h3 class="text-sm font-medium leading-snug mt-0.5">Green Tea Hyaluronic Serum</h3>
-                  <div class="flex items-center justify-between mt-2">
-                    <span class="text-xs text-ink/60"><span data-i18n="cart.qty">Qty</span> 1 · 50 ml</span>
-                    <span class="text-sm font-medium">$17</span>
-                  </div>
-                </div>
-                <button aria-label="Remove" class="text-ink/35 hover:text-ink shrink-0 mt-1">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-3.5 h-3.5 stroke-2"><path d="M6 18L18 6M6 6l12 12"/></svg>
-                </button>
-              </li>
-            </ul>
+            <!-- Items (rendered by app.js from cart state) -->
+            <ul class="divide-y divide-ink/10" data-cart-preview></ul>
             <!-- Totals -->
             <div class="px-5 py-4 border-t border-ink/10 space-y-1.5">
               <div class="flex justify-between text-sm">
                 <span class="text-ink/65" data-i18n="cart.subtotal">Subtotal</span>
-                <span class="font-medium">$69.00</span>
+                <span class="font-medium" data-cart-preview-subtotal>$0.00</span>
               </div>
               <div class="flex justify-between text-sm">
                 <span class="text-ink/65" data-i18n="cart.shipping">Shipping</span>
@@ -358,7 +325,7 @@
             </div>
             <!-- CTAs -->
             <div class="px-5 pb-5 pt-1 space-y-2">
-              <a href="checkout.html" class="block w-full text-center bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition" data-i18n="cart.checkoutbtn">Checkout · $69</a>
+              <a href="checkout.html" class="block w-full text-center bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition" data-cart-preview-checkout>Checkout</a>
               <a href="cart.html" class="block w-full text-center border border-ink/30 py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-ink hover:text-bone transition" data-i18n="cart.viewbag">View bag</a>
               <p class="flex items-center gap-1.5 justify-center text-[10px] tracking-[0.2em] uppercase text-hasaki pt-2">
                 <svg viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3"><path d="M12 2L15 8 21 9 17 14 18 21 12 18 6 21 7 14 3 9 9 8z"/></svg>
@@ -706,23 +673,23 @@
         <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]"><span data-i18n="best.h.a">Loved this</span><br/><span class="italic text-hasaki" data-i18n="best.h.b">week.</span></h2>
       </div>
       <div class="flex flex-wrap gap-2 text-[12px] tracking-[0.2em] uppercase">
-        <button class="px-4 py-2 bg-ink text-bone" data-i18n="filter.all">All</button>
-        <button class="px-4 py-2 border border-ink/20 hover:bg-ink hover:text-bone transition" data-i18n="filter.skin">Skincare</button>
-        <button class="px-4 py-2 border border-ink/20 hover:bg-ink hover:text-bone transition" data-i18n="filter.makeup">Makeup</button>
-        <button class="px-4 py-2 border border-ink/20 hover:bg-ink hover:text-bone transition" data-i18n="filter.fragrance">Fragrance</button>
-        <button class="px-4 py-2 border border-ink/20 hover:bg-ink hover:text-bone transition" data-i18n="filter.body">Body</button>
+        <button class="px-4 py-2 bg-ink text-bone" data-i18n="filter.all" data-filter="all">All</button>
+        <button class="px-4 py-2 border border-ink/20 hover:bg-ink hover:text-bone transition" data-i18n="filter.skin" data-filter="skincare">Skincare</button>
+        <button class="px-4 py-2 border border-ink/20 hover:bg-ink hover:text-bone transition" data-i18n="filter.makeup" data-filter="makeup">Makeup</button>
+        <button class="px-4 py-2 border border-ink/20 hover:bg-ink hover:text-bone transition" data-i18n="filter.fragrance" data-filter="fragrance">Fragrance</button>
+        <button class="px-4 py-2 border border-ink/20 hover:bg-ink hover:text-bone transition" data-i18n="filter.body" data-filter="body">Body</button>
       </div>
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-4 gap-x-3 gap-y-10 md:gap-x-4">
       <!-- Product 1 — Laneige -->
-      <article class="pcard reveal group">
+      <article class="pcard reveal group" data-product="p1" data-brand="Laneige" data-name="Lip Sleeping Mask — Berry" data-price="18" data-image="images/products/laneige-lip-sleeping-mask.jpg" data-size="20 g" data-category="skincare" data-filter-target>
         <div class="relative aspect-[4/5] bg-blush overflow-hidden">
           <img src="https://images.unsplash.com/photo-1531299244174-37d7b1ff9c2d?w=600&h=750&fit=crop&q=80&auto=format" alt="Laneige Lip Sleeping Mask Berry" loading="lazy" class="img absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='images/products/laneige-lip-sleeping-mask.jpg'" />
           <span class="absolute top-3 left-3 bg-rose-700 text-bone text-[10px] tracking-[0.2em] uppercase px-2.5 py-1" style="background:#9d2a4d">−18% off</span>
           <span class="absolute bottom-3 left-3 text-[10px] tracking-[0.25em] uppercase text-ink/40">Lip mask · 20g</span>
-          <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/85 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
-          <div class="quick"><button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition" data-i18n="ui.addbag">+ Add to bag</button></div>
+          <button aria-label="Save" data-wishlist="p1" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/85 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <div class="quick"><button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition" data-i18n="ui.addbag" data-add-to-cart>+ Add to bag</button></div>
         </div>
         <div class="pt-3.5 px-1">
           <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Laneige</p>
@@ -737,13 +704,13 @@
       </article>
 
       <!-- Product 2 — COSRX -->
-      <article class="pcard reveal group">
+      <article class="pcard reveal group" data-product="p2" data-brand="COSRX" data-name="Advanced Snail 96 Mucin Power Essence" data-price="15" data-image="images/products/cosrx-snail-essence.jpg" data-size="100 ml" data-category="skincare" data-filter-target>
         <div class="relative aspect-[4/5] bg-hasakiPale overflow-hidden">
           <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=600&h=750&fit=crop&q=80&auto=format" alt="COSRX Snail 96 Essence" loading="lazy" class="img absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='images/products/cosrx-snail-essence.jpg'" />
           <span class="absolute top-3 left-3 bg-hasaki text-bone text-[10px] tracking-[0.2em] uppercase px-2.5 py-1">New</span>
           <span class="absolute bottom-3 left-3 text-[10px] tracking-[0.25em] uppercase text-ink/45">Essence · 100 ml</span>
-          <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/85 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
-          <div class="quick"><button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition" data-i18n="ui.addbag">+ Add to bag</button></div>
+          <button aria-label="Save" data-wishlist="p2" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/85 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <div class="quick"><button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition" data-i18n="ui.addbag" data-add-to-cart>+ Add to bag</button></div>
         </div>
         <div class="pt-3.5 px-1">
           <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">COSRX</p>
@@ -755,13 +722,13 @@
       </article>
 
       <!-- Product 3 — YSL -->
-      <article class="pcard reveal group">
+      <article class="pcard reveal group" data-product="p3" data-brand="YSL Beauty" data-name="Libre Eau de Parfum 90ml" data-price="135" data-image="images/products/ysl-libre-edp.jpg" data-size="90 ml" data-category="fragrance" data-filter-target>
         <div class="relative aspect-[4/5] bg-ink text-bone overflow-hidden">
           <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=600&h=750&fit=crop&q=80&auto=format" alt="YSL Libre Eau de Parfum" loading="lazy" class="img absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='images/products/ysl-libre-edp.jpg'" />
           <span class="absolute top-3 left-3 bg-bone text-ink text-[10px] tracking-[0.2em] uppercase px-2.5 py-1">Limited</span>
           <span class="absolute bottom-3 left-3 text-[10px] tracking-[0.25em] uppercase text-bone/50">EDP · 90 ml</span>
-          <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/20 backdrop-blur grid place-items-center hover:bg-bone hover:text-ink transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
-          <div class="quick"><button class="w-full bg-bone text-ink py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki hover:text-bone transition" data-i18n="ui.addbag">+ Add to bag</button></div>
+          <button aria-label="Save" data-wishlist="p3" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/20 backdrop-blur grid place-items-center hover:bg-bone hover:text-ink transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <div class="quick"><button class="w-full bg-bone text-ink py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki hover:text-bone transition" data-i18n="ui.addbag" data-add-to-cart>+ Add to bag</button></div>
         </div>
         <div class="pt-3.5 px-1">
           <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">YSL Beauty</p>
@@ -773,13 +740,13 @@
       </article>
 
       <!-- Product 4 — La Roche-Posay -->
-      <article class="pcard reveal group">
+      <article class="pcard reveal group" data-product="p4" data-brand="La Roche-Posay" data-name="Anthelios UVMune 400 SPF50+ Sunscreen" data-price="22" data-image="images/products/laroche-anthelios.jpg" data-size="50 ml" data-category="skincare" data-filter-target>
         <div class="relative aspect-[4/5] bg-cream overflow-hidden">
           <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=600&h=750&fit=crop&q=80&auto=format" alt="La Roche-Posay Anthelios SPF50+" loading="lazy" class="img absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='images/products/laroche-anthelios.jpg'" />
           <span class="absolute top-3 left-3 bg-rose-700 text-bone text-[10px] tracking-[0.2em] uppercase px-2.5 py-1" style="background:#9d2a4d">−15%</span>
           <span class="absolute bottom-3 left-3 text-[10px] tracking-[0.25em] uppercase text-ink/45">SPF50+ · 50 ml</span>
-          <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/85 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
-          <div class="quick"><button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition" data-i18n="ui.addbag">+ Add to bag</button></div>
+          <button aria-label="Save" data-wishlist="p4" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/85 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <div class="quick"><button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition" data-i18n="ui.addbag" data-add-to-cart>+ Add to bag</button></div>
         </div>
         <div class="pt-3.5 px-1">
           <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">La Roche-Posay</p>
@@ -791,13 +758,13 @@
       </article>
 
       <!-- Product 5 — Dior -->
-      <article class="pcard reveal group">
+      <article class="pcard reveal group" data-product="p5" data-brand="Dior" data-name="Rouge Dior 999 Velvet Lipstick" data-price="52" data-image="images/products/dior-rouge-999.jpg" data-size="3.2 g" data-category="makeup" data-filter-target>
         <div class="relative aspect-[4/5] bg-blush overflow-hidden">
           <img src="https://images.unsplash.com/photo-1631214540242-3a4d1c5fa3b8?w=600&h=750&fit=crop&q=80&auto=format" alt="Dior Rouge 999 Lipstick" loading="lazy" class="img absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='images/products/dior-rouge-999.jpg'" />
           <span class="absolute top-3 left-3 bg-ink text-bone text-[10px] tracking-[0.2em] uppercase px-2.5 py-1">Iconic</span>
           <span class="absolute bottom-3 left-3 text-[10px] tracking-[0.25em] uppercase text-ink/45">Lipstick · 3.2 g</span>
-          <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/85 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
-          <div class="quick"><button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition" data-i18n="ui.addbag">+ Add to bag</button></div>
+          <button aria-label="Save" data-wishlist="p5" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/85 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <div class="quick"><button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition" data-i18n="ui.addbag" data-add-to-cart>+ Add to bag</button></div>
         </div>
         <div class="pt-3.5 px-1">
           <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Dior</p>
@@ -812,13 +779,13 @@
       </article>
 
       <!-- Product 6 — Innisfree -->
-      <article class="pcard reveal group">
+      <article class="pcard reveal group" data-product="p6" data-brand="Innisfree" data-name="Green Tea Seed Hyaluronic Serum" data-price="17" data-image="images/products/innisfree-green-tea.jpg" data-size="50 ml" data-category="skincare" data-filter-target>
         <div class="relative aspect-[4/5] bg-hasakiPale overflow-hidden">
           <img src="https://images.unsplash.com/photo-1570194065650-d99fb4abbd90?w=600&h=750&fit=crop&q=80&auto=format" alt="Innisfree Green Tea Serum" loading="lazy" class="img absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='images/products/innisfree-green-tea.jpg'" />
           <span class="absolute top-3 left-3 bg-hasaki text-bone text-[10px] tracking-[0.2em] uppercase px-2.5 py-1">New</span>
           <span class="absolute bottom-3 left-3 text-[10px] tracking-[0.25em] uppercase text-ink/45">Serum · 50 ml</span>
-          <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/85 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
-          <div class="quick"><button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition" data-i18n="ui.addbag">+ Add to bag</button></div>
+          <button aria-label="Save" data-wishlist="p6" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/85 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <div class="quick"><button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition" data-i18n="ui.addbag" data-add-to-cart>+ Add to bag</button></div>
         </div>
         <div class="pt-3.5 px-1">
           <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Innisfree</p>
@@ -830,13 +797,13 @@
       </article>
 
       <!-- Product 7 — Anessa -->
-      <article class="pcard reveal group">
+      <article class="pcard reveal group" data-product="p7" data-brand="Anessa" data-name="Perfect UV Sunscreen Skincare Milk SPF50+" data-price="25" data-image="images/products/anessa-perfect-uv.jpg" data-size="60 ml" data-category="skincare" data-filter-target>
         <div class="relative aspect-[4/5] bg-cream overflow-hidden">
           <img src="https://images.unsplash.com/photo-1590156421875-d6a7b4f96a93?w=600&h=750&fit=crop&q=80&auto=format" alt="Anessa Perfect UV Sunscreen" loading="lazy" class="img absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='images/products/anessa-perfect-uv.jpg'" />
           <span class="absolute top-3 left-3 bg-ink text-bone text-[10px] tracking-[0.2em] uppercase px-2.5 py-1">★ Best</span>
           <span class="absolute bottom-3 left-3 text-[10px] tracking-[0.25em] uppercase text-ink/45">SPF50+ · 60 ml</span>
-          <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/85 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
-          <div class="quick"><button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition" data-i18n="ui.addbag">+ Add to bag</button></div>
+          <button aria-label="Save" data-wishlist="p7" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/85 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <div class="quick"><button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition" data-i18n="ui.addbag" data-add-to-cart>+ Add to bag</button></div>
         </div>
         <div class="pt-3.5 px-1">
           <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Anessa</p>
@@ -848,12 +815,12 @@
       </article>
 
       <!-- Product 8 — The Ordinary -->
-      <article class="pcard reveal group">
+      <article class="pcard reveal group" data-product="p8" data-brand="The Ordinary" data-name="Niacinamide 10% + Zinc 1% Serum" data-price="12" data-image="images/products/the-ordinary-niacinamide.jpg" data-size="30 ml" data-category="skincare" data-filter-target>
         <div class="relative aspect-[4/5] bg-bone overflow-hidden border border-ink/5">
           <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600&h=750&fit=crop&q=80&auto=format" alt="The Ordinary Niacinamide 10% + Zinc" loading="lazy" class="img absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='images/products/the-ordinary-niacinamide.jpg'" />
           <span class="absolute bottom-3 left-3 text-[10px] tracking-[0.25em] uppercase text-ink/45">Serum · 30 ml</span>
-          <button aria-label="Save" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/85 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
-          <div class="quick"><button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition" data-i18n="ui.addbag">+ Add to bag</button></div>
+          <button aria-label="Save" data-wishlist="p8" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/85 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <div class="quick"><button class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition" data-i18n="ui.addbag" data-add-to-cart>+ Add to bag</button></div>
         </div>
         <div class="pt-3.5 px-1">
           <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">The Ordinary</p>
@@ -1542,6 +1509,7 @@
 
 <!-- ============== Language picker / i18n ============== -->
 <script src="i18n.js" defer></script>
+<script src="app.js" defer></script>
 
 </body>
 </html>
