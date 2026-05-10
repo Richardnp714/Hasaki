@@ -89,7 +89,7 @@
         <span class="text-[9px] md:text-[10px] tracking-[0.4em] uppercase text-ink/55 mt-1.5 font-medium" data-i18n="brand.slogan">Save More Always</span>
       </a>
       <div class="flex items-center justify-end gap-2 md:gap-5">
-        <a href="index.html" aria-label="Account" class="p-2 hover:text-hasaki transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></a>
+        <button data-open-mobile aria-label="Menu" class="lg:hidden p-2 mr-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button><a href="index.html" aria-label="Account" class="p-2 hover:text-hasaki transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></a>
         <a href="wishlist.html" aria-label="Wishlist" class="relative hidden md:block p-2 hover:text-hasaki transition">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           <span class="absolute -top-0.5 -right-0.5 bg-hasaki text-bone text-[10px] w-4 h-4 rounded-full grid place-items-center" data-wishlist-count style="display:none">0</span>
@@ -135,37 +135,37 @@
           <div>
             <p class="text-[11px] tracking-[0.25em] uppercase text-hasaki mb-1" data-i18n="samples.tag">★ Gift with order</p>
             <h3 class="serif text-2xl tracking-tightest" data-i18n="samples.h">Pick 3 free samples.</h3>
-            <p class="text-sm text-ink/65 mt-1" data-i18n="samples.status">2 of 3 selected · 200+ to choose from</p>
+            <p class="text-sm text-ink/65 mt-1" data-i18n="samples.status" data-sample-status>2 of 3 selected · 200+ to choose from</p>
           </div>
           <a href="#" class="ulink text-[11px] tracking-[0.2em] uppercase" data-i18n="samples.viewall">View all samples →</a>
         </div>
         <div class="grid grid-cols-3 md:grid-cols-6 gap-2 md:gap-3">
-          <button class="aspect-square bg-bone relative ring-2 ring-hasaki overflow-hidden">
+          <button class="aspect-square bg-bone relative overflow-hidden" data-sample="s1">
             <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=200&h=200&fit=crop&q=80&auto=format" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'" />
             <span class="absolute top-1 right-1 w-5 h-5 rounded-full bg-hasaki text-bone grid place-items-center text-[10px]">✓</span>
             <span class="absolute bottom-1 left-1 right-1 text-[9px] tracking-[0.15em] uppercase text-bone bg-ink/60 backdrop-blur px-1 py-0.5 truncate" data-i18n="samples.cleanser">Cleanser</span>
-          </button>
-          <button class="aspect-square bg-bone relative ring-2 ring-hasaki overflow-hidden">
+          <span data-sample-tick class="absolute top-1 right-1 w-5 h-5 rounded-full bg-hasaki text-bone grid place-items-center text-[10px]" style="display:none">✓</span></button>
+          <button class="aspect-square bg-bone relative overflow-hidden" data-sample="s2">
             <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=200&h=200&fit=crop&q=80&auto=format" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'" />
             <span class="absolute top-1 right-1 w-5 h-5 rounded-full bg-hasaki text-bone grid place-items-center text-[10px]">✓</span>
             <span class="absolute bottom-1 left-1 right-1 text-[9px] tracking-[0.15em] uppercase text-bone bg-ink/60 backdrop-blur px-1 py-0.5 truncate" data-i18n="samples.serum">Serum</span>
-          </button>
-          <button class="aspect-square bg-bone relative hover:ring-2 hover:ring-ink/30 transition overflow-hidden">
+          <span data-sample-tick class="absolute top-1 right-1 w-5 h-5 rounded-full bg-hasaki text-bone grid place-items-center text-[10px]" style="display:none">✓</span></button>
+          <button class="aspect-square bg-bone relative hover:ring-2 hover:ring-ink/30 transition overflow-hidden" data-sample="s3">
             <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=200&h=200&fit=crop&q=80&auto=format" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'" />
             <span class="absolute bottom-1 left-1 right-1 text-[9px] tracking-[0.15em] uppercase text-bone bg-ink/60 backdrop-blur px-1 py-0.5 truncate" data-i18n="samples.spf">SPF</span>
-          </button>
-          <button class="aspect-square bg-bone relative hover:ring-2 hover:ring-ink/30 transition overflow-hidden">
+          <span data-sample-tick class="absolute top-1 right-1 w-5 h-5 rounded-full bg-hasaki text-bone grid place-items-center text-[10px]" style="display:none">✓</span></button>
+          <button class="aspect-square bg-bone relative hover:ring-2 hover:ring-ink/30 transition overflow-hidden" data-sample="s4">
             <img src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=200&h=200&fit=crop&q=80&auto=format" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'" />
             <span class="absolute bottom-1 left-1 right-1 text-[9px] tracking-[0.15em] uppercase text-bone bg-ink/60 backdrop-blur px-1 py-0.5 truncate" data-i18n="samples.mask">Mask</span>
-          </button>
-          <button class="aspect-square bg-bone relative hover:ring-2 hover:ring-ink/30 transition overflow-hidden">
+          <span data-sample-tick class="absolute top-1 right-1 w-5 h-5 rounded-full bg-hasaki text-bone grid place-items-center text-[10px]" style="display:none">✓</span></button>
+          <button class="aspect-square bg-bone relative hover:ring-2 hover:ring-ink/30 transition overflow-hidden" data-sample="s5">
             <img src="https://images.unsplash.com/photo-1547887537-6158d64c35b3?w=200&h=200&fit=crop&q=80&auto=format" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'" />
             <span class="absolute bottom-1 left-1 right-1 text-[9px] tracking-[0.15em] uppercase text-bone bg-ink/60 backdrop-blur px-1 py-0.5 truncate" data-i18n="samples.edp">EDP</span>
-          </button>
-          <button class="aspect-square bg-bone relative hover:ring-2 hover:ring-ink/30 transition overflow-hidden">
+          <span data-sample-tick class="absolute top-1 right-1 w-5 h-5 rounded-full bg-hasaki text-bone grid place-items-center text-[10px]" style="display:none">✓</span></button>
+          <button class="aspect-square bg-bone relative hover:ring-2 hover:ring-ink/30 transition overflow-hidden" data-sample="s6">
             <img src="https://images.unsplash.com/photo-1631214540242-3a4d1c5fa3b8?w=200&h=200&fit=crop&q=80&auto=format" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'" />
             <span class="absolute bottom-1 left-1 right-1 text-[9px] tracking-[0.15em] uppercase text-bone bg-ink/60 backdrop-blur px-1 py-0.5 truncate" data-i18n="samples.lip">Lip</span>
-          </button>
+          <span data-sample-tick class="absolute top-1 right-1 w-5 h-5 rounded-full bg-hasaki text-bone grid place-items-center text-[10px]" style="display:none">✓</span></button>
         </div>
       </div>
 

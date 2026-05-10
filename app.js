@@ -8,6 +8,9 @@
     cart: 'hasaki-cart',
     wishlist: 'hasaki-wishlist',
     lang: 'hasaki-lang',
+    user: 'hasaki-user',
+    promo: 'hasaki-promo',
+    samples: 'hasaki-samples',
   };
 
   // ---------- formatters ----------
@@ -210,6 +213,10 @@
     Cart.updateBadge();
     Cart.updatePreview();
     Wishlist.updateBadge();
+    User.updateUI();
+    bindModals();
+    bindSamples();
+    bindCheckoutValidation();
 
     // Add to bag (homepage product cards & sets)
     document.querySelectorAll('[data-add-to-cart]').forEach((btn) => {
@@ -343,16 +350,17 @@
       });
     });
 
-    // Promo apply
+    // Promo apply (actually applies discount)
     document.querySelectorAll('[data-promo-apply]').forEach((btn) => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         const inp = btn.parentElement.querySelector('input');
         if (!inp || !inp.value) return toast('Enter a promo code');
         const code = inp.value.toUpperCase().trim();
-        const valid = ['LIPLOVE', 'WELCOME10', 'HASAKI'];
-        if (valid.includes(code)) {
-          toast('Code applied · ' + code);
+        if (Promo.CODES[code]) {
+          Promo.set(code);
+          inp.value = '';
+          toast('Code applied · ' + Promo.label());
         } else {
           toast('Invalid code');
         }
@@ -381,6 +389,351 @@
 
     // Render cart page if applicable
     Cart.renderPage();
+  }
+
+  // ---------- promo (real discount) ----------
+  const Promo = {
+    CODES: { LIPLOVE: { type: 'pct', value: 20, label: '20% off' },
+             WELCOME10: { type: 'pct', value: 10, label: '10% off' },
+             HASAKI:    { type: 'fixed', value: 5, label: '$5 off' } },
+    get() { return localStorage.getItem(STORE.promo) || ''; },
+    set(code) { localStorage.setItem(STORE.promo, code); Cart.renderPage(); Cart.updatePreview(); },
+    clear() { localStorage.removeItem(STORE.promo); Cart.renderPage(); },
+    discountFor(subtotal) {
+      const code = this.get();
+      const def = this.CODES[code];
+      if (!def || subtotal === 0) return 0;
+      return def.type === 'pct' ? +(subtotal * def.value / 100).toFixed(2) : Math.min(def.value, subtotal);
+    },
+    label() { const def = this.CODES[this.get()]; return def ? `${this.get()} · ${def.label}` : ''; },
+  };
+  window.HasakiPromo = Promo;
+
+  // patch Cart.renderPage to apply discount
+  const _origRender = Cart.renderPage.bind(Cart);
+  Cart.renderPage = function () {
+    _origRender();
+    const root = document.querySelector('[data-cart-render]');
+    if (!root) return;
+    const sub = this.subtotal();
+    const disc = Promo.discountFor(sub);
+    const tax = +((sub - disc) * 0.0825).toFixed(2);
+    const ship = (sub - disc) > 35 ? 0 : (sub > 0 ? 5.99 : 0);
+    const total = (sub - disc) + tax + ship;
+    const set = (sel, txt) => document.querySelectorAll(sel).forEach(e => { e.textContent = txt; });
+    set('[data-cart-shipping]', ship === 0 && sub > 0 ? 'FREE' : (sub === 0 ? '—' : money(ship)));
+    set('[data-cart-tax]', money(tax));
+    set('[data-cart-total]', money(total));
+    // Insert/update discount line
+    let discRow = document.querySelector('[data-cart-discount-row]');
+    const promoLabel = Promo.label();
+    if (disc > 0) {
+      if (!discRow) {
+        const taxRow = document.querySelector('[data-cart-tax]');
+        if (taxRow && taxRow.parentElement) {
+          discRow = document.createElement('div');
+          discRow.setAttribute('data-cart-discount-row', '');
+          discRow.className = 'flex justify-between text-hasaki';
+          taxRow.parentElement.parentElement.insertBefore(discRow, taxRow.parentElement);
+        }
+      }
+      if (discRow) {
+        discRow.innerHTML = `<span>Promo · ${promoLabel}</span><span class="font-medium">−${money(disc)}</span>`;
+      }
+    } else if (discRow) {
+      discRow.remove();
+    }
+  };
+
+  // ---------- user (mock auth) ----------
+  const User = {
+    get() { try { return JSON.parse(localStorage.getItem(STORE.user) || 'null'); } catch { return null; } },
+    set(u) { localStorage.setItem(STORE.user, JSON.stringify(u)); this.updateUI(); },
+    clear() { localStorage.removeItem(STORE.user); this.updateUI(); },
+    updateUI() {
+      const u = this.get();
+      document.querySelectorAll('[data-user-name]').forEach(el => { el.textContent = u ? u.name : ''; });
+      document.querySelectorAll('[data-user-initials]').forEach(el => {
+        if (u) { el.textContent = (u.name || u.email || '?').slice(0, 1).toUpperCase(); el.style.display = ''; }
+        else { el.style.display = 'none'; }
+      });
+    },
+  };
+  window.HasakiUser = User;
+
+  // ---------- modal helpers ----------
+  function injectModalHTML() {
+    if (document.getElementById('hasaki-modals')) return;
+    const wrap = document.createElement('div');
+    wrap.id = 'hasaki-modals';
+    wrap.innerHTML = `
+      <!-- SEARCH MODAL -->
+      <div id="searchModal" class="fixed inset-0 z-[300] bg-bone hidden flex-col">
+        <div class="border-b border-ink/10">
+          <div class="max-w-3xl mx-auto px-6 py-5 flex items-center gap-4">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2 text-ink/55"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            <input id="searchInput" type="text" placeholder="Search products, brands, ingredients…" class="flex-1 bg-transparent border-0 focus:outline-none text-lg placeholder-ink/40" />
+            <button data-close-search class="text-[11px] tracking-[0.25em] uppercase text-ink/65 hover:text-ink">Close</button>
+          </div>
+        </div>
+        <div class="flex-1 overflow-y-auto">
+          <div class="max-w-3xl mx-auto px-6 py-8">
+            <p id="searchHint" class="text-xs tracking-[0.25em] uppercase text-ink/45 mb-5">Popular · lipstick · serum · perfume · sunscreen</p>
+            <div id="searchResults" class="space-y-3"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACCOUNT MODAL -->
+      <div id="acctModal" class="fixed inset-0 z-[300] bg-ink/50 backdrop-blur hidden items-center justify-center p-4">
+        <div class="bg-bone w-full max-w-md p-7 md:p-9 relative" role="dialog" aria-modal="true">
+          <button data-close-acct class="absolute top-4 right-4 w-8 h-8 grid place-items-center hover:bg-cream transition" aria-label="Close">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+          <div id="acctSignedOut">
+            <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-3">Hasaki Member</p>
+            <h2 class="serif text-3xl tracking-tightest mb-2">Welcome back.</h2>
+            <p class="text-sm text-ink/65 mb-6">Sign in to access your orders, wishlist and 10% back in Hasaki Pink points.</p>
+            <div class="flex gap-2 mb-6 text-[11px] tracking-[0.18em] uppercase">
+              <button id="tabSignIn" class="flex-1 py-2.5 bg-ink text-bone">Sign in</button>
+              <button id="tabSignUp" class="flex-1 py-2.5 border border-ink/15 hover:bg-ink hover:text-bone transition">Create account</button>
+            </div>
+            <form id="acctForm" class="space-y-3" novalidate>
+              <input id="acctName" type="text" placeholder="Name" required style="display:none" class="block w-full bg-transparent border border-ink/15 px-4 py-3 text-sm focus:border-ink focus:outline-none" />
+              <input id="acctEmail" type="email" placeholder="Email address" required class="block w-full bg-transparent border border-ink/15 px-4 py-3 text-sm focus:border-ink focus:outline-none" />
+              <input id="acctPw" type="password" placeholder="Password" required class="block w-full bg-transparent border border-ink/15 px-4 py-3 text-sm focus:border-ink focus:outline-none" />
+              <p id="acctErr" class="text-xs text-rose-700 hidden"></p>
+              <button type="submit" id="acctSubmit" class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">Sign in →</button>
+              <p class="text-[11px] text-ink/55 text-center">By continuing you agree to our Terms &amp; Privacy.</p>
+            </form>
+          </div>
+          <div id="acctSignedIn" style="display:none">
+            <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-3">Welcome back</p>
+            <h2 class="serif text-3xl tracking-tightest mb-1">Hi, <span data-user-name>—</span></h2>
+            <p class="text-sm text-ink/65 mb-6">10% back · 0 active orders · Hasaki Pink Member</p>
+            <div class="space-y-2">
+              <a href="cart.html" class="block w-full text-center bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">Your bag</a>
+              <a href="wishlist.html" class="block w-full text-center border border-ink/15 py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-ink hover:text-bone transition">Wishlist</a>
+              <button id="signOut" class="block w-full text-center py-3 text-[11px] tracking-[0.25em] uppercase text-ink/55 hover:text-ink">Sign out</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MOBILE MENU -->
+      <div id="mobileMenu" class="fixed inset-0 z-[300] bg-ink/40 hidden">
+        <div class="absolute inset-y-0 left-0 w-[85%] max-w-sm bg-bone overflow-y-auto p-7">
+          <button data-close-mobile class="absolute top-4 right-4 w-8 h-8 grid place-items-center" aria-label="Close">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+          <div class="font-logo text-hasaki text-2xl font-extrabold lowercase mb-8" style="letter-spacing:-0.04em;">hasaki<span class="text-hasakiDark">.</span></div>
+          <ul class="space-y-3 serif text-2xl tracking-tightest mb-8">
+            <li><a href="index.html#categories">New In</a></li>
+            <li><a href="index.html#skincare">Skincare</a></li>
+            <li><a href="index.html#makeup">Makeup</a></li>
+            <li><a href="index.html#fragrance">Fragrance</a></li>
+            <li><a href="index.html#brands">Brands</a></li>
+          </ul>
+          <ul class="space-y-2 text-sm border-t border-ink/10 pt-5">
+            <li><a href="cart.html" class="ulink">Your bag</a></li>
+            <li><a href="wishlist.html" class="ulink">Wishlist</a></li>
+            <li><button data-open-account class="ulink">Sign in</button></li>
+          </ul>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(wrap);
+  }
+
+  function bindModals() {
+    injectModalHTML();
+    const sm = document.getElementById('searchModal');
+    const am = document.getElementById('acctModal');
+    const mm = document.getElementById('mobileMenu');
+    const open = (el, disp) => { el.classList.remove('hidden'); el.style.display = disp; document.body.style.overflow = 'hidden'; };
+    const close = (el) => { el.classList.add('hidden'); el.style.display = ''; document.body.style.overflow = ''; };
+
+    // Search
+    document.querySelectorAll('[data-open-search]').forEach(b => b.addEventListener('click', e => {
+      e.preventDefault(); open(sm, 'flex');
+      setTimeout(() => document.getElementById('searchInput').focus(), 50);
+      runSearch('');
+    }));
+    sm.addEventListener('click', e => {
+      if (e.target.closest('[data-close-search]') || e.target === sm) close(sm);
+    });
+    document.getElementById('searchInput').addEventListener('input', e => runSearch(e.target.value));
+
+    // Account
+    document.querySelectorAll('[data-open-account]').forEach(b => b.addEventListener('click', e => {
+      e.preventDefault();
+      const u = User.get();
+      document.getElementById('acctSignedOut').style.display = u ? 'none' : '';
+      document.getElementById('acctSignedIn').style.display = u ? '' : 'none';
+      open(am, 'flex');
+    }));
+    am.addEventListener('click', e => { if (e.target.closest('[data-close-acct]') || e.target === am) close(am); });
+
+    let mode = 'signin';
+    const tabIn = document.getElementById('tabSignIn');
+    const tabUp = document.getElementById('tabSignUp');
+    const nameField = document.getElementById('acctName');
+    const submitBtn = document.getElementById('acctSubmit');
+    function setMode(m) {
+      mode = m;
+      tabIn.className = (m === 'signin' ? 'flex-1 py-2.5 bg-ink text-bone' : 'flex-1 py-2.5 border border-ink/15 hover:bg-ink hover:text-bone transition');
+      tabUp.className = (m === 'signup' ? 'flex-1 py-2.5 bg-ink text-bone' : 'flex-1 py-2.5 border border-ink/15 hover:bg-ink hover:text-bone transition');
+      nameField.style.display = m === 'signup' ? 'block' : 'none';
+      submitBtn.textContent = m === 'signin' ? 'Sign in →' : 'Create account →';
+    }
+    tabIn.addEventListener('click', () => setMode('signin'));
+    tabUp.addEventListener('click', () => setMode('signup'));
+
+    document.getElementById('acctForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const email = document.getElementById('acctEmail').value.trim();
+      const pw = document.getElementById('acctPw').value;
+      const name = document.getElementById('acctName').value.trim();
+      const err = document.getElementById('acctErr');
+      err.classList.add('hidden');
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { err.textContent = 'Enter a valid email address.'; err.classList.remove('hidden'); return; }
+      if (pw.length < 6) { err.textContent = 'Password must be at least 6 characters.'; err.classList.remove('hidden'); return; }
+      if (mode === 'signup' && !name) { err.textContent = 'Enter your name.'; err.classList.remove('hidden'); return; }
+      User.set({ email, name: name || email.split('@')[0] });
+      toast(mode === 'signin' ? 'Welcome back!' : 'Account created · welcome');
+      close(am);
+    });
+    document.getElementById('signOut').addEventListener('click', () => {
+      User.clear();
+      toast('Signed out');
+      close(am);
+    });
+
+    // Mobile menu
+    document.querySelectorAll('[data-open-mobile]').forEach(b => b.addEventListener('click', e => { e.preventDefault(); open(mm, 'block'); }));
+    mm.addEventListener('click', e => { if (e.target.closest('[data-close-mobile]') || e.target === mm) close(mm); });
+
+    // Esc closes all
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { close(sm); close(am); close(mm); }
+    });
+  }
+
+  // ---------- search runner ----------
+  // Pulls from a static catalog of products (matches the cards on the homepage)
+  const CATALOG = [
+    { id:'p1', brand:'Laneige', name:'Lip Sleeping Mask — Berry', price:18, image:'images/products/laneige-lip-sleeping-mask.jpg', size:'20 g', tags:'lip mask hydration berry' },
+    { id:'p2', brand:'COSRX', name:'Advanced Snail 96 Mucin Power Essence', price:15, image:'images/products/cosrx-snail-essence.jpg', size:'100 ml', tags:'snail mucin essence repair' },
+    { id:'p3', brand:'YSL Beauty', name:'Libre Eau de Parfum 90ml', price:135, image:'images/products/ysl-libre-edp.jpg', size:'90 ml', tags:'perfume floral lavender jasmine' },
+    { id:'p4', brand:'La Roche-Posay', name:'Anthelios UVMune 400 SPF50+ Sunscreen', price:22, image:'images/products/laroche-anthelios.jpg', size:'50 ml', tags:'sunscreen spf sensitive' },
+    { id:'p5', brand:'Dior', name:'Rouge Dior 999 Velvet Lipstick', price:52, image:'images/products/dior-rouge-999.jpg', size:'3.2 g', tags:'lipstick red velvet 999' },
+    { id:'p6', brand:'Innisfree', name:'Green Tea Seed Hyaluronic Serum', price:17, image:'images/products/innisfree-green-tea.jpg', size:'50 ml', tags:'serum hyaluronic green tea' },
+    { id:'p7', brand:'Anessa', name:'Perfect UV Sunscreen Skincare Milk SPF50+', price:25, image:'images/products/anessa-perfect-uv.jpg', size:'60 ml', tags:'sunscreen spf gold' },
+    { id:'p8', brand:'The Ordinary', name:'Niacinamide 10% + Zinc 1% Serum', price:12, image:'images/products/the-ordinary-niacinamide.jpg', size:'30 ml', tags:'niacinamide serum acne' },
+    { id:'t1', brand:'Charlotte Tilbury', name:'Pillow Talk Lipstick', price:39, image:'images/products/charlotte-tilbury-pillow-talk.jpg', size:'3.5 g', tags:'lipstick nude pink' },
+    { id:'t2', brand:'Glow Recipe', name:'Watermelon Glow Niacinamide Dew Drops', price:46, image:'images/products/glow-recipe-watermelon.jpg', size:'40 ml', tags:'serum drops watermelon' },
+    { id:'t3', brand:'Tom Ford', name:'Black Orchid Eau de Parfum', price:185, image:'images/products/tom-ford-black-orchid.jpg', size:'50 ml', tags:'perfume oriental dark' },
+    { id:'t4', brand:'Sulwhasoo', name:'First Care Activating Serum', price:78, image:'images/products/sulwhasoo-first-care.jpg', size:'60 ml', tags:'serum korean luxe' },
+    { id:'t5', brand:'Maybelline', name:'Sky High Volume Mascara', price:11, image:'images/products/maybelline-sky-high.jpg', size:'7 ml', tags:'mascara lashes' },
+    { id:'t6', brand:'Jo Malone', name:'Wood Sage & Sea Salt Cologne', price:142, image:'images/products/jomalone-wood-sage.jpg', size:'100 ml', tags:'cologne woody sage' },
+  ];
+  function runSearch(q) {
+    const root = document.getElementById('searchResults');
+    const hint = document.getElementById('searchHint');
+    const term = q.trim().toLowerCase();
+    if (!term) {
+      hint.textContent = 'Popular · lipstick · serum · perfume · sunscreen';
+      root.innerHTML = CATALOG.slice(0, 6).map(renderResult).join('');
+      return;
+    }
+    const matches = CATALOG.filter(p =>
+      (p.brand + ' ' + p.name + ' ' + p.tags).toLowerCase().includes(term)
+    );
+    hint.textContent = matches.length + ' result' + (matches.length === 1 ? '' : 's') + ' for "' + q + '"';
+    root.innerHTML = matches.length === 0
+      ? '<p class="text-ink/55 text-sm">No matches. Try another term.</p>'
+      : matches.map(renderResult).join('');
+  }
+  function renderResult(p) {
+    return `
+      <div class="flex items-center gap-4 border border-ink/10 hover:border-ink p-3 group transition" data-product="${p.id}" data-brand="${p.brand}" data-name="${p.name}" data-price="${p.price}" data-image="${p.image}" data-size="${p.size}">
+        <div class="w-16 h-20 bg-cream shrink-0 overflow-hidden"><img src="${p.image}" alt="" class="w-full h-full object-cover" /></div>
+        <div class="flex-1 min-w-0">
+          <p class="text-[10px] tracking-[0.2em] uppercase text-ink/50">${p.brand}</p>
+          <p class="text-sm font-medium leading-snug">${p.name}</p>
+          <p class="text-xs text-ink/55 mt-1">$${p.price} · ${p.size}</p>
+        </div>
+        <button data-add-to-cart class="bg-ink text-bone px-4 py-2 text-[10px] tracking-[0.2em] uppercase hover:bg-hasaki transition opacity-0 group-hover:opacity-100">+ Add</button>
+      </div>`;
+  }
+
+  // ---------- free samples picker (cart page) ----------
+  function bindSamples() {
+    const btns = document.querySelectorAll('[data-sample]');
+    if (!btns.length) return;
+    const MAX = 3;
+    let chosen = JSON.parse(localStorage.getItem(STORE.samples) || '[]');
+    function paint() {
+      btns.forEach(b => {
+        const id = b.dataset.sample;
+        const on = chosen.includes(id);
+        b.classList.toggle('ring-2', on);
+        b.classList.toggle('ring-hasaki', on);
+        const tick = b.querySelector('[data-sample-tick]');
+        if (tick) tick.style.display = on ? '' : 'none';
+      });
+      const status = document.querySelector('[data-sample-status]');
+      if (status) status.textContent = `${chosen.length} of ${MAX} selected · 200+ to choose from`;
+    }
+    btns.forEach(b => {
+      b.addEventListener('click', e => {
+        e.preventDefault();
+        const id = b.dataset.sample;
+        const i = chosen.indexOf(id);
+        if (i >= 0) chosen.splice(i, 1);
+        else if (chosen.length < MAX) chosen.push(id);
+        else return toast('You can pick up to 3 samples');
+        localStorage.setItem(STORE.samples, JSON.stringify(chosen));
+        paint();
+      });
+    });
+    paint();
+  }
+
+  // ---------- checkout form validation ----------
+  function bindCheckoutValidation() {
+    const place = document.querySelector('[data-place-order]');
+    if (!place) return;
+    place.addEventListener('click', e => {
+      const required = ['#email', 'input[type="email"]'];
+      const fields = [
+        ['#email', 'Email'],
+      ];
+      // Generic: any input.field marked required + email format
+      const errors = [];
+      const email = document.getElementById('email');
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) errors.push('Enter a valid email.');
+      const inputs = document.querySelectorAll('input.field, select.field');
+      let firstName, lastName, address, city, zip, cardNo;
+      inputs.forEach(i => {
+        const ph = i.placeholder || '';
+        if (ph === 'First name' && !i.value.trim()) errors.push('First name required.');
+        if (ph === 'Last name' && !i.value.trim()) errors.push('Last name required.');
+        if (ph === '123 Beverly Boulevard' && !i.value.trim()) errors.push('Street address required.');
+        if (ph === 'Los Angeles' && !i.value.trim()) errors.push('City required.');
+        if (ph === '90210' && !i.value.trim()) errors.push('ZIP required.');
+        if (ph === '•••• •••• •••• ••••' && !i.value.replace(/\s/g, '').match(/^\d{12,19}$/)) errors.push('Enter a valid card number.');
+      });
+      if (errors.length) {
+        e.preventDefault();
+        toast(errors[0]);
+        // Scroll to first error
+        const firstBad = document.querySelector('input.field:not([type=email])');
+        if (firstBad && !firstBad.value) firstBad.focus();
+        return false;
+      }
+      // proceed (existing handler will run)
+    }, true);
   }
 
   function renderWishlistPage() {
