@@ -631,36 +631,93 @@
   // ---------- search runner ----------
   // Pulls from a static catalog of products (matches the cards on the homepage)
   const CATALOG = [
-    { id:'p1', brand:'Laneige', name:'Lip Sleeping Mask — Berry', price:18, image:'images/products/laneige-lip-sleeping-mask.jpg', size:'20 g', tags:'lip mask hydration berry' },
-    { id:'p2', brand:'COSRX', name:'Advanced Snail 96 Mucin Power Essence', price:15, image:'images/products/cosrx-snail-essence.jpg', size:'100 ml', tags:'snail mucin essence repair' },
-    { id:'p3', brand:'YSL Beauty', name:'Libre Eau de Parfum 90ml', price:135, image:'images/products/ysl-libre-edp.jpg', size:'90 ml', tags:'perfume floral lavender jasmine' },
-    { id:'p4', brand:'La Roche-Posay', name:'Anthelios UVMune 400 SPF50+ Sunscreen', price:22, image:'images/products/laroche-anthelios.jpg', size:'50 ml', tags:'sunscreen spf sensitive' },
-    { id:'p5', brand:'Dior', name:'Rouge Dior 999 Velvet Lipstick', price:52, image:'images/products/dior-rouge-999.jpg', size:'3.2 g', tags:'lipstick red velvet 999' },
-    { id:'p6', brand:'Innisfree', name:'Green Tea Seed Hyaluronic Serum', price:17, image:'images/products/innisfree-green-tea.jpg', size:'50 ml', tags:'serum hyaluronic green tea' },
-    { id:'p7', brand:'Anessa', name:'Perfect UV Sunscreen Skincare Milk SPF50+', price:25, image:'images/products/anessa-perfect-uv.jpg', size:'60 ml', tags:'sunscreen spf gold' },
-    { id:'p8', brand:'The Ordinary', name:'Niacinamide 10% + Zinc 1% Serum', price:12, image:'images/products/the-ordinary-niacinamide.jpg', size:'30 ml', tags:'niacinamide serum acne' },
-    { id:'t1', brand:'Charlotte Tilbury', name:'Pillow Talk Lipstick', price:39, image:'images/products/charlotte-tilbury-pillow-talk.jpg', size:'3.5 g', tags:'lipstick nude pink' },
-    { id:'t2', brand:'Glow Recipe', name:'Watermelon Glow Niacinamide Dew Drops', price:46, image:'images/products/glow-recipe-watermelon.jpg', size:'40 ml', tags:'serum drops watermelon' },
-    { id:'t3', brand:'Tom Ford', name:'Black Orchid Eau de Parfum', price:185, image:'images/products/tom-ford-black-orchid.jpg', size:'50 ml', tags:'perfume oriental dark' },
-    { id:'t4', brand:'Sulwhasoo', name:'First Care Activating Serum', price:78, image:'images/products/sulwhasoo-first-care.jpg', size:'60 ml', tags:'serum korean luxe' },
-    { id:'t5', brand:'Maybelline', name:'Sky High Volume Mascara', price:11, image:'images/products/maybelline-sky-high.jpg', size:'7 ml', tags:'mascara lashes' },
-    { id:'t6', brand:'Jo Malone', name:'Wood Sage & Sea Salt Cologne', price:142, image:'images/products/jomalone-wood-sage.jpg', size:'100 ml', tags:'cologne woody sage' },
+    { id:'p1', brand:'Laneige', name:'Lip Sleeping Mask — Berry', price:18, image:'images/products/laneige-lip-sleeping-mask.jpg', size:'20 g', tags:'lip mask hydration berry pink balm sleeping overnight' },
+    { id:'p2', brand:'COSRX', name:'Advanced Snail 96 Mucin Power Essence', price:15, image:'images/products/cosrx-snail-essence.jpg', size:'100 ml', tags:'snail mucin essence repair korean serum hydration' },
+    { id:'p3', brand:'YSL Beauty', name:'Libre Eau de Parfum 90ml', price:135, image:'images/products/ysl-libre-edp.jpg', size:'90 ml', tags:'perfume fragrance edp floral lavender jasmine women' },
+    { id:'p4', brand:'La Roche-Posay', name:'Anthelios UVMune 400 SPF50+ Sunscreen', price:22, image:'images/products/laroche-anthelios.jpg', size:'50 ml', tags:'sunscreen spf sunblock sun protection sensitive uv anthelios' },
+    { id:'p5', brand:'Dior', name:'Rouge Dior 999 Velvet Lipstick', price:52, image:'images/products/dior-rouge-999.jpg', size:'3.2 g', tags:'lipstick lip rouge red velvet 999 makeup matte' },
+    { id:'p6', brand:'Innisfree', name:'Green Tea Seed Hyaluronic Serum', price:17, image:'images/products/innisfree-green-tea.jpg', size:'50 ml', tags:'serum hyaluronic green tea acid skincare moisturizer' },
+    { id:'p7', brand:'Anessa', name:'Perfect UV Sunscreen Skincare Milk SPF50+', price:25, image:'images/products/anessa-perfect-uv.jpg', size:'60 ml', tags:'sunscreen sunblock spf sun protection japanese gold uv anessa' },
+    { id:'p8', brand:'The Ordinary', name:'Niacinamide 10% + Zinc 1% Serum', price:12, image:'images/products/the-ordinary-niacinamide.jpg', size:'30 ml', tags:'niacinamide serum zinc acne pore minimalist treatment' },
+    { id:'t1', brand:'Charlotte Tilbury', name:'Pillow Talk Lipstick', price:39, image:'images/products/charlotte-tilbury-pillow-talk.jpg', size:'3.5 g', tags:'lipstick lip nude pink pillow talk makeup matte' },
+    { id:'t2', brand:'Glow Recipe', name:'Watermelon Glow Niacinamide Dew Drops', price:46, image:'images/products/glow-recipe-watermelon.jpg', size:'40 ml', tags:'serum drops watermelon niacinamide pink glow dewy' },
+    { id:'t3', brand:'Tom Ford', name:'Black Orchid Eau de Parfum', price:185, image:'images/products/tom-ford-black-orchid.jpg', size:'50 ml', tags:'perfume fragrance edp oriental dark night unisex' },
+    { id:'t4', brand:'Sulwhasoo', name:'First Care Activating Serum', price:78, image:'images/products/sulwhasoo-first-care.jpg', size:'60 ml', tags:'serum korean luxe luxury anti aging essence' },
+    { id:'t5', brand:'Maybelline', name:'Sky High Volume Mascara', price:11, image:'images/products/maybelline-sky-high.jpg', size:'7 ml', tags:'mascara lashes eye lash makeup volume sky high black' },
+    { id:'t6', brand:'Jo Malone', name:'Wood Sage & Sea Salt Cologne', price:142, image:'images/products/jomalone-wood-sage.jpg', size:'100 ml', tags:'cologne perfume fragrance woody sage sea salt unisex' },
   ];
+
+  // ---------- fuzzy matching helpers ----------
+  function normalize(s) {
+    return String(s || '').toLowerCase()
+      .replace(/[^a-z0-9 ]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+  function singularize(w) {
+    if (w.length < 4) return w;
+    if (w.endsWith('ies')) return w.slice(0, -3) + 'y';
+    if (w.endsWith('ses') || w.endsWith('xes') || w.endsWith('zes')) return w.slice(0, -2);
+    if (w.endsWith('es') && !w.endsWith('lies')) return w.slice(0, -2);
+    if (w.endsWith('s') && !w.endsWith('ss')) return w.slice(0, -1);
+    return w;
+  }
+  function tokenize(s) {
+    return normalize(s).split(' ').filter(Boolean).map(singularize);
+  }
+  function levenshtein(a, b) {
+    if (a === b) return 0;
+    if (!a.length) return b.length;
+    if (!b.length) return a.length;
+    let prev = Array(b.length + 1).fill(0).map((_, i) => i);
+    for (let i = 0; i < a.length; i++) {
+      const cur = [i + 1];
+      for (let j = 0; j < b.length; j++) {
+        const cost = a[i] === b[j] ? 0 : 1;
+        cur.push(Math.min(cur[j] + 1, prev[j + 1] + 1, prev[j] + cost));
+      }
+      prev = cur;
+    }
+    return prev[b.length];
+  }
+  function fuzzyTokenMatch(qToken, targetTokens) {
+    if (!qToken) return true;
+    // Exact match
+    if (targetTokens.includes(qToken)) return true;
+    // Substring match (e.g. "moist" inside "moisturizer")
+    if (targetTokens.some(t => t.includes(qToken) || qToken.includes(t))) return true;
+    // Levenshtein: allow 1 edit for ≤6 chars, 2 edits for 7+
+    const allow = qToken.length <= 4 ? 1 : (qToken.length <= 8 ? 2 : 3);
+    return targetTokens.some(t =>
+      Math.abs(t.length - qToken.length) <= allow &&
+      levenshtein(qToken, t) <= allow
+    );
+  }
+  function fuzzyMatch(query, target) {
+    const qTokens = tokenize(query);
+    if (!qTokens.length) return true;
+    const tTokens = tokenize(target);
+    return qTokens.every(q => fuzzyTokenMatch(q, tTokens));
+  }
+  // Expose for other functions
+  window.HasakiFuzzy = { match: fuzzyMatch, tokenize, normalize };
+
   function runSearch(q) {
     const root = document.getElementById('searchResults');
     const hint = document.getElementById('searchHint');
-    const term = q.trim().toLowerCase();
+    const term = q.trim();
     if (!term) {
       hint.textContent = 'Popular · lipstick · serum · perfume · sunscreen';
       root.innerHTML = CATALOG.slice(0, 6).map(renderResult).join('');
       return;
     }
     const matches = CATALOG.filter(p =>
-      (p.brand + ' ' + p.name + ' ' + p.tags).toLowerCase().includes(term)
+      fuzzyMatch(term, p.brand + ' ' + p.name + ' ' + p.tags)
     );
-    hint.textContent = matches.length + ' result' + (matches.length === 1 ? '' : 's') + ' for "' + q + '"';
+    hint.textContent = matches.length + ' result' + (matches.length === 1 ? '' : 's') + ' for "' + term + '"' +
+      (matches.length === 0 ? '' : ' · press Enter to see all');
     root.innerHTML = matches.length === 0
-      ? '<p class="text-ink/55 text-sm">No matches. Try another term.</p>'
+      ? '<p class="text-ink/55 text-sm">No matches. Try another term — we accept misspellings and plurals.</p>'
       : matches.map(renderResult).join('');
   }
   function renderResult(p) {
@@ -724,7 +781,9 @@
       let items = CATALOG.slice();
 
       if (q) {
-        items = items.filter(p => (p.brand + ' ' + p.name + ' ' + (p.tags || '')).toLowerCase().includes(q));
+        items = items.filter(p =>
+          fuzzyMatch(q, p.brand + ' ' + p.name + ' ' + (p.tags || ''))
+        );
       }
       // Initial cat from URL only counts on first paint via checkbox state
       if (cats.length) items = items.filter(p => cats.includes(deriveCat(p)));
