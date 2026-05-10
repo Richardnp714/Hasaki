@@ -180,20 +180,36 @@
   // ---------- wishlist ----------
   const Wishlist = {
     load() { try { return JSON.parse(localStorage.getItem(STORE.wishlist) || '[]'); } catch { return []; } },
-    save(arr) { localStorage.setItem(STORE.wishlist, JSON.stringify(arr)); },
-    has(id) { return this.load().includes(id); },
-    toggle(id) {
+    save(arr) { localStorage.setItem(STORE.wishlist, JSON.stringify(arr)); this.updateBadge(); },
+    has(id) { return this.load().some(it => (typeof it === 'string' ? it : it.id) === id); },
+    toggle(product) {
+      const id = typeof product === 'string' ? product : product.id;
       const list = this.load();
-      const idx = list.indexOf(id);
+      const idx = list.findIndex(it => (typeof it === 'string' ? it : it.id) === id);
       if (idx >= 0) { list.splice(idx, 1); this.save(list); return false; }
-      list.push(id); this.save(list); return true;
+      list.push(typeof product === 'string' ? id : product);
+      this.save(list);
+      return true;
+    },
+    items() {
+      // Return rich product objects from cart-style data on the wishlist
+      return this.load().filter(it => typeof it === 'object');
+    },
+    updateBadge() {
+      const count = this.load().length;
+      document.querySelectorAll('[data-wishlist-count]').forEach(el => {
+        el.textContent = count;
+        el.style.display = count === 0 ? 'none' : '';
+      });
     },
   };
+  window.HasakiWishlist = Wishlist;
 
   // ---------- DOM bindings ----------
   function init() {
     Cart.updateBadge();
     Cart.updatePreview();
+    Wishlist.updateBadge();
 
     // Add to bag (homepage product cards & sets)
     document.querySelectorAll('[data-add-to-cart]').forEach((btn) => {
@@ -231,7 +247,7 @@
       }
     });
 
-    // Wishlist toggle
+    // Wishlist toggle (saves full product info so wishlist page can render)
     document.querySelectorAll('[data-wishlist]').forEach((btn) => {
       const id = btn.dataset.wishlist;
       if (Wishlist.has(id)) {
@@ -240,7 +256,18 @@
       }
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-        const nowFav = Wishlist.toggle(id);
+        e.stopPropagation();
+        const card = btn.closest('[data-product]');
+        const product = card ? {
+          id: card.dataset.product,
+          brand: card.dataset.brand || '',
+          name: card.dataset.name || '',
+          price: parseFloat(card.dataset.price) || 0,
+          image: card.dataset.image || '',
+          size: card.dataset.size || '',
+          category: card.dataset.category || '',
+        } : id;
+        const nowFav = Wishlist.toggle(product);
         if (nowFav) {
           btn.style.background = 'rgba(157,42,77,0.95)';
           btn.style.color = '#f5f1ea';
@@ -252,6 +279,28 @@
         }
       });
     });
+
+    // Wishlist page: remove + move to bag
+    document.addEventListener('click', (e) => {
+      const wrm = e.target.closest('[data-wishlist-remove]');
+      const wmove = e.target.closest('[data-wishlist-move]');
+      if (wrm) {
+        const id = wrm.dataset.wishlistRemove;
+        Wishlist.toggle(id);
+        renderWishlistPage();
+        toast('Removed from wishlist');
+      } else if (wmove) {
+        const id = wmove.dataset.wishlistMove;
+        const item = Wishlist.items().find(it => it.id === id);
+        if (item) {
+          Cart.add(item);
+          Wishlist.toggle(id);
+          renderWishlistPage();
+        }
+      }
+    });
+
+    renderWishlistPage();
 
     // Search
     const searchInput = document.querySelector('[data-search-input]');
@@ -332,6 +381,49 @@
 
     // Render cart page if applicable
     Cart.renderPage();
+  }
+
+  function renderWishlistPage() {
+    const root = document.querySelector('[data-wishlist-render]');
+    if (!root) return;
+    const items = Wishlist.items();
+    const countEl = document.querySelector('[data-wishlist-page-count]');
+    if (countEl) countEl.textContent = items.length + ' ' + (items.length === 1 ? 'item' : 'items');
+
+    if (items.length === 0) {
+      root.innerHTML = `
+        <div class="py-16 text-center border-y border-ink/10">
+          <p class="serif text-3xl tracking-tightest mb-3">Your wishlist is empty.</p>
+          <p class="text-ink/60 text-sm mb-6">Tap the heart on any product to save it for later.</p>
+          <a href="index.html" class="inline-flex items-center gap-2 bg-ink text-bone px-7 py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">Continue shopping →</a>
+        </div>`;
+      return;
+    }
+
+    root.innerHTML = `
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-x-3 gap-y-10 md:gap-x-4">
+        ${items.map(it => `
+          <article class="pcard group">
+            <div class="relative aspect-[4/5] bg-cream overflow-hidden">
+              ${it.image ? `<img src="${it.image}" alt="${it.name}" class="absolute inset-0 w-full h-full object-cover" />` : ''}
+              <button data-wishlist-remove="${it.id}" aria-label="Remove from wishlist" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/85 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-3.5 h-3.5 stroke-2"><path d="M6 18L18 6M6 6l12 12"/></svg>
+              </button>
+              <div class="absolute left-3 right-3 bottom-3">
+                <button data-wishlist-move="${it.id}" class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">+ Move to bag</button>
+              </div>
+            </div>
+            <div class="pt-3.5 px-1">
+              <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">${it.brand || ''}</p>
+              <h3 class="text-[15px] font-medium leading-snug mt-1.5">${it.name}</h3>
+              <div class="flex items-baseline gap-2 mt-3">
+                <span class="font-bold text-base">$${it.price}</span>
+                ${it.size ? `<span class="text-xs text-ink/55">· ${it.size}</span>` : ''}
+              </div>
+            </div>
+          </article>
+        `).join('')}
+      </div>`;
   }
 
   if (document.readyState === 'loading') {

@@ -328,7 +328,10 @@ const I18N = {
     'co.tp.ssl': 'Encrypted SSL',
     'co.footer.contact': 'Contact',
     'co.footer.back': 'Back to store',
-        },
+    'wl.bcrumb': 'Wishlist',
+    'wl.h.a': 'Your',
+    'wl.h.b': 'wishlist.',
+          },
   vi: {
     'announce.la': '★ Đã khai trương tại Los Angeles, California',
     'announce.tagline': 'Hệ thống mỹ phẩm số 1 Việt Nam từ 2016',
@@ -658,7 +661,10 @@ const I18N = {
     'co.tp.ssl': 'Mã hóa SSL',
     'co.footer.contact': 'Liên hệ',
     'co.footer.back': 'Quay lại cửa hàng',
-        },
+    'wl.bcrumb': 'Yêu thích',
+    'wl.h.a': 'Yêu thích',
+    'wl.h.b': 'của bạn.',
+          },
   zh: {
     'announce.la': '★ 洛杉矶旗舰店现已开业',
     'announce.tagline': '2016 年至今越南排名第一的美妆连锁',
@@ -986,7 +992,10 @@ const I18N = {
     'co.tp.ssl': 'SSL 加密',
     'co.footer.contact': '联系',
     'co.footer.back': '返回商店',
-        },
+    'wl.bcrumb': '心愿单',
+    'wl.h.a': '您的',
+    'wl.h.b': '心愿单。',
+          },
   ko: {
     'announce.la': '★ 로스앤젤레스 매장 오픈',
     'announce.tagline': '2016년부터 베트남 1위 뷰티 체인',
@@ -1316,7 +1325,10 @@ const I18N = {
     'co.tp.ssl': 'SSL 암호화',
     'co.footer.contact': '문의',
     'co.footer.back': '스토어로',
-        },
+    'wl.bcrumb': '위시리스트',
+    'wl.h.a': '내',
+    'wl.h.b': '위시리스트.',
+          },
   ja: {
     'announce.la': '★ ロサンゼルス店オープン',
     'announce.tagline': '2016年からベトナムNo.1ビューティーチェーン',
@@ -1646,7 +1658,10 @@ const I18N = {
     'co.tp.ssl': 'SSL暗号化',
     'co.footer.contact': 'お問合せ',
     'co.footer.back': 'ストアへ戻る',
-        },
+    'wl.bcrumb': 'ウィッシュリスト',
+    'wl.h.a': 'あなたの',
+    'wl.h.b': 'ウィッシュリスト。',
+          },
   es: {
     'announce.la': '★ Ya abrimos en Los Ángeles, CA',
     'announce.tagline': 'Cadena de belleza Nº 1 en Vietnam desde 2016',
@@ -1976,7 +1991,10 @@ const I18N = {
     'co.tp.ssl': 'SSL cifrado',
     'co.footer.contact': 'Contacto',
     'co.footer.back': 'Volver a la tienda',
-        },
+    'wl.bcrumb': 'Wishlist',
+    'wl.h.a': 'Tu',
+    'wl.h.b': 'wishlist.',
+          },
   fr: {
     'announce.la': '★ Maintenant ouvert à Los Angeles, CA',
     'announce.tagline': '№1 chaîne beauté du Vietnam depuis 2016',
@@ -2306,7 +2324,10 @@ const I18N = {
     'co.tp.ssl': 'SSL chiffré',
     'co.footer.contact': 'Contact',
     'co.footer.back': 'Retour à la boutique',
-        },
+    'wl.bcrumb': 'Wishlist',
+    'wl.h.a': 'Votre',
+    'wl.h.b': 'wishlist.',
+          },
 };
 
 const LANG_LABELS = { en:'EN', vi:'VI', zh:'ZH', ko:'KO', ja:'JA', es:'ES', fr:'FR' };
