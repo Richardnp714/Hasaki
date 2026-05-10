@@ -217,6 +217,7 @@
     bindModals();
     bindSamples();
     bindCheckoutValidation();
+    renderCategoryPage();
 
     // Add to bag (homepage product cards & sets)
     document.querySelectorAll('[data-add-to-cart]').forEach((btn) => {
@@ -563,6 +564,14 @@
       if (e.target.closest('[data-close-search]') || e.target === sm) close(sm);
     });
     document.getElementById('searchInput').addEventListener('input', e => runSearch(e.target.value));
+    // Pressing Enter navigates to category.html?q=...
+    document.getElementById('searchInput').addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        const q = e.target.value.trim();
+        if (q) window.location.href = 'category.html?q=' + encodeURIComponent(q);
+      }
+    });
 
     // Account
     document.querySelectorAll('[data-open-account]').forEach(b => b.addEventListener('click', e => {
@@ -656,7 +665,7 @@
   }
   function renderResult(p) {
     return `
-      <div class="flex items-center gap-4 border border-ink/10 hover:border-ink p-3 group transition" data-product="${p.id}" data-brand="${p.brand}" data-name="${p.name}" data-price="${p.price}" data-image="${p.image}" data-size="${p.size}">
+      <div class="flex items-center gap-4 border border-ink/10 hover:border-ink p-3 group transition cursor-pointer" data-product="${p.id}" data-brand="${p.brand}" data-name="${p.name}" data-price="${p.price}" data-image="${p.image}" data-size="${p.size}" onclick="if(!event.target.closest('[data-add-to-cart]')) window.location.href='category.html?q=' + encodeURIComponent('${p.brand} ${p.name.split(' ')[0]}'.replace(/'/g,''));">
         <div class="w-16 h-20 bg-cream shrink-0 overflow-hidden"><img src="${p.image}" alt="" class="w-full h-full object-cover" /></div>
         <div class="flex-1 min-w-0">
           <p class="text-[10px] tracking-[0.2em] uppercase text-ink/50">${p.brand}</p>
@@ -666,6 +675,157 @@
         <button data-add-to-cart class="bg-ink text-bone px-4 py-2 text-[10px] tracking-[0.2em] uppercase hover:bg-hasaki transition opacity-0 group-hover:opacity-100">+ Add</button>
       </div>`;
   }
+
+  // ---------- category / search results page renderer ----------
+  function renderCategoryPage() {
+    const grid = document.getElementById('catGrid');
+    if (!grid) return;
+    const params = new URLSearchParams(window.location.search);
+    const q = (params.get('q') || '').trim().toLowerCase();
+    const cat = (params.get('cat') || '').trim().toLowerCase();
+    const sortSel = document.getElementById('catSort');
+    const empty = document.getElementById('catEmpty');
+    const countEl = document.getElementById('catCount');
+    const titleEl = document.getElementById('catTitle');
+    const subEl = document.getElementById('catSub');
+    const breadEl = document.getElementById('catBreadcrumb');
+
+    // Set page heading from params
+    if (q) {
+      titleEl.innerHTML = 'Results for <span class="italic text-hasaki">' + escapeHtml(q) + '</span>.';
+      breadEl.textContent = 'Search · ' + q;
+    } else if (cat) {
+      const niceMap = { skincare:'Skincare', makeup:'Makeup', fragrance:'Fragrance', body:'Body', hair:'Hair', wellness:'Wellness', new:'New In' };
+      const nice = niceMap[cat] || cat.charAt(0).toUpperCase() + cat.slice(1);
+      titleEl.innerHTML = 'Shop <span class="italic text-hasaki">' + escapeHtml(nice) + '</span>.';
+      breadEl.textContent = nice;
+      // Pre-check the matching category
+      document.querySelectorAll('#filterCat .cat-check').forEach(c => { if (c.value === cat) c.checked = true; });
+    } else {
+      titleEl.innerHTML = 'Shop <span class="italic text-hasaki">all</span>.';
+      breadEl.textContent = 'Shop';
+    }
+
+    // Build brand filter list from CATALOG
+    const brandSet = [...new Set(CATALOG.map(p => p.brand))].sort();
+    const brandList = document.getElementById('filterBrand');
+    if (brandList && !brandList.children.length) {
+      brandList.innerHTML = brandSet.map(b => `
+        <li><label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" value="${escapeAttr(b)}" class="brand-check accent-[#306E51]"/> <span>${escapeHtml(b)}</span></label></li>
+      `).join('');
+    }
+
+    function paint() {
+      const cats = Array.from(document.querySelectorAll('.cat-check:checked')).map(c => c.value);
+      const brands = Array.from(document.querySelectorAll('.brand-check:checked')).map(c => c.value);
+      const priceRange = (document.querySelector('input[name="price"]:checked') || {}).value || 'all';
+      const sort = sortSel.value;
+
+      let items = CATALOG.slice();
+
+      if (q) {
+        items = items.filter(p => (p.brand + ' ' + p.name + ' ' + (p.tags || '')).toLowerCase().includes(q));
+      }
+      // Initial cat from URL only counts on first paint via checkbox state
+      if (cats.length) items = items.filter(p => cats.includes(deriveCat(p)));
+      if (brands.length) items = items.filter(p => brands.includes(p.brand));
+      if (priceRange !== 'all') {
+        const [lo, hi] = priceRange.endsWith('+') ? [parseFloat(priceRange), Infinity] : priceRange.split('-').map(Number);
+        items = items.filter(p => p.price >= lo && p.price <= (isNaN(hi) ? Infinity : hi));
+      }
+
+      if (sort === 'price-asc') items.sort((a, b) => a.price - b.price);
+      else if (sort === 'price-desc') items.sort((a, b) => b.price - a.price);
+      else if (sort === 'name') items.sort((a, b) => a.name.localeCompare(b.name));
+
+      countEl.textContent = items.length + ' product' + (items.length === 1 ? '' : 's');
+      subEl.textContent = items.length === 0 ? '' : 'From $' + Math.min(...items.map(i => i.price)) + ' · ' + items.length + ' available';
+
+      if (items.length === 0) {
+        grid.innerHTML = '';
+        empty.classList.remove('hidden');
+        return;
+      }
+      empty.classList.add('hidden');
+
+      grid.innerHTML = items.map(p => `
+        <article class="pcard reveal group" data-product="${p.id}" data-brand="${p.brand}" data-name="${escapeAttr(p.name)}" data-price="${p.price}" data-image="${p.image}" data-size="${p.size}" data-category="${deriveCat(p)}">
+          <div class="relative aspect-[4/5] bg-cream overflow-hidden">
+            <img src="${p.image}" alt="${escapeAttr(p.name)}" loading="lazy" class="img absolute inset-0 w-full h-full object-cover" />
+            <button aria-label="Save" data-wishlist="${p.id}" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/85 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+            <span class="absolute bottom-3 left-3 text-[10px] tracking-[0.25em] uppercase text-ink/45">${p.size}</span>
+            <div class="absolute inset-x-3 bottom-3 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+              <button data-add-to-cart class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">+ Add to bag</button>
+            </div>
+          </div>
+          <div class="pt-3.5 px-1">
+            <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">${escapeHtml(p.brand)}</p>
+            <h3 class="text-[15px] font-medium leading-snug mt-1.5">${escapeHtml(p.name)}</h3>
+            <div class="flex items-baseline gap-2 mt-3">
+              <span class="font-bold text-base">$${p.price}</span>
+              ${p.size ? `<span class="text-xs text-ink/55">· ${escapeHtml(p.size)}</span>` : ''}
+            </div>
+          </div>
+        </article>
+      `).join('');
+
+      // Re-bind add-to-cart and wishlist on the newly inserted nodes
+      grid.querySelectorAll('[data-add-to-cart]').forEach(btn => {
+        btn.addEventListener('click', e => {
+          e.preventDefault();
+          const card = btn.closest('[data-product]');
+          if (!card) return;
+          Cart.add({
+            id: card.dataset.product, brand: card.dataset.brand, name: card.dataset.name,
+            price: parseFloat(card.dataset.price), image: card.dataset.image, size: card.dataset.size,
+          });
+        });
+      });
+      grid.querySelectorAll('[data-wishlist]').forEach(btn => {
+        const id = btn.dataset.wishlist;
+        if (Wishlist.has(id)) { btn.style.background = 'rgba(157,42,77,0.95)'; btn.style.color = '#f5f1ea'; }
+        btn.addEventListener('click', e => {
+          e.preventDefault(); e.stopPropagation();
+          const card = btn.closest('[data-product]');
+          const product = card ? {
+            id: card.dataset.product, brand: card.dataset.brand, name: card.dataset.name,
+            price: parseFloat(card.dataset.price), image: card.dataset.image, size: card.dataset.size,
+          } : id;
+          const nowFav = Wishlist.toggle(product);
+          if (nowFav) { btn.style.background = 'rgba(157,42,77,0.95)'; btn.style.color = '#f5f1ea'; toast('Added to wishlist'); }
+          else { btn.style.background = ''; btn.style.color = ''; toast('Removed from wishlist'); }
+        });
+      });
+    }
+
+    // Filter listeners
+    document.querySelectorAll('.cat-check, .brand-check, input[name="price"]').forEach(i =>
+      i.addEventListener('change', paint)
+    );
+    sortSel.addEventListener('change', paint);
+    document.getElementById('catReset').addEventListener('click', () => {
+      document.querySelectorAll('.cat-check, .brand-check').forEach(c => c.checked = false);
+      const allRadio = document.querySelector('input[name="price"][value="all"]');
+      if (allRadio) allRadio.checked = true;
+      sortSel.value = 'featured';
+      paint();
+    });
+
+    paint();
+  }
+
+  function deriveCat(p) {
+    const txt = (p.brand + ' ' + p.name + ' ' + (p.tags || '')).toLowerCase();
+    if (/perfume|cologne|eau de|edp|fragrance/.test(txt)) return 'fragrance';
+    if (/lipstick|mascara|eyeshadow|liner|gloss|palette|makeup|rouge|pillow talk|sky high/.test(txt)) return 'makeup';
+    if (/sunscreen|spf|serum|essence|cream|moisturi[sz]er|cleanser|toner|niacinamide|hyaluronic|retinol|vitamin c|skincare|snail|mucin|glow/.test(txt)) return 'skincare';
+    return 'skincare';
+  }
+
+  function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+  function escapeAttr(s) { return escapeHtml(s); }
 
   // ---------- free samples picker (cart page) ----------
   function bindSamples() {
