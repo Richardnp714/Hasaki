@@ -218,6 +218,7 @@
     bindSamples();
     bindCheckoutValidation();
     renderCategoryPage();
+    renderProductPage();
 
     // Add to bag (homepage product cards & sets)
     document.querySelectorAll('[data-add-to-cart]').forEach((btn) => {
@@ -631,20 +632,90 @@
   // ---------- search runner ----------
   // Pulls from a static catalog of products (matches the cards on the homepage)
   const CATALOG = [
-    { id:'p1', brand:'Laneige', name:'Lip Sleeping Mask — Berry', price:18, image:'images/products/laneige-lip-sleeping-mask.jpg', size:'20 g', tags:'lip mask hydration berry pink balm sleeping overnight' },
-    { id:'p2', brand:'COSRX', name:'Advanced Snail 96 Mucin Power Essence', price:15, image:'images/products/cosrx-snail-essence.jpg', size:'100 ml', tags:'snail mucin essence repair korean serum hydration' },
-    { id:'p3', brand:'YSL Beauty', name:'Libre Eau de Parfum 90ml', price:135, image:'images/products/ysl-libre-edp.jpg', size:'90 ml', tags:'perfume fragrance edp floral lavender jasmine women' },
-    { id:'p4', brand:'La Roche-Posay', name:'Anthelios UVMune 400 SPF50+ Sunscreen', price:22, image:'images/products/laroche-anthelios.jpg', size:'50 ml', tags:'sunscreen spf sunblock sun protection sensitive uv anthelios' },
-    { id:'p5', brand:'Dior', name:'Rouge Dior 999 Velvet Lipstick', price:52, image:'images/products/dior-rouge-999.jpg', size:'3.2 g', tags:'lipstick lip rouge red velvet 999 makeup matte' },
-    { id:'p6', brand:'Innisfree', name:'Green Tea Seed Hyaluronic Serum', price:17, image:'images/products/innisfree-green-tea.jpg', size:'50 ml', tags:'serum hyaluronic green tea acid skincare moisturizer' },
-    { id:'p7', brand:'Anessa', name:'Perfect UV Sunscreen Skincare Milk SPF50+', price:25, image:'images/products/anessa-perfect-uv.jpg', size:'60 ml', tags:'sunscreen sunblock spf sun protection japanese gold uv anessa' },
-    { id:'p8', brand:'The Ordinary', name:'Niacinamide 10% + Zinc 1% Serum', price:12, image:'images/products/the-ordinary-niacinamide.jpg', size:'30 ml', tags:'niacinamide serum zinc acne pore minimalist treatment' },
-    { id:'t1', brand:'Charlotte Tilbury', name:'Pillow Talk Lipstick', price:39, image:'images/products/charlotte-tilbury-pillow-talk.jpg', size:'3.5 g', tags:'lipstick lip nude pink pillow talk makeup matte' },
-    { id:'t2', brand:'Glow Recipe', name:'Watermelon Glow Niacinamide Dew Drops', price:46, image:'images/products/glow-recipe-watermelon.jpg', size:'40 ml', tags:'serum drops watermelon niacinamide pink glow dewy' },
-    { id:'t3', brand:'Tom Ford', name:'Black Orchid Eau de Parfum', price:185, image:'images/products/tom-ford-black-orchid.jpg', size:'50 ml', tags:'perfume fragrance edp oriental dark night unisex' },
-    { id:'t4', brand:'Sulwhasoo', name:'First Care Activating Serum', price:78, image:'images/products/sulwhasoo-first-care.jpg', size:'60 ml', tags:'serum korean luxe luxury anti aging essence' },
-    { id:'t5', brand:'Maybelline', name:'Sky High Volume Mascara', price:11, image:'images/products/maybelline-sky-high.jpg', size:'7 ml', tags:'mascara lashes eye lash makeup volume sky high black' },
-    { id:'t6', brand:'Jo Malone', name:'Wood Sage & Sea Salt Cologne', price:142, image:'images/products/jomalone-wood-sage.jpg', size:'100 ml', tags:'cologne perfume fragrance woody sage sea salt unisex' },
+    { id:'p1', brand:'Laneige', name:'Lip Sleeping Mask — Berry', price:18, image:'images/products/laneige-lip-sleeping-mask.jpg', size:'20 g', category:'skincare', rating:4.9, reviews:2841,
+      tags:'lip mask hydration berry pink balm sleeping overnight',
+      description: 'A creamy overnight lip mask infused with our signature berry mix and Vitamin C. Wake up to softer, smoother, fuller-looking lips. Apply a generous layer before bed and let our antioxidant berry complex work overnight.',
+      benefits: ['Hydrates and softens lips overnight','Vitamin C brightens dry, dull lips','Sweet berry scent','Suitable for all skin types'],
+      howTo: 'Apply a generous layer to lips before bed using the included spatula. Rinse off or wipe away in the morning. Use 2–3 nights a week, or every night for very dry lips.',
+      ingredients: 'Diisostearyl Malate, Hydrogenated Polyisobutene, Phytosteryl/Isostearyl/Cetyl/Stearyl/Behenyl Dimer Dilinoleate, Tocopheryl Acetate (Vitamin E), Ascorbic Acid (Vitamin C), Vaccinium Angustifolium (Blueberry) Fruit Extract, Rubus Idaeus (Raspberry) Fruit Extract.' },
+    { id:'p2', brand:'COSRX', name:'Advanced Snail 96 Mucin Power Essence', price:15, image:'images/products/cosrx-snail-essence.jpg', size:'100 ml', category:'skincare', rating:4.9, reviews:8512,
+      tags:'snail mucin essence repair korean serum hydration',
+      description: 'A K-beauty cult classic with 96.3% snail secretion filtrate to repair, replenish and hydrate skin. Lightweight, fragrance-free, and gentle enough for daily use on sensitive or breakout-prone skin.',
+      benefits: ['96.3% snail secretion filtrate','Repairs and replenishes the skin barrier','Hydrates without heaviness','Fragrance-free, gentle for sensitive skin'],
+      howTo: 'After cleansing and toning, apply a small amount and pat into skin morning and night. Follow with serum and moisturizer.',
+      ingredients: 'Snail Secretion Filtrate (96.3%), Betaine, Butylene Glycol, Sodium Hyaluronate, Panthenol, Allantoin, Phenoxyethanol, Sodium Polyacrylate.' },
+    { id:'p3', brand:'YSL Beauty', name:'Libre Eau de Parfum 90ml', price:135, image:'images/products/ysl-libre-edp.jpg', size:'90 ml', category:'fragrance', rating:4.8, reviews:1204,
+      tags:'perfume fragrance edp floral lavender jasmine women',
+      description: 'A floral lavender perfume that breaks the rules of fragrance. The bold burst of lavender essence from France meets sensual orange blossom from Morocco for a scent that\'s bright and warmly addictive.',
+      benefits: ['Top notes: Mandarin Orange, Lavender, Black Currant','Heart: Orange Blossom, Jasmine','Base: Madagascar Vanilla, Cedar, Ambergris','Eau de Parfum · long-lasting'],
+      howTo: 'Spray on pulse points — wrists, base of throat, behind the ears — for an all-day signature scent.',
+      ingredients: 'Alcohol Denat., Parfum (Fragrance), Aqua (Water), Linalool, Limonene, Coumarin, Geraniol, Citronellol, Citral, Benzyl Alcohol.' },
+    { id:'p4', brand:'La Roche-Posay', name:'Anthelios UVMune 400 SPF50+ Sunscreen', price:22, image:'images/products/laroche-anthelios.jpg', size:'50 ml', category:'skincare', rating:4.7, reviews:3915,
+      tags:'sunscreen spf sunblock sun protection sensitive uv anthelios',
+      description: 'Broad-spectrum SPF50+ daily sunscreen for sensitive skin. New UVMune 400 filter system protects against the longest UVA rays, fighting cell damage that causes pigmentation and aging. Lightweight, non-greasy, no white cast.',
+      benefits: ['SPF50+ broad spectrum','UVA + UVB + UV-LONG protection','Lightweight, no white cast','Suitable for sensitive skin'],
+      howTo: 'Apply generously as the last step of your morning routine. Reapply every 2 hours and after swimming or sweating.',
+      ingredients: 'Aqua, Alcohol Denat., Diisopropyl Sebacate, C12-15 Alkyl Benzoate, Methylene Bis-Benzotriazolyl Tetramethylbutylphenol (Tinosorb M), Drometrizole Trisiloxane (Mexoryl XL), Bis-Ethylhexyloxyphenol Methoxyphenyl Triazine (Tinosorb S).' },
+    { id:'p5', brand:'Dior', name:'Rouge Dior 999 Velvet Lipstick', price:52, image:'images/products/dior-rouge-999.jpg', size:'3.2 g', category:'makeup', rating:4.9, reviews:12403,
+      tags:'lipstick lip rouge red velvet 999 makeup matte',
+      description: 'The iconic Dior 999 in a couture velvet finish. Saturated, blurring, lightweight color in the most universally flattering red. Hydrating Floral Lip Care Oil leaves lips soft and supple for up to 16 hours.',
+      benefits: ['Iconic Dior 999 red','Velvet matte finish','Up to 16-hour wear','Hydrating Floral Lip Care Oil'],
+      howTo: 'Apply directly from the bullet starting at the center of the lips and working outward. Layer for more intense color.',
+      ingredients: 'Ricinus Communis (Castor) Seed Oil, Caprylic/Capric Triglyceride, Octyldodecanol, Synthetic Beeswax, Carnauba Wax, Tocopherol, Helianthus Annuus Seed Oil, CI 15850, CI 15985, CI 19140.' },
+    { id:'p6', brand:'Innisfree', name:'Green Tea Seed Hyaluronic Serum', price:17, image:'images/products/innisfree-green-tea.jpg', size:'50 ml', category:'skincare', rating:4.6, reviews:1729,
+      tags:'serum hyaluronic green tea acid skincare moisturizer',
+      description: 'A lightweight serum with 5 types of hyaluronic acid and antioxidant green tea from Jeju Island. Locks moisture into the deepest layers and gives a healthy, dewy glow. Ideal for oily and combination skin.',
+      benefits: ['5 types of hyaluronic acid','Jeju green tea antioxidants','Lightweight, non-greasy','Suitable for oily / combo skin'],
+      howTo: 'After cleansing and toning, apply 2–3 drops and pat into skin. Use morning and night before moisturizer.',
+      ingredients: 'Camellia Sinensis (Green Tea) Leaf Extract, Glycerin, Sodium Hyaluronate, Hydrolyzed Hyaluronic Acid, Sodium Hyaluronate Crosspolymer, Hyaluronic Acid, Panthenol, Niacinamide.' },
+    { id:'p7', brand:'Anessa', name:'Perfect UV Sunscreen Skincare Milk SPF50+', price:25, image:'images/products/anessa-perfect-uv.jpg', size:'60 ml', category:'skincare', rating:4.9, reviews:5612,
+      tags:'sunscreen sunblock spf sun protection japanese gold uv anessa',
+      description: 'Japan\'s #1 sunscreen for over 20 years. Aqua Booster Technology means the protective film actually gets stronger when it meets sweat or water. Skincare-grade hydration with 50% beauty essence, no white cast, water and sweat-proof.',
+      benefits: ['SPF50+ PA++++','Aqua Booster Technology','50% beauty essence base','Water & sweat-proof'],
+      howTo: 'Shake well before use. Apply liberally to face and body 15 minutes before sun exposure. Reapply every 2 hours.',
+      ingredients: 'Aqua, Cyclopentasiloxane, Ethylhexyl Methoxycinnamate, Bis-Ethylhexyloxyphenol Methoxyphenyl Triazine, Diethylamino Hydroxybenzoyl Hexyl Benzoate, Camellia Sinensis Leaf Extract, Royal Jelly Extract.' },
+    { id:'p8', brand:'The Ordinary', name:'Niacinamide 10% + Zinc 1% Serum', price:12, image:'images/products/the-ordinary-niacinamide.jpg', size:'30 ml', category:'skincare', rating:4.7, reviews:18247,
+      tags:'niacinamide serum zinc acne pore minimalist treatment',
+      description: 'A high-strength vitamin and mineral blemish formula. 10% niacinamide refines uneven skin tone and visibly reduces blemishes; 1% zinc PCA balances visible sebum activity for a clearer, more even complexion.',
+      benefits: ['10% niacinamide refines tone','1% zinc balances sebum','Reduces appearance of pores','Vegan, cruelty-free'],
+      howTo: 'Apply a few drops to face morning and evening before heavier creams. Avoid using with vitamin C.',
+      ingredients: 'Aqua (Water), Niacinamide, Pentylene Glycol, Zinc PCA, Dimethyl Isosorbide, Tamarindus Indica Seed Gum, Xanthan Gum, Isoceteth-20, Ethoxydiglycol, Phenoxyethanol, Chlorphenesin.' },
+    { id:'t1', brand:'Charlotte Tilbury', name:'Pillow Talk Lipstick', price:39, image:'images/products/charlotte-tilbury-pillow-talk.jpg', size:'3.5 g', category:'makeup', rating:4.8, reviews:9203,
+      tags:'lipstick lip nude pink pillow talk makeup matte',
+      description: 'Charlotte\'s award-winning nude pink lipstick — the dreamy nude pink that suits every skin tone. Matte Revolution formula floods lips with light and color and feels luxuriously hydrating.',
+      benefits: ['Universally flattering nude pink','Matte Revolution hydrating formula','Lipstick Tree extract','Lasts up to 10 hours'],
+      howTo: 'Glide directly from the bullet onto lips. Layer with the matching liner for fuller-looking lips.',
+      ingredients: 'Ricinus Communis Seed Oil, Octyldodecanol, Hydrogenated Polyisobutene, Synthetic Wax, Microcrystalline Wax, Tocopheryl Acetate, Bixa Orellana Seed Extract.' },
+    { id:'t2', brand:'Glow Recipe', name:'Watermelon Glow Niacinamide Dew Drops', price:46, image:'images/products/glow-recipe-watermelon.jpg', size:'40 ml', category:'skincare', rating:4.7, reviews:4892,
+      tags:'serum drops watermelon niacinamide pink glow dewy',
+      description: 'A weightless, illuminating serum with 4% niacinamide and watermelon extract. Deeply hydrates while delivering an instant lit-from-within dewy glow. Wear under or over makeup for a juicy, lit-up complexion.',
+      benefits: ['4% niacinamide','Watermelon extract for hydration','Pearlescent dewy finish','Layer under or over makeup'],
+      howTo: 'After serum, dispense 1–2 pumps and pat onto face for an instant glow. Mix into foundation for a luminous base.',
+      ingredients: 'Aqua, Niacinamide, Citrullus Lanatus (Watermelon) Fruit Extract, Hibiscus Sabdariffa Flower Extract, Mica, Glycerin, Sodium Hyaluronate.' },
+    { id:'t3', brand:'Tom Ford', name:'Black Orchid Eau de Parfum', price:185, image:'images/products/tom-ford-black-orchid.jpg', size:'50 ml', category:'fragrance', rating:4.9, reviews:6521,
+      tags:'perfume fragrance edp oriental dark night unisex',
+      description: 'A luxurious, sensual fragrance of rich, dark accords. Black truffle, ylang ylang, black orchid, and noble spice — Black Orchid is timelessly modern, masculine and feminine all at once.',
+      benefits: ['Black truffle, ylang ylang, black orchid','Eau de Parfum · long-lasting','Dramatic, evening signature','Layer for occasion wear'],
+      howTo: 'Spray on pulse points; layer with the body oil for amplified longevity.',
+      ingredients: 'Alcohol Denat., Parfum (Fragrance), Aqua, Linalool, Coumarin, Eugenol, Benzyl Salicylate, Citronellol, Limonene.' },
+    { id:'t4', brand:'Sulwhasoo', name:'First Care Activating Serum', price:78, image:'images/products/sulwhasoo-first-care.jpg', size:'60 ml', category:'skincare', rating:4.8, reviews:2156,
+      tags:'serum korean luxe luxury anti aging essence',
+      description: 'The legendary first-step serum from Korea\'s most prestigious beauty house. JAUM Balancing Complex blend of five harmonizing herbs preps skin to better receive everything that follows.',
+      benefits: ['JAUM Balancing Complex herbal blend','Boosts efficacy of subsequent steps','Locks in hydration','Improves texture and luminosity'],
+      howTo: 'Apply 2–3 drops as the very first step after cleansing, before toner. Pat into skin morning and night.',
+      ingredients: 'Aqua, Glycerin, Butylene Glycol, Astragalus Membranaceus Root Extract, Lycium Chinense Fruit Extract, Cnidium Officinale Root Extract, Paeonia Albiflora Root Extract.' },
+    { id:'t5', brand:'Maybelline', name:'Sky High Volume Mascara', price:11, image:'images/products/maybelline-sky-high.jpg', size:'7 ml', category:'makeup', rating:4.6, reviews:23104,
+      tags:'mascara lashes eye lash makeup volume sky high black',
+      description: 'Sky-high volumising mascara with Bamboo extract and fibers. Limitless lengths and full volumising — without clumping, smudging or stiffness. The TikTok-famous mascara that started a movement.',
+      benefits: ['Bamboo extract & fibers','Builds incredible length','No clumping','Smudge & flake-resistant'],
+      howTo: 'Apply from root to tip in zig-zag motion for volume and length. Layer for more drama.',
+      ingredients: 'Aqua, Cera Alba, Acacia Senegal Gum, Stearic Acid, Glyceryl Stearate, Hydroxyethylcellulose, CI 77499 (Iron Oxides).' },
+    { id:'t6', brand:'Jo Malone', name:'Wood Sage & Sea Salt Cologne', price:142, image:'images/products/jomalone-wood-sage.jpg', size:'100 ml', category:'fragrance', rating:4.7, reviews:3812,
+      tags:'cologne perfume fragrance woody sage sea salt unisex',
+      description: 'Escape the everyday. The mineral salt notes capture the windswept shores: dried sage and sea salt. Layer with our Lime Basil & Mandarin or Pomegranate Noir for a personalized fragrance.',
+      benefits: ['Top: Ambrette Seeds','Heart: Sea Salt','Base: Sage','Layer-friendly cologne'],
+      howTo: 'Spray onto pulse points and into hair. Layer with another Jo Malone scent for a unique signature.',
+      ingredients: 'Alcohol Denat., Parfum (Fragrance), Aqua, Limonene, Linalool, Geraniol, Citronellol, Citral.' },
   ];
 
   // ---------- fuzzy matching helpers ----------
@@ -876,12 +947,213 @@
   }
 
   function deriveCat(p) {
+    if (p.category) return p.category;
     const txt = (p.brand + ' ' + p.name + ' ' + (p.tags || '')).toLowerCase();
     if (/perfume|cologne|eau de|edp|fragrance/.test(txt)) return 'fragrance';
     if (/lipstick|mascara|eyeshadow|liner|gloss|palette|makeup|rouge|pillow talk|sky high/.test(txt)) return 'makeup';
     if (/sunscreen|spf|serum|essence|cream|moisturi[sz]er|cleanser|toner|niacinamide|hyaluronic|retinol|vitamin c|skincare|snail|mucin|glow/.test(txt)) return 'skincare';
     return 'skincare';
   }
+
+  // ---------- product detail page ----------
+  function renderProductPage() {
+    const root = document.querySelector('[data-product-render]');
+    if (!root) return;
+    const id = new URLSearchParams(window.location.search).get('id') || '';
+    const p = CATALOG.find(x => x.id === id);
+    if (!p) {
+      root.innerHTML = `
+        <div class="py-16 text-center">
+          <p class="serif text-3xl tracking-tightest mb-3">Product not found.</p>
+          <a href="index.html" class="inline-flex items-center gap-2 bg-ink text-bone px-7 py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition mt-4">Browse all products →</a>
+        </div>`;
+      return;
+    }
+    document.title = p.brand + ' ' + p.name + ' — hasaki.';
+
+    const stars = '★'.repeat(Math.round(p.rating)) + '☆'.repeat(5 - Math.round(p.rating));
+    const cat = deriveCat(p);
+    const similar = CATALOG.filter(x => x.id !== p.id && deriveCat(x) === cat).slice(0, 4);
+
+    root.innerHTML = `
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+        <!-- Gallery -->
+        <div class="lg:sticky lg:top-28">
+          <div class="aspect-[4/5] bg-cream overflow-hidden">
+            <img src="${escapeAttr(p.image)}" alt="${escapeAttr(p.name)}" class="w-full h-full object-cover" />
+          </div>
+          <div class="grid grid-cols-4 gap-2 mt-3">
+            ${[0,1,2,3].map(i => `
+              <div class="aspect-square bg-cream overflow-hidden ${i === 0 ? 'ring-2 ring-ink' : 'opacity-70 hover:opacity-100 transition cursor-pointer'}">
+                <img src="${escapeAttr(p.image)}" alt="" class="w-full h-full object-cover" style="${i % 2 ? 'object-position:center top' : ''}" />
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <!-- Info -->
+        <div data-product="${p.id}" data-brand="${escapeAttr(p.brand)}" data-name="${escapeAttr(p.name)}" data-price="${p.price}" data-image="${escapeAttr(p.image)}" data-size="${escapeAttr(p.size)}" data-category="${cat}">
+          <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-2">${escapeHtml(p.brand)}</p>
+          <h1 class="serif text-3xl md:text-5xl tracking-tightest leading-[0.95] mb-4">${escapeHtml(p.name)}</h1>
+          <div class="flex items-center gap-3 text-sm mb-5">
+            <span class="text-hasaki tracking-widest">${stars}</span>
+            <span class="text-ink/60">${p.rating} · ${p.reviews.toLocaleString()} reviews</span>
+          </div>
+          <div class="flex items-baseline gap-3 mb-6">
+            <span class="serif text-3xl">${'$' + p.price}</span>
+            <span class="text-xs text-ink/55 uppercase tracking-[0.2em]">${escapeHtml(p.size)}</span>
+          </div>
+
+          <p class="text-ink/75 leading-relaxed mb-7">${escapeHtml(p.description)}</p>
+
+          <!-- Quantity + add to bag -->
+          <div class="flex flex-wrap items-stretch gap-3 mb-4">
+            <div class="inline-flex items-stretch border border-ink/15">
+              <button data-pdp-dec aria-label="Decrease" class="w-11 h-11 grid place-items-center hover:bg-ink hover:text-bone transition">−</button>
+              <span data-pdp-qty class="px-5 grid place-items-center min-w-[44px] text-sm font-medium">1</span>
+              <button data-pdp-inc aria-label="Increase" class="w-11 h-11 grid place-items-center hover:bg-ink hover:text-bone transition">+</button>
+            </div>
+            <button data-pdp-add class="flex-1 min-w-[200px] bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">+ Add to bag · $${p.price}</button>
+            <button data-wishlist="${p.id}" aria-label="Save" class="w-11 h-11 border border-ink/15 grid place-items-center hover:bg-ink hover:text-bone transition">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+          </div>
+
+          <!-- Trust micro-strip -->
+          <ul class="grid grid-cols-2 gap-y-2 text-[11px] tracking-[0.2em] uppercase text-ink/55 mt-6 mb-8">
+            <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-3.5 h-3.5 stroke-2 text-hasaki"><path d="M9 12l2 2 4-4"/></svg> 100% Authentic</li>
+            <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-3.5 h-3.5 stroke-2 text-hasaki"><path d="M9 12l2 2 4-4"/></svg> Free shipping +$35</li>
+            <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-3.5 h-3.5 stroke-2 text-hasaki"><path d="M9 12l2 2 4-4"/></svg> 30-day returns</li>
+            <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-3.5 h-3.5 stroke-2 text-hasaki"><path d="M9 12l2 2 4-4"/></svg> 3 free samples</li>
+          </ul>
+
+          <!-- Accordion: Benefits / How to use / Ingredients -->
+          <div class="border-t border-ink/10">
+            <details class="border-b border-ink/10" open>
+              <summary class="flex justify-between items-center py-5 cursor-pointer list-none">
+                <span class="serif text-lg">Key benefits</span>
+                <span class="text-ink/45 text-xl">+</span>
+              </summary>
+              <ul class="pb-5 space-y-2 text-sm text-ink/75">
+                ${p.benefits.map(b => `<li class="flex items-start gap-2"><span class="text-hasaki mt-1">·</span><span>${escapeHtml(b)}</span></li>`).join('')}
+              </ul>
+            </details>
+            <details class="border-b border-ink/10">
+              <summary class="flex justify-between items-center py-5 cursor-pointer list-none">
+                <span class="serif text-lg">How to use</span>
+                <span class="text-ink/45 text-xl">+</span>
+              </summary>
+              <p class="pb-5 text-sm text-ink/75 leading-relaxed">${escapeHtml(p.howTo)}</p>
+            </details>
+            <details class="border-b border-ink/10">
+              <summary class="flex justify-between items-center py-5 cursor-pointer list-none">
+                <span class="serif text-lg">Ingredients</span>
+                <span class="text-ink/45 text-xl">+</span>
+              </summary>
+              <p class="pb-5 text-xs text-ink/65 leading-relaxed">${escapeHtml(p.ingredients)}</p>
+            </details>
+            <details class="border-b border-ink/10">
+              <summary class="flex justify-between items-center py-5 cursor-pointer list-none">
+                <span class="serif text-lg">Reviews · ${p.reviews.toLocaleString()}</span>
+                <span class="text-ink/45 text-xl">+</span>
+              </summary>
+              <div class="pb-5 space-y-4">
+                <div class="flex items-center gap-4">
+                  <div class="serif text-4xl">${p.rating}</div>
+                  <div>
+                    <div class="text-hasaki text-lg tracking-widest">${stars}</div>
+                    <p class="text-xs text-ink/55 mt-1">${p.reviews.toLocaleString()} verified reviews</p>
+                  </div>
+                </div>
+                <figure class="border-t border-ink/10 pt-4">
+                  <p class="text-hasaki tracking-widest text-sm">★★★★★</p>
+                  <blockquote class="serif italic text-base mt-1 leading-snug">"Genuinely changed my routine. Worth every dollar."</blockquote>
+                  <figcaption class="text-xs text-ink/60 mt-2">— Verified buyer · Los Angeles</figcaption>
+                </figure>
+                <figure class="border-t border-ink/10 pt-4">
+                  <p class="text-hasaki tracking-widest text-sm">★★★★★</p>
+                  <blockquote class="serif italic text-base mt-1 leading-snug">"Best purchase from Hasaki this year. Repurchasing."</blockquote>
+                  <figcaption class="text-xs text-ink/60 mt-2">— Verified buyer · Hanoi</figcaption>
+                </figure>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      ${similar.length ? `
+      <section class="mt-16 md:mt-24">
+        <div class="flex items-end justify-between mb-8">
+          <h2 class="serif text-3xl md:text-5xl tracking-tightest">You might also <span class="italic text-hasaki">like</span>.</h2>
+          <a href="category.html?cat=${cat}" class="ulink text-[12px] tracking-[0.18em] uppercase">See all ${cat} →</a>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-x-3 gap-y-10 md:gap-x-4">
+          ${similar.map(s => `
+            <article class="pcard group" data-product="${s.id}" data-brand="${escapeAttr(s.brand)}" data-name="${escapeAttr(s.name)}" data-price="${s.price}" data-image="${escapeAttr(s.image)}" data-size="${escapeAttr(s.size)}" data-category="${deriveCat(s)}">
+              <a href="product.html?id=${s.id}" class="block relative aspect-[4/5] bg-cream overflow-hidden">
+                <img src="${escapeAttr(s.image)}" alt="${escapeAttr(s.name)}" loading="lazy" class="w-full h-full object-cover" />
+              </a>
+              <div class="pt-3 px-1">
+                <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">${escapeHtml(s.brand)}</p>
+                <h3 class="text-[14px] font-medium leading-snug mt-1"><a href="product.html?id=${s.id}">${escapeHtml(s.name)}</a></h3>
+                <div class="flex items-center gap-1.5 mt-1.5 text-[11px] text-ink/60"><span class="text-hasaki">★★★★★</span><span>${s.rating}</span></div>
+                <div class="flex items-baseline justify-between mt-2.5">
+                  <span class="font-bold">$${s.price}</span>
+                  <button data-add-to-cart class="text-[10px] tracking-[0.2em] uppercase ulink">+ Add</button>
+                </div>
+              </div>
+            </article>
+          `).join('')}
+        </div>
+      </section>` : ''}
+    `;
+
+    // Set breadcrumb
+    const bc = document.querySelector('[data-pdp-breadcrumb]');
+    if (bc) bc.innerHTML = `<a href="index.html" class="ulink">Home</a> &nbsp;/&nbsp; <a href="category.html?cat=${cat}" class="ulink">${cat.charAt(0).toUpperCase() + cat.slice(1)}</a> &nbsp;/&nbsp; <span class="text-ink">${escapeHtml(p.brand)}</span>`;
+
+    // Quantity + add-to-cart wiring
+    let qty = 1;
+    const qtyEl = root.querySelector('[data-pdp-qty]');
+    const dec = root.querySelector('[data-pdp-dec]');
+    const inc = root.querySelector('[data-pdp-inc]');
+    const add = root.querySelector('[data-pdp-add]');
+    dec.addEventListener('click', () => { if (qty > 1) { qty--; qtyEl.textContent = qty; add.textContent = `+ Add to bag · $${(p.price * qty).toFixed(2).replace(/\.00$/, '')}`; } });
+    inc.addEventListener('click', () => { qty++; qtyEl.textContent = qty; add.textContent = `+ Add to bag · $${(p.price * qty).toFixed(2).replace(/\.00$/, '')}`; });
+    add.addEventListener('click', () => {
+      for (let i = 0; i < qty; i++) Cart.add({ id: p.id, brand: p.brand, name: p.name, price: p.price, image: p.image, size: p.size });
+    });
+
+    // Wishlist heart
+    const heart = root.querySelector('[data-wishlist]');
+    if (Wishlist.has(p.id)) { heart.style.background = '#9d2a4d'; heart.style.color = '#f5f1ea'; }
+    heart.addEventListener('click', e => {
+      e.preventDefault();
+      const product = { id: p.id, brand: p.brand, name: p.name, price: p.price, image: p.image, size: p.size, category: cat };
+      const nowFav = Wishlist.toggle(product);
+      if (nowFav) { heart.style.background = '#9d2a4d'; heart.style.color = '#f5f1ea'; toast('Added to wishlist'); }
+      else { heart.style.background = ''; heart.style.color = ''; toast('Removed from wishlist'); }
+    });
+
+    // Similar products' add-to-cart
+    root.querySelectorAll('[data-add-to-cart]').forEach(b => {
+      b.addEventListener('click', e => {
+        e.preventDefault();
+        const card = b.closest('[data-product]');
+        Cart.add({ id: card.dataset.product, brand: card.dataset.brand, name: card.dataset.name, price: parseFloat(card.dataset.price), image: card.dataset.image, size: card.dataset.size });
+      });
+    });
+  }
+
+  // Click on a product card body (not buttons) navigates to its PDP
+  document.addEventListener('click', e => {
+    if (e.target.closest('button, [data-add-to-cart], [data-wishlist], [data-cart-inc], [data-cart-dec], [data-cart-remove], a, summary, input, label, select')) return;
+    const card = e.target.closest('[data-product]');
+    if (!card) return;
+    const id = card.dataset.product;
+    if (!id || id.startsWith('set-') || id.startsWith('s')) return;
+    window.location.href = 'product.html?id=' + id;
+  });
 
   function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
   function escapeAttr(s) { return escapeHtml(s); }
