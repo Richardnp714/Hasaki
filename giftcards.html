@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gift cards — hasaki.</title>
+<meta name="description" content="Send a Hasaki digital gift card from $25 to $500. Delivered by email, never expires." />
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/png" href="hasaki-logo.png" />
+<script>tailwind.config={theme:{extend:{fontFamily:{display:['Fraunces','serif'],body:['Inter','sans-serif'],logo:['"DM Sans"','Inter','sans-serif']},colors:{ink:'#0a0a0a',bone:'#f5f1ea',cream:'#ebe4d8',blush:'#e8d5cc',hasaki:'#306E51',hasakiDark:'#1f4d38',hasakiPale:'#e8efea'},letterSpacing:{tightest:'-.04em',mega:'-.06em'}}}}</script>
+<style>body{font-family:'Inter',sans-serif;background:#f5f1ea;color:#0a0a0a;-webkit-font-smoothing:antialiased;overflow-x:hidden}h1,h2,h3,.serif{font-family:'Fraunces',serif}.ulink{position:relative;display:inline-block}.ulink::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:1px;background:currentColor;transform:scaleX(1);transform-origin:right;transition:transform .5s}.ulink:hover::after{transform:scaleX(0);transform-origin:left}img{max-width:100%;height:auto}
+.gc{background:linear-gradient(135deg,#306E51 0%,#1f4d38 100%);color:#f5f1ea;aspect-ratio:1.586/1;border-radius:14px;padding:24px;position:relative;overflow:hidden;box-shadow:0 30px 60px -25px rgba(0,0,0,.35)}
+.gc.style-blush{background:linear-gradient(135deg,#e8d5cc 0%,#d4a89a 100%);color:#0a0a0a}
+.gc.style-noir{background:linear-gradient(135deg,#0a0a0a 0%,#222 100%);color:#f5f1ea}
+.gc.style-bone{background:linear-gradient(135deg,#ebe4d8 0%,#cdb389 100%);color:#0a0a0a}
+.amt-pill{transition:all .2s}.amt-pill.is-on{background:#0a0a0a;color:#f5f1ea;border-color:#0a0a0a}
+.style-thumb{cursor:pointer;border:2px solid transparent;border-radius:8px;transition:border-color .2s}.style-thumb.is-on{border-color:#306E51}
+input.field,textarea.field{background:transparent;border:1px solid rgba(0,0,0,.18);padding:14px 16px;width:100%;font-size:14px}input.field:focus,textarea.field:focus{outline:none;border-color:#306E51}
+</style>
+</head><body class="bg-bone text-ink">
+
+<header class="border-b border-ink/10 sticky top-0 bg-bone/95 backdrop-blur z-40">
+  <div class="max-w-[1500px] mx-auto px-6 h-20 grid grid-cols-3 items-center">
+    <a href="index.html" class="ulink text-[11px] tracking-[0.25em] uppercase text-ink/65" data-i18n="back.store">← Back to store</a>
+    <a href="index.html" class="justify-self-center inline-flex items-center gap-2 font-logo text-hasaki text-[26px] font-extrabold lowercase leading-none" style="letter-spacing:-0.04em;"><img src="hasaki-logo.png" alt="" class="w-9 h-9 rounded-full" /><span>hasaki<span class="text-hasakiDark">.</span></span></a>
+    <a href="cart.html" aria-label="Bag" class="justify-self-end relative p-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><path d="M6 7h12l-1.5 12.5a2 2 0 0 1-2 1.7H9.5a2 2 0 0 1-2-1.7L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg><span class="absolute -top-0.5 -right-0.5 bg-ink text-bone text-[10px] w-4 h-4 rounded-full grid place-items-center" data-cart-count>0</span></a>
+  </div>
+</header>
+
+<section class="py-14 md:py-20 border-b border-ink/10">
+  <div class="max-w-[1500px] mx-auto px-6 grid md:grid-cols-12 gap-8 items-center">
+    <div class="md:col-span-6">
+      <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-3">Hasaki gift card</p>
+      <h1 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">The gift of <span class="italic text-hasaki">choosing themselves</span>.</h1>
+      <p class="mt-6 text-ink/70 text-[15px] max-w-md">A digital gift card delivered by email — let them pick the lipstick, the serum, the scent. From $25 to $500. Never expires.</p>
+      <div class="mt-8 grid grid-cols-3 gap-4 text-[11px] tracking-[0.25em] uppercase text-ink/55">
+        <div><span class="block serif text-xl text-ink tracking-tightest mb-1">$25–$500</span>any amount</div>
+        <div><span class="block serif text-xl text-ink tracking-tightest mb-1">Email</span>delivered instantly</div>
+        <div><span class="block serif text-xl text-ink tracking-tightest mb-1">Forever</span>never expires</div>
+      </div>
+    </div>
+    <div class="md:col-span-6 grid place-items-center">
+      <div id="cardPreview" class="gc w-full max-w-md">
+        <div class="flex items-start justify-between">
+          <div class="font-logo text-3xl font-extrabold lowercase leading-none" style="letter-spacing:-0.04em;">hasaki<span>.</span></div>
+          <span class="text-[10px] tracking-[0.3em] uppercase opacity-70">Gift card</span>
+        </div>
+        <div class="absolute bottom-6 left-6 right-6">
+          <p class="text-[10px] tracking-[0.3em] uppercase opacity-70 mb-1">Amount</p>
+          <p id="previewAmount" class="serif text-5xl md:text-6xl tracking-tightest leading-none">$50</p>
+          <p id="previewTo" class="text-xs mt-3 opacity-80">For someone special</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-12 md:py-16">
+  <div class="max-w-3xl mx-auto px-6">
+    <h2 class="serif text-3xl md:text-4xl tracking-tightest mb-2">Customize your gift card.</h2>
+    <p class="text-ink/60 text-sm mb-10">A few details and we'll email it in seconds.</p>
+
+    <div class="space-y-10">
+
+      <div>
+        <p class="text-[11px] tracking-[0.25em] uppercase text-ink/55 mb-4">01 — Amount</p>
+        <div class="flex flex-wrap gap-2 mb-3">
+          <button data-amt="25" class="amt-pill px-6 py-3 rounded-full border border-ink/20 text-[12px] tracking-[0.15em] uppercase">$25</button>
+          <button data-amt="50" class="amt-pill is-on px-6 py-3 rounded-full border border-ink/20 text-[12px] tracking-[0.15em] uppercase">$50</button>
+          <button data-amt="100" class="amt-pill px-6 py-3 rounded-full border border-ink/20 text-[12px] tracking-[0.15em] uppercase">$100</button>
+          <button data-amt="200" class="amt-pill px-6 py-3 rounded-full border border-ink/20 text-[12px] tracking-[0.15em] uppercase">$200</button>
+          <button data-amt="500" class="amt-pill px-6 py-3 rounded-full border border-ink/20 text-[12px] tracking-[0.15em] uppercase">$500</button>
+        </div>
+        <label class="block text-xs text-ink/55 mt-2">Or enter a custom amount ($25 – $500)</label>
+        <input id="amtCustom" type="number" min="25" max="500" placeholder="$" class="field mt-2 max-w-xs" />
+      </div>
+
+      <div>
+        <p class="text-[11px] tracking-[0.25em] uppercase text-ink/55 mb-4">02 — Choose a design</p>
+        <div class="grid grid-cols-4 gap-3">
+          <div data-style="hasaki" class="style-thumb is-on"><div class="gc h-28 md:h-32 !p-3"><div class="font-logo text-sm font-extrabold lowercase leading-none">hasaki<span>.</span></div></div></div>
+          <div data-style="blush" class="style-thumb"><div class="gc style-blush h-28 md:h-32 !p-3"><div class="font-logo text-sm font-extrabold lowercase leading-none">hasaki<span>.</span></div></div></div>
+          <div data-style="noir" class="style-thumb"><div class="gc style-noir h-28 md:h-32 !p-3"><div class="font-logo text-sm font-extrabold lowercase leading-none">hasaki<span>.</span></div></div></div>
+          <div data-style="bone" class="style-thumb"><div class="gc style-bone h-28 md:h-32 !p-3"><div class="font-logo text-sm font-extrabold lowercase leading-none">hasaki<span>.</span></div></div></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="text-[11px] tracking-[0.25em] uppercase text-ink/55 mb-4">03 — Recipient</p>
+        <div class="grid md:grid-cols-2 gap-3">
+          <input id="toName" type="text" placeholder="Their name" class="field" />
+          <input id="toEmail" type="email" placeholder="Their email" class="field" />
+        </div>
+        <input id="fromName" type="text" placeholder="From (your name)" class="field mt-3" />
+        <textarea id="msg" rows="3" placeholder="A short message — they'll see this in the email." class="field mt-3 resize-y"></textarea>
+      </div>
+
+      <div>
+        <p class="text-[11px] tracking-[0.25em] uppercase text-ink/55 mb-4">04 — Delivery date</p>
+        <div class="flex flex-wrap gap-2">
+          <button data-when="now" class="amt-pill is-on px-6 py-3 rounded-full border border-ink/20 text-[12px] tracking-[0.15em] uppercase">Send right now</button>
+          <button data-when="later" class="amt-pill px-6 py-3 rounded-full border border-ink/20 text-[12px] tracking-[0.15em] uppercase">Schedule</button>
+        </div>
+        <input id="sendDate" type="date" class="field mt-3 max-w-xs hidden" />
+      </div>
+
+      <div class="border-t border-ink/10 pt-8">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-[11px] tracking-[0.25em] uppercase text-ink/55">Total</span>
+          <span id="total" class="serif text-3xl tracking-tightest">$50.00</span>
+        </div>
+        <button id="addGc" class="w-full bg-ink text-bone py-4 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">+ Add gift card to bag</button>
+        <p class="text-xs text-ink/55 mt-3 text-center">No tax, no shipping. Sent by email the moment your order is placed.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="bg-hasakiPale py-12 md:py-16 border-y border-ink/10">
+  <div class="max-w-3xl mx-auto px-6">
+    <h2 class="serif text-3xl tracking-tightest text-center mb-8">Common questions.</h2>
+    <div class="border-t border-ink/10">
+      <details class="border-b border-ink/10"><summary class="flex justify-between items-center py-5 cursor-pointer list-none"><span class="text-base">Do gift cards expire?</span><span class="text-ink/45 text-xl">+</span></summary><p class="pb-5 text-sm text-ink/75">No. Hasaki gift cards never expire — unused balance stays on the card forever.</p></details>
+      <details class="border-b border-ink/10"><summary class="flex justify-between items-center py-5 cursor-pointer list-none"><span class="text-base">When will the recipient get it?</span><span class="text-ink/45 text-xl">+</span></summary><p class="pb-5 text-sm text-ink/75">If you choose "Send right now," they'll receive an email within a few minutes of your order being placed. If you schedule, it'll deliver at 9am their local time on the date you choose.</p></details>
+      <details class="border-b border-ink/10"><summary class="flex justify-between items-center py-5 cursor-pointer list-none"><span class="text-base">Can it be used in combination with promo codes?</span><span class="text-ink/45 text-xl">+</span></summary><p class="pb-5 text-sm text-ink/75">Yes. Gift cards work like a payment method — you can stack them with promo codes and member rewards.</p></details>
+      <details class="border-b border-ink/10"><summary class="flex justify-between items-center py-5 cursor-pointer list-none"><span class="text-base">Refund policy on gift cards?</span><span class="text-ink/45 text-xl">+</span></summary><p class="pb-5 text-sm text-ink/75">Gift cards are non-refundable once delivered. If a gift card hasn't been delivered yet, you can cancel within 30 minutes of placing the order.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-ink text-bone py-12">
+  <div class="max-w-[1500px] mx-auto px-6 flex flex-wrap items-center justify-between gap-4 text-sm">
+    <div class="inline-flex items-center gap-3 font-logo text-3xl font-extrabold lowercase leading-none" style="letter-spacing:-0.04em;"><img src="hasaki-logo.png" alt="" class="w-10 h-10 rounded-full" /><span>hasaki<span class="text-hasaki">.</span></span></div>
+    <p class="text-xs text-bone/55">© 2026 Hasaki Beauty &amp; Clinic Joint Stock Company.</p>
+  </div>
+</footer>
+
+<script>
+let amount = 50;
+let style = 'hasaki';
+let when = 'now';
+
+function refreshPreview() {
+  document.getElementById('previewAmount').textContent = '$' + amount;
+  const to = document.getElementById('toName').value.trim();
+  document.getElementById('previewTo').textContent = to ? 'For ' + to : 'For someone special';
+  document.getElementById('total').textContent = '$' + amount.toFixed(2);
+  const card = document.getElementById('cardPreview');
+  card.classList.remove('style-blush','style-noir','style-bone');
+  if (style !== 'hasaki') card.classList.add('style-' + style);
+}
+
+document.querySelectorAll('[data-amt]').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('[data-amt]').forEach(x => x.classList.remove('is-on'));
+    b.classList.add('is-on');
+    amount = parseInt(b.dataset.amt, 10);
+    document.getElementById('amtCustom').value = '';
+    refreshPreview();
+  });
+});
+document.getElementById('amtCustom').addEventListener('input', e => {
+  const v = Math.max(25, Math.min(500, parseInt(e.target.value, 10) || 0));
+  if (v) {
+    amount = v;
+    document.querySelectorAll('[data-amt]').forEach(x => x.classList.remove('is-on'));
+    refreshPreview();
+  }
+});
+document.querySelectorAll('[data-style]').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('[data-style]').forEach(x => x.classList.remove('is-on'));
+    b.classList.add('is-on');
+    style = b.dataset.style;
+    refreshPreview();
+  });
+});
+document.querySelectorAll('[data-when]').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('[data-when]').forEach(x => x.classList.remove('is-on'));
+    b.classList.add('is-on');
+    when = b.dataset.when;
+    document.getElementById('sendDate').classList.toggle('hidden', when === 'now');
+  });
+});
+['toName','toEmail','fromName','msg'].forEach(id => {
+  document.getElementById(id).addEventListener('input', refreshPreview);
+});
+
+document.getElementById('addGc').addEventListener('click', () => {
+  const toName = document.getElementById('toName').value.trim();
+  const toEmail = document.getElementById('toEmail').value.trim();
+  if (!toEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(toEmail)) {
+    alert("Please enter the recipient's email so we know where to send the card.");
+    document.getElementById('toEmail').focus();
+    return;
+  }
+  if (!window.Cart) { alert('Cart not loaded yet — please refresh.'); return; }
+  window.Cart.add({
+    id: 'gc-' + amount + '-' + Date.now(),
+    brand: 'Hasaki',
+    name: `Gift card · $${amount} → ${toName || 'recipient'}`,
+    price: amount,
+    image: 'hasaki-logo.png',
+    size: 'Digital · ' + style
+  });
+  // Brief confirmation, then continue
+  const btn = document.getElementById('addGc');
+  const old = btn.textContent;
+  btn.textContent = '✓ Added — view bag';
+  btn.style.background = '#306E51';
+  setTimeout(() => { window.location.href = 'cart.html'; }, 700);
+});
+refreshPreview();
+</script>
+
+<script src="i18n.js" defer></script>
+<script src="app.js" defer></script>
+</body></html>

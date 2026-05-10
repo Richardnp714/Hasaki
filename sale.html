@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sale — hasaki.</title>
+<meta name="description" content="Up to 40% off cult favorites. Skincare, makeup and fragrance — while stock lasts." />
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/png" href="hasaki-logo.png" />
+<script>tailwind.config={theme:{extend:{fontFamily:{display:['Fraunces','serif'],body:['Inter','sans-serif'],logo:['"DM Sans"','Inter','sans-serif']},colors:{ink:'#0a0a0a',bone:'#f5f1ea',cream:'#ebe4d8',blush:'#e8d5cc',hasaki:'#306E51',hasakiDark:'#1f4d38',hasakiPale:'#e8efea',sale:'#9d2a4d'},letterSpacing:{tightest:'-.04em',mega:'-.06em'}}}}</script>
+<style>body{font-family:'Inter',sans-serif;background:#f5f1ea;color:#0a0a0a;-webkit-font-smoothing:antialiased;overflow-x:hidden}h1,h2,h3,.serif{font-family:'Fraunces',serif}.ulink{position:relative;display:inline-block}.ulink::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:1px;background:currentColor;transform:scaleX(1);transform-origin:right;transition:transform .5s}.ulink:hover::after{transform:scaleX(0);transform-origin:left}img{max-width:100%;height:auto}
+.pcard .img{transition:transform .9s cubic-bezier(.2,.6,.2,1)}.pcard:hover .img{transform:scale(1.05)}
+.tab-pill{transition:all .2s}.tab-pill.is-on{background:#0a0a0a;color:#f5f1ea}
+.marq-track{display:inline-block;animation:marq 30s linear infinite}@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+</style>
+</head><body class="bg-bone text-ink">
+
+<header class="border-b border-ink/10 sticky top-0 bg-bone/95 backdrop-blur z-40">
+  <div class="max-w-[1500px] mx-auto px-6 h-20 grid grid-cols-3 items-center">
+    <a href="index.html" class="ulink text-[11px] tracking-[0.25em] uppercase text-ink/65" data-i18n="back.store">← Back to store</a>
+    <a href="index.html" class="justify-self-center inline-flex items-center gap-2 font-logo text-hasaki text-[26px] font-extrabold lowercase leading-none" style="letter-spacing:-0.04em;"><img src="hasaki-logo.png" alt="" class="w-9 h-9 rounded-full" /><span>hasaki<span class="text-hasakiDark">.</span></span></a>
+    <a href="cart.html" aria-label="Bag" class="justify-self-end relative p-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><path d="M6 7h12l-1.5 12.5a2 2 0 0 1-2 1.7H9.5a2 2 0 0 1-2-1.7L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg><span class="absolute -top-0.5 -right-0.5 bg-ink text-bone text-[10px] w-4 h-4 rounded-full grid place-items-center" data-cart-count>0</span></a>
+  </div>
+</header>
+
+<div class="bg-sale text-bone overflow-hidden">
+  <div class="marq-track py-2 text-[11px] tracking-[0.3em] uppercase whitespace-nowrap">
+    <span class="mx-8">★ Up to 40% off — ends Sunday</span><span class="mx-8">Free shipping over $35</span><span class="mx-8">Use code SAVE15 for an extra 15%</span><span class="mx-8">★ Up to 40% off — ends Sunday</span><span class="mx-8">Free shipping over $35</span><span class="mx-8">Use code SAVE15 for an extra 15%</span>
+  </div>
+</div>
+
+<section class="relative bg-ink text-bone overflow-hidden">
+  <div class="max-w-[1500px] mx-auto px-6 py-20 md:py-28 grid md:grid-cols-12 gap-8 items-center">
+    <div class="md:col-span-7">
+      <p class="text-[11px] tracking-[0.3em] uppercase text-bone/60 mb-4" data-i18n="sale.eyebrow">Limited time · ends Sunday 11:59 pm PT</p>
+      <h1 class="serif text-6xl md:text-8xl tracking-mega leading-[0.9]">Up to <span class="italic text-hasaki">40% off</span><br/>everything you<br/>can't live without.</h1>
+      <p class="mt-7 text-bone/70 text-[15px] max-w-md" data-i18n="sale.sub">Cult skincare, viral makeup, and the fragrances people stop you to ask about — marked down for one week only.</p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="#sale-grid" class="inline-flex items-center gap-2 bg-bone text-ink px-7 py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki hover:text-bone transition">Shop the sale →</a>
+        <a href="#how" class="inline-flex items-center gap-2 border border-bone/30 text-bone px-7 py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-bone hover:text-ink transition">How it works</a>
+      </div>
+    </div>
+    <div class="md:col-span-5 grid grid-cols-3 gap-2">
+      <div id="countdown" class="contents"></div>
+    </div>
+  </div>
+</section>
+
+<section class="border-b border-ink/10 py-8">
+  <div class="max-w-[1500px] mx-auto px-6 flex flex-wrap items-center gap-2 md:gap-3">
+    <span class="text-[11px] tracking-[0.25em] uppercase text-ink/55 mr-3">Filter</span>
+    <button data-tab="all" class="tab-pill is-on px-5 py-2 rounded-full border border-ink/20 text-[12px] tracking-[0.15em] uppercase">All sale</button>
+    <button data-tab="skincare" class="tab-pill px-5 py-2 rounded-full border border-ink/20 text-[12px] tracking-[0.15em] uppercase">Skincare</button>
+    <button data-tab="makeup" class="tab-pill px-5 py-2 rounded-full border border-ink/20 text-[12px] tracking-[0.15em] uppercase">Makeup</button>
+    <button data-tab="fragrance" class="tab-pill px-5 py-2 rounded-full border border-ink/20 text-[12px] tracking-[0.15em] uppercase">Fragrance</button>
+    <button data-tab="under25" class="tab-pill px-5 py-2 rounded-full border border-ink/20 text-[12px] tracking-[0.15em] uppercase">Under $25</button>
+  </div>
+</section>
+
+<section id="sale-grid" class="py-12 md:py-16">
+  <div class="max-w-[1500px] mx-auto px-6">
+    <div class="flex items-baseline justify-between mb-8">
+      <h2 class="serif text-3xl md:text-4xl tracking-tightest">On sale now.</h2>
+      <span id="saleCount" class="text-[11px] tracking-[0.25em] uppercase text-ink/55"></span>
+    </div>
+    <div id="saleGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-3 gap-y-10 md:gap-x-4"></div>
+  </div>
+</section>
+
+<section id="how" class="bg-hasakiPale py-12 md:py-16 border-y border-ink/10">
+  <div class="max-w-[1500px] mx-auto px-6 grid md:grid-cols-3 gap-8">
+    <div>
+      <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-3">01 — Add to bag</p>
+      <p class="text-[15px] text-ink/75 leading-relaxed">Discounts auto-apply. No code needed for sale prices.</p>
+    </div>
+    <div>
+      <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-3">02 — Use code <span class="font-mono text-ink">SAVE15</span></p>
+      <p class="text-[15px] text-ink/75 leading-relaxed">For an extra 15% off your bag at checkout. Stacks with sale prices.</p>
+    </div>
+    <div>
+      <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-3">03 — Free shipping over $35</p>
+      <p class="text-[15px] text-ink/75 leading-relaxed">Plus 3 free samples on every order. Members get 5.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-ink text-bone py-12">
+  <div class="max-w-[1500px] mx-auto px-6 flex flex-wrap items-center justify-between gap-4 text-sm">
+    <div class="inline-flex items-center gap-3 font-logo text-3xl font-extrabold lowercase leading-none" style="letter-spacing:-0.04em;"><img src="hasaki-logo.png" alt="" class="w-10 h-10 rounded-full" /><span>hasaki<span class="text-hasaki">.</span></span></div>
+    <p class="text-xs text-bone/55">© 2026 Hasaki Beauty &amp; Clinic Joint Stock Company.</p>
+  </div>
+</footer>
+
+<script>
+// Synthetic sale: read CATALOG from app.js once loaded
+function startSale() {
+  if (typeof window.__CATALOG === 'undefined') {
+    // Fall back: re-try after app.js loads
+    return setTimeout(startSale, 100);
+  }
+  const CATALOG = window.__CATALOG;
+  // Build sale offers - synthetic %-off per id
+  const DISCOUNTS = {
+    p1:25, p2:30, p3:15, p4:20, p5:25, p6:35, p7:20, p8:40,
+    t1:30, t2:25, t3:15, t4:20, t5:35, t6:20
+  };
+  const SALE = CATALOG.map(p => {
+    const pct = DISCOUNTS[p.id] || 20;
+    const wasPrice = p.price;
+    const nowPrice = Math.max(1, Math.round(p.price * (100 - pct)) / 100);
+    return { ...p, wasPrice, price: parseFloat(nowPrice.toFixed(2)), pct };
+  });
+
+  function paint(tab) {
+    let items = SALE.slice();
+    if (tab === 'skincare') items = items.filter(p => p.category === 'skincare');
+    else if (tab === 'makeup') items = items.filter(p => p.category === 'makeup');
+    else if (tab === 'fragrance') items = items.filter(p => p.category === 'fragrance');
+    else if (tab === 'under25') items = items.filter(p => p.price < 25);
+
+    document.getElementById('saleCount').textContent = items.length + ' product' + (items.length === 1 ? '' : 's');
+    document.getElementById('saleGrid').innerHTML = items.map(p => `
+      <article class="pcard reveal group" data-product="${p.id}" data-brand="${p.brand}" data-name="${p.name.replace(/"/g,'&quot;')}" data-price="${p.price}" data-image="${p.image}" data-size="${p.size}" data-category="${p.category}">
+        <div class="relative aspect-[4/5] bg-cream overflow-hidden">
+          <img src="${p.image}" alt="${p.name}" loading="lazy" class="img absolute inset-0 w-full h-full object-cover" />
+          <span class="absolute top-3 left-3 bg-sale text-bone text-[10px] tracking-[0.25em] uppercase px-2.5 py-1 font-medium">-${p.pct}%</span>
+          <button aria-label="Save" data-wishlist="${p.id}" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/85 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+          <div class="absolute inset-x-3 bottom-3 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+            <button data-add-to-cart class="w-full bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">+ Add to bag</button>
+          </div>
+        </div>
+        <div class="pt-3.5 px-1">
+          <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">${p.brand}</p>
+          <h3 class="text-[15px] font-medium leading-snug mt-1.5">${p.name}</h3>
+          <div class="flex items-baseline gap-2 mt-3">
+            <span class="font-bold text-base text-sale">$${p.price.toFixed(2)}</span>
+            <span class="text-xs text-ink/45 line-through">$${p.wasPrice.toFixed(2)}</span>
+            ${p.size ? `<span class="text-xs text-ink/55">· ${p.size}</span>` : ''}
+          </div>
+        </div>
+      </article>
+    `).join('');
+
+    // app.js delegated click handler picks up add-to-cart + card-body navigation
+    document.querySelectorAll('#saleGrid [data-add-to-cart]').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault(); e.stopPropagation();
+        const card = btn.closest('[data-product]');
+        if (!card || !window.Cart) return;
+        window.Cart.add({
+          id: card.dataset.product, brand: card.dataset.brand, name: card.dataset.name,
+          price: parseFloat(card.dataset.price), image: card.dataset.image, size: card.dataset.size,
+        });
+      });
+    });
+  }
+
+  paint('all');
+  document.querySelectorAll('[data-tab]').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('[data-tab]').forEach(x => x.classList.remove('is-on'));
+      b.classList.add('is-on');
+      paint(b.dataset.tab);
+    });
+  });
+}
+
+// Countdown to next Sunday 11:59pm PT
+function tickCountdown() {
+  const target = new Date();
+  target.setUTCHours(7, 59, 0, 0); // ~11:59pm PT = next-day 07:59 UTC (rough)
+  while (target.getUTCDay() !== 0 || target < new Date()) target.setUTCDate(target.getUTCDate() + 1);
+  const diff = Math.max(0, target - new Date());
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff / 3600000) % 24);
+  const m = Math.floor((diff / 60000) % 60);
+  const cells = [['days', d], ['hours', h], ['mins', m]];
+  document.getElementById('countdown').innerHTML = cells.map(([l, v]) => `
+    <div class="bg-bone/5 border border-bone/15 p-6 text-center">
+      <div class="serif text-5xl md:text-6xl text-bone tracking-tightest leading-none">${String(v).padStart(2,'0')}</div>
+      <p class="text-[10px] tracking-[0.3em] uppercase text-bone/60 mt-2">${l}</p>
+    </div>
+  `).join('');
+}
+tickCountdown(); setInterval(tickCountdown, 60000);
+
+// Wait for app.js to expose CATALOG
+document.addEventListener('DOMContentLoaded', startSale);
+</script>
+
+<script src="i18n.js" defer></script>
+<script src="app.js" defer></script>
+</body></html>

@@ -219,6 +219,8 @@
     bindCheckoutValidation();
     renderCategoryPage();
     renderProductPage();
+    initCookieBanner();
+    initWelcomePopup();
 
     // Add to bag (homepage product cards & sets)
     document.querySelectorAll('[data-add-to-cart]').forEach((btn) => {
@@ -445,6 +447,31 @@
     } else if (discRow) {
       discRow.remove();
     }
+
+    // Free-shipping progress bar
+    const bar = document.getElementById('freeShipBar');
+    if (bar) {
+      const THRESHOLD = 35;
+      const eligible = Math.max(0, sub - disc);
+      const remaining = Math.max(0, THRESHOLD - eligible);
+      const pct = Math.min(100, Math.round((eligible / THRESHOLD) * 100));
+      const fill = document.getElementById('freeShipFill');
+      const pctEl = document.getElementById('freeShipPct');
+      const msgEl = document.getElementById('freeShipMsg');
+      const hintEl = document.getElementById('freeShipHint');
+      if (fill) fill.style.width = pct + '%';
+      if (pctEl) pctEl.textContent = pct + '%';
+      if (msgEl) {
+        if (eligible === 0) {
+          msgEl.innerHTML = `Spend <span class="text-hasaki font-bold">$35</span> to unlock free shipping.`;
+        } else if (remaining > 0) {
+          msgEl.innerHTML = `You're <span class="text-hasaki font-bold">${money(remaining)}</span> away from free shipping.`;
+        } else {
+          msgEl.innerHTML = `✓ <span class="text-hasaki font-bold">Free shipping unlocked.</span>`;
+        }
+      }
+      if (hintEl) hintEl.textContent = remaining > 0 ? 'Standard shipping is $5.99 under $35' : 'Plus 3 free samples on every order';
+    }
   };
 
   // ---------- user (mock auth) ----------
@@ -514,7 +541,8 @@
             <h2 class="serif text-3xl tracking-tightest mb-1">Hi, <span data-user-name>—</span></h2>
             <p class="text-sm text-ink/65 mb-6">10% back · 0 active orders · Hasaki Pink Member</p>
             <div class="space-y-2">
-              <a href="cart.html" class="block w-full text-center bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">Your bag</a>
+              <a href="account.html" class="block w-full text-center bg-ink text-bone py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">My account →</a>
+              <a href="cart.html" class="block w-full text-center border border-ink/15 py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-ink hover:text-bone transition">Your bag</a>
               <a href="wishlist.html" class="block w-full text-center border border-ink/15 py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-ink hover:text-bone transition">Wishlist</a>
               <button id="signOut" class="block w-full text-center py-3 text-[11px] tracking-[0.25em] uppercase text-ink/55 hover:text-ink">Sign out</button>
             </div>
@@ -531,15 +559,20 @@
           <div class="font-logo text-hasaki text-2xl font-extrabold lowercase mb-8" style="letter-spacing:-0.04em;">hasaki<span class="text-hasakiDark">.</span></div>
           <ul class="space-y-3 serif text-2xl tracking-tightest mb-8">
             <li><a href="index.html#categories">New In</a></li>
-            <li><a href="index.html#skincare">Skincare</a></li>
-            <li><a href="index.html#makeup">Makeup</a></li>
-            <li><a href="index.html#fragrance">Fragrance</a></li>
-            <li><a href="index.html#brands">Brands</a></li>
+            <li><a href="category.html?cat=skincare">Skincare</a></li>
+            <li><a href="category.html?cat=makeup">Makeup</a></li>
+            <li><a href="category.html?cat=fragrance">Fragrance</a></li>
+            <li><a href="brands.html">Brands</a></li>
+            <li><a href="sale.html" class="text-hasaki">Sale</a></li>
+            <li><a href="giftcards.html">Gift cards</a></li>
           </ul>
           <ul class="space-y-2 text-sm border-t border-ink/10 pt-5">
+            <li><a href="account.html" class="ulink">My account</a></li>
             <li><a href="cart.html" class="ulink">Your bag</a></li>
             <li><a href="wishlist.html" class="ulink">Wishlist</a></li>
-            <li><button data-open-account class="ulink">Sign in</button></li>
+            <li><a href="track.html" class="ulink">Track order</a></li>
+            <li><a href="rewards.html" class="ulink">Hasaki Member</a></li>
+            <li><a href="help.html" class="ulink">Help center</a></li>
           </ul>
         </div>
       </div>
@@ -717,6 +750,9 @@
       howTo: 'Spray onto pulse points and into hair. Layer with another Jo Malone scent for a unique signature.',
       ingredients: 'Alcohol Denat., Parfum (Fragrance), Aqua, Limonene, Linalool, Geraniol, Citronellol, Citral.' },
   ];
+  window.__CATALOG = CATALOG;
+  window.Cart = Cart;
+  window.Wishlist = Wishlist;
 
   // ---------- fuzzy matching helpers ----------
   function normalize(s) {
@@ -1143,6 +1179,98 @@
         Cart.add({ id: card.dataset.product, brand: card.dataset.brand, name: card.dataset.name, price: parseFloat(card.dataset.price), image: card.dataset.image, size: card.dataset.size });
       });
     });
+  }
+
+  // ---------- cookie consent banner ----------
+  function initCookieBanner() {
+    if (localStorage.getItem('hasaki:cookies')) return;
+    const el = document.createElement('div');
+    el.id = 'cookieBanner';
+    el.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:90;background:#0a0a0a;color:#f5f1ea;padding:16px 20px;box-shadow:0 -8px 30px rgba(0,0,0,.25);';
+    el.innerHTML = `
+      <div style="max-width:1500px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:16px;justify-content:space-between;">
+        <p style="font-size:13px;line-height:1.5;max-width:780px;margin:0;color:#e8efea;">
+          We use cookies to remember your bag, personalize your shopping, and improve our store. Read our <a href="#" style="text-decoration:underline;color:#fff;">Privacy Policy</a> and <a href="#" style="text-decoration:underline;color:#fff;">Cookie Policy</a>.
+        </p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <button id="cookieDecline" style="background:transparent;color:#f5f1ea;border:1px solid rgba(245,241,234,.3);padding:10px 18px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;">Essential only</button>
+          <button id="cookieAccept" style="background:#306E51;color:#f5f1ea;border:none;padding:10px 22px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;">Accept all</button>
+        </div>
+      </div>`;
+    document.body.appendChild(el);
+    const close = (v) => { localStorage.setItem('hasaki:cookies', v); el.remove(); };
+    document.getElementById('cookieAccept').addEventListener('click', () => close('all'));
+    document.getElementById('cookieDecline').addEventListener('click', () => close('essential'));
+  }
+
+  // ---------- welcome popup (newsletter — 10% off) ----------
+  function initWelcomePopup() {
+    if (sessionStorage.getItem('hasaki:welcome-seen')) return;
+    if (localStorage.getItem('hasaki:welcome-dismissed')) return;
+    // Only show on homepage and after a delay
+    const path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    if (path !== '' && path !== 'index.html') return;
+    setTimeout(() => {
+      sessionStorage.setItem('hasaki:welcome-seen', '1');
+      const el = document.createElement('div');
+      el.id = 'welcomePopup';
+      el.style.cssText = 'position:fixed;inset:0;z-index:120;background:rgba(10,10,10,.55);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px);opacity:0;transition:opacity .3s;';
+      el.innerHTML = `
+        <div style="background:#f5f1ea;color:#0a0a0a;max-width:920px;width:100%;display:grid;grid-template-columns:1fr;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.4);position:relative;">
+          <button id="welcomeClose" aria-label="Close" style="position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:18px;background:rgba(245,241,234,.9);border:none;cursor:pointer;display:grid;place-items:center;z-index:2;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2" style="width:16px;height:16px;"><path d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+          <div id="welcomeGrid" style="display:grid;grid-template-columns:1fr;">
+            <div style="background:linear-gradient(135deg,#306E51 0%,#1f4d38 100%);color:#f5f1ea;padding:48px 36px;min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;">
+              <p style="font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:rgba(245,241,234,.6);margin:0 0 12px;">Hasaki — welcome offer</p>
+              <p style="font-family:'Fraunces',serif;font-size:64px;letter-spacing:-.04em;line-height:1;margin:0;">10% <span style="font-style:italic;">off</span><br/>your first<br/>order.</p>
+            </div>
+            <div style="padding:40px 36px;">
+              <p style="font-family:'Fraunces',serif;font-size:26px;letter-spacing:-.03em;line-height:1.1;margin:0 0 8px;">Welcome to <span style="color:#306E51;font-style:italic;">hasaki</span>.</p>
+              <p style="font-size:14px;color:rgba(10,10,10,.65);margin:0 0 24px;line-height:1.5;">Join our list for early access to new drops, restocks, and member-only sales. We'll send your 10% code in 60 seconds.</p>
+              <form id="welcomeForm" style="display:flex;flex-direction:column;gap:10px;">
+                <input id="welcomeEmail" type="email" required placeholder="Your email" style="background:transparent;border:1px solid rgba(10,10,10,.18);padding:14px 16px;font-size:14px;font-family:inherit;outline:none;"/>
+                <button type="submit" style="background:#0a0a0a;color:#f5f1ea;border:none;padding:15px;font-size:11px;letter-spacing:.25em;text-transform:uppercase;cursor:pointer;">Send my 10% code →</button>
+              </form>
+              <button id="welcomeSkip" style="background:transparent;border:none;color:rgba(10,10,10,.5);font-size:11px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;margin-top:14px;padding:0;">No thanks, I'll pay full price</button>
+              <p style="font-size:11px;color:rgba(10,10,10,.45);margin:18px 0 0;line-height:1.5;">By signing up you agree to receive Hasaki marketing emails. Unsubscribe anytime.</p>
+            </div>
+          </div>
+        </div>`;
+      document.body.appendChild(el);
+      // Two-column layout on wider screens
+      const grid = el.querySelector('#welcomeGrid');
+      const applyCols = () => grid.style.gridTemplateColumns = window.innerWidth >= 720 ? '1fr 1fr' : '1fr';
+      applyCols(); window.addEventListener('resize', applyCols);
+      requestAnimationFrame(() => el.style.opacity = '1');
+
+      const dismiss = (remember) => {
+        if (remember) localStorage.setItem('hasaki:welcome-dismissed', '1');
+        el.style.opacity = '0';
+        setTimeout(() => el.remove(), 300);
+      };
+      document.getElementById('welcomeClose').addEventListener('click', () => dismiss(false));
+      document.getElementById('welcomeSkip').addEventListener('click', () => dismiss(true));
+      el.addEventListener('click', (e) => { if (e.target === el) dismiss(false); });
+      document.getElementById('welcomeForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('welcomeEmail').value.trim();
+        if (!email) return;
+        // Persist subscription + auto-apply WELCOME10 promo
+        localStorage.setItem('hasaki:subscriber', email);
+        try { Promo.set('WELCOME10'); } catch {}
+        const grid = el.querySelector('#welcomeGrid');
+        grid.innerHTML = `
+          <div style="grid-column:1/-1;padding:60px 40px;text-align:center;">
+            <div style="width:64px;height:64px;border-radius:50%;background:#306E51;color:#f5f1ea;margin:0 auto 22px;display:grid;place-items:center;font-size:28px;">✓</div>
+            <p style="font-family:'Fraunces',serif;font-size:34px;letter-spacing:-.03em;line-height:1.1;margin:0 0 10px;">You're in.</p>
+            <p style="font-size:14px;color:rgba(10,10,10,.65);max-width:380px;margin:0 auto 24px;">Use code <strong style="color:#306E51;font-family:monospace;">WELCOME10</strong> at checkout. We've applied it to your bag.</p>
+            <button id="welcomeShop" style="background:#0a0a0a;color:#f5f1ea;border:none;padding:14px 28px;font-size:11px;letter-spacing:.25em;text-transform:uppercase;cursor:pointer;">Start shopping →</button>
+          </div>`;
+        document.getElementById('welcomeShop').addEventListener('click', () => dismiss(true));
+        localStorage.setItem('hasaki:welcome-dismissed', '1');
+      });
+    }, 6000);
   }
 
   // Click on a product card body (not buttons) navigates to its PDP

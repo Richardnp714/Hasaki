@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>My account — hasaki.</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/png" href="hasaki-logo.png" />
+<script>tailwind.config={theme:{extend:{fontFamily:{display:['Fraunces','serif'],body:['Inter','sans-serif'],logo:['"DM Sans"','Inter','sans-serif']},colors:{ink:'#0a0a0a',bone:'#f5f1ea',cream:'#ebe4d8',blush:'#e8d5cc',hasaki:'#306E51',hasakiDark:'#1f4d38',hasakiPale:'#e8efea'},letterSpacing:{tightest:'-.04em',mega:'-.06em'}}}}</script>
+<style>body{font-family:'Inter',sans-serif;background:#f5f1ea;color:#0a0a0a;-webkit-font-smoothing:antialiased;overflow-x:hidden}h1,h2,h3,.serif{font-family:'Fraunces',serif}.ulink{position:relative;display:inline-block}.ulink::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:1px;background:currentColor;transform:scaleX(1);transform-origin:right;transition:transform .5s}.ulink:hover::after{transform:scaleX(0);transform-origin:left}
+input.field,textarea.field{background:transparent;border:1px solid rgba(0,0,0,.18);padding:14px 16px;width:100%;font-size:14px}input.field:focus,textarea.field:focus{outline:none;border-color:#306E51}
+.tab{cursor:pointer;border-bottom:2px solid transparent;padding:14px 0;transition:all .2s}.tab.is-on{border-color:#306E51;color:#306E51}.tab:hover{color:#306E51}
+.section{display:none}.section.is-on{display:block}
+</style>
+</head><body class="bg-bone text-ink">
+
+<header class="border-b border-ink/10 sticky top-0 bg-bone/95 backdrop-blur z-40">
+  <div class="max-w-[1500px] mx-auto px-6 h-20 grid grid-cols-3 items-center">
+    <a href="index.html" class="ulink text-[11px] tracking-[0.25em] uppercase text-ink/65">← Back to store</a>
+    <a href="index.html" class="justify-self-center inline-flex items-center gap-2 font-logo text-hasaki text-[26px] font-extrabold lowercase leading-none" style="letter-spacing:-0.04em;"><img src="hasaki-logo.png" alt="" class="w-9 h-9 rounded-full" /><span>hasaki<span class="text-hasakiDark">.</span></span></a>
+    <a href="cart.html" aria-label="Bag" class="justify-self-end relative p-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><path d="M6 7h12l-1.5 12.5a2 2 0 0 1-2 1.7H9.5a2 2 0 0 1-2-1.7L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg><span class="absolute -top-0.5 -right-0.5 bg-ink text-bone text-[10px] w-4 h-4 rounded-full grid place-items-center" data-cart-count>0</span></a>
+  </div>
+</header>
+
+<!-- ====== SIGNED-OUT VIEW ====== -->
+<section id="signedOut" class="hidden py-14 md:py-20">
+  <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-3">Welcome back</p>
+      <h1 class="serif text-5xl md:text-6xl tracking-tightest leading-[0.95]">Sign in to your <span class="italic text-hasaki">hasaki</span>.</h1>
+      <p class="mt-5 text-ink/65 text-[15px]">Track orders, see your points, and pick up where you left off.</p>
+      <ul class="mt-8 space-y-3 text-sm text-ink/75">
+        <li class="flex items-start gap-3"><span class="text-hasaki">✓</span>Earn 1 point per $1 — 100 points = $5 off</li>
+        <li class="flex items-start gap-3"><span class="text-hasaki">✓</span>Faster checkout with saved addresses</li>
+        <li class="flex items-start gap-3"><span class="text-hasaki">✓</span>Order tracking and reorder in one click</li>
+      </ul>
+    </div>
+    <div class="bg-bone border border-ink/10 p-8 md:p-10">
+      <h2 class="serif text-2xl tracking-tightest mb-6">Sign in</h2>
+      <form id="signinForm" class="space-y-3">
+        <input id="siEmail" type="email" placeholder="Email" class="field" required />
+        <input id="siPass" type="password" placeholder="Password" class="field" required />
+        <button type="submit" class="w-full bg-ink text-bone py-4 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition mt-2">Sign in</button>
+      </form>
+      <p class="text-xs text-ink/55 mt-4 text-center"><a href="#" class="ulink">Forgot your password?</a></p>
+      <div class="border-t border-ink/10 mt-6 pt-6">
+        <p class="text-sm text-ink/65 text-center mb-3">New to Hasaki?</p>
+        <button id="createBtn" class="w-full border border-ink py-4 text-[11px] tracking-[0.25em] uppercase hover:bg-ink hover:text-bone transition">Create an account</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SIGNED-IN VIEW ====== -->
+<section id="signedIn" class="hidden py-12 md:py-16">
+  <div class="max-w-[1300px] mx-auto px-6">
+
+    <!-- Greeting + tier card -->
+    <div class="grid md:grid-cols-3 gap-6 mb-10">
+      <div class="md:col-span-2">
+        <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-2">My account</p>
+        <h1 class="serif text-4xl md:text-6xl tracking-tightest leading-[1]">Hi, <span id="greetName" class="italic text-hasaki">there</span>.</h1>
+        <p class="mt-4 text-ink/65 text-[15px]">Welcome back. Here's everything in one place.</p>
+      </div>
+      <div class="bg-ink text-bone p-7 flex flex-col justify-between">
+        <div>
+          <p class="text-[10px] tracking-[0.3em] uppercase text-bone/60 mb-1">Hasaki Member</p>
+          <p id="tierName" class="serif text-3xl tracking-tightest">Pink</p>
+        </div>
+        <div class="mt-4">
+          <div class="flex items-baseline justify-between text-xs text-bone/70 mb-2">
+            <span>Points balance</span>
+            <span id="pointsBal" class="text-bone serif text-2xl tracking-tightest">240</span>
+          </div>
+          <div class="h-1 bg-bone/15 overflow-hidden">
+            <div id="tierBar" class="h-full bg-hasaki transition-all duration-700" style="width:24%"></div>
+          </div>
+          <p id="tierNote" class="text-[10px] tracking-[0.2em] uppercase text-bone/55 mt-2">760 pts to Pink Gold</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <nav class="border-b border-ink/10 flex gap-7 text-[12px] tracking-[0.2em] uppercase overflow-x-auto whitespace-nowrap">
+      <a data-section="overview" class="tab is-on">Overview</a>
+      <a data-section="orders" class="tab">Orders</a>
+      <a data-section="addresses" class="tab">Addresses</a>
+      <a data-section="wishlist" class="tab">Wishlist</a>
+      <a data-section="rewards" class="tab">Rewards</a>
+      <a data-section="profile" class="tab">Profile</a>
+      <a id="signOut" class="tab text-ink/55">Sign out →</a>
+    </nav>
+
+    <!-- Overview -->
+    <div data-section="overview" class="section is-on py-10">
+      <div class="grid md:grid-cols-3 gap-4">
+        <a href="#" data-go="orders" class="border border-ink/10 p-6 hover:border-hasaki transition group">
+          <p class="text-[10px] tracking-[0.3em] uppercase text-ink/55">Recent order</p>
+          <p id="ovOrderNum" class="serif text-2xl tracking-tightest mt-2">#HSK-3041</p>
+          <p id="ovOrderItems" class="text-sm text-ink/65 mt-1">3 items · $87.40</p>
+          <p class="text-[11px] tracking-[0.25em] uppercase text-hasaki mt-4 group-hover:underline">View order →</p>
+        </a>
+        <a href="#" data-go="rewards" class="border border-ink/10 p-6 hover:border-hasaki transition group">
+          <p class="text-[10px] tracking-[0.3em] uppercase text-ink/55">Available rewards</p>
+          <p id="ovRedeemable" class="serif text-2xl tracking-tightest mt-2">$10 off</p>
+          <p class="text-sm text-ink/65 mt-1">Redeem 200 of your 240 points</p>
+          <p class="text-[11px] tracking-[0.25em] uppercase text-hasaki mt-4 group-hover:underline">See rewards →</p>
+        </a>
+        <a href="wishlist.html" class="border border-ink/10 p-6 hover:border-hasaki transition group">
+          <p class="text-[10px] tracking-[0.3em] uppercase text-ink/55">Wishlist</p>
+          <p id="ovWishCount" class="serif text-2xl tracking-tightest mt-2">0 items</p>
+          <p class="text-sm text-ink/65 mt-1">Saved for later</p>
+          <p class="text-[11px] tracking-[0.25em] uppercase text-hasaki mt-4 group-hover:underline">View wishlist →</p>
+        </a>
+      </div>
+
+      <div class="mt-12">
+        <h2 class="serif text-2xl tracking-tightest mb-5">Reorder favorites.</h2>
+        <div id="reorderRow" class="grid grid-cols-2 md:grid-cols-4 gap-3"></div>
+      </div>
+    </div>
+
+    <!-- Orders -->
+    <div data-section="orders" class="section py-10">
+      <h2 class="serif text-2xl tracking-tightest mb-6">Order history.</h2>
+      <div id="ordersList" class="border-t border-ink/10"></div>
+    </div>
+
+    <!-- Addresses -->
+    <div data-section="addresses" class="section py-10">
+      <div class="flex items-baseline justify-between mb-6">
+        <h2 class="serif text-2xl tracking-tightest">Saved addresses.</h2>
+        <button id="addAddr" class="text-[11px] tracking-[0.25em] uppercase text-hasaki ulink">+ Add address</button>
+      </div>
+      <div id="addrList" class="grid md:grid-cols-2 gap-4"></div>
+    </div>
+
+    <!-- Wishlist -->
+    <div data-section="wishlist" class="section py-10">
+      <h2 class="serif text-2xl tracking-tightest mb-6">Your wishlist.</h2>
+      <div id="acctWishlist" class="text-sm text-ink/65">Loading…</div>
+      <a href="wishlist.html" class="inline-flex items-center gap-2 mt-6 border border-ink px-7 py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-ink hover:text-bone transition">Open full wishlist →</a>
+    </div>
+
+    <!-- Rewards -->
+    <div data-section="rewards" class="section py-10">
+      <h2 class="serif text-2xl tracking-tightest mb-2">Your rewards.</h2>
+      <p class="text-ink/65 text-sm mb-8">100 points = $5 off. Stack with promo codes.</p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <div class="border border-ink/10 p-6"><p class="serif text-2xl tracking-tightest">$5 off</p><p class="text-xs text-ink/55 mt-1">100 points</p><button class="redeem mt-4 w-full border border-ink py-2.5 text-[10px] tracking-[0.25em] uppercase hover:bg-ink hover:text-bone transition" data-pts="100">Redeem</button></div>
+        <div class="border border-ink/10 p-6"><p class="serif text-2xl tracking-tightest">$10 off</p><p class="text-xs text-ink/55 mt-1">200 points</p><button class="redeem mt-4 w-full border border-ink py-2.5 text-[10px] tracking-[0.25em] uppercase hover:bg-ink hover:text-bone transition" data-pts="200">Redeem</button></div>
+        <div class="border border-ink/10 p-6 opacity-50"><p class="serif text-2xl tracking-tightest">$20 off</p><p class="text-xs text-ink/55 mt-1">400 points</p><button class="mt-4 w-full border border-ink/30 py-2.5 text-[10px] tracking-[0.25em] uppercase text-ink/40 cursor-not-allowed" disabled>Not yet</button></div>
+        <div class="border border-ink/10 p-6 opacity-50"><p class="serif text-2xl tracking-tightest">Free deluxe sample</p><p class="text-xs text-ink/55 mt-1">300 points</p><button class="mt-4 w-full border border-ink/30 py-2.5 text-[10px] tracking-[0.25em] uppercase text-ink/40 cursor-not-allowed" disabled>Not yet</button></div>
+      </div>
+      <a href="rewards.html" class="inline-flex items-center gap-2 mt-8 ulink text-sm">See all tier perks →</a>
+    </div>
+
+    <!-- Profile -->
+    <div data-section="profile" class="section py-10">
+      <h2 class="serif text-2xl tracking-tightest mb-6">Your profile.</h2>
+      <form id="profileForm" class="max-w-xl space-y-3">
+        <div class="grid sm:grid-cols-2 gap-3">
+          <input id="pfFirst" type="text" placeholder="First name" class="field" />
+          <input id="pfLast" type="text" placeholder="Last name" class="field" />
+        </div>
+        <input id="pfEmail" type="email" placeholder="Email" class="field" />
+        <input id="pfPhone" type="tel" placeholder="Phone (optional)" class="field" />
+        <input id="pfBday" type="date" placeholder="Birthday" class="field" />
+        <label class="flex items-center gap-2 text-sm text-ink/70 pt-2"><input id="pfNews" type="checkbox" class="accent-[#306E51]" /> Email me Hasaki news, drops and exclusive offers</label>
+        <button type="submit" class="bg-ink text-bone px-7 py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition mt-3">Save changes</button>
+        <span id="pfSaved" class="ml-3 text-xs text-hasaki opacity-0 transition-opacity">Saved ✓</span>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<footer class="bg-ink text-bone py-12">
+  <div class="max-w-[1500px] mx-auto px-6 flex flex-wrap items-center justify-between gap-4 text-sm">
+    <div class="inline-flex items-center gap-3 font-logo text-3xl font-extrabold lowercase leading-none" style="letter-spacing:-0.04em;"><img src="hasaki-logo.png" alt="" class="w-10 h-10 rounded-full" /><span>hasaki<span class="text-hasaki">.</span></span></div>
+    <p class="text-xs text-bone/55">© 2026 Hasaki Beauty &amp; Clinic Joint Stock Company.</p>
+  </div>
+</footer>
+
+<script>
+function getUser() { try { return JSON.parse(localStorage.getItem('hasaki-user') || 'null'); } catch { return null; } }
+function setUser(u) { localStorage.setItem('hasaki-user', JSON.stringify(u)); if (window.HasakiUser) window.HasakiUser.updateUI(); }
+function clearUser() { localStorage.removeItem('hasaki-user'); if (window.HasakiUser) window.HasakiUser.updateUI(); }
+
+function show(view) {
+  document.getElementById('signedOut').classList.toggle('hidden', view !== 'out');
+  document.getElementById('signedIn').classList.toggle('hidden', view !== 'in');
+}
+
+function loadProfile(u) {
+  document.getElementById('greetName').textContent = (u.name || u.email || '').split(' ')[0] || 'there';
+  document.getElementById('pfFirst').value = u.first || (u.name || '').split(' ')[0] || '';
+  document.getElementById('pfLast').value = u.last || (u.name || '').split(' ').slice(1).join(' ') || '';
+  document.getElementById('pfEmail').value = u.email || '';
+  document.getElementById('pfPhone').value = u.phone || '';
+  document.getElementById('pfBday').value = u.bday || '';
+  document.getElementById('pfNews').checked = !!u.news;
+
+  const pts = u.points || 240;
+  const tier = pts < 500 ? 'Pink' : pts < 2000 ? 'Pink Gold' : 'Pink Diamond';
+  const next = pts < 500 ? 500 : pts < 2000 ? 2000 : null;
+  document.getElementById('tierName').textContent = tier;
+  document.getElementById('pointsBal').textContent = pts.toLocaleString();
+  if (next) {
+    document.getElementById('tierBar').style.width = Math.min(100, (pts / next) * 100) + '%';
+    document.getElementById('tierNote').textContent = (next - pts) + ' pts to ' + (next === 500 ? 'Pink Gold' : 'Pink Diamond');
+  } else {
+    document.getElementById('tierBar').style.width = '100%';
+    document.getElementById('tierNote').textContent = 'You\'ve reached the top tier ✨';
+  }
+}
+
+function loadOrders() {
+  // Demo: synthesize one order from a current cart snapshot in localStorage
+  let cart = []; try { cart = JSON.parse(localStorage.getItem('hasaki-cart') || '[]'); } catch {}
+  const orders = JSON.parse(localStorage.getItem('hasaki:orders') || 'null') || [
+    { id: 'HSK-3041', date: '2026-05-02', items: [
+        { name: 'Laneige Lip Sleeping Mask — Berry', qty: 1, price: 18 },
+        { name: 'COSRX Snail 96 Mucin Essence', qty: 1, price: 15 },
+        { name: 'La Roche-Posay Anthelios SPF50+', qty: 1, price: 22 } ], total: 87.40, status: 'Delivered' },
+    { id: 'HSK-2890', date: '2026-04-18', items: [
+        { name: 'Dior Rouge 999 Velvet', qty: 1, price: 52 } ], total: 56.29, status: 'Delivered' }
+  ];
+
+  const ordersList = document.getElementById('ordersList');
+  ordersList.innerHTML = orders.map(o => `
+    <details class="border-b border-ink/10">
+      <summary class="grid grid-cols-[1fr_auto_auto] gap-4 items-center py-5 cursor-pointer list-none">
+        <div>
+          <p class="serif text-lg tracking-tightest">${o.id}</p>
+          <p class="text-xs text-ink/55 mt-1">${o.date} · ${o.items.length} item${o.items.length===1?'':'s'}</p>
+        </div>
+        <span class="text-[10px] tracking-[0.25em] uppercase ${o.status === 'Delivered' ? 'text-hasaki' : 'text-ink/55'}">${o.status}</span>
+        <span class="font-medium">$${o.total.toFixed(2)}</span>
+      </summary>
+      <div class="pb-5 text-sm text-ink/75">
+        ${o.items.map(it => `<div class="flex justify-between py-1.5"><span>${it.qty}× ${it.name}</span><span>$${(it.qty*it.price).toFixed(2)}</span></div>`).join('')}
+        <div class="mt-4 flex gap-3">
+          <a href="track.html" class="ulink text-[11px] tracking-[0.25em] uppercase">Track →</a>
+          <a href="#" class="ulink text-[11px] tracking-[0.25em] uppercase">Reorder →</a>
+          <a href="help.html" class="ulink text-[11px] tracking-[0.25em] uppercase">Get help →</a>
+        </div>
+      </div>
+    </details>
+  `).join('') || '<p class="text-sm text-ink/55 py-12 text-center">No orders yet. <a href="index.html" class="ulink">Start shopping →</a></p>';
+
+  if (orders[0]) {
+    document.getElementById('ovOrderNum').textContent = '#' + orders[0].id;
+    document.getElementById('ovOrderItems').textContent = `${orders[0].items.length} item${orders[0].items.length===1?'':'s'} · $${orders[0].total.toFixed(2)}`;
+  }
+}
+
+function loadAddresses() {
+  const addrs = JSON.parse(localStorage.getItem('hasaki:addresses') || 'null') || [
+    { label: 'Home', name: 'Jamie Nguyen', line1: '742 Sunset Boulevard, Apt 4B', city: 'Los Angeles, CA 90028', phone: '+1 (323) 555-0142', default: true }
+  ];
+  document.getElementById('addrList').innerHTML = addrs.map((a, i) => `
+    <div class="border border-ink/10 p-6">
+      <div class="flex items-start justify-between mb-3">
+        <p class="text-[10px] tracking-[0.3em] uppercase text-hasaki">${a.label}${a.default ? ' · Default' : ''}</p>
+        <button data-addr-edit="${i}" class="text-[11px] tracking-[0.25em] uppercase text-ink/55 ulink">Edit</button>
+      </div>
+      <p class="font-medium">${a.name}</p>
+      <p class="text-sm text-ink/70 mt-1">${a.line1}</p>
+      <p class="text-sm text-ink/70">${a.city}</p>
+      <p class="text-sm text-ink/55 mt-2">${a.phone}</p>
+    </div>
+  `).join('');
+}
+
+function loadWishlistTab() {
+  let items = []; try { items = JSON.parse(localStorage.getItem('hasaki-wishlist') || '[]'); } catch {}
+  document.getElementById('ovWishCount').textContent = items.length + ' item' + (items.length === 1 ? '' : 's');
+  const root = document.getElementById('acctWishlist');
+  if (!items.length) {
+    root.innerHTML = '<p>Nothing saved yet. Tap the heart on any product to save it.</p>';
+    return;
+  }
+  root.innerHTML = `<div class="grid grid-cols-2 md:grid-cols-4 gap-3">${items.slice(0,8).map(it => `
+    <a href="product.html?id=${it.id}" class="block group">
+      <div class="aspect-[4/5] bg-cream overflow-hidden mb-2">${it.image ? `<img src="${it.image}" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>` : ''}</div>
+      <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">${it.brand||''}</p>
+      <p class="text-sm font-medium leading-snug">${it.name}</p>
+      <p class="text-sm mt-1">$${it.price}</p>
+    </a>
+  `).join('')}</div>`;
+}
+
+function loadReorder() {
+  if (!window.__CATALOG) return setTimeout(loadReorder, 100);
+  const picks = window.__CATALOG.slice(0, 4);
+  document.getElementById('reorderRow').innerHTML = picks.map(p => `
+    <article class="group" data-product="${p.id}" data-brand="${p.brand}" data-name="${p.name.replace(/"/g,'&quot;')}" data-price="${p.price}" data-image="${p.image}" data-size="${p.size}">
+      <a href="product.html?id=${p.id}" class="block aspect-[4/5] bg-cream overflow-hidden mb-2">
+        <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+      </a>
+      <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">${p.brand}</p>
+      <p class="text-sm font-medium leading-snug">${p.name}</p>
+      <div class="flex items-center justify-between mt-2">
+        <span class="text-sm font-medium">$${p.price}</span>
+        <button data-add-to-cart class="text-[10px] tracking-[0.25em] uppercase text-hasaki hover:text-hasakiDark transition">+ Add</button>
+      </div>
+    </article>
+  `).join('');
+
+  document.querySelectorAll('#reorderRow [data-add-to-cart]').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      const card = btn.closest('[data-product]');
+      if (!card || !window.Cart) return;
+      window.Cart.add({
+        id: card.dataset.product, brand: card.dataset.brand, name: card.dataset.name,
+        price: parseFloat(card.dataset.price), image: card.dataset.image, size: card.dataset.size,
+      });
+      btn.textContent = '✓ Added'; setTimeout(() => btn.textContent = '+ Add', 1200);
+    });
+  });
+}
+
+// Tab nav
+document.querySelectorAll('[data-section]').forEach(el => {
+  if (el.tagName === 'A' && el.classList.contains('tab')) {
+    el.addEventListener('click', e => {
+      e.preventDefault();
+      const target = el.dataset.section;
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('is-on'));
+      el.classList.add('is-on');
+      document.querySelectorAll('.section').forEach(s => s.classList.toggle('is-on', s.dataset.section === target));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+});
+document.querySelectorAll('[data-go]').forEach(el => {
+  el.addEventListener('click', e => {
+    e.preventDefault();
+    const tab = document.querySelector('.tab[data-section="' + el.dataset.go + '"]');
+    if (tab) tab.click();
+  });
+});
+
+// Sign in
+document.getElementById('signinForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const email = document.getElementById('siEmail').value.trim();
+  if (!email) return;
+  const existing = getUser();
+  setUser({ ...(existing || {}), email, name: existing?.name || email.split('@')[0], points: existing?.points || 240 });
+  init();
+});
+
+document.getElementById('createBtn').addEventListener('click', () => {
+  const email = document.getElementById('siEmail').value.trim() || 'guest@hasaki.com';
+  setUser({ email, name: email.split('@')[0], points: 50, news: true });
+  init();
+});
+
+document.getElementById('signOut').addEventListener('click', () => {
+  if (confirm('Sign out of Hasaki?')) { clearUser(); init(); }
+});
+
+// Profile save
+document.getElementById('profileForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const u = getUser() || {};
+  const first = document.getElementById('pfFirst').value.trim();
+  const last = document.getElementById('pfLast').value.trim();
+  setUser({
+    ...u, first, last, name: (first + ' ' + last).trim() || u.name,
+    email: document.getElementById('pfEmail').value.trim(),
+    phone: document.getElementById('pfPhone').value.trim(),
+    bday: document.getElementById('pfBday').value,
+    news: document.getElementById('pfNews').checked,
+  });
+  const saved = document.getElementById('pfSaved');
+  saved.style.opacity = '1'; setTimeout(() => saved.style.opacity = '0', 1500);
+  loadProfile(getUser());
+});
+
+// Redeem points (demo)
+document.querySelectorAll('.redeem').forEach(b => {
+  b.addEventListener('click', () => {
+    const cost = parseInt(b.dataset.pts, 10);
+    const u = getUser() || {}; const pts = u.points || 240;
+    if (pts < cost) return alert('Not enough points.');
+    setUser({ ...u, points: pts - cost });
+    loadProfile(getUser());
+    alert(`Redeemed! $${cost/20} promo code has been emailed to ${u.email}.`);
+  });
+});
+
+function init() {
+  const u = getUser();
+  if (!u) { show('out'); return; }
+  show('in');
+  loadProfile(u);
+  loadOrders();
+  loadAddresses();
+  loadWishlistTab();
+  loadReorder();
+}
+init();
+</script>
+
+<script src="i18n.js" defer></script>
+<script src="app.js" defer></script>
+</body></html>

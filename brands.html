@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Brands — hasaki.</title>
+<meta name="description" content="Shop every brand at Hasaki. From cult K-beauty staples to luxury fragrance houses — find your favorite, or discover something new." />
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/png" href="hasaki-logo.png" />
+<script>tailwind.config={theme:{extend:{fontFamily:{display:['Fraunces','serif'],body:['Inter','sans-serif'],logo:['"DM Sans"','Inter','sans-serif']},colors:{ink:'#0a0a0a',bone:'#f5f1ea',cream:'#ebe4d8',blush:'#e8d5cc',hasaki:'#306E51',hasakiDark:'#1f4d38',hasakiPale:'#e8efea'},letterSpacing:{tightest:'-.04em',mega:'-.06em'}}}}</script>
+<style>body{font-family:'Inter',sans-serif;background:#f5f1ea;color:#0a0a0a;-webkit-font-smoothing:antialiased;overflow-x:hidden}h1,h2,h3,.serif{font-family:'Fraunces',serif}.ulink{position:relative;display:inline-block}.ulink::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:1px;background:currentColor;transform:scaleX(1);transform-origin:right;transition:transform .5s}.ulink:hover::after{transform:scaleX(0);transform-origin:left}img{max-width:100%;height:auto}
+.alpha-rail a{transition:color .2s}.alpha-rail a:hover{color:#306E51}.brand-tile:hover{background:#e8efea;border-color:#306E51}
+</style>
+</head><body class="bg-bone text-ink">
+
+<header class="border-b border-ink/10 sticky top-0 bg-bone/95 backdrop-blur z-40">
+  <div class="max-w-[1500px] mx-auto px-6 h-20 grid grid-cols-3 items-center">
+    <a href="index.html" class="ulink text-[11px] tracking-[0.25em] uppercase text-ink/65" data-i18n="back.store">← Back to store</a>
+    <a href="index.html" class="justify-self-center inline-flex items-center gap-2 font-logo text-hasaki text-[26px] font-extrabold lowercase leading-none" style="letter-spacing:-0.04em;"><img src="hasaki-logo.png" alt="" class="w-9 h-9 rounded-full" /><span>hasaki<span class="text-hasakiDark">.</span></span></a>
+    <a href="cart.html" aria-label="Bag" class="justify-self-end relative p-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><path d="M6 7h12l-1.5 12.5a2 2 0 0 1-2 1.7H9.5a2 2 0 0 1-2-1.7L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg><span class="absolute -top-0.5 -right-0.5 bg-ink text-bone text-[10px] w-4 h-4 rounded-full grid place-items-center" data-cart-count>0</span></a>
+  </div>
+</header>
+
+<section class="py-14 md:py-20 border-b border-ink/10">
+  <div class="max-w-[1500px] mx-auto px-6 grid md:grid-cols-12 gap-6 items-end">
+    <div class="md:col-span-7">
+      <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-3" data-i18n="brands.eyebrow">All brands · A–Z</p>
+      <h1 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]" data-i18n="brands.h">Every brand we love, in <span class="italic text-hasaki">one place</span>.</h1>
+    </div>
+    <div class="md:col-span-5 md:pl-8">
+      <p class="text-ink/70 text-[15px] leading-relaxed" data-i18n="brands.sub">From cult K-beauty staples to luxury fragrance houses — 200+ brands carefully curated by our team. Search the directory, or jump straight to a letter.</p>
+      <div class="mt-6 relative">
+        <input id="brandSearch" type="search" placeholder="Search brands…" data-i18n-attr="placeholder" data-i18n="brands.search.ph" class="w-full bg-transparent border border-ink/20 rounded-full px-5 py-3 pl-11 text-sm focus:outline-none focus:border-hasaki" />
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 stroke-2 text-ink/50"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<nav class="alpha-rail sticky top-20 bg-bone/95 backdrop-blur z-30 border-b border-ink/10">
+  <div class="max-w-[1500px] mx-auto px-6 py-3 overflow-x-auto">
+    <div id="alphaRail" class="flex items-center gap-1 md:gap-2 text-xs md:text-sm tracking-[0.15em] uppercase whitespace-nowrap"></div>
+  </div>
+</nav>
+
+<section class="py-12 md:py-16">
+  <div id="brandSections" class="max-w-[1500px] mx-auto px-6 space-y-14"></div>
+  <div id="brandsEmpty" class="hidden max-w-3xl mx-auto px-6 text-center py-16">
+    <p class="serif text-3xl tracking-tightest mb-3" data-i18n="brands.empty">No brands match that search.</p>
+    <p class="text-ink/60 text-sm" data-i18n="brands.empty.sub">Try another spelling, or clear the search.</p>
+  </div>
+</section>
+
+<section class="bg-ink text-bone py-14 md:py-20">
+  <div class="max-w-[1500px] mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-3" data-i18n="brands.spotlight.eyebrow">Brand spotlight</p>
+      <h2 class="serif text-4xl md:text-5xl tracking-tightest leading-[1]" data-i18n="brands.spotlight.h">New this month: <span class="italic text-hasaki">Hasaki Atelier</span>.</h2>
+      <p class="mt-5 text-bone/70 text-[15px] max-w-md" data-i18n="brands.spotlight.sub">Our in-house line. Made in small batches in our Saigon lab — and now shipping to LA.</p>
+      <a href="category.html" class="inline-flex items-center gap-2 mt-7 bg-bone text-ink px-7 py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki hover:text-bone transition" data-i18n="brands.spotlight.cta">Shop the line →</a>
+    </div>
+    <div class="aspect-[4/3] bg-hasakiDark grid place-items-center">
+      <svg viewBox="0 0 100 160" class="h-48 text-hasaki"><use href="#ic-bottle"/></svg>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-ink text-bone py-12 border-t border-bone/10">
+  <div class="max-w-[1500px] mx-auto px-6 flex flex-wrap items-center justify-between gap-4 text-sm">
+    <div class="inline-flex items-center gap-3 font-logo text-3xl font-extrabold lowercase leading-none" style="letter-spacing:-0.04em;"><img src="hasaki-logo.png" alt="" class="w-10 h-10 rounded-full" /><span>hasaki<span class="text-hasaki">.</span></span></div>
+    <p class="text-xs text-bone/55">© 2026 Hasaki Beauty &amp; Clinic Joint Stock Company.</p>
+  </div>
+</footer>
+
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="ic-bottle" viewBox="0 0 100 160"><path d="M40 5h20v15H40zM35 22h30v12H35zM30 36c0-3 3-5 6-5h28c3 0 6 2 6 5v110c0 6-5 9-10 9H40c-5 0-10-3-10-9V36z" fill="currentColor"/></symbol>
+</defs></svg>
+
+<script>
+// Curated brand directory (logo letter tiles - no real logos needed)
+const BRANDS = [
+  {n:'Anastasia Beverly Hills', tag:'Brows · Eyes'},
+  {n:'Anessa', tag:'Japanese SPF'},
+  {n:'Augustinus Bader', tag:'Luxury skincare'},
+  {n:'Beauty of Joseon', tag:'K-beauty'},
+  {n:'Bobbi Brown', tag:'Makeup'},
+  {n:'Byredo', tag:'Niche fragrance'},
+  {n:'Chanel Beauté', tag:'Luxury'},
+  {n:'Charlotte Tilbury', tag:'Makeup · Skincare'},
+  {n:'Clinique', tag:'Skincare'},
+  {n:'COSRX', tag:'K-beauty essentials'},
+  {n:'Dior', tag:'Luxury'},
+  {n:'Drunk Elephant', tag:'Skincare'},
+  {n:'Estée Lauder', tag:'Skincare · Makeup'},
+  {n:'Fenty Beauty', tag:'Inclusive makeup'},
+  {n:'Fresh', tag:'Skincare'},
+  {n:'Glossier', tag:'Minimalist beauty'},
+  {n:'Glow Recipe', tag:'Fruit-powered skincare'},
+  {n:'Gucci Beauty', tag:'Luxury'},
+  {n:'Hasaki Atelier', tag:'Our in-house line'},
+  {n:'Hourglass', tag:'Vegan makeup'},
+  {n:'Huda Beauty', tag:'Makeup'},
+  {n:'Innisfree', tag:'K-beauty · Jeju'},
+  {n:'Jo Malone London', tag:'British fragrance'},
+  {n:'Kérastase', tag:'Haircare'},
+  {n:'Kiehl\'s', tag:'Apothecary skincare'},
+  {n:'La Mer', tag:'Luxury skincare'},
+  {n:'La Roche-Posay', tag:'Dermo-cosmetics'},
+  {n:'Laneige', tag:'K-beauty'},
+  {n:'Lancôme', tag:'French luxury'},
+  {n:'Le Labo', tag:'Niche fragrance'},
+  {n:'MAC', tag:'Pro makeup'},
+  {n:'Maybelline', tag:'Drugstore icon'},
+  {n:'Medik8', tag:'Vitamin A specialist'},
+  {n:'NARS', tag:'Bold makeup'},
+  {n:'Olaplex', tag:'Hair repair'},
+  {n:'Origins', tag:'Plant-powered'},
+  {n:'Paula\'s Choice', tag:'BHA specialist'},
+  {n:'Pat McGrath Labs', tag:'Pro makeup'},
+  {n:'Prada Beauty', tag:'Luxury'},
+  {n:'Rare Beauty', tag:'Selena Gomez line'},
+  {n:'Rhode', tag:'Hailey Bieber skin'},
+  {n:'Rituals', tag:'Body · Home'},
+  {n:'Saie', tag:'Clean makeup'},
+  {n:'Skinceuticals', tag:'Clinical skincare'},
+  {n:'Summer Fridays', tag:'Skincare'},
+  {n:'Sulwhasoo', tag:'K-luxury'},
+  {n:'Tatcha', tag:'Japanese ritual skincare'},
+  {n:'The Ordinary', tag:'Active ingredients'},
+  {n:'Tom Ford Beauty', tag:'Luxury'},
+  {n:'Too Faced', tag:'Makeup'},
+  {n:'Urban Decay', tag:'Bold makeup'},
+  {n:'Versace', tag:'Luxury fragrance'},
+  {n:'Vacation', tag:'Sunscreen vibes'},
+  {n:'Westman Atelier', tag:'Clean luxury makeup'},
+  {n:'YSL Beauty', tag:'French luxury'},
+];
+
+const ALPHA = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+const railEl = document.getElementById('alphaRail');
+railEl.innerHTML = ALPHA.map(L => `<a href="#sec-${L}" data-letter="${L}" class="px-2 py-1 text-ink/45 hover:text-hasaki">${L}</a>`).join('');
+
+function render(filter) {
+  const f = (filter || '').trim().toLowerCase();
+  const sections = ALPHA.map(L => {
+    const list = BRANDS.filter(b => b.n[0].toUpperCase() === L && (!f || b.n.toLowerCase().includes(f)));
+    if (!list.length) return null;
+    return `
+      <section id="sec-${L}">
+        <div class="flex items-baseline justify-between mb-5 border-b border-ink/10 pb-3">
+          <h2 class="serif text-3xl md:text-4xl tracking-tightest">${L}</h2>
+          <span class="text-[11px] tracking-[0.25em] uppercase text-ink/45">${list.length} brand${list.length===1?'':'s'}</span>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+          ${list.map(b => `
+            <a href="category.html?q=${encodeURIComponent(b.n)}" class="brand-tile border border-ink/10 bg-bone p-5 transition group">
+              <div class="font-logo text-3xl text-hasaki lowercase mb-2 leading-none group-hover:text-hasakiDark transition">${b.n.split(' ').map(w=>w[0]).join('').slice(0,3).toLowerCase()}</div>
+              <p class="serif text-lg leading-tight">${b.n}</p>
+              <p class="text-xs text-ink/55 mt-1">${b.tag}</p>
+            </a>
+          `).join('')}
+        </div>
+      </section>`;
+  }).filter(Boolean);
+
+  const root = document.getElementById('brandSections');
+  const empty = document.getElementById('brandsEmpty');
+  if (!sections.length) {
+    root.innerHTML = '';
+    empty.classList.remove('hidden');
+  } else {
+    empty.classList.add('hidden');
+    root.innerHTML = sections.join('');
+  }
+
+  // Update alpha rail: dim letters with no brands
+  document.querySelectorAll('[data-letter]').forEach(el => {
+    const L = el.dataset.letter;
+    const has = BRANDS.some(b => b.n[0].toUpperCase() === L && (!f || b.n.toLowerCase().includes(f)));
+    el.classList.toggle('opacity-30', !has);
+    el.classList.toggle('pointer-events-none', !has);
+  });
+}
+
+render('');
+document.getElementById('brandSearch').addEventListener('input', e => render(e.target.value));
+</script>
+
+<script src="i18n.js" defer></script>
+<script src="app.js" defer></script>
+</body></html>
