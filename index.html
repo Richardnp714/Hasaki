@@ -113,8 +113,8 @@
 <div class="bg-ink text-bone text-[11px] tracking-[0.25em] uppercase">
   <div class="max-w-[1500px] mx-auto px-6 py-2.5 flex items-center justify-between">
     <div class="hidden md:flex items-center gap-6 text-bone/80">
-      <span class="text-hasaki font-medium">★ Now open in Los Angeles, CA</span>
-      <span>#1 Beauty Chain in Vietnam since 2016</span>
+      <span class="text-hasaki font-medium" data-i18n="announce.la">★ Now open in Los Angeles, CA</span>
+      <span data-i18n="announce.tagline">#1 Beauty Chain in Vietnam since 2016</span>
     </div>
     <div class="marquee md:hidden flex-1">
       <div class="marquee-track">
@@ -123,8 +123,24 @@
       </div>
     </div>
     <div class="hidden md:flex items-center gap-6 text-bone/70">
-      <span>Free shipping over $35</span>
-      <span class="border-l border-bone/20 pl-6">EN · VI</span>
+      <span data-i18n="announce.shipping">Free shipping over $35</span>
+      <!-- Language picker -->
+      <div class="relative border-l border-bone/20 pl-6">
+        <button id="langBtn" class="flex items-center gap-1.5 hover:text-bone transition" aria-haspopup="listbox" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-3.5 h-3.5 stroke-2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+          <span class="lang-current">EN</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-3 h-3 stroke-2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <ul id="langMenu" class="hidden absolute right-0 top-full mt-2 bg-bone text-ink min-w-[220px] border border-ink/10 shadow-xl z-50 normal-case tracking-normal text-sm" role="listbox">
+          <li><button data-lang="en" class="lang-opt flex w-full items-center gap-3 px-4 py-2.5 hover:bg-cream text-left"><span class="text-base">🇺🇸</span><span>English</span><span class="ml-auto text-[10px] tracking-[0.2em] uppercase text-ink/45">EN</span></button></li>
+          <li><button data-lang="vi" class="lang-opt flex w-full items-center gap-3 px-4 py-2.5 hover:bg-cream text-left"><span class="text-base">🇻🇳</span><span>Tiếng Việt</span><span class="ml-auto text-[10px] tracking-[0.2em] uppercase text-ink/45">VI</span></button></li>
+          <li><button data-lang="zh" class="lang-opt flex w-full items-center gap-3 px-4 py-2.5 hover:bg-cream text-left"><span class="text-base">🇨🇳</span><span>中文</span><span class="ml-auto text-[10px] tracking-[0.2em] uppercase text-ink/45">ZH</span></button></li>
+          <li><button data-lang="ko" class="lang-opt flex w-full items-center gap-3 px-4 py-2.5 hover:bg-cream text-left"><span class="text-base">🇰🇷</span><span>한국어</span><span class="ml-auto text-[10px] tracking-[0.2em] uppercase text-ink/45">KO</span></button></li>
+          <li><button data-lang="ja" class="lang-opt flex w-full items-center gap-3 px-4 py-2.5 hover:bg-cream text-left"><span class="text-base">🇯🇵</span><span>日本語</span><span class="ml-auto text-[10px] tracking-[0.2em] uppercase text-ink/45">JA</span></button></li>
+          <li><button data-lang="es" class="lang-opt flex w-full items-center gap-3 px-4 py-2.5 hover:bg-cream text-left"><span class="text-base">🇪🇸</span><span>Español</span><span class="ml-auto text-[10px] tracking-[0.2em] uppercase text-ink/45">ES</span></button></li>
+          <li><button data-lang="fr" class="lang-opt flex w-full items-center gap-3 px-4 py-2.5 hover:bg-cream text-left"><span class="text-base">🇫🇷</span><span>Français</span><span class="ml-auto text-[10px] tracking-[0.2em] uppercase text-ink/45">FR</span></button></li>
+        </ul>
+      </div>
       <span>USD</span>
     </div>
   </div>
@@ -137,10 +153,10 @@
       <!-- Left nav -->
       <nav class="hidden lg:flex items-center gap-8 text-[13px] tracking-[0.18em] uppercase">
         <div class="has-mega relative">
-          <a href="#" class="ulink py-6">New In</a>
+          <a href="#" class="ulink py-6" data-i18n="nav.new">New In</a>
         </div>
         <div class="has-mega relative">
-          <a href="#skincare" class="ulink py-6">Skincare</a>
+          <a href="#skincare" class="ulink py-6" data-i18n="nav.skincare">Skincare</a>
           <div class="mega absolute left-0 top-full w-[820px] bg-bone border border-ink/10 grid grid-cols-3 gap-8 p-10">
             <div>
               <p class="serif italic text-ink/50 text-sm mb-4">By category</p>
@@ -181,7 +197,7 @@
           </div>
         </div>
         <div class="has-mega relative">
-          <a href="#makeup" class="ulink py-6">Makeup</a>
+          <a href="#makeup" class="ulink py-6" data-i18n="nav.makeup">Makeup</a>
           <div class="mega absolute left-0 top-full w-[820px] bg-bone border border-ink/10 grid-cols-3 gap-8 p-10">
             <div>
               <p class="serif italic text-ink/50 text-sm mb-4">By category</p>
@@ -223,7 +239,7 @@
           </div>
         </div>
         <div class="has-mega relative">
-          <a href="#fragrance" class="ulink py-6">Fragrance</a>
+          <a href="#fragrance" class="ulink py-6" data-i18n="nav.fragrance">Fragrance</a>
           <div class="mega absolute left-0 top-full w-[820px] bg-bone border border-ink/10 grid-cols-3 gap-8 p-10">
             <div>
               <p class="serif italic text-ink/50 text-sm mb-4">Shop by</p>
@@ -261,7 +277,7 @@
             </a>
           </div>
         </div>
-        <a href="#brands" class="ulink py-6">Brands</a>
+        <a href="#brands" class="ulink py-6" data-i18n="nav.brands">Brands</a>
       </nav>
 
       <!-- Logo -->
@@ -270,20 +286,20 @@
           <img src="hasaki-logo.png" alt="" class="w-8 h-8 md:w-10 md:h-10 shrink-0 rounded-full" />
           <span>hasaki<span class="text-hasakiDark">.</span></span>
         </span>
-        <span class="text-[9px] md:text-[10px] tracking-[0.4em] uppercase text-ink/55 mt-1.5 font-medium">Save More Always</span>
+        <span class="text-[9px] md:text-[10px] tracking-[0.4em] uppercase text-ink/55 mt-1.5 font-medium" data-i18n="brand.slogan">Save More Always</span>
       </a>
 
       <!-- Right utilities -->
       <div class="flex items-center justify-end gap-2 md:gap-5">
         <button aria-label="Search" class="hidden md:flex items-center gap-2 border border-ink/20 hover:border-ink rounded-full px-4 py-2 text-sm text-ink/70 transition w-56">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-          <span>Search products, brands…</span>
+          <span data-i18n="nav.search">Search products, brands…</span>
         </button>
         <button aria-label="Search" class="md:hidden p-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
         <a href="#" aria-label="Account" class="p-2 hover:text-hasaki transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></a>
         <a href="#" aria-label="Wishlist" class="hidden md:block p-2 hover:text-hasaki transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></a>
         <div class="has-mega relative">
-          <a href="cart.html" aria-label="Bag — view cart" class="relative p-2 hover:text-hasaki transition block">
+          <a href="cart.html" aria-label="Bag — view cart" data-i18n-attr="aria-label:cart.aria" class="relative p-2 hover:text-hasaki transition block">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><path d="M6 7h12l-1.5 12.5a2 2 0 0 1-2 1.7H9.5a2 2 0 0 1-2-1.7L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
             <span class="absolute -top-0.5 -right-0.5 bg-ink text-bone text-[10px] w-4 h-4 rounded-full grid place-items-center">2</span>
           </a>
@@ -380,27 +396,25 @@
     <div class="grid md:grid-cols-12 gap-8 items-end">
       <div class="md:col-span-7">
         <div class="flex items-center gap-3 mb-6 reveal">
-          <span class="bg-hasaki text-bone text-[10px] tracking-[0.3em] uppercase px-3 py-1.5">★ New · LA Flagship Open</span>
-          <span class="text-[11px] tracking-[0.25em] uppercase text-ink/55">Spring 2026</span>
+          <span class="bg-hasaki text-bone text-[10px] tracking-[0.3em] uppercase px-3 py-1.5" data-i18n="hero.badge">★ New · LA Flagship Open</span>
+          <span class="text-[11px] tracking-[0.25em] uppercase text-ink/55" data-i18n="hero.eyebrow">Spring 2026</span>
         </div>
         <h1 class="serif font-light tracking-mega leading-[0.86] text-[15vw] md:text-[9.5vw] reveal text-ink">
-          <span class="block">Beauty</span>
-          <span class="block italic font-normal text-hasaki">made honest.</span>
+          <span class="block" data-i18n="hero.line1">Beauty</span>
+          <span class="block italic font-normal text-hasaki" data-i18n="hero.line2">made honest.</span>
         </h1>
-        <p class="mt-6 max-w-md text-ink/70 text-base md:text-lg leading-relaxed reveal">
-          500+ authentic brands. 12,000+ products. Real prices, every day. Welcome to the beauty store Vietnam's loved for a decade — now in Los Angeles.
-        </p>
+        <p class="mt-6 max-w-md text-ink/70 text-base md:text-lg leading-relaxed reveal"><span data-i18n="hero.body">500+ authentic brands. 12,000+ products. Real prices, every day. Welcome to the beauty store Vietnam\'s loved for a decade — now in Los Angeles.</span></p>
         <div class="mt-8 flex flex-wrap items-center gap-4 reveal">
           <a href="#products" class="group inline-flex items-center gap-3 bg-ink text-bone px-7 py-4 text-sm tracking-[0.18em] uppercase hover:bg-hasaki transition">
-            Shop bestsellers
+            <span data-i18n="hero.cta1">Shop bestsellers</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2 group-hover:translate-x-1 transition"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
-          <a href="#concerns" class="inline-flex items-center gap-3 border border-ink/40 hover:bg-ink hover:text-bone px-7 py-4 text-sm tracking-[0.18em] uppercase transition">Take the skin quiz</a>
+          <a href="#concerns" class="inline-flex items-center gap-3 border border-ink/40 hover:bg-ink hover:text-bone px-7 py-4 text-sm tracking-[0.18em] uppercase transition" data-i18n="hero.cta2">Take the skin quiz</a>
         </div>
         <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] tracking-[0.2em] uppercase text-ink/55 reveal">
-          <span class="flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-3.5 h-3.5 stroke-[2] text-hasaki"><path d="M9 12l2 2 4-4"/></svg> 100% Authentic</span>
-          <span class="flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-3.5 h-3.5 stroke-[2] text-hasaki"><path d="M9 12l2 2 4-4"/></svg> Free shipping over $35</span>
-          <span class="flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-3.5 h-3.5 stroke-[2] text-hasaki"><path d="M9 12l2 2 4-4"/></svg> 3 free samples · every order</span>
+          <span class="flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-3.5 h-3.5 stroke-[2] text-hasaki"><path d="M9 12l2 2 4-4"/></svg data-i18n="hero.trust1"> 100% Authentic</span>
+          <span class="flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-3.5 h-3.5 stroke-[2] text-hasaki"><path d="M9 12l2 2 4-4"/></svg data-i18n="hero.trust2"> Free shipping over $35</span>
+          <span class="flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-3.5 h-3.5 stroke-[2] text-hasaki"><path d="M9 12l2 2 4-4"/></svg data-i18n="hero.trust3"> 3 free samples · every order</span>
         </div>
       </div>
     </div>
@@ -471,7 +485,7 @@
   <div class="max-w-[1500px] mx-auto px-6">
     <div class="flex items-end justify-between mb-12 reveal">
       <div>
-        <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3">01 — Categories</p>
+        <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3" data-i18n="sec.cat.eyebrow">01 — Categories</p>
         <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">Shop by<br/><span class="italic text-hasaki">mood.</span></h2>
       </div>
       <a href="#" class="ulink hidden md:inline-block text-sm tracking-[0.18em] uppercase">View all →</a>
@@ -614,7 +628,7 @@
   <div class="max-w-[1500px] mx-auto px-6">
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 reveal">
       <div>
-        <p class="text-xs tracking-[0.3em] uppercase text-hasakiDark mb-3">02 — Shop by Concern</p>
+        <p class="text-xs tracking-[0.3em] uppercase text-hasakiDark mb-3" data-i18n="sec.con.eyebrow">02 — Shop by Concern</p>
         <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">Tell us about<br/><span class="italic text-hasaki">your skin.</span></h2>
         <p class="mt-5 text-ink/70 max-w-md">Six concerns. Six expert-curated routines. Find the one for you.</p>
       </div>
@@ -691,7 +705,7 @@
   <div class="max-w-[1500px] mx-auto px-6">
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 reveal">
       <div>
-        <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3">03 — Bestsellers</p>
+        <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3" data-i18n="sec.best.eyebrow">03 — Bestsellers</p>
         <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">Loved this<br/><span class="italic text-hasaki">week.</span></h2>
       </div>
       <div class="flex flex-wrap gap-2 text-[12px] tracking-[0.2em] uppercase">
@@ -864,7 +878,7 @@
 <section id="sets" class="py-20 md:py-28 bg-gradient-to-b from-blush via-cream to-bone">
   <div class="max-w-[1500px] mx-auto px-6">
     <div class="text-center mb-14 reveal">
-      <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3">04 — Build your routine</p>
+      <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3" data-i18n="sec.set.eyebrow">04 — Build your routine</p>
       <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">Sets &amp; <span class="italic text-hasaki">routines</span>.</h2>
       <p class="mt-5 text-ink/65 max-w-xl mx-auto">Three products. One ritual. Bundle savings up to 25%. Curated by our 50+ in-house dermatologists for real-world skin.</p>
     </div>
@@ -973,7 +987,7 @@
   <div class="max-w-[1500px] mx-auto px-6">
     <div class="grid md:grid-cols-12 mb-12 gap-8 items-end reveal">
       <div class="md:col-span-7">
-        <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3">05 — Hero Ingredients</p>
+        <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3" data-i18n="sec.ing.eyebrow">05 — Hero Ingredients</p>
         <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">The actives<br/><span class="italic text-hasaki">that actually work.</span></h2>
       </div>
       <p class="md:col-span-5 text-ink/70 leading-relaxed">
@@ -1085,7 +1099,7 @@
   <div class="max-w-[1500px] mx-auto px-6">
     <div class="flex items-end justify-between mb-12 reveal">
       <div>
-        <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3">06 — Brands</p>
+        <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3" data-i18n="sec.brand.eyebrow">06 — Brands</p>
         <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">500+ houses,<br/><span class="italic text-hasaki">carefully curated.</span></h2>
       </div>
       <a href="#" class="ulink hidden md:inline-block text-sm tracking-[0.18em] uppercase">All brands →</a>
@@ -1455,7 +1469,7 @@
           <img src="hasaki-logo.png" alt="" class="w-14 h-14 shrink-0 rounded-full" />
           <span class="text-bone">hasaki<span class="text-hasaki">.</span></span>
         </div>
-        <p class="text-[11px] tracking-[0.4em] uppercase text-bone/60 mt-3">Save More Always</p>
+        <p class="text-[11px] tracking-[0.4em] uppercase text-bone/60 mt-3" data-i18n="brand.slogan">Save More Always</p>
         <p class="mt-6 text-bone/70 max-w-sm leading-relaxed">
           Founded 2016 in Ho Chi Minh City — Vietnam's #1 beauty chain. 300+ stores, 500+ brand partners, 12M+ customers. First US flagship now open in Los Angeles.
         </p>
@@ -1469,7 +1483,7 @@
       </div>
 
       <div class="md:col-span-2">
-        <h5 class="text-xs tracking-[0.25em] uppercase text-bone/60 mb-5">Shop</h5>
+        <h5 class="text-xs tracking-[0.25em] uppercase text-bone/60 mb-5" data-i18n="footer.shop">Shop</h5>
         <ul class="space-y-3 text-sm">
           <li><a href="#" class="ulink text-bone/85">Skincare</a></li>
           <li><a href="#" class="ulink text-bone/85">Makeup</a></li>
@@ -1480,7 +1494,7 @@
         </ul>
       </div>
       <div class="md:col-span-2">
-        <h5 class="text-xs tracking-[0.25em] uppercase text-bone/60 mb-5">Help</h5>
+        <h5 class="text-xs tracking-[0.25em] uppercase text-bone/60 mb-5" data-i18n="footer.help">Help</h5>
         <ul class="space-y-3 text-sm">
           <li><a href="#" class="ulink text-bone/85">Help center</a></li>
           <li><a href="#" class="ulink text-bone/85">Shipping</a></li>
@@ -1490,7 +1504,7 @@
         </ul>
       </div>
       <div class="md:col-span-2">
-        <h5 class="text-xs tracking-[0.25em] uppercase text-bone/60 mb-5">About</h5>
+        <h5 class="text-xs tracking-[0.25em] uppercase text-bone/60 mb-5" data-i18n="footer.about">About</h5>
         <ul class="space-y-3 text-sm">
           <li><a href="#" class="ulink text-bone/85">Our story</a></li>
           <li><a href="#" class="ulink text-bone/85">Store locator</a></li>
@@ -1500,7 +1514,7 @@
         </ul>
       </div>
       <div class="md:col-span-2">
-        <h5 class="text-xs tracking-[0.25em] uppercase text-bone/60 mb-5">Contact</h5>
+        <h5 class="text-xs tracking-[0.25em] uppercase text-bone/60 mb-5" data-i18n="footer.contact">Contact</h5>
         <ul class="space-y-3 text-sm text-bone/85">
           <li>Customer care:<br/><span class="serif text-2xl text-bone">1-888-427-2541</span></li>
           <li>care@hasaki.com</li>
@@ -1532,6 +1546,214 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+
+<!-- ============== Language picker / i18n ============== -->
+<script>
+const I18N = {
+  en: {
+    'announce.la': '★ Now open in Los Angeles, CA',
+    'announce.tagline': '#1 Beauty Chain in Vietnam since 2016',
+    'announce.shipping': 'Free shipping over $35',
+    'nav.new': 'New In', 'nav.skincare': 'Skincare', 'nav.makeup': 'Makeup',
+    'nav.fragrance': 'Fragrance', 'nav.brands': 'Brands',
+    'nav.search': 'Search products, brands…',
+    'brand.slogan': 'Save More Always',
+    'hero.badge': '★ New · LA Flagship Open',
+    'hero.eyebrow': 'Spring 2026',
+    'hero.line1': 'Beauty', 'hero.line2': 'made honest.',
+    'hero.body': "500+ authentic brands. 12,000+ products. Real prices, every day. Welcome to the beauty store Vietnam's loved for a decade — now in Los Angeles.",
+    'hero.cta1': 'Shop bestsellers', 'hero.cta2': 'Take the skin quiz',
+    'hero.trust1': ' 100% Authentic', 'hero.trust2': ' Free shipping over $35', 'hero.trust3': ' 3 free samples · every order',
+    'sec.cat.eyebrow': '01 — Categories',
+    'sec.con.eyebrow': '02 — Shop by Concern',
+    'sec.best.eyebrow': '03 — Bestsellers',
+    'sec.set.eyebrow': '04 — Build your routine',
+    'sec.ing.eyebrow': '05 — Hero Ingredients',
+    'sec.brand.eyebrow': '06 — Brands',
+    'footer.shop': 'Shop', 'footer.help': 'Help', 'footer.about': 'About', 'footer.contact': 'Contact',
+  },
+  vi: {
+    'announce.la': '★ Đã khai trương tại Los Angeles, California',
+    'announce.tagline': 'Hệ thống mỹ phẩm số 1 Việt Nam từ 2016',
+    'announce.shipping': 'Miễn phí giao hàng từ $35',
+    'nav.new': 'Mới về', 'nav.skincare': 'Chăm sóc da', 'nav.makeup': 'Trang điểm',
+    'nav.fragrance': 'Nước hoa', 'nav.brands': 'Thương hiệu',
+    'nav.search': 'Tìm sản phẩm, thương hiệu…',
+    'brand.slogan': 'Tiết Kiệm Mỗi Ngày',
+    'hero.badge': '★ Mới · Khai trương cửa hàng LA',
+    'hero.eyebrow': 'Xuân 2026',
+    'hero.line1': 'Vẻ đẹp', 'hero.line2': 'thật giá trị.',
+    'hero.body': '500+ thương hiệu chính hãng. 12.000+ sản phẩm. Giá thật mỗi ngày. Chào mừng đến với hệ thống mỹ phẩm được Việt Nam tin yêu suốt một thập kỷ — nay đã có mặt tại Los Angeles.',
+    'hero.cta1': 'Mua bán chạy', 'hero.cta2': 'Làm quiz da miễn phí',
+    'hero.trust1': ' 100% Chính hãng', 'hero.trust2': ' Miễn phí giao từ $35', 'hero.trust3': ' 3 mẫu thử miễn phí · mỗi đơn',
+    'sec.cat.eyebrow': '01 — Danh mục',
+    'sec.con.eyebrow': '02 — Theo vấn đề da',
+    'sec.best.eyebrow': '03 — Bán chạy',
+    'sec.set.eyebrow': '04 — Xây dựng routine',
+    'sec.ing.eyebrow': '05 — Hoạt chất chủ đạo',
+    'sec.brand.eyebrow': '06 — Thương hiệu',
+    'footer.shop': 'Mua sắm', 'footer.help': 'Trợ giúp', 'footer.about': 'Giới thiệu', 'footer.contact': 'Liên hệ',
+  },
+  zh: {
+    'announce.la': '★ 洛杉矶旗舰店现已开业',
+    'announce.tagline': '越南2016年至今排名第一的美妆连锁',
+    'announce.shipping': '满 $35 免运费',
+    'nav.new': '新品', 'nav.skincare': '护肤', 'nav.makeup': '彩妆',
+    'nav.fragrance': '香水', 'nav.brands': '品牌',
+    'nav.search': '搜索产品、品牌…',
+    'brand.slogan': '永远更省',
+    'hero.badge': '★ 新店 · 洛杉矶旗舰店开业',
+    'hero.eyebrow': '2026 春季',
+    'hero.line1': '真诚', 'hero.line2': '至美。',
+    'hero.body': '500+ 正品品牌。12,000+ 商品。每日真实价格。欢迎来到越南十年挚爱的美妆店 — 现已登陆洛杉矶。',
+    'hero.cta1': '选购热销', 'hero.cta2': '参加肌肤测试',
+    'hero.trust1': ' 100% 正品', 'hero.trust2': ' 满 $35 免运费', 'hero.trust3': ' 每单送 3 份小样',
+    'sec.cat.eyebrow': '01 — 分类',
+    'sec.con.eyebrow': '02 — 按肌肤问题',
+    'sec.best.eyebrow': '03 — 本周热销',
+    'sec.set.eyebrow': '04 — 定制您的护肤步骤',
+    'sec.ing.eyebrow': '05 — 明星成分',
+    'sec.brand.eyebrow': '06 — 品牌',
+    'footer.shop': '购物', 'footer.help': '帮助', 'footer.about': '关于', 'footer.contact': '联系',
+  },
+  ko: {
+    'announce.la': '★ 로스앤젤레스 매장 오픈',
+    'announce.tagline': '2016년부터 베트남 1위 뷰티 체인',
+    'announce.shipping': '$35 이상 무료배송',
+    'nav.new': '신상', 'nav.skincare': '스킨케어', 'nav.makeup': '메이크업',
+    'nav.fragrance': '향수', 'nav.brands': '브랜드',
+    'nav.search': '상품, 브랜드 검색…',
+    'brand.slogan': '항상 더 저렴하게',
+    'hero.badge': '★ 신규 · LA 플래그십 오픈',
+    'hero.eyebrow': '2026 봄',
+    'hero.line1': '정직한', 'hero.line2': '아름다움.',
+    'hero.body': '500+ 정품 브랜드. 12,000+ 상품. 매일 합리적인 가격. 베트남이 10년간 사랑한 뷰티 스토어 — 이제 로스앤젤레스에서 만나보세요.',
+    'hero.cta1': '베스트셀러 보기', 'hero.cta2': '피부 퀴즈',
+    'hero.trust1': ' 100% 정품', 'hero.trust2': ' $35 이상 무료배송', 'hero.trust3': ' 매 주문 무료 샘플 3종',
+    'sec.cat.eyebrow': '01 — 카테고리',
+    'sec.con.eyebrow': '02 — 고민별 쇼핑',
+    'sec.best.eyebrow': '03 — 베스트셀러',
+    'sec.set.eyebrow': '04 — 루틴 만들기',
+    'sec.ing.eyebrow': '05 — 핵심 성분',
+    'sec.brand.eyebrow': '06 — 브랜드',
+    'footer.shop': '쇼핑', 'footer.help': '도움말', 'footer.about': '소개', 'footer.contact': '문의',
+  },
+  ja: {
+    'announce.la': '★ ロサンゼルス店オープン',
+    'announce.tagline': '2016年からベトナム No.1 ビューティーチェーン',
+    'announce.shipping': '$35以上で送料無料',
+    'nav.new': '新着', 'nav.skincare': 'スキンケア', 'nav.makeup': 'メイク',
+    'nav.fragrance': 'フレグランス', 'nav.brands': 'ブランド',
+    'nav.search': '商品・ブランドを検索…',
+    'brand.slogan': 'いつでもお得',
+    'hero.badge': '★ 新店舗 · LAフラッグシップ',
+    'hero.eyebrow': '2026 春',
+    'hero.line1': '誠実な', 'hero.line2': '美しさ。',
+    'hero.body': '500+ の正規ブランド。12,000+ のアイテム。毎日リアルな価格で。ベトナムで10年愛されてきたビューティーストアが、今ロサンゼルスに。',
+    'hero.cta1': 'ベストセラー', 'hero.cta2': 'スキンクイズを受ける',
+    'hero.trust1': ' 100% 本物', 'hero.trust2': ' $35以上送料無料', 'hero.trust3': ' 全注文に無料サンプル3点',
+    'sec.cat.eyebrow': '01 — カテゴリー',
+    'sec.con.eyebrow': '02 — 悩みから探す',
+    'sec.best.eyebrow': '03 — ベストセラー',
+    'sec.set.eyebrow': '04 — ルーティンを作る',
+    'sec.ing.eyebrow': '05 — 注目の成分',
+    'sec.brand.eyebrow': '06 — ブランド',
+    'footer.shop': 'ショップ', 'footer.help': 'ヘルプ', 'footer.about': '会社情報', 'footer.contact': 'お問合せ',
+  },
+  es: {
+    'announce.la': '★ Ya abrimos en Los Ángeles, CA',
+    'announce.tagline': 'Cadena de belleza Nº 1 en Vietnam desde 2016',
+    'announce.shipping': 'Envío gratis a partir de $35',
+    'nav.new': 'Novedades', 'nav.skincare': 'Skincare', 'nav.makeup': 'Maquillaje',
+    'nav.fragrance': 'Fragancias', 'nav.brands': 'Marcas',
+    'nav.search': 'Busca productos, marcas…',
+    'brand.slogan': 'Ahorra más, siempre',
+    'hero.badge': '★ Nuevo · Tienda LA abierta',
+    'hero.eyebrow': 'Primavera 2026',
+    'hero.line1': 'Belleza', 'hero.line2': 'sin trampas.',
+    'hero.body': '500+ marcas auténticas. 12,000+ productos. Precios reales, todos los días. Bienvenida a la tienda de belleza que Vietnam ama desde hace una década — ahora en Los Ángeles.',
+    'hero.cta1': 'Ver más vendidos', 'hero.cta2': 'Hacer el quiz de piel',
+    'hero.trust1': ' 100% Auténtico', 'hero.trust2': ' Envío gratis +$35', 'hero.trust3': ' 3 muestras gratis · cada pedido',
+    'sec.cat.eyebrow': '01 — Categorías',
+    'sec.con.eyebrow': '02 — Comprar por inquietud',
+    'sec.best.eyebrow': '03 — Más vendidos',
+    'sec.set.eyebrow': '04 — Arma tu rutina',
+    'sec.ing.eyebrow': '05 — Activos estrella',
+    'sec.brand.eyebrow': '06 — Marcas',
+    'footer.shop': 'Comprar', 'footer.help': 'Ayuda', 'footer.about': 'Nosotros', 'footer.contact': 'Contacto',
+  },
+  fr: {
+    'announce.la': '★ Maintenant ouvert à Los Angeles, CA',
+    'announce.tagline': '№1 chaîne beauté du Vietnam depuis 2016',
+    'announce.shipping': 'Livraison offerte dès $35',
+    'nav.new': 'Nouveautés', 'nav.skincare': 'Soin', 'nav.makeup': 'Maquillage',
+    'nav.fragrance': 'Parfums', 'nav.brands': 'Marques',
+    'nav.search': 'Chercher produits, marques…',
+    'brand.slogan': 'Économisez plus, toujours',
+    'hero.badge': '★ Nouveau · Flagship LA ouvert',
+    'hero.eyebrow': 'Printemps 2026',
+    'hero.line1': 'La beauté', 'hero.line2': 'sans détour.',
+    'hero.body': '500+ marques authentiques. 12 000+ produits. Des vrais prix, tous les jours. Bienvenue dans la boutique beauté que le Vietnam adore depuis dix ans — désormais à Los Angeles.',
+    'hero.cta1': 'Voir les best-sellers', 'hero.cta2': 'Faire le quiz peau',
+    'hero.trust1': ' 100% Authentique', 'hero.trust2': ' Livraison offerte +$35', 'hero.trust3': ' 3 échantillons offerts · par commande',
+    'sec.cat.eyebrow': '01 — Catégories',
+    'sec.con.eyebrow': '02 — Par préoccupation',
+    'sec.best.eyebrow': '03 — Best-sellers',
+    'sec.set.eyebrow': '04 — Construis ta routine',
+    'sec.ing.eyebrow': '05 — Actifs stars',
+    'sec.brand.eyebrow': '06 — Marques',
+    'footer.shop': 'Acheter', 'footer.help': 'Aide', 'footer.about': 'À propos', 'footer.contact': 'Contact',
+  },
+};
+
+const LANG_LABELS = { en:'EN', vi:'VI', zh:'ZH', ko:'KO', ja:'JA', es:'ES', fr:'FR' };
+
+function applyLang(lang){
+  if (!I18N[lang]) lang = 'en';
+  document.documentElement.lang = lang;
+  document.body.dataset.lang = lang;
+  localStorage.setItem('hasaki-lang', lang);
+  const dict = I18N[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if (dict[k] !== undefined) el.textContent = dict[k];
+    else if (I18N.en[k] !== undefined) el.textContent = I18N.en[k];
+  });
+  document.querySelectorAll('.lang-current').forEach(el => el.textContent = LANG_LABELS[lang]);
+  document.querySelectorAll('.lang-opt').forEach(b => {
+    b.classList.toggle('bg-cream', b.dataset.lang === lang);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('langBtn');
+  const menu = document.getElementById('langMenu');
+  if (btn && menu) {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      menu.classList.toggle('hidden');
+      btn.setAttribute('aria-expanded', !menu.classList.contains('hidden'));
+    });
+    document.addEventListener('click', e => {
+      if (!menu.contains(e.target) && e.target !== btn) {
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+    menu.querySelectorAll('.lang-opt').forEach(b => {
+      b.addEventListener('click', () => {
+        applyLang(b.dataset.lang);
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+  const saved = localStorage.getItem('hasaki-lang') ||
+                (navigator.language || 'en').slice(0, 2).toLowerCase();
+  applyLang(I18N[saved] ? saved : 'en');
+});
 </script>
 
 </body>
