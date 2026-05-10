@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout — hasaki.</title>
+  <meta name="description" content="Secure checkout at hasaki." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="hasaki-logo.png" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Fraunces', 'serif'],
+            body: ['Inter', 'sans-serif'],
+            logo: ['"DM Sans"', 'Inter', 'sans-serif'],
+          },
+          colors: {
+            ink:'#0a0a0a', soot:'#1a1a1a', bone:'#f5f1ea', cream:'#ebe4d8',
+            blush:'#e8d5cc', moss:'#3d4a3a',
+            hasaki:'#306E51', hasakiDark:'#1f4d38', hasakiPale:'#e8efea', ash:'#8a8580',
+          },
+          letterSpacing: { tightest: '-.04em', mega: '-.06em' }
+        }
+      }
+    }
+  </script>
+  <style>
+    body{font-family:'Inter',sans-serif;background:#f5f1ea;color:#0a0a0a;-webkit-font-smoothing:antialiased}
+    h1,h2,h3,h4,.serif{font-family:'Fraunces',serif;font-optical-sizing:auto}
+    .ulink{position:relative;display:inline-block}
+    .ulink::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:1px;background:currentColor;transform:scaleX(1);transform-origin:right;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+    .ulink:hover::after{transform:scaleX(0);transform-origin:left}
+    .field{display:block;background:transparent;border:1px solid rgba(10,10,10,.18);padding:14px 16px;font-size:14px;width:100%;transition:border-color .2s}
+    .field:focus{border-color:#0a0a0a;outline:none}
+    .field::placeholder{color:rgba(10,10,10,.4)}
+    .label{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(10,10,10,.55);margin-bottom:6px}
+    .step-num{width:32px;height:32px;border-radius:9999px;background:#0a0a0a;color:#f5f1ea;display:grid;place-items:center;font-family:'Fraunces',serif;font-size:14px;flex-shrink:0}
+  </style>
+</head>
+<body class="bg-bone text-ink">
+
+<!-- Slim secure-checkout header -->
+<header class="bg-bone border-b border-ink/10 sticky top-0 z-40">
+  <div class="max-w-[1300px] mx-auto px-6 h-20 grid grid-cols-3 items-center">
+    <a href="cart.html" class="ulink text-[11px] tracking-[0.25em] uppercase text-ink/65 inline-flex items-center gap-2">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to bag
+    </a>
+    <a href="index.html" class="justify-self-center" aria-label="hasaki">
+      <span class="inline-flex items-center gap-2 font-logo text-hasaki text-[26px] font-extrabold lowercase leading-none" style="letter-spacing:-0.04em;">
+        <img src="hasaki-logo.png" alt="" class="w-9 h-9 rounded-full" />
+        <span>hasaki<span class="text-hasakiDark">.</span></span>
+      </span>
+    </a>
+    <p class="justify-self-end text-[11px] tracking-[0.25em] uppercase text-hasaki flex items-center gap-2">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><rect x="4" y="11" width="16" height="9" rx="1"/><path d="M8 11V7a4 4 0 1 1 8 0v4"/></svg>
+      Secure checkout
+    </p>
+  </div>
+</header>
+
+<!-- Page heading -->
+<section class="py-10 md:py-14">
+  <div class="max-w-[1300px] mx-auto px-6">
+    <p class="text-[11px] tracking-[0.25em] uppercase text-ink/55 mb-3"><a href="cart.html" class="ulink">Bag</a> &nbsp;/&nbsp; <span class="text-ink">Checkout</span></p>
+    <h1 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]"><span class="italic text-hasaki">Almost</span> done.</h1>
+  </div>
+</section>
+
+<!-- Checkout layout -->
+<section class="pb-20">
+  <div class="max-w-[1300px] mx-auto px-6 grid lg:grid-cols-[1fr_420px] gap-10 lg:gap-14 items-start">
+
+    <!-- Left: form columns -->
+    <div class="space-y-12">
+
+      <!-- Step 1: Contact -->
+      <section>
+        <div class="flex items-center gap-3 mb-5">
+          <span class="step-num">1</span>
+          <h2 class="serif text-2xl md:text-3xl tracking-tightest">Contact</h2>
+          <a href="#" class="ulink ml-auto text-[11px] tracking-[0.2em] uppercase text-ink/55">Sign in</a>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="md:col-span-2">
+            <label class="label" for="email">Email address</label>
+            <input id="email" type="email" placeholder="you@example.com" class="field" />
+          </div>
+          <div class="md:col-span-2 flex items-center gap-2 text-sm text-ink/65">
+            <input id="news" type="checkbox" class="accent-[#306E51] w-4 h-4" />
+            <label for="news">Email me news, exclusive offers and 10% off my first order</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 2: Shipping -->
+      <section>
+        <div class="flex items-center gap-3 mb-5">
+          <span class="step-num">2</span>
+          <h2 class="serif text-2xl md:text-3xl tracking-tightest">Shipping address</h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label class="label">First name</label>
+            <input type="text" placeholder="First name" class="field" />
+          </div>
+          <div>
+            <label class="label">Last name</label>
+            <input type="text" placeholder="Last name" class="field" />
+          </div>
+          <div class="md:col-span-2">
+            <label class="label">Address</label>
+            <input type="text" placeholder="123 Beverly Boulevard" class="field" />
+          </div>
+          <div class="md:col-span-2">
+            <label class="label">Apt, suite, etc. <span class="text-ink/40 normal-case tracking-normal">(optional)</span></label>
+            <input type="text" placeholder="Apt 4B" class="field" />
+          </div>
+          <div>
+            <label class="label">City</label>
+            <input type="text" placeholder="Los Angeles" class="field" />
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="label">State</label>
+              <select class="field appearance-none bg-no-repeat bg-right pr-8" style="background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230a0a0a' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E&quot;);background-size:16px;background-position:right 12px center;">
+                <option>CA</option><option>TX</option><option>FL</option><option>NY</option>
+              </select>
+            </div>
+            <div>
+              <label class="label">ZIP</label>
+              <input type="text" placeholder="90210" class="field" />
+            </div>
+          </div>
+          <div class="md:col-span-2">
+            <label class="label">Phone</label>
+            <input type="tel" placeholder="(555) 123-4567" class="field" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 3: Delivery method -->
+      <section>
+        <div class="flex items-center gap-3 mb-5">
+          <span class="step-num">3</span>
+          <h2 class="serif text-2xl md:text-3xl tracking-tightest">Delivery method</h2>
+        </div>
+        <div class="space-y-2">
+          <label class="flex items-center gap-4 p-4 border border-ink/15 cursor-pointer hover:border-ink transition">
+            <input type="radio" name="delivery" class="accent-[#306E51] w-4 h-4" />
+            <div class="flex-1">
+              <p class="font-medium">Standard delivery</p>
+              <p class="text-xs text-ink/55 mt-0.5">3–5 business days</p>
+            </div>
+            <span class="text-hasaki font-medium">FREE</span>
+          </label>
+          <label class="flex items-center gap-4 p-4 border-2 border-hasaki bg-hasakiPale/40 cursor-pointer">
+            <input type="radio" name="delivery" class="accent-[#306E51] w-4 h-4" checked />
+            <div class="flex-1">
+              <p class="font-medium">Express delivery <span class="ml-2 text-[10px] tracking-[0.2em] uppercase text-hasaki">Recommended</span></p>
+              <p class="text-xs text-ink/55 mt-0.5">1–2 business days</p>
+            </div>
+            <span class="font-medium">$8.00</span>
+          </label>
+          <label class="flex items-center gap-4 p-4 border border-ink/15 cursor-pointer hover:border-ink transition">
+            <input type="radio" name="delivery" class="accent-[#306E51] w-4 h-4" />
+            <div class="flex-1">
+              <p class="font-medium">2-hour LA delivery</p>
+              <p class="text-xs text-ink/55 mt-0.5">Order by 6pm — same-day windows</p>
+            </div>
+            <span class="font-medium">$14.00</span>
+          </label>
+        </div>
+      </section>
+
+      <!-- Step 4: Payment -->
+      <section>
+        <div class="flex items-center gap-3 mb-5">
+          <span class="step-num">4</span>
+          <h2 class="serif text-2xl md:text-3xl tracking-tightest">Payment</h2>
+          <span class="ml-auto text-[10px] tracking-[0.2em] uppercase text-ink/55 flex items-center gap-1.5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-3.5 h-3.5 stroke-2 text-hasaki"><rect x="4" y="11" width="16" height="9" rx="1"/><path d="M8 11V7a4 4 0 1 1 8 0v4"/></svg>
+            Encrypted
+          </span>
+        </div>
+
+        <div class="flex flex-wrap gap-2 mb-5">
+          <button class="px-5 py-3 border-2 border-ink bg-ink text-bone text-[11px] tracking-[0.2em] uppercase">Card</button>
+          <button class="px-5 py-3 border border-ink/15 hover:border-ink text-[11px] tracking-[0.2em] uppercase transition">PayPal</button>
+          <button class="px-5 py-3 border border-ink/15 hover:border-ink text-[11px] tracking-[0.2em] uppercase transition">Apple Pay</button>
+          <button class="px-5 py-3 border border-ink/15 hover:border-ink text-[11px] tracking-[0.2em] uppercase transition">Klarna · 4 payments</button>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="md:col-span-2">
+            <label class="label">Card number</label>
+            <input type="text" placeholder="•••• •••• •••• ••••" class="field" />
+          </div>
+          <div>
+            <label class="label">Expires</label>
+            <input type="text" placeholder="MM / YY" class="field" />
+          </div>
+          <div>
+            <label class="label">CVC</label>
+            <input type="text" placeholder="123" class="field" />
+          </div>
+          <div class="md:col-span-2">
+            <label class="label">Name on card</label>
+            <input type="text" placeholder="As it appears on the card" class="field" />
+          </div>
+          <div class="md:col-span-2 flex items-center gap-2 text-sm text-ink/65">
+            <input id="bill" type="checkbox" class="accent-[#306E51] w-4 h-4" checked />
+            <label for="bill">Billing address same as shipping</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Place order -->
+      <div>
+        <button class="w-full bg-ink text-bone py-5 text-[12px] tracking-[0.3em] uppercase hover:bg-hasaki transition">
+          Place order · $82.69
+        </button>
+        <p class="text-[11px] text-ink/55 text-center mt-3">By placing your order, you agree to our <a href="#" class="ulink">Terms of Service</a> and <a href="#" class="ulink">Privacy Policy</a>.</p>
+      </div>
+    </div>
+
+    <!-- Right: order summary (sticky) -->
+    <aside class="lg:sticky lg:top-28">
+      <div class="bg-bone border border-ink/15">
+        <details class="lg:open" open>
+          <summary class="flex justify-between items-center px-6 py-5 cursor-pointer list-none border-b border-ink/10">
+            <h2 class="serif text-xl tracking-tightest">Order summary <span class="text-ink/45 font-normal text-base">(2)</span></h2>
+            <span class="serif text-2xl tracking-tightest">$82.69</span>
+          </summary>
+
+          <ul class="divide-y divide-ink/10">
+            <li class="flex items-start gap-4 px-6 py-5">
+              <div class="relative w-16 h-20 bg-blush shrink-0 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1631214540242-3a4d1c5fa3b8?w=200&h=250&fit=crop&q=80&auto=format" alt="" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='images/products/dior-rouge-999.jpg'" />
+                <span class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-ink text-bone text-[10px] grid place-items-center">1</span>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-[10px] tracking-[0.2em] uppercase text-ink/50">Dior</p>
+                <h3 class="text-sm font-medium leading-snug mt-0.5">Rouge Dior 999 Velvet</h3>
+                <p class="text-xs text-ink/55 mt-1">3.2 g · 999 Velvet</p>
+              </div>
+              <span class="text-sm font-medium">$52.00</span>
+            </li>
+            <li class="flex items-start gap-4 px-6 py-5">
+              <div class="relative w-16 h-20 bg-hasakiPale shrink-0 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1570194065650-d99fb4abbd90?w=200&h=250&fit=crop&q=80&auto=format" alt="" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='images/products/innisfree-green-tea.jpg'" />
+                <span class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-ink text-bone text-[10px] grid place-items-center">1</span>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-[10px] tracking-[0.2em] uppercase text-ink/50">Innisfree</p>
+                <h3 class="text-sm font-medium leading-snug mt-0.5">Green Tea Hyaluronic Serum</h3>
+                <p class="text-xs text-ink/55 mt-1">50 ml</p>
+              </div>
+              <span class="text-sm font-medium">$17.00</span>
+            </li>
+            <li class="flex items-start gap-3 px-6 py-4 bg-hasakiPale/50">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-hasaki shrink-0 mt-0.5"><path d="M12 2L15 8 21 9 17 14 18 21 12 18 6 21 7 14 3 9 9 8z"/></svg>
+              <div class="flex-1">
+                <p class="text-[11px] tracking-[0.2em] uppercase text-hasaki font-medium">3 free samples added</p>
+                <p class="text-xs text-ink/60 mt-0.5">Cleanser · Serum · One more — pick now</p>
+              </div>
+            </li>
+          </ul>
+
+          <!-- Promo -->
+          <div class="px-6 py-4 border-t border-ink/10">
+            <form class="flex gap-2">
+              <input type="text" placeholder="Promo code" class="flex-1 bg-transparent border border-ink/15 px-3 py-2.5 text-sm placeholder-ink/40 focus:border-ink focus:outline-none" />
+              <button type="button" class="bg-ink text-bone px-4 py-2.5 text-[11px] tracking-[0.18em] uppercase hover:bg-hasaki transition">Apply</button>
+            </form>
+          </div>
+
+          <!-- Totals -->
+          <dl class="px-6 py-5 space-y-2 text-sm border-t border-ink/10">
+            <div class="flex justify-between"><dt class="text-ink/65">Subtotal</dt><dd class="font-medium">$69.00</dd></div>
+            <div class="flex justify-between"><dt class="text-ink/65">Shipping · Express</dt><dd class="font-medium">$8.00</dd></div>
+            <div class="flex justify-between"><dt class="text-ink/65">Estimated tax</dt><dd class="font-medium">$5.69</dd></div>
+            <div class="flex justify-between pt-3 mt-2 border-t border-ink/10"><dt class="serif text-lg">Total</dt><dd class="serif text-2xl tracking-tightest">$82.69</dd></div>
+            <p class="text-[11px] text-ink/55 text-right">USD · including tax</p>
+          </dl>
+        </details>
+      </div>
+
+      <!-- Trust strip -->
+      <div class="mt-5 grid grid-cols-2 gap-3 text-[10px] tracking-[0.2em] uppercase text-ink/55">
+        <p class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-3.5 h-3.5 stroke-2 text-hasaki"><path d="M9 12l2 2 4-4"/></svg> 100% authentic</p>
+        <p class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-3.5 h-3.5 stroke-2 text-hasaki"><path d="M9 12l2 2 4-4"/></svg> 30-day returns</p>
+        <p class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-3.5 h-3.5 stroke-2 text-hasaki"><path d="M9 12l2 2 4-4"/></svg> Cruelty-free</p>
+        <p class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-3.5 h-3.5 stroke-2 text-hasaki"><path d="M9 12l2 2 4-4"/></svg> Encrypted SSL</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- Minimal footer -->
+<footer class="border-t border-ink/10 py-8">
+  <div class="max-w-[1300px] mx-auto px-6 flex flex-wrap items-center justify-between gap-4 text-xs text-ink/55">
+    <p>© 2026 Hasaki Beauty &amp; Clinic Joint Stock Company.</p>
+    <div class="flex gap-5">
+      <a href="#" class="ulink">Terms</a>
+      <a href="#" class="ulink">Privacy</a>
+      <a href="#" class="ulink">Contact</a>
+      <a href="index.html" class="ulink">Back to store</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

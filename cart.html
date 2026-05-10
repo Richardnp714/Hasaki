@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your bag — hasaki.</title>
+  <meta name="description" content="Your bag at hasaki. — Save More Always." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="hasaki-logo.png" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Fraunces', 'serif'],
+            body: ['Inter', 'sans-serif'],
+            logo: ['"DM Sans"', 'Inter', 'sans-serif'],
+          },
+          colors: {
+            ink:'#0a0a0a', soot:'#1a1a1a', bone:'#f5f1ea', cream:'#ebe4d8',
+            blush:'#e8d5cc', moss:'#3d4a3a',
+            hasaki:'#306E51', hasakiDark:'#1f4d38', hasakiPale:'#e8efea', ash:'#8a8580',
+          },
+          letterSpacing: { tightest: '-.04em', mega: '-.06em' }
+        }
+      }
+    }
+  </script>
+  <style>
+    body{font-family:'Inter',sans-serif;background:#f5f1ea;color:#0a0a0a;-webkit-font-smoothing:antialiased}
+    h1,h2,h3,h4,.serif{font-family:'Fraunces',serif;font-optical-sizing:auto}
+    .ulink{position:relative;display:inline-block}
+    .ulink::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:1px;background:currentColor;transform:scaleX(1);transform-origin:right;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+    .ulink:hover::after{transform:scaleX(0);transform-origin:left}
+    .qty-btn{width:32px;height:32px;display:grid;place-items:center;border:1px solid rgba(10,10,10,.18);transition:all .2s}
+    .qty-btn:hover{background:#0a0a0a;color:#f5f1ea;border-color:#0a0a0a}
+  </style>
+</head>
+<body class="bg-bone text-ink">
+
+<!-- Announcement bar -->
+<div class="bg-ink text-bone text-[11px] tracking-[0.25em] uppercase">
+  <div class="max-w-[1500px] mx-auto px-6 py-2.5 flex items-center justify-between">
+    <div class="hidden md:flex items-center gap-6 text-bone/80">
+      <span class="text-hasaki font-medium">★ Now open in Los Angeles, CA</span>
+      <span>Free shipping over $35 · 30-day returns</span>
+    </div>
+    <div class="hidden md:flex items-center gap-6 text-bone/70">
+      <span>EN · VI</span><span>USD</span>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="sticky top-0 z-50 bg-bone/85 backdrop-blur-xl border-b border-ink/10">
+  <div class="max-w-[1500px] mx-auto px-6">
+    <div class="h-20 grid grid-cols-3 items-center">
+      <nav class="hidden lg:flex items-center gap-8 text-[13px] tracking-[0.18em] uppercase">
+        <a href="index.html" class="ulink py-6">New In</a>
+        <a href="index.html#skincare" class="ulink py-6">Skincare</a>
+        <a href="index.html#makeup" class="ulink py-6">Makeup</a>
+        <a href="index.html#fragrance" class="ulink py-6">Fragrance</a>
+        <a href="index.html#brands" class="ulink py-6">Brands</a>
+      </nav>
+      <a href="index.html" class="justify-self-center text-center leading-none flex flex-col items-center" aria-label="hasaki">
+        <span class="inline-flex items-center gap-2.5 font-logo text-hasaki text-[26px] md:text-[32px] font-extrabold lowercase leading-none" style="letter-spacing:-0.04em;">
+          <img src="hasaki-logo.png" alt="" class="w-8 h-8 md:w-10 md:h-10 shrink-0 rounded-full" />
+          <span>hasaki<span class="text-hasakiDark">.</span></span>
+        </span>
+        <span class="text-[9px] md:text-[10px] tracking-[0.4em] uppercase text-ink/55 mt-1.5 font-medium">Save More Always</span>
+      </a>
+      <div class="flex items-center justify-end gap-2 md:gap-5">
+        <a href="index.html" aria-label="Account" class="p-2 hover:text-hasaki transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></a>
+        <a href="cart.html" aria-label="Bag" class="relative p-2 text-hasaki">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><path d="M6 7h12l-1.5 12.5a2 2 0 0 1-2 1.7H9.5a2 2 0 0 1-2-1.7L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+          <span class="absolute -top-0.5 -right-0.5 bg-hasaki text-bone text-[10px] w-4 h-4 rounded-full grid place-items-center">2</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Page title -->
+<section class="py-12 md:py-16 border-b border-ink/10">
+  <div class="max-w-[1500px] mx-auto px-6">
+    <div class="text-[11px] tracking-[0.25em] uppercase text-ink/55 mb-3">
+      <a href="index.html" class="ulink">Home</a> &nbsp;/&nbsp; <span class="text-ink">Your bag</span>
+    </div>
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+      <h1 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">Your <span class="italic text-hasaki">bag</span>.</h1>
+      <p class="text-sm text-ink/65">2 items · Free shipping unlocked · 3 free samples included</p>
+    </div>
+  </div>
+</section>
+
+<!-- Cart layout -->
+<section class="py-12 md:py-16">
+  <div class="max-w-[1500px] mx-auto px-6 grid lg:grid-cols-3 gap-10 lg:gap-14 items-start">
+
+    <!-- Items -->
+    <div class="lg:col-span-2 space-y-6">
+      <!-- Item 1 -->
+      <article class="grid grid-cols-[120px_1fr] md:grid-cols-[160px_1fr] gap-5 md:gap-7 pb-6 border-b border-ink/10">
+        <a href="index.html" class="relative aspect-[4/5] bg-blush overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1631214540242-3a4d1c5fa3b8?w=400&h=500&fit=crop&q=80&auto=format" alt="Rouge Dior 999" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='images/products/dior-rouge-999.jpg'" />
+        </a>
+        <div class="flex flex-col">
+          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
+            <div>
+              <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Dior</p>
+              <h2 class="serif text-xl md:text-2xl tracking-tightest leading-[1] mt-1">Rouge Dior 999 Velvet Lipstick</h2>
+              <p class="text-xs text-ink/55 mt-2">Shade: <span class="text-ink font-medium">999 Velvet</span> &nbsp;·&nbsp; 3.2 g</p>
+            </div>
+            <p class="font-bold text-lg md:text-xl">$52.00</p>
+          </div>
+          <div class="mt-auto pt-5 flex flex-wrap items-center gap-4">
+            <div class="inline-flex items-stretch border border-ink/15">
+              <button aria-label="Decrease" class="qty-btn">−</button>
+              <span class="px-4 grid place-items-center min-w-[44px] text-sm font-medium">1</span>
+              <button aria-label="Increase" class="qty-btn">+</button>
+            </div>
+            <button class="ulink text-[11px] tracking-[0.2em] uppercase text-ink/65">Save for later</button>
+            <button class="ulink text-[11px] tracking-[0.2em] uppercase text-ink/65">Remove</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Item 2 -->
+      <article class="grid grid-cols-[120px_1fr] md:grid-cols-[160px_1fr] gap-5 md:gap-7 pb-6 border-b border-ink/10">
+        <a href="index.html" class="relative aspect-[4/5] bg-hasakiPale overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1570194065650-d99fb4abbd90?w=400&h=500&fit=crop&q=80&auto=format" alt="Innisfree Green Tea Serum" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='images/products/innisfree-green-tea.jpg'" />
+        </a>
+        <div class="flex flex-col">
+          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
+            <div>
+              <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Innisfree</p>
+              <h2 class="serif text-xl md:text-2xl tracking-tightest leading-[1] mt-1">Green Tea Seed Hyaluronic Serum</h2>
+              <p class="text-xs text-ink/55 mt-2">For oily skin · 50 ml</p>
+            </div>
+            <p class="font-bold text-lg md:text-xl">$17.00</p>
+          </div>
+          <div class="mt-auto pt-5 flex flex-wrap items-center gap-4">
+            <div class="inline-flex items-stretch border border-ink/15">
+              <button aria-label="Decrease" class="qty-btn">−</button>
+              <span class="px-4 grid place-items-center min-w-[44px] text-sm font-medium">1</span>
+              <button aria-label="Increase" class="qty-btn">+</button>
+            </div>
+            <button class="ulink text-[11px] tracking-[0.2em] uppercase text-ink/65">Save for later</button>
+            <button class="ulink text-[11px] tracking-[0.2em] uppercase text-ink/65">Remove</button>
+          </div>
+        </div>
+      </article>
+
+      <a href="index.html" class="ulink inline-flex items-center gap-2 text-[12px] tracking-[0.2em] uppercase pt-2">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Continue shopping
+      </a>
+
+      <!-- Free samples picker -->
+      <div class="mt-12 bg-hasakiPale border border-hasaki/20 p-6 md:p-8">
+        <div class="flex items-center justify-between mb-5 gap-4 flex-wrap">
+          <div>
+            <p class="text-[11px] tracking-[0.25em] uppercase text-hasaki mb-1">★ Gift with order</p>
+            <h3 class="serif text-2xl tracking-tightest">Pick 3 free samples.</h3>
+            <p class="text-sm text-ink/65 mt-1">2 of 3 selected · 200+ to choose from</p>
+          </div>
+          <a href="#" class="ulink text-[11px] tracking-[0.2em] uppercase">View all samples →</a>
+        </div>
+        <div class="grid grid-cols-3 md:grid-cols-6 gap-2 md:gap-3">
+          <button class="aspect-square bg-bone relative ring-2 ring-hasaki overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=200&h=200&fit=crop&q=80&auto=format" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'" />
+            <span class="absolute top-1 right-1 w-5 h-5 rounded-full bg-hasaki text-bone grid place-items-center text-[10px]">✓</span>
+            <span class="absolute bottom-1 left-1 right-1 text-[9px] tracking-[0.15em] uppercase text-bone bg-ink/60 backdrop-blur px-1 py-0.5 truncate">Cleanser</span>
+          </button>
+          <button class="aspect-square bg-bone relative ring-2 ring-hasaki overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=200&h=200&fit=crop&q=80&auto=format" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'" />
+            <span class="absolute top-1 right-1 w-5 h-5 rounded-full bg-hasaki text-bone grid place-items-center text-[10px]">✓</span>
+            <span class="absolute bottom-1 left-1 right-1 text-[9px] tracking-[0.15em] uppercase text-bone bg-ink/60 backdrop-blur px-1 py-0.5 truncate">Serum</span>
+          </button>
+          <button class="aspect-square bg-bone relative hover:ring-2 hover:ring-ink/30 transition overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=200&h=200&fit=crop&q=80&auto=format" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'" />
+            <span class="absolute bottom-1 left-1 right-1 text-[9px] tracking-[0.15em] uppercase text-bone bg-ink/60 backdrop-blur px-1 py-0.5 truncate">SPF</span>
+          </button>
+          <button class="aspect-square bg-bone relative hover:ring-2 hover:ring-ink/30 transition overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=200&h=200&fit=crop&q=80&auto=format" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'" />
+            <span class="absolute bottom-1 left-1 right-1 text-[9px] tracking-[0.15em] uppercase text-bone bg-ink/60 backdrop-blur px-1 py-0.5 truncate">Mask</span>
+          </button>
+          <button class="aspect-square bg-bone relative hover:ring-2 hover:ring-ink/30 transition overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1547887537-6158d64c35b3?w=200&h=200&fit=crop&q=80&auto=format" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'" />
+            <span class="absolute bottom-1 left-1 right-1 text-[9px] tracking-[0.15em] uppercase text-bone bg-ink/60 backdrop-blur px-1 py-0.5 truncate">EDP</span>
+          </button>
+          <button class="aspect-square bg-bone relative hover:ring-2 hover:ring-ink/30 transition overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1631214540242-3a4d1c5fa3b8?w=200&h=200&fit=crop&q=80&auto=format" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'" />
+            <span class="absolute bottom-1 left-1 right-1 text-[9px] tracking-[0.15em] uppercase text-bone bg-ink/60 backdrop-blur px-1 py-0.5 truncate">Lip</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- You might also like -->
+      <div class="mt-12 pt-8 border-t border-ink/10">
+        <h3 class="serif text-3xl tracking-tightest mb-6">You might <span class="italic text-hasaki">also like</span>.</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <a href="index.html" class="group">
+            <div class="relative aspect-[4/5] bg-blush overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1531299244174-37d7b1ff9c2d?w=400&h=500&fit=crop&q=80&auto=format" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.onerror=null;this.src='images/products/laneige-lip-sleeping-mask.jpg'" />
+            </div>
+            <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50 mt-3">Laneige</p>
+            <h4 class="text-sm font-medium mt-1">Lip Sleeping Mask</h4>
+            <p class="font-bold mt-2">$18</p>
+          </a>
+          <a href="index.html" class="group">
+            <div class="relative aspect-[4/5] bg-cream overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=400&h=500&fit=crop&q=80&auto=format" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.onerror=null;this.src='images/products/laroche-anthelios.jpg'" />
+            </div>
+            <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50 mt-3">La Roche-Posay</p>
+            <h4 class="text-sm font-medium mt-1">Anthelios SPF50+</h4>
+            <p class="font-bold mt-2">$22</p>
+          </a>
+          <a href="index.html" class="group">
+            <div class="relative aspect-[4/5] bg-ink overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=400&h=500&fit=crop&q=80&auto=format" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.onerror=null;this.src='images/products/ysl-libre-edp.jpg'" />
+            </div>
+            <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50 mt-3">YSL Beauty</p>
+            <h4 class="text-sm font-medium mt-1">Libre EDP 90ml</h4>
+            <p class="font-bold mt-2">$135</p>
+          </a>
+          <a href="index.html" class="group">
+            <div class="relative aspect-[4/5] bg-cream overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=500&fit=crop&q=80&auto=format" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.onerror=null;this.src='images/products/the-ordinary-niacinamide.jpg'" />
+            </div>
+            <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50 mt-3">The Ordinary</p>
+            <h4 class="text-sm font-medium mt-1">Niacinamide 10%</h4>
+            <p class="font-bold mt-2">$12</p>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Order summary (sticky) -->
+    <aside class="lg:sticky lg:top-28 space-y-5">
+      <div class="bg-bone border border-ink/15 p-6 md:p-7">
+        <h2 class="serif text-2xl tracking-tightest mb-5">Order summary</h2>
+
+        <!-- Promo -->
+        <form class="flex gap-2 mb-5">
+          <input type="text" placeholder="Promo code" class="flex-1 bg-transparent border border-ink/15 px-3 py-2.5 text-sm placeholder-ink/40 focus:border-ink focus:outline-none" />
+          <button type="button" class="bg-ink text-bone px-4 py-2.5 text-[11px] tracking-[0.18em] uppercase hover:bg-hasaki transition">Apply</button>
+        </form>
+
+        <dl class="space-y-2.5 text-sm pb-5 border-b border-ink/10">
+          <div class="flex justify-between"><dt class="text-ink/65">Subtotal · 2 items</dt><dd class="font-medium">$69.00</dd></div>
+          <div class="flex justify-between"><dt class="text-ink/65">Shipping</dt><dd class="font-medium text-hasaki">FREE</dd></div>
+          <div class="flex justify-between"><dt class="text-ink/65">Estimated tax</dt><dd class="font-medium">$5.69</dd></div>
+        </dl>
+        <div class="flex justify-between items-baseline pt-5">
+          <span class="serif text-lg">Total</span>
+          <span class="serif text-3xl tracking-tightest">$74.69</span>
+        </div>
+        <p class="text-[11px] text-ink/55 mt-1">USD · including tax</p>
+
+        <a href="checkout.html" class="block w-full text-center bg-ink text-bone py-4 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition mt-5">Proceed to checkout →</a>
+
+        <div class="mt-5 pt-5 border-t border-ink/10 space-y-2 text-[11px] tracking-[0.2em] uppercase text-ink/55">
+          <p class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-3.5 h-3.5 stroke-2 text-hasaki"><path d="M9 12l2 2 4-4"/></svg> Secure checkout</p>
+          <p class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-3.5 h-3.5 stroke-2 text-hasaki"><path d="M9 12l2 2 4-4"/></svg> 30-day returns</p>
+          <p class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-3.5 h-3.5 stroke-2 text-hasaki"><path d="M9 12l2 2 4-4"/></svg> Free shipping over $35</p>
+          <p class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-3.5 h-3.5 stroke-2 text-hasaki"><path d="M9 12l2 2 4-4"/></svg> 3 free samples included</p>
+        </div>
+      </div>
+
+      <!-- Payment options strip -->
+      <div class="text-center">
+        <p class="text-[10px] tracking-[0.25em] uppercase text-ink/45 mb-3">We accept</p>
+        <div class="flex justify-center items-center gap-3 text-[10px] tracking-[0.2em] uppercase text-ink/65 flex-wrap">
+          <span class="px-2 py-1 border border-ink/15">VISA</span>
+          <span class="px-2 py-1 border border-ink/15">MC</span>
+          <span class="px-2 py-1 border border-ink/15">AMEX</span>
+          <span class="px-2 py-1 border border-ink/15">PayPal</span>
+          <span class="px-2 py-1 border border-ink/15">Apple Pay</span>
+          <span class="px-2 py-1 border border-ink/15">Klarna</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- Footer (compact) -->
+<footer class="bg-ink text-bone mt-12">
+  <div class="max-w-[1500px] mx-auto px-6 py-12 grid md:grid-cols-12 gap-10">
+    <div class="md:col-span-4">
+      <div class="inline-flex items-center gap-3 font-logo text-3xl font-extrabold lowercase leading-none" style="letter-spacing:-0.04em;">
+        <img src="hasaki-logo.png" alt="" class="w-10 h-10 rounded-full" />
+        <span class="text-bone">hasaki<span class="text-hasaki">.</span></span>
+      </div>
+      <p class="text-[11px] tracking-[0.4em] uppercase text-bone/60 mt-3">Save More Always</p>
+    </div>
+    <div class="md:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
+      <div><h5 class="text-xs tracking-[0.25em] uppercase text-bone/60 mb-3">Shop</h5><ul class="space-y-2"><li><a href="index.html#skincare" class="ulink text-bone/85">Skincare</a></li><li><a href="index.html#makeup" class="ulink text-bone/85">Makeup</a></li><li><a href="index.html#fragrance" class="ulink text-bone/85">Fragrance</a></li></ul></div>
+      <div><h5 class="text-xs tracking-[0.25em] uppercase text-bone/60 mb-3">Help</h5><ul class="space-y-2"><li><a href="#" class="ulink text-bone/85">Shipping</a></li><li><a href="#" class="ulink text-bone/85">Returns</a></li><li><a href="#" class="ulink text-bone/85">Track order</a></li></ul></div>
+      <div><h5 class="text-xs tracking-[0.25em] uppercase text-bone/60 mb-3">About</h5><ul class="space-y-2"><li><a href="index.html#about" class="ulink text-bone/85">Our story</a></li><li><a href="#" class="ulink text-bone/85">Stores</a></li><li><a href="#" class="ulink text-bone/85">Careers</a></li></ul></div>
+      <div><h5 class="text-xs tracking-[0.25em] uppercase text-bone/60 mb-3">Contact</h5><ul class="space-y-2 text-bone/85"><li>1-888-427-2541</li><li>care@hasaki.com</li></ul></div>
+    </div>
+  </div>
+  <div class="border-t border-bone/15">
+    <div class="max-w-[1500px] mx-auto px-6 py-5 text-xs text-bone/55 flex flex-wrap justify-between gap-3">
+      <p>© 2026 Hasaki Beauty &amp; Clinic Joint Stock Company.</p>
+      <div class="flex gap-5"><a href="#" class="ulink">Terms</a><a href="#" class="ulink">Privacy</a><a href="#" class="ulink">Cookies</a></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
