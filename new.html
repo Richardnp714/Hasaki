@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en"><head>
 <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Makeup — hasaki.</title>
-<meta name="description" content="Makeup at Hasaki. Lips, eyes, face — plus a 30-second shade finder so you never order the wrong shade again." />
+<title>New In — hasaki.</title>
+<meta name="description" content="Just dropped at Hasaki — the newest skincare, makeup and fragrance from cult brands and emerging houses. Updated every week." />
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="icon" type="image/png" href="hasaki-logo.png" />
@@ -30,9 +30,9 @@ img{max-width:100%;height:auto}
   <div class="max-w-[1500px] mx-auto px-6">
     <div class="h-20 grid grid-cols-[auto_1fr_auto] lg:grid-cols-3 items-center gap-3 lg:gap-0">
       <nav class="hidden lg:flex items-center gap-8 text-[13px] tracking-[0.18em] uppercase">
-        <a href="new.html" class="ulink py-6" data-i18n="nav.new">New In</a>
+        <a href="new.html" class="ulink py-6 text-hasaki" data-i18n="nav.new">New In</a>
         <a href="skincare.html" class="ulink py-6" data-i18n="nav.skincare">Skincare</a>
-        <a href="makeup.html" class="ulink py-6 text-hasaki" data-i18n="nav.makeup">Makeup</a>
+        <a href="makeup.html" class="ulink py-6" data-i18n="nav.makeup">Makeup</a>
         <a href="fragrance.html" class="ulink py-6" data-i18n="nav.fragrance">Fragrance</a>
         <a href="brands.html" class="ulink py-6" data-i18n="nav.brands">Brands</a>
         <a href="sale.html" class="ulink py-6 text-hasaki font-medium" data-i18n="nav.sale">Sale</a>
@@ -53,99 +53,107 @@ img{max-width:100%;height:auto}
 </header>
 
 <!-- HERO -->
-<section class="bg-blush border-b border-ink/10">
+<section class="bg-cream border-b border-ink/10">
   <div class="max-w-[1500px] mx-auto px-6 py-16 md:py-24 grid md:grid-cols-12 gap-8 items-end">
     <div class="md:col-span-7">
-      <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-3">Makeup</p>
-      <h1 class="serif text-6xl md:text-8xl tracking-mega leading-[0.9]">A face <span class="italic text-hasaki">you</span><br/>can wear out.</h1>
-      <p class="mt-7 text-ink/70 text-[15px] max-w-md">From the cult Dior 999 to the TikTok-famous Sky High mascara — every shade tested in studio light, daylight and dim restaurant light. And our shade finder makes sure you order the right one the first time.</p>
+      <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-3" data-i18n="new.eyebrow">Just dropped · Spring 2026</p>
+      <h1 class="serif text-6xl md:text-8xl tracking-mega leading-[0.9]" data-i18n="new.h">What's <span class="italic text-hasaki">new</span><br/>this week.</h1>
+      <p class="mt-7 text-ink/70 text-[15px] max-w-md" data-i18n="new.sub">Cult launches, brand-new formulas, restocked favorites and exclusive pre-releases. Updated every Tuesday at 9am PT.</p>
       <div class="mt-8 flex flex-wrap gap-3">
-        <a href="category.html?cat=makeup" class="inline-flex items-center gap-2 bg-ink text-bone px-7 py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">Shop all makeup →</a>
-        <a href="shadefinder.html" class="inline-flex items-center gap-2 border border-ink text-ink px-7 py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-ink hover:text-bone transition">Find your shade</a>
+        <a href="#all-new" class="inline-flex items-center gap-2 bg-ink text-bone px-7 py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition" data-i18n="new.cta1">See what's new →</a>
+        <a href="category.html" class="inline-flex items-center gap-2 border border-ink text-ink px-7 py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-ink hover:text-bone transition" data-i18n="new.cta2">Browse everything</a>
       </div>
     </div>
-    <div class="md:col-span-5 relative aspect-[4/5] md:aspect-auto md:h-[480px] overflow-hidden"><img src="https://images.unsplash.com/photo-1583241800698-e8ab01830a07?w=900&h=1100&fit=crop&q=80&auto=format" alt="" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='images/products/dior-rouge-999.jpg'" /><div class="absolute inset-0 bg-gradient-to-t from-ink/20 to-transparent"></div></div>
+    <div class="md:col-span-5 grid grid-cols-3 gap-2 text-[11px] tracking-[0.2em] uppercase text-ink/55">
+      <div><span class="block serif text-2xl text-ink tracking-tightest mb-1">28</span><span data-i18n="new.s1">new this week</span></div>
+      <div><span class="block serif text-2xl text-ink tracking-tightest mb-1">9</span><span data-i18n="new.s2">cult restocks</span></div>
+      <div><span class="block serif text-2xl text-ink tracking-tightest mb-1">3</span><span data-i18n="new.s3">exclusive drops</span></div>
+    </div>
   </div>
 </section>
 
-<!-- BY CATEGORY -->
-<section class="py-20 md:py-28">
+<!-- ALL NEW THIS WEEK -->
+<section id="all-new" class="py-20 md:py-28">
   <div class="max-w-[1500px] mx-auto px-6">
     <div class="flex items-baseline justify-between mb-12">
       <div>
-        <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3">Shop by category</p>
-        <h2 class="serif text-5xl md:text-6xl tracking-tightest leading-[0.95]">Where do you <span class="italic text-hasaki">start</span>?</h2>
+        <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3" data-i18n="new.shelf.eyebrow">01 — Just in</p>
+        <h2 class="serif text-5xl md:text-6xl tracking-tightest leading-[0.95]" data-i18n="new.shelf.h">Brand new <span class="italic text-hasaki">arrivals</span>.</h2>
       </div>
+      <a href="category.html" class="hidden md:inline ulink text-[12px] tracking-[0.2em] uppercase" data-i18n="new.shelf.viewall">View everything →</a>
     </div>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-      <a href="category.html?q=lip" class="relative group bg-blush aspect-[3/4] overflow-hidden p-7 flex flex-col justify-between hover:bg-ink hover:text-bone transition"><img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=600&h=800&fit=crop&q=80&auto=format" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-55 transition-opacity duration-500" onerror="this.onerror=null;this.src='images/products/dior-rouge-999.jpg'" />
-        <span class="text-[11px] tracking-[0.25em] uppercase text-hasaki group-hover:text-bone/70">01</span>
-        <div><h3 class="serif text-3xl md:text-4xl tracking-tightest">Lips</h3><p class="text-xs text-ink/55 group-hover:text-bone/70 mt-2">Lipstick, gloss, balm · 42</p></div>
+    <div id="newGrid" class="grid grid-cols-2 md:grid-cols-4 gap-x-3 gap-y-10 md:gap-x-4"></div>
+  </div>
+</section>
+
+<!-- BY CATEGORY MINI-LANDING -->
+<section class="bg-hasakiPale py-20 md:py-28 border-y border-ink/10">
+  <div class="max-w-[1500px] mx-auto px-6">
+    <div class="text-center mb-12">
+      <p class="text-xs tracking-[0.3em] uppercase text-hasaki mb-3" data-i18n="new.cat.eyebrow">02 — By category</p>
+      <h2 class="serif text-5xl md:text-6xl tracking-tightest" data-i18n="new.cat.h">New in <span class="italic text-hasakiDark">your aisle</span>.</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-3">
+      <a href="skincare.html" class="group block">
+        <div class="relative aspect-[4/5] bg-bone overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&h=1000&fit=crop&q=80&auto=format" alt="Skincare" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.onerror=null;this.src='images/products/cosrx-snail-essence.jpg'" />
+          <div class="absolute inset-0 bg-gradient-to-t from-ink/55 to-transparent"></div>
+          <div class="absolute left-5 bottom-5 text-bone">
+            <p class="text-[10px] tracking-[0.3em] uppercase opacity-80 mb-1">12 new this week</p>
+            <h3 class="serif text-3xl md:text-4xl tracking-tightest" data-i18n="nav.skincare">Skincare</h3>
+          </div>
+        </div>
       </a>
-      <a href="category.html?q=eye" class="relative group bg-cream aspect-[3/4] overflow-hidden p-7 flex flex-col justify-between hover:bg-ink hover:text-bone transition"><img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&h=800&fit=crop&q=80&auto=format" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-55 transition-opacity duration-500" onerror="this.onerror=null;this.src='images/products/maybelline-sky-high.jpg'" />
-        <span class="text-[11px] tracking-[0.25em] uppercase text-hasaki group-hover:text-bone/70">02</span>
-        <div><h3 class="serif text-3xl md:text-4xl tracking-tightest">Eyes</h3><p class="text-xs text-ink/55 group-hover:text-bone/70 mt-2">Mascara, liner, shadow · 38</p></div>
+      <a href="makeup.html" class="group block">
+        <div class="relative aspect-[4/5] bg-blush overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1583241800698-e8ab01830a07?w=800&h=1000&fit=crop&q=80&auto=format" alt="Makeup" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.onerror=null;this.src='images/products/dior-rouge-999.jpg'" />
+          <div class="absolute inset-0 bg-gradient-to-t from-ink/55 to-transparent"></div>
+          <div class="absolute left-5 bottom-5 text-bone">
+            <p class="text-[10px] tracking-[0.3em] uppercase opacity-80 mb-1">9 new this week</p>
+            <h3 class="serif text-3xl md:text-4xl tracking-tightest" data-i18n="nav.makeup">Makeup</h3>
+          </div>
+        </div>
       </a>
-      <a href="category.html?q=face" class="relative group bg-hasakiPale aspect-[3/4] overflow-hidden p-7 flex flex-col justify-between hover:bg-ink hover:text-bone transition"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&h=800&fit=crop&q=80&auto=format" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-55 transition-opacity duration-500" onerror="this.onerror=null;this.src='images/products/charlotte-tilbury-pillow-talk.jpg'" />
-        <span class="text-[11px] tracking-[0.25em] uppercase text-hasaki group-hover:text-bone/70">03</span>
-        <div><h3 class="serif text-3xl md:text-4xl tracking-tightest">Face</h3><p class="text-xs text-ink/55 group-hover:text-bone/70 mt-2">Foundation, blush, bronzer · 31</p></div>
-      </a>
-      <a href="category.html?q=brow" class="relative group bg-bone border border-ink/10 aspect-[3/4] overflow-hidden p-7 flex flex-col justify-between hover:bg-ink hover:text-bone transition"><img src="https://images.unsplash.com/photo-1583241475880-083f84372725?w=600&h=800&fit=crop&q=80&auto=format" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-55 transition-opacity duration-500" onerror="this.onerror=null;this.src='images/products/the-ordinary-niacinamide.jpg'" />
-        <span class="text-[11px] tracking-[0.25em] uppercase text-hasaki group-hover:text-bone/70">04</span>
-        <div><h3 class="serif text-3xl md:text-4xl tracking-tightest">Brows &amp; Tools</h3><p class="text-xs text-ink/55 group-hover:text-bone/70 mt-2">Pencils, brushes · 24</p></div>
+      <a href="fragrance.html" class="group block">
+        <div class="relative aspect-[4/5] bg-ink overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=800&h=1000&fit=crop&q=80&auto=format" alt="Fragrance" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.onerror=null;this.src='images/products/tom-ford-black-orchid.jpg'" />
+          <div class="absolute inset-0 bg-gradient-to-t from-ink/55 to-transparent"></div>
+          <div class="absolute left-5 bottom-5 text-bone">
+            <p class="text-[10px] tracking-[0.3em] uppercase opacity-80 mb-1">7 new this week</p>
+            <h3 class="serif text-3xl md:text-4xl tracking-tightest" data-i18n="nav.fragrance">Fragrance</h3>
+          </div>
+        </div>
       </a>
     </div>
   </div>
 </section>
 
-<!-- SHADE FINDER FEATURE -->
+<!-- EDITORIAL: PRE-RELEASE -->
 <section class="bg-ink text-bone py-20 md:py-28">
   <div class="max-w-[1500px] mx-auto px-6 grid md:grid-cols-12 gap-8 items-center">
     <div class="md:col-span-7">
-      <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-3">Shade finder</p>
-      <h2 class="serif text-5xl md:text-7xl tracking-mega leading-[0.95]">Stop ordering<br/>the <span class="italic text-hasaki">wrong shade</span>.</h2>
-      <p class="mt-6 text-bone/70 text-[15px] max-w-md">A 30-second tool that matches your skin depth, undertone and finish to foundations, concealers and lipsticks we actually carry. No email, no signup.</p>
-      <a href="shadefinder.html" class="inline-flex items-center gap-2 mt-8 bg-bone text-ink px-7 py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki hover:text-bone transition">Find your shade →</a>
-    </div>
-    <div class="md:col-span-5">
-      <div class="grid grid-cols-4 gap-2">
-        <span class="block w-full aspect-square rounded-full" style="background:#f8e2cf"></span>
-        <span class="block w-full aspect-square rounded-full" style="background:#f0d3bb"></span>
-        <span class="block w-full aspect-square rounded-full" style="background:#e1bfa0"></span>
-        <span class="block w-full aspect-square rounded-full" style="background:#cda582"></span>
-        <span class="block w-full aspect-square rounded-full" style="background:#b48a64"></span>
-        <span class="block w-full aspect-square rounded-full ring-2 ring-hasaki ring-offset-2 ring-offset-ink" style="background:#8e6446"></span>
-        <span class="block w-full aspect-square rounded-full" style="background:#6c4830"></span>
-        <span class="block w-full aspect-square rounded-full" style="background:#46301e"></span>
+      <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-3" data-i18n="new.pre.eyebrow">03 — Exclusive pre-release</p>
+      <h2 class="serif text-5xl md:text-7xl tracking-mega leading-[0.95]" data-i18n="new.pre.h">Get it <span class="italic text-hasaki">before</span><br/>the rest of LA.</h2>
+      <p class="mt-6 text-bone/70 text-[15px] max-w-md" data-i18n="new.pre.sub">Hasaki Members get 48-hour early access on every new launch. Join free, get the email, beat the restocks.</p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="rewards.html" class="inline-flex items-center gap-2 bg-bone text-ink px-7 py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki hover:text-bone transition" data-i18n="new.pre.cta1">Join free →</a>
+        <a href="account.html" class="inline-flex items-center gap-2 border border-bone/30 text-bone px-7 py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-bone hover:text-ink transition" data-i18n="new.pre.cta2">Sign in</a>
       </div>
-      <p class="text-xs text-bone/50 mt-4 text-center">8 depths × 3 undertones = 24 swatches</p>
     </div>
-  </div>
-</section>
-
-<!-- BESTSELLERS -->
-<section class="py-20 md:py-28">
-  <div class="max-w-[1500px] mx-auto px-6">
-    <div class="flex items-baseline justify-between mb-12">
-      <div>
-        <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3">Bestsellers</p>
-        <h2 class="serif text-5xl md:text-6xl tracking-tightest leading-[0.95]">Most loved <span class="italic text-hasaki">this month</span>.</h2>
-      </div>
-      <a href="category.html?cat=makeup" class="hidden md:inline ulink text-[12px] tracking-[0.2em] uppercase">View all →</a>
+    <div class="md:col-span-5 relative aspect-[4/5] md:aspect-auto md:h-[400px] overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=800&h=900&fit=crop&q=80&auto=format" alt="" class="absolute inset-0 w-full h-full object-cover opacity-80" onerror="this.onerror=null;this.src='images/products/glow-recipe-watermelon.jpg'" />
     </div>
-    <div id="makeupGrid" class="grid grid-cols-2 md:grid-cols-4 gap-x-3 gap-y-10 md:gap-x-4"></div>
-    <a href="category.html?cat=makeup" class="md:hidden mt-8 inline-block ulink text-[12px] tracking-[0.2em] uppercase">View all →</a>
   </div>
 </section>
 
 <!-- SHOP-ALL CTA -->
-<section class="py-20 md:py-28 bg-blush">
+<section class="py-20 md:py-28 bg-bone">
   <div class="max-w-3xl mx-auto px-6 text-center">
-    <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">Find your <span class="italic text-hasaki">signature</span>.</h2>
-    <p class="mt-5 text-ink/65 text-[15px]">120+ makeup products from drugstore icons to luxury houses. Filter by category, brand and price.</p>
+    <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]" data-i18n="new.foot.h">Find your <span class="italic text-hasaki">next favorite</span>.</h2>
+    <p class="mt-5 text-ink/65 text-[15px]" data-i18n="new.foot.sub">Filter by category, brand, price. New In gets refreshed every Tuesday at 9am PT.</p>
     <div class="mt-8 flex flex-wrap justify-center gap-3">
-      <a href="category.html?cat=makeup" class="inline-flex items-center gap-2 bg-ink text-bone px-7 py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">Shop all makeup →</a>
-      <a href="shadefinder.html" class="inline-flex items-center gap-2 border border-ink text-ink px-7 py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-ink hover:text-bone transition">Find your shade</a>
+      <a href="category.html" class="inline-flex items-center gap-2 bg-ink text-bone px-7 py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition" data-i18n="new.foot.cta1">Shop everything →</a>
+      <a href="quiz.html" class="inline-flex items-center gap-2 border border-ink text-ink px-7 py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-ink hover:text-bone transition" data-i18n="new.foot.cta2">Take the skin quiz</a>
     </div>
   </div>
 </section>
@@ -166,10 +174,12 @@ img{max-width:100%;height:auto}
 <script>
 function paintGrid() {
   if (!window.__CATALOG) return setTimeout(paintGrid, 100);
-  const items = window.__CATALOG.filter(p => p.category === 'makeup').slice(0, 8);
-  document.getElementById('makeupGrid').innerHTML = items.map(p => `
+  // Show all 14 catalog items as "new" — mix of skincare, makeup, fragrance
+  const items = window.__CATALOG.slice(0, 8);
+  document.getElementById('newGrid').innerHTML = items.map(p => `
     <article class="pcard group" data-product="${p.id}" data-brand="${p.brand}" data-name="${p.name.replace(/"/g,'&quot;')}" data-price="${p.price}" data-image="${p.image}" data-size="${p.size}">
       <div class="relative aspect-[4/5] bg-cream overflow-hidden">
+        <span class="absolute top-3 left-3 z-10 bg-hasaki text-bone text-[10px] tracking-[0.25em] uppercase px-2 py-1 font-medium">New</span>
         <img src="${p.image}" alt="${p.name}" loading="lazy" class="img absolute inset-0 w-full h-full object-cover" />
         <button aria-label="Save" data-wishlist="${p.id}" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/85 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
@@ -185,7 +195,7 @@ function paintGrid() {
       </div>
     </article>
   `).join('');
-  document.querySelectorAll('#makeupGrid [data-add-to-cart]').forEach(btn => {
+  document.querySelectorAll('#newGrid [data-add-to-cart]').forEach(btn => {
     btn.addEventListener('click', e => { e.preventDefault(); const card = btn.closest('[data-product]'); if (!card || !window.Cart) return; window.Cart.add({ id: card.dataset.product, brand: card.dataset.brand, name: card.dataset.name, price: parseFloat(card.dataset.price), image: card.dataset.image, size: card.dataset.size }); });
   });
 }

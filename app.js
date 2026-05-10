@@ -568,7 +568,7 @@
           </button>
           <div class="font-logo text-hasaki text-2xl font-extrabold lowercase mb-8" style="letter-spacing:-0.04em;">hasaki<span class="text-hasakiDark">.</span></div>
           <ul class="space-y-3 serif text-2xl tracking-tightest mb-8">
-            <li><a href="index.html#categories">New In</a></li>
+            <li><a href="new.html">New In</a></li>
             <li><a href="skincare.html">Skincare</a></li>
             <li><a href="makeup.html">Makeup</a></li>
             <li><a href="fragrance.html">Fragrance</a></li>
