@@ -131,7 +131,7 @@
           <span class="lang-current">EN</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-3 h-3 stroke-2"><path d="M6 9l6 6 6-6"/></svg>
         </button>
-        <ul id="langMenu" class="hidden absolute right-0 top-full mt-2 bg-bone text-ink min-w-[220px] border border-ink/10 shadow-xl z-50 normal-case tracking-normal text-sm" role="listbox">
+        <ul id="langMenu" class="hidden absolute right-0 top-full mt-2 bg-bone text-ink min-w-[220px] max-h-[70vh] overflow-y-auto border border-ink/10 shadow-2xl z-[100] normal-case tracking-normal text-sm" role="listbox">
           <li><button data-lang="en" class="lang-opt flex w-full items-center gap-3 px-4 py-2.5 hover:bg-cream text-left"><span class="text-base">🇺🇸</span><span>English</span><span class="ml-auto text-[10px] tracking-[0.2em] uppercase text-ink/45">EN</span></button></li>
           <li><button data-lang="vi" class="lang-opt flex w-full items-center gap-3 px-4 py-2.5 hover:bg-cream text-left"><span class="text-base">🇻🇳</span><span>Tiếng Việt</span><span class="ml-auto text-[10px] tracking-[0.2em] uppercase text-ink/45">VI</span></button></li>
           <li><button data-lang="zh" class="lang-opt flex w-full items-center gap-3 px-4 py-2.5 hover:bg-cream text-left"><span class="text-base">🇨🇳</span><span>中文</span><span class="ml-auto text-[10px] tracking-[0.2em] uppercase text-ink/45">ZH</span></button></li>
@@ -423,11 +423,11 @@
   <!-- Bottom price-promise strip -->
   <div class="relative bg-ink text-bone py-4">
     <div class="max-w-[1500px] mx-auto px-6 flex flex-wrap justify-center md:justify-between gap-y-3 gap-x-8 text-[11px] md:text-xs tracking-[0.25em] uppercase">
-      <span class="text-hasaki font-medium">★ Save More Always</span>
-      <span>2-Hour Delivery in LA &amp; HCMC</span>
-      <span>Cruelty-Free · Derm-Tested</span>
-      <span>30-Day Free Returns</span>
-      <span>Hasaki Member · 10% Back</span>
+      <span class="text-hasaki font-medium" data-i18n="strip.save">★ Save More Always</span>
+      <span data-i18n="strip.delivery">2-Hour Delivery in LA &amp; HCMC</span>
+      <span data-i18n="strip.cruelty">Cruelty-Free · Derm-Tested</span>
+      <span data-i18n="strip.returns">30-Day Free Returns</span>
+      <span data-i18n="strip.member">Hasaki Member · 10% Back</span>
     </div>
   </div>
 </section>
@@ -486,7 +486,7 @@
     <div class="flex items-end justify-between mb-12 reveal">
       <div>
         <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3" data-i18n="sec.cat.eyebrow">01 — Categories</p>
-        <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">Shop by<br/><span class="italic text-hasaki">mood.</span></h2>
+        <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]"><span data-i18n="cat.h.a">Shop by</span><br/><span class="italic text-hasaki" data-i18n="cat.h.b">mood.</span></h2>
       </div>
       <a href="#" class="ulink hidden md:inline-block text-sm tracking-[0.18em] uppercase">View all →</a>
     </div>
@@ -503,7 +503,7 @@
         </div>
         <div class="absolute left-6 bottom-6 text-bone z-[3] transition" style="text-shadow:0 2px 8px rgba(0,0,0,0.4)">
           <p class="text-[11px] tracking-[0.3em] uppercase opacity-70 mb-2">01 · 1,247 products</p>
-          <h3 class="serif text-4xl md:text-6xl tracking-tightest leading-[0.95]">Skincare</h3>
+          <h3 class="serif text-4xl md:text-6xl tracking-tightest leading-[0.95]" data-i18n="cat.t.skincare">Skincare</h3>
           <p class="mt-3 text-sm opacity-80 max-w-sm">Cleansers, serums, sunscreens — for every skin type.</p>
           <p class="mt-4 text-[11px] tracking-[0.25em] uppercase">Shop skincare →</p>
         </div>
@@ -519,7 +519,7 @@
         </div>
         <div class="absolute left-6 bottom-6 text-bone z-[3]" style="text-shadow:0 2px 8px rgba(0,0,0,0.4)">
           <p class="text-[11px] tracking-[0.3em] uppercase opacity-90 mb-2">02 · 884 products</p>
-          <h3 class="serif text-3xl md:text-5xl tracking-tightest">Makeup</h3>
+          <h3 class="serif text-3xl md:text-5xl tracking-tightest" data-i18n="cat.t.makeup">Makeup</h3>
         </div>
       </a>
 
@@ -529,7 +529,7 @@
         </div>
         <div class="absolute left-6 bottom-6 z-[3]" style="text-shadow:0 2px 8px rgba(0,0,0,0.4)">
           <p class="text-[11px] tracking-[0.3em] uppercase opacity-90 mb-2">03 · 326 scents</p>
-          <h3 class="serif text-3xl md:text-4xl tracking-tightest">Fragrance</h3>
+          <h3 class="serif text-3xl md:text-4xl tracking-tightest" data-i18n="cat.t.fragrance">Fragrance</h3>
         </div>
       </a>
 
@@ -539,7 +539,7 @@
         </div>
         <div class="absolute left-4 bottom-4">
           <p class="text-[10px] tracking-[0.3em] uppercase text-ink/55 mb-1">04 · 412</p>
-          <h3 class="serif text-2xl md:text-3xl">Hair</h3>
+          <h3 class="serif text-2xl md:text-3xl" data-i18n="cat.t.hair">Hair</h3>
         </div>
       </a>
 
@@ -549,7 +549,7 @@
         </div>
         <div class="absolute left-4 bottom-4 text-bone z-[3]" style="text-shadow:0 2px 8px rgba(0,0,0,0.4)">
           <p class="text-[10px] tracking-[0.3em] uppercase opacity-65 mb-1">05 · 538</p>
-          <h3 class="serif text-2xl md:text-3xl">Body</h3>
+          <h3 class="serif text-2xl md:text-3xl" data-i18n="cat.t.body">Body</h3>
         </div>
       </a>
 
@@ -559,7 +559,7 @@
         </div>
         <div class="absolute left-4 bottom-4 text-bone z-[3]" style="text-shadow:0 2px 8px rgba(0,0,0,0.4)">
           <p class="text-[10px] tracking-[0.3em] uppercase opacity-90 mb-1">06 · 217</p>
-          <h3 class="serif text-2xl md:text-3xl">Wellness</h3>
+          <h3 class="serif text-2xl md:text-3xl" data-i18n="cat.t.wellness">Wellness</h3>
         </div>
       </a>
     </div>
@@ -629,10 +629,10 @@
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 reveal">
       <div>
         <p class="text-xs tracking-[0.3em] uppercase text-hasakiDark mb-3" data-i18n="sec.con.eyebrow">02 — Shop by Concern</p>
-        <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">Tell us about<br/><span class="italic text-hasaki">your skin.</span></h2>
-        <p class="mt-5 text-ink/70 max-w-md">Six concerns. Six expert-curated routines. Find the one for you.</p>
+        <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]"><span data-i18n="con.h.a">Tell us about</span><br/><span class="italic text-hasaki" data-i18n="con.h.b">your skin.</span></h2>
+        <p class="mt-5 text-ink/70 max-w-md" data-i18n="con.body">Six concerns. Six expert-curated routines. Find the one for you.</p>
       </div>
-      <a href="#" class="inline-flex items-center gap-3 bg-ink text-bone hover:bg-hasaki px-6 py-3 text-[12px] tracking-[0.18em] uppercase transition self-start md:self-end">Take the skin quiz →</a>
+      <a href="#" class="inline-flex items-center gap-3 bg-ink text-bone hover:bg-hasaki px-6 py-3 text-[12px] tracking-[0.18em] uppercase transition self-start md:self-end"><span data-i18n="con.cta">Take the skin quiz →</span></a>
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
@@ -642,7 +642,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-[1.5] text-hasaki group-hover:text-bone group-hover:translate-x-1 group-hover:-translate-y-1 transition"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
         </div>
         <div class="relative z-10">
-          <h3 class="serif text-3xl md:text-4xl tracking-tightest">Hydration</h3>
+          <h3 class="serif text-3xl md:text-4xl tracking-tightest" data-i18n="con.t.hydration">Hydration</h3>
           <p class="text-xs text-ink/55 group-hover:text-bone/70 mt-2">Dry, dull, dehydrated · 64 products</p>
         </div>
       </a>
@@ -652,7 +652,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-[1.5] text-hasaki group-hover:text-bone group-hover:translate-x-1 group-hover:-translate-y-1 transition"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
         </div>
         <div class="relative z-10">
-          <h3 class="serif text-3xl md:text-4xl tracking-tightest">Anti-Aging</h3>
+          <h3 class="serif text-3xl md:text-4xl tracking-tightest" data-i18n="con.t.aging">Anti-Aging</h3>
           <p class="text-xs text-ink/55 group-hover:text-bone/70 mt-2">Fine lines, firmness · 89 products</p>
         </div>
       </a>
@@ -662,7 +662,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-[1.5] text-hasaki group-hover:text-bone group-hover:translate-x-1 group-hover:-translate-y-1 transition"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
         </div>
         <div class="relative z-10">
-          <h3 class="serif text-3xl md:text-4xl tracking-tightest">Acne &amp; Blemishes</h3>
+          <h3 class="serif text-3xl md:text-4xl tracking-tightest" data-i18n="con.t.acne">Acne &amp; Blemishes</h3>
           <p class="text-xs text-ink/55 group-hover:text-bone/70 mt-2">Breakouts, congestion · 71 products</p>
         </div>
       </a>
@@ -672,7 +672,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-[1.5] text-hasaki group-hover:text-bone group-hover:translate-x-1 group-hover:-translate-y-1 transition"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
         </div>
         <div class="relative z-10">
-          <h3 class="serif text-3xl md:text-4xl tracking-tightest">Brightening</h3>
+          <h3 class="serif text-3xl md:text-4xl tracking-tightest" data-i18n="con.t.bright">Brightening</h3>
           <p class="text-xs text-ink/55 group-hover:text-bone/70 mt-2">Dark spots, dull tone · 53 products</p>
         </div>
       </a>
@@ -682,7 +682,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-[1.5] text-hasaki group-hover:text-bone group-hover:translate-x-1 group-hover:-translate-y-1 transition"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
         </div>
         <div class="relative z-10">
-          <h3 class="serif text-3xl md:text-4xl tracking-tightest">Sensitive Skin</h3>
+          <h3 class="serif text-3xl md:text-4xl tracking-tightest" data-i18n="con.t.sensitive">Sensitive Skin</h3>
           <p class="text-xs text-ink/55 group-hover:text-bone/70 mt-2">Calm, soothe · 42 products</p>
         </div>
       </a>
@@ -692,7 +692,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-[1.5] text-hasaki group-hover:text-bone group-hover:translate-x-1 group-hover:-translate-y-1 transition"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
         </div>
         <div class="relative z-10">
-          <h3 class="serif text-3xl md:text-4xl tracking-tightest">Sun Protection</h3>
+          <h3 class="serif text-3xl md:text-4xl tracking-tightest" data-i18n="con.t.spf">Sun Protection</h3>
           <p class="text-xs text-ink/55 group-hover:text-bone/70 mt-2">Daily SPF, after-sun · 38 products</p>
         </div>
       </a>
@@ -706,14 +706,14 @@
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 reveal">
       <div>
         <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3" data-i18n="sec.best.eyebrow">03 — Bestsellers</p>
-        <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">Loved this<br/><span class="italic text-hasaki">week.</span></h2>
+        <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]"><span data-i18n="best.h.a">Loved this</span><br/><span class="italic text-hasaki" data-i18n="best.h.b">week.</span></h2>
       </div>
       <div class="flex flex-wrap gap-2 text-[12px] tracking-[0.2em] uppercase">
-        <button class="px-4 py-2 bg-ink text-bone">All</button>
-        <button class="px-4 py-2 border border-ink/20 hover:bg-ink hover:text-bone transition">Skincare</button>
-        <button class="px-4 py-2 border border-ink/20 hover:bg-ink hover:text-bone transition">Makeup</button>
-        <button class="px-4 py-2 border border-ink/20 hover:bg-ink hover:text-bone transition">Fragrance</button>
-        <button class="px-4 py-2 border border-ink/20 hover:bg-ink hover:text-bone transition">Body</button>
+        <button class="px-4 py-2 bg-ink text-bone" data-i18n="filter.all">All</button>
+        <button class="px-4 py-2 border border-ink/20 hover:bg-ink hover:text-bone transition" data-i18n="filter.skin">Skincare</button>
+        <button class="px-4 py-2 border border-ink/20 hover:bg-ink hover:text-bone transition" data-i18n="filter.makeup">Makeup</button>
+        <button class="px-4 py-2 border border-ink/20 hover:bg-ink hover:text-bone transition" data-i18n="filter.fragrance">Fragrance</button>
+        <button class="px-4 py-2 border border-ink/20 hover:bg-ink hover:text-bone transition" data-i18n="filter.body">Body</button>
       </div>
     </div>
 
@@ -879,8 +879,8 @@
   <div class="max-w-[1500px] mx-auto px-6">
     <div class="text-center mb-14 reveal">
       <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3" data-i18n="sec.set.eyebrow">04 — Build your routine</p>
-      <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">Sets &amp; <span class="italic text-hasaki">routines</span>.</h2>
-      <p class="mt-5 text-ink/65 max-w-xl mx-auto">Three products. One ritual. Bundle savings up to 25%. Curated by our 50+ in-house dermatologists for real-world skin.</p>
+      <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]"><span data-i18n="set.h.a">Sets &amp;</span> <span class="italic text-hasaki" data-i18n="set.h.b">routines</span>.</h2>
+      <p class="mt-5 text-ink/65 max-w-xl mx-auto" data-i18n="set.body">Three products. One ritual. Bundle savings up to 25%. Curated by our 50+ in-house dermatologists for real-world skin.</p>
     </div>
 
     <div class="grid md:grid-cols-3 gap-5 md:gap-6">
@@ -973,11 +973,11 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
         </div>
         <div>
-          <p class="serif text-xl leading-tight">Subscribe &amp; save <span class="italic text-hasaki">15% on every order</span></p>
-          <p class="text-sm text-ink/60 mt-1">Free shipping, free samples, skip or cancel any time.</p>
+          <p class="serif text-xl leading-tight" data-i18n="subsave.h">Subscribe & save 15% on every order</p>
+          <p class="text-sm text-ink/60 mt-1" data-i18n="subsave.body">Free shipping, free samples, skip or cancel any time.</p>
         </div>
       </div>
-      <a href="#" class="relative z-10 inline-flex items-center gap-3 bg-ink text-bone hover:bg-hasaki px-6 py-3 text-[12px] tracking-[0.18em] uppercase transition">Set up subscription →</a>
+      <a href="#" class="relative z-10 inline-flex items-center gap-3 bg-ink text-bone hover:bg-hasaki px-6 py-3 text-[12px] tracking-[0.18em] uppercase transition"><span data-i18n="subsave.cta">Set up subscription →</span></a>
     </div>
   </div>
 </section>
@@ -988,7 +988,7 @@
     <div class="grid md:grid-cols-12 mb-12 gap-8 items-end reveal">
       <div class="md:col-span-7">
         <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3" data-i18n="sec.ing.eyebrow">05 — Hero Ingredients</p>
-        <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">The actives<br/><span class="italic text-hasaki">that actually work.</span></h2>
+        <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]"><span data-i18n="ing.h.a">The actives</span><br/><span class="italic text-hasaki" data-i18n="ing.h.b">that actually work.</span></h2>
       </div>
       <p class="md:col-span-5 text-ink/70 leading-relaxed">
         Skincare's most studied molecules — what they do, and the formulas our 50+ in-house dermatologists love. Shop by ingredient, not by hype.
@@ -1081,8 +1081,8 @@
   <div class="relative max-w-[1500px] mx-auto px-6 text-center">
     <p class="text-xs tracking-[0.4em] uppercase text-bone/80 mb-6 reveal">Our promise · since 2016</p>
     <h2 class="serif font-light tracking-mega leading-[0.86] text-[20vw] md:text-[14vw] reveal">
-      <span class="block">Save more.</span>
-      <span class="block italic font-normal">Always<span class="text-bone">.</span></span>
+      <span class="block" data-i18n="big.a">Save more.</span>
+      <span class="block italic font-normal" data-i18n="big.b">Always.</span>
     </h2>
     <p class="mt-10 max-w-xl mx-auto text-bone/90 reveal">
       Real Quality. Real Value. The promise we made in 2016 — direct partnerships with the brands we love, no counterfeits, no markups. From our 300+ stores in Vietnam to our new flagship in Los Angeles.
@@ -1100,7 +1100,7 @@
     <div class="flex items-end justify-between mb-12 reveal">
       <div>
         <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3" data-i18n="sec.brand.eyebrow">06 — Brands</p>
-        <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">500+ houses,<br/><span class="italic text-hasaki">carefully curated.</span></h2>
+        <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]"><span data-i18n="brand.h.a">500+ houses,</span><br/><span class="italic text-hasaki" data-i18n="brand.h.b">carefully curated.</span></h2>
       </div>
       <a href="#" class="ulink hidden md:inline-block text-sm tracking-[0.18em] uppercase">All brands →</a>
     </div>
@@ -1375,7 +1375,7 @@
   <div class="max-w-[1500px] mx-auto px-6 grid md:grid-cols-3 gap-10">
     <div class="reveal">
       <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3">11 — Reviews</p>
-      <h2 class="serif text-4xl md:text-5xl tracking-tightest leading-[0.95]">What our<br/><span class="italic text-hasaki">customers say.</span></h2>
+      <h2 class="serif text-4xl md:text-5xl tracking-tightest leading-[0.95]"><span data-i18n="rev.h.a">What our</span><br/><span class="italic text-hasaki" data-i18n="rev.h.b">customers say.</span></h2>
       <div class="flex items-center gap-2 mt-8 text-hasaki">
         <span>★★★★★</span>
         <span class="text-ink text-sm">4.9 / 5 — 380,000+ reviews</span>
@@ -1397,7 +1397,7 @@
 <!-- TRUST PERKS — beauty store -->
 <section class="bg-bone border-t border-ink/10">
   <div class="max-w-[1500px] mx-auto px-6 py-14">
-    <p class="text-center text-xs tracking-[0.3em] uppercase text-ink/45 mb-10">The Hasaki promise</p>
+    <p class="text-center text-xs tracking-[0.3em] uppercase text-ink/45 mb-10" data-i18n="trust.title">The Hasaki promise</p>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-y-10 md:gap-x-10">
       <div class="flex flex-col items-center text-center gap-3 reveal">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-8 h-8 stroke-[1.4] text-hasaki shrink-0"><path d="M9 12l2 2 4-4"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -1447,14 +1447,14 @@
 <section class="relative bg-cream py-24 md:py-32 overflow-hidden">
   <img src="https://images.unsplash.com/photo-1583241475880-083f84372725?w=1500&h=800&fit=crop&q=80&auto=format" alt="" class="absolute inset-0 w-full h-full object-cover opacity-15" onerror="this.style.display='none'" />
   <div class="relative max-w-3xl mx-auto px-6 text-center">
-    <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-6 reveal">The Hasaki Letter</p>
-    <h2 class="serif text-5xl md:text-7xl tracking-mega leading-[0.92] reveal">Be the first<br/><span class="italic text-hasaki">to know.</span></h2>
-    <p class="mt-6 text-ink/70 reveal">New launches, exclusive offers and beauty notes — sent to your inbox every Thursday.</p>
+    <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-6 reveal" data-i18n="news.eyebrow">The Hasaki Letter</p>
+    <h2 class="serif text-5xl md:text-7xl tracking-mega leading-[0.92] reveal"><span data-i18n="news.h.a">Be the first</span><br/><span class="italic text-hasaki" data-i18n="news.h.b">to know.</span></h2>
+    <p class="mt-6 text-ink/70 reveal" data-i18n="news.body">New launches, exclusive offers and beauty notes — sent to your inbox every Thursday.</p>
 
     <form class="mt-10 flex flex-col sm:flex-row gap-3 reveal">
-      <input type="email" required placeholder="Your email address"
+      <input type="email" required data-i18n="news.input" data-i18n-attr="placeholder" placeholder="Your email address"
              class="flex-1 bg-transparent border-b border-ink/40 focus:border-ink focus:outline-none px-2 py-4 placeholder-ink/50 text-base" />
-      <button class="bg-ink text-bone px-8 py-4 text-sm tracking-[0.18em] uppercase hover:bg-hasaki transition">Subscribe</button>
+      <button class="bg-ink text-bone px-8 py-4 text-sm tracking-[0.18em] uppercase hover:bg-hasaki transition" data-i18n="news.cta">Subscribe</button>
     </form>
     <p class="text-xs text-ink/50 mt-4">By subscribing you agree to Hasaki's <a href="#" class="ulink">Privacy Policy</a>.</p>
   </div>
@@ -1566,12 +1566,44 @@ const I18N = {
     'hero.body': "500+ authentic brands. 12,000+ products. Real prices, every day. Welcome to the beauty store Vietnam's loved for a decade — now in Los Angeles.",
     'hero.cta1': 'Shop bestsellers', 'hero.cta2': 'Take the skin quiz',
     'hero.trust1': ' 100% Authentic', 'hero.trust2': ' Free shipping over $35', 'hero.trust3': ' 3 free samples · every order',
+    'strip.save': '★ Save More Always',
+    'strip.delivery': '2-Hour Delivery in LA & HCMC',
+    'strip.cruelty': 'Cruelty-Free · Derm-Tested',
+    'strip.returns': '30-Day Free Returns',
+    'strip.member': 'Hasaki Member · 10% Back',
     'sec.cat.eyebrow': '01 — Categories',
     'sec.con.eyebrow': '02 — Shop by Concern',
     'sec.best.eyebrow': '03 — Bestsellers',
     'sec.set.eyebrow': '04 — Build your routine',
     'sec.ing.eyebrow': '05 — Hero Ingredients',
     'sec.brand.eyebrow': '06 — Brands',
+    'cat.h.a': 'Shop by', 'cat.h.b': 'mood.',
+    'cat.t.skincare': 'Skincare', 'cat.t.makeup': 'Makeup',
+    'cat.t.fragrance': 'Fragrance', 'cat.t.hair': 'Hair',
+    'cat.t.body': 'Body', 'cat.t.wellness': 'Wellness',
+    'con.h.a': 'Tell us about', 'con.h.b': 'your skin.',
+    'con.body': 'Six concerns. Six expert-curated routines. Find the one for you.',
+    'con.cta': 'Take the skin quiz →',
+    'con.t.hydration': 'Hydration', 'con.t.aging': 'Anti-Aging',
+    'con.t.acne': 'Acne & Blemishes', 'con.t.bright': 'Brightening',
+    'con.t.sensitive': 'Sensitive Skin', 'con.t.spf': 'Sun Protection',
+    'best.h.a': 'Loved this', 'best.h.b': 'week.',
+    'filter.all':'All','filter.skin':'Skincare','filter.makeup':'Makeup','filter.fragrance':'Fragrance','filter.body':'Body',
+    'set.h.a': 'Sets &', 'set.h.b': 'routines',
+    'set.body': 'Three products. One ritual. Bundle savings up to 25%. Curated by our 50+ in-house dermatologists for real-world skin.',
+    'subsave.h': 'Subscribe & save 15% on every order',
+    'subsave.body': 'Free shipping, free samples, skip or cancel any time.',
+    'subsave.cta': 'Set up subscription →',
+    'ing.h.a': 'The actives', 'ing.h.b': 'that actually work.',
+    'big.a': 'Save more.', 'big.b': 'Always.',
+    'brand.h.a': '500+ houses,', 'brand.h.b': 'carefully curated.',
+    'rev.h.a': 'What our', 'rev.h.b': 'customers say.',
+    'trust.title': 'The Hasaki promise',
+    'news.eyebrow': 'The Hasaki Letter',
+    'news.h.a': 'Be the first', 'news.h.b': 'to know.',
+    'news.body': 'New launches, exclusive offers and beauty notes — sent to your inbox every Thursday.',
+    'news.input': 'Your email address',
+    'news.cta': 'Subscribe',
     'footer.shop': 'Shop', 'footer.help': 'Help', 'footer.about': 'About', 'footer.contact': 'Contact',
   },
   vi: {
@@ -1586,14 +1618,46 @@ const I18N = {
     'hero.eyebrow': 'Xuân 2026',
     'hero.line1': 'Vẻ đẹp', 'hero.line2': 'thật giá trị.',
     'hero.body': '500+ thương hiệu chính hãng. 12.000+ sản phẩm. Giá thật mỗi ngày. Chào mừng đến với hệ thống mỹ phẩm được Việt Nam tin yêu suốt một thập kỷ — nay đã có mặt tại Los Angeles.',
-    'hero.cta1': 'Mua bán chạy', 'hero.cta2': 'Làm quiz da miễn phí',
+    'hero.cta1': 'Xem sản phẩm bán chạy', 'hero.cta2': 'Làm quiz da miễn phí',
     'hero.trust1': ' 100% Chính hãng', 'hero.trust2': ' Miễn phí giao từ $35', 'hero.trust3': ' 3 mẫu thử miễn phí · mỗi đơn',
+    'strip.save': '★ Tiết Kiệm Mỗi Ngày',
+    'strip.delivery': 'Giao hàng 2 giờ tại LA & TP.HCM',
+    'strip.cruelty': 'Không thử nghiệm trên động vật · Đã kiểm định da liễu',
+    'strip.returns': 'Đổi trả miễn phí trong 30 ngày',
+    'strip.member': 'Thành viên Hasaki · Hoàn 10%',
     'sec.cat.eyebrow': '01 — Danh mục',
     'sec.con.eyebrow': '02 — Theo vấn đề da',
     'sec.best.eyebrow': '03 — Bán chạy',
     'sec.set.eyebrow': '04 — Xây dựng routine',
     'sec.ing.eyebrow': '05 — Hoạt chất chủ đạo',
     'sec.brand.eyebrow': '06 — Thương hiệu',
+    'cat.h.a': 'Mua theo', 'cat.h.b': 'cảm hứng.',
+    'cat.t.skincare': 'Chăm sóc da', 'cat.t.makeup': 'Trang điểm',
+    'cat.t.fragrance': 'Nước hoa', 'cat.t.hair': 'Tóc',
+    'cat.t.body': 'Cơ thể', 'cat.t.wellness': 'Sức khỏe',
+    'con.h.a': 'Hãy cho chúng tôi biết về', 'con.h.b': 'làn da bạn.',
+    'con.body': 'Sáu vấn đề. Sáu routine được chuyên gia tuyển chọn. Tìm cái phù hợp với bạn.',
+    'con.cta': 'Làm quiz da →',
+    'con.t.hydration': 'Cấp ẩm', 'con.t.aging': 'Chống lão hóa',
+    'con.t.acne': 'Mụn & Khuyết điểm', 'con.t.bright': 'Dưỡng sáng',
+    'con.t.sensitive': 'Da nhạy cảm', 'con.t.spf': 'Chống nắng',
+    'best.h.a': 'Yêu thích', 'best.h.b': 'tuần này.',
+    'filter.all':'Tất cả','filter.skin':'Chăm sóc da','filter.makeup':'Trang điểm','filter.fragrance':'Nước hoa','filter.body':'Cơ thể',
+    'set.h.a': 'Bộ &', 'set.h.b': 'routine',
+    'set.body': 'Ba sản phẩm. Một nghi thức. Tiết kiệm đến 25%. Được 50+ bác sĩ da liễu của Hasaki tuyển chọn cho làn da thực tế.',
+    'subsave.h': 'Đăng ký & tiết kiệm 15% cho mỗi đơn',
+    'subsave.body': 'Miễn phí giao hàng, mẫu thử miễn phí, hủy bất kỳ lúc nào.',
+    'subsave.cta': 'Đăng ký gói định kỳ →',
+    'ing.h.a': 'Những hoạt chất', 'ing.h.b': 'thực sự hiệu quả.',
+    'big.a': 'Tiết kiệm hơn.', 'big.b': 'Mỗi ngày.',
+    'brand.h.a': '500+ thương hiệu,', 'brand.h.b': 'được tuyển chọn.',
+    'rev.h.a': 'Khách hàng', 'rev.h.b': 'nói gì?',
+    'trust.title': 'Cam kết của Hasaki',
+    'news.eyebrow': 'Thư Hasaki',
+    'news.h.a': 'Là người đầu tiên', 'news.h.b': 'biết tin.',
+    'news.body': 'Sản phẩm mới, ưu đãi độc quyền và mẹo làm đẹp — gửi đến hộp thư của bạn vào mỗi thứ Năm.',
+    'news.input': 'Email của bạn',
+    'news.cta': 'Đăng ký',
     'footer.shop': 'Mua sắm', 'footer.help': 'Trợ giúp', 'footer.about': 'Giới thiệu', 'footer.contact': 'Liên hệ',
   },
   zh: {
@@ -1610,12 +1674,44 @@ const I18N = {
     'hero.body': '500+ 正品品牌。12,000+ 商品。每日真实价格。欢迎来到越南十年挚爱的美妆店 — 现已登陆洛杉矶。',
     'hero.cta1': '选购热销', 'hero.cta2': '参加肌肤测试',
     'hero.trust1': ' 100% 正品', 'hero.trust2': ' 满 $35 免运费', 'hero.trust3': ' 每单送 3 份小样',
+    'strip.save': '★ 永远更省',
+    'strip.delivery': 'LA 与胡志明市 2 小时送达',
+    'strip.cruelty': '零残忍 · 皮肤科测试',
+    'strip.returns': '30 天免费退货',
+    'strip.member': 'Hasaki 会员 · 返 10%',
     'sec.cat.eyebrow': '01 — 分类',
     'sec.con.eyebrow': '02 — 按肌肤问题',
     'sec.best.eyebrow': '03 — 本周热销',
-    'sec.set.eyebrow': '04 — 定制您的护肤步骤',
+    'sec.set.eyebrow': '04 — 定制护肤步骤',
     'sec.ing.eyebrow': '05 — 明星成分',
     'sec.brand.eyebrow': '06 — 品牌',
+    'cat.h.a': '按', 'cat.h.b': '心情选购。',
+    'cat.t.skincare': '护肤', 'cat.t.makeup': '彩妆',
+    'cat.t.fragrance': '香水', 'cat.t.hair': '护发',
+    'cat.t.body': '身体', 'cat.t.wellness': '健康',
+    'con.h.a': '告诉我们', 'con.h.b': '您的肌肤。',
+    'con.body': '六大问题，六套专家定制方案。找到最适合你的。',
+    'con.cta': '参加肌肤测试 →',
+    'con.t.hydration': '保湿', 'con.t.aging': '抗衰老',
+    'con.t.acne': '痘痘与瑕疵', 'con.t.bright': '亮白',
+    'con.t.sensitive': '敏感肌', 'con.t.spf': '防晒',
+    'best.h.a': '本周', 'best.h.b': '人气王。',
+    'filter.all':'全部','filter.skin':'护肤','filter.makeup':'彩妆','filter.fragrance':'香水','filter.body':'身体',
+    'set.h.a': '套组与', 'set.h.b': '步骤',
+    'set.body': '三件产品，一套仪式。组合优惠最高 25%。由 50+ 内部皮肤科医生为真实肌肤精选。',
+    'subsave.h': '订阅 & 每单立省 15%',
+    'subsave.body': '免运费、免费小样，随时跳过或取消。',
+    'subsave.cta': '设置订阅 →',
+    'ing.h.a': '真正', 'ing.h.b': '有效的成分。',
+    'big.a': '省更多。', 'big.b': '每一天。',
+    'brand.h.a': '500+ 品牌，', 'brand.h.b': '精心甄选。',
+    'rev.h.a': '我们的', 'rev.h.b': '顾客这样说。',
+    'trust.title': 'Hasaki 承诺',
+    'news.eyebrow': 'Hasaki 周刊',
+    'news.h.a': '率先', 'news.h.b': '了解。',
+    'news.body': '新品、独家优惠和美容贴士 — 每周四送达您的邮箱。',
+    'news.input': '您的邮箱地址',
+    'news.cta': '订阅',
     'footer.shop': '购物', 'footer.help': '帮助', 'footer.about': '关于', 'footer.contact': '联系',
   },
   ko: {
@@ -1632,17 +1728,49 @@ const I18N = {
     'hero.body': '500+ 정품 브랜드. 12,000+ 상품. 매일 합리적인 가격. 베트남이 10년간 사랑한 뷰티 스토어 — 이제 로스앤젤레스에서 만나보세요.',
     'hero.cta1': '베스트셀러 보기', 'hero.cta2': '피부 퀴즈',
     'hero.trust1': ' 100% 정품', 'hero.trust2': ' $35 이상 무료배송', 'hero.trust3': ' 매 주문 무료 샘플 3종',
+    'strip.save': '★ 항상 더 저렴하게',
+    'strip.delivery': 'LA & 호치민 2시간 배송',
+    'strip.cruelty': '동물실험 반대 · 피부과 테스트',
+    'strip.returns': '30일 무료 반품',
+    'strip.member': 'Hasaki 멤버 · 10% 적립',
     'sec.cat.eyebrow': '01 — 카테고리',
     'sec.con.eyebrow': '02 — 고민별 쇼핑',
     'sec.best.eyebrow': '03 — 베스트셀러',
     'sec.set.eyebrow': '04 — 루틴 만들기',
     'sec.ing.eyebrow': '05 — 핵심 성분',
     'sec.brand.eyebrow': '06 — 브랜드',
+    'cat.h.a': '기분에 따라', 'cat.h.b': '쇼핑하기.',
+    'cat.t.skincare': '스킨케어', 'cat.t.makeup': '메이크업',
+    'cat.t.fragrance': '향수', 'cat.t.hair': '헤어',
+    'cat.t.body': '바디', 'cat.t.wellness': '웰니스',
+    'con.h.a': '당신의', 'con.h.b': '피부에 대해.',
+    'con.body': '6가지 고민. 6가지 전문가 큐레이션 루틴. 당신에게 맞는 것을 찾으세요.',
+    'con.cta': '피부 퀴즈 시작 →',
+    'con.t.hydration': '수분', 'con.t.aging': '안티에이징',
+    'con.t.acne': '여드름 & 잡티', 'con.t.bright': '브라이트닝',
+    'con.t.sensitive': '민감성 피부', 'con.t.spf': '자외선 차단',
+    'best.h.a': '이번 주', 'best.h.b': '베스트.',
+    'filter.all':'전체','filter.skin':'스킨케어','filter.makeup':'메이크업','filter.fragrance':'향수','filter.body':'바디',
+    'set.h.a': '세트 &', 'set.h.b': '루틴',
+    'set.body': '세 가지 제품, 하나의 루틴. 최대 25% 번들 할인. 50명 이상의 사내 피부과 전문의가 큐레이션.',
+    'subsave.h': '정기구독 & 매 주문 15% 할인',
+    'subsave.body': '무료배송, 무료 샘플, 언제든 건너뛰기/취소 가능.',
+    'subsave.cta': '정기구독 설정 →',
+    'ing.h.a': '진짜', 'ing.h.b': '효과 있는 성분.',
+    'big.a': '더 절약하세요.', 'big.b': '언제나.',
+    'brand.h.a': '500+ 브랜드,', 'brand.h.b': '엄선했습니다.',
+    'rev.h.a': '고객의', 'rev.h.b': '이야기.',
+    'trust.title': 'Hasaki의 약속',
+    'news.eyebrow': 'Hasaki 레터',
+    'news.h.a': '가장 먼저', 'news.h.b': '받아보세요.',
+    'news.body': '신상품, 독점 혜택, 뷰티 노트 — 매주 목요일 메일함으로.',
+    'news.input': '이메일 주소',
+    'news.cta': '구독하기',
     'footer.shop': '쇼핑', 'footer.help': '도움말', 'footer.about': '소개', 'footer.contact': '문의',
   },
   ja: {
     'announce.la': '★ ロサンゼルス店オープン',
-    'announce.tagline': '2016年からベトナム No.1 ビューティーチェーン',
+    'announce.tagline': '2016年からベトナムNo.1ビューティーチェーン',
     'announce.shipping': '$35以上で送料無料',
     'nav.new': '新着', 'nav.skincare': 'スキンケア', 'nav.makeup': 'メイク',
     'nav.fragrance': 'フレグランス', 'nav.brands': 'ブランド',
@@ -1652,14 +1780,46 @@ const I18N = {
     'hero.eyebrow': '2026 春',
     'hero.line1': '誠実な', 'hero.line2': '美しさ。',
     'hero.body': '500+ の正規ブランド。12,000+ のアイテム。毎日リアルな価格で。ベトナムで10年愛されてきたビューティーストアが、今ロサンゼルスに。',
-    'hero.cta1': 'ベストセラー', 'hero.cta2': 'スキンクイズを受ける',
+    'hero.cta1': 'ベストセラーを見る', 'hero.cta2': 'スキンクイズを受ける',
     'hero.trust1': ' 100% 本物', 'hero.trust2': ' $35以上送料無料', 'hero.trust3': ' 全注文に無料サンプル3点',
+    'strip.save': '★ いつでもお得',
+    'strip.delivery': 'LA・ホーチミン 2時間配送',
+    'strip.cruelty': '動物実験なし・皮膚科テスト済',
+    'strip.returns': '30日間無料返品',
+    'strip.member': 'Hasakiメンバー・10%還元',
     'sec.cat.eyebrow': '01 — カテゴリー',
     'sec.con.eyebrow': '02 — 悩みから探す',
     'sec.best.eyebrow': '03 — ベストセラー',
     'sec.set.eyebrow': '04 — ルーティンを作る',
     'sec.ing.eyebrow': '05 — 注目の成分',
     'sec.brand.eyebrow': '06 — ブランド',
+    'cat.h.a': '気分で', 'cat.h.b': '選ぶ。',
+    'cat.t.skincare': 'スキンケア', 'cat.t.makeup': 'メイク',
+    'cat.t.fragrance': 'フレグランス', 'cat.t.hair': 'ヘア',
+    'cat.t.body': 'ボディ', 'cat.t.wellness': 'ウェルネス',
+    'con.h.a': 'あなたの', 'con.h.b': '肌について。',
+    'con.body': '6つのお悩み。6つの専門家ルーティン。ぴったりの一つを見つけよう。',
+    'con.cta': 'スキンクイズへ →',
+    'con.t.hydration': '保湿', 'con.t.aging': 'エイジングケア',
+    'con.t.acne': 'ニキビ・くすみ', 'con.t.bright': '明るく',
+    'con.t.sensitive': '敏感肌', 'con.t.spf': '紫外線対策',
+    'best.h.a': '今週の', 'best.h.b': '人気。',
+    'filter.all':'すべて','filter.skin':'スキンケア','filter.makeup':'メイク','filter.fragrance':'フレグランス','filter.body':'ボディ',
+    'set.h.a': 'セット &', 'set.h.b': 'ルーティン',
+    'set.body': '3つの製品、1つのルーティン。バンドル最大25%オフ。50+ の専属皮膚科医が日常の肌のために厳選。',
+    'subsave.h': '定期購入 & 毎回15%オフ',
+    'subsave.body': '送料無料、無料サンプル、いつでもスキップ・キャンセル可能。',
+    'subsave.cta': '定期購入を設定 →',
+    'ing.h.a': '本当に効く', 'ing.h.b': '美容成分。',
+    'big.a': 'もっと、お得に。', 'big.b': 'いつでも。',
+    'brand.h.a': '500+ ブランド、', 'brand.h.b': '厳選しました。',
+    'rev.h.a': 'お客様の', 'rev.h.b': 'お声。',
+    'trust.title': 'Hasakiの約束',
+    'news.eyebrow': 'Hasakiレター',
+    'news.h.a': '誰よりも早く', 'news.h.b': 'お届け。',
+    'news.body': '新作・独占オファー・ビューティーノートを、毎週木曜日にメールでお届け。',
+    'news.input': 'メールアドレス',
+    'news.cta': '登録',
     'footer.shop': 'ショップ', 'footer.help': 'ヘルプ', 'footer.about': '会社情報', 'footer.contact': 'お問合せ',
   },
   es: {
@@ -1676,12 +1836,44 @@ const I18N = {
     'hero.body': '500+ marcas auténticas. 12,000+ productos. Precios reales, todos los días. Bienvenida a la tienda de belleza que Vietnam ama desde hace una década — ahora en Los Ángeles.',
     'hero.cta1': 'Ver más vendidos', 'hero.cta2': 'Hacer el quiz de piel',
     'hero.trust1': ' 100% Auténtico', 'hero.trust2': ' Envío gratis +$35', 'hero.trust3': ' 3 muestras gratis · cada pedido',
+    'strip.save': '★ Ahorra más, siempre',
+    'strip.delivery': 'Entrega 2 h en LA y HCMC',
+    'strip.cruelty': 'Cruelty-free · Probado por dermatólogos',
+    'strip.returns': 'Devoluciones gratis 30 días',
+    'strip.member': 'Hasaki Member · 10% de regreso',
     'sec.cat.eyebrow': '01 — Categorías',
     'sec.con.eyebrow': '02 — Comprar por inquietud',
     'sec.best.eyebrow': '03 — Más vendidos',
     'sec.set.eyebrow': '04 — Arma tu rutina',
     'sec.ing.eyebrow': '05 — Activos estrella',
     'sec.brand.eyebrow': '06 — Marcas',
+    'cat.h.a': 'Compra por', 'cat.h.b': 'mood.',
+    'cat.t.skincare': 'Skincare', 'cat.t.makeup': 'Maquillaje',
+    'cat.t.fragrance': 'Fragancias', 'cat.t.hair': 'Cabello',
+    'cat.t.body': 'Cuerpo', 'cat.t.wellness': 'Bienestar',
+    'con.h.a': 'Cuéntanos sobre', 'con.h.b': 'tu piel.',
+    'con.body': 'Seis inquietudes. Seis rutinas curadas por expertos. Encuentra la tuya.',
+    'con.cta': 'Hacer el quiz de piel →',
+    'con.t.hydration': 'Hidratación', 'con.t.aging': 'Antiedad',
+    'con.t.acne': 'Acné e imperfecciones', 'con.t.bright': 'Iluminadoras',
+    'con.t.sensitive': 'Piel sensible', 'con.t.spf': 'Protección solar',
+    'best.h.a': 'Lo más amado', 'best.h.b': 'esta semana.',
+    'filter.all':'Todo','filter.skin':'Skincare','filter.makeup':'Maquillaje','filter.fragrance':'Fragancias','filter.body':'Cuerpo',
+    'set.h.a': 'Sets &', 'set.h.b': 'rutinas',
+    'set.body': 'Tres productos. Un ritual. Ahorros de hasta 25% en bundle. Curados por más de 50 dermatólogas internas para piel real.',
+    'subsave.h': 'Suscríbete y ahorra 15% en cada pedido',
+    'subsave.body': 'Envío y muestras gratis, salta o cancela cuando quieras.',
+    'subsave.cta': 'Configurar suscripción →',
+    'ing.h.a': 'Los activos', 'ing.h.b': 'que sí funcionan.',
+    'big.a': 'Ahorra más.', 'big.b': 'Siempre.',
+    'brand.h.a': '500+ casas,', 'brand.h.b': 'cuidadosamente curadas.',
+    'rev.h.a': 'Lo que dicen', 'rev.h.b': 'nuestras clientas.',
+    'trust.title': 'La promesa Hasaki',
+    'news.eyebrow': 'La carta Hasaki',
+    'news.h.a': 'Sé la primera', 'news.h.b': 'en saberlo.',
+    'news.body': 'Lanzamientos, ofertas exclusivas y notas de belleza — cada jueves a tu inbox.',
+    'news.input': 'Tu correo electrónico',
+    'news.cta': 'Suscríbete',
     'footer.shop': 'Comprar', 'footer.help': 'Ayuda', 'footer.about': 'Nosotros', 'footer.contact': 'Contacto',
   },
   fr: {
@@ -1698,12 +1890,44 @@ const I18N = {
     'hero.body': '500+ marques authentiques. 12 000+ produits. Des vrais prix, tous les jours. Bienvenue dans la boutique beauté que le Vietnam adore depuis dix ans — désormais à Los Angeles.',
     'hero.cta1': 'Voir les best-sellers', 'hero.cta2': 'Faire le quiz peau',
     'hero.trust1': ' 100% Authentique', 'hero.trust2': ' Livraison offerte +$35', 'hero.trust3': ' 3 échantillons offerts · par commande',
+    'strip.save': '★ Économisez plus, toujours',
+    'strip.delivery': 'Livraison 2h à LA & HCMC',
+    'strip.cruelty': 'Sans cruauté · Testé dermato',
+    'strip.returns': 'Retours offerts 30 jours',
+    'strip.member': 'Hasaki Member · 10% remboursés',
     'sec.cat.eyebrow': '01 — Catégories',
     'sec.con.eyebrow': '02 — Par préoccupation',
     'sec.best.eyebrow': '03 — Best-sellers',
     'sec.set.eyebrow': '04 — Construis ta routine',
     'sec.ing.eyebrow': '05 — Actifs stars',
     'sec.brand.eyebrow': '06 — Marques',
+    'cat.h.a': 'Magasinez par', 'cat.h.b': 'envie.',
+    'cat.t.skincare': 'Soin', 'cat.t.makeup': 'Maquillage',
+    'cat.t.fragrance': 'Parfums', 'cat.t.hair': 'Cheveux',
+    'cat.t.body': 'Corps', 'cat.t.wellness': 'Bien-être',
+    'con.h.a': 'Parlez-nous de', 'con.h.b': 'votre peau.',
+    'con.body': 'Six préoccupations. Six routines expertes. Trouvez la vôtre.',
+    'con.cta': 'Faire le quiz peau →',
+    'con.t.hydration': 'Hydratation', 'con.t.aging': 'Anti-âge',
+    'con.t.acne': 'Acné & imperfections', 'con.t.bright': 'Éclat',
+    'con.t.sensitive': 'Peau sensible', 'con.t.spf': 'Protection solaire',
+    'best.h.a': 'Best of', 'best.h.b': 'la semaine.',
+    'filter.all':'Tout','filter.skin':'Soin','filter.makeup':'Maquillage','filter.fragrance':'Parfums','filter.body':'Corps',
+    'set.h.a': 'Coffrets &', 'set.h.b': 'routines',
+    'set.body': "Trois produits. Un rituel. Jusqu'à 25% d'économies. Sélectionnés par nos 50+ dermatologues maison pour la vraie peau.",
+    'subsave.h': 'Abonnez-vous & économisez 15% à chaque commande',
+    'subsave.body': 'Livraison et échantillons offerts, sautez ou annulez à tout moment.',
+    'subsave.cta': "Configurer l'abonnement →",
+    'ing.h.a': 'Les actifs', 'ing.h.b': 'qui fonctionnent vraiment.',
+    'big.a': 'Économisez plus.', 'big.b': 'Toujours.',
+    'brand.h.a': '500+ maisons,', 'brand.h.b': 'soigneusement choisies.',
+    'rev.h.a': 'Ce que disent', 'rev.h.b': 'nos clientes.',
+    'trust.title': 'La promesse Hasaki',
+    'news.eyebrow': 'La lettre Hasaki',
+    'news.h.a': 'Soyez la première', 'news.h.b': 'au courant.',
+    'news.body': 'Nouveautés, offres exclusives et notes beauté — chaque jeudi dans votre boîte mail.',
+    'news.input': 'Votre adresse email',
+    'news.cta': 'Je m\'inscris',
     'footer.shop': 'Acheter', 'footer.help': 'Aide', 'footer.about': 'À propos', 'footer.contact': 'Contact',
   },
 };
@@ -1716,10 +1940,15 @@ function applyLang(lang){
   document.body.dataset.lang = lang;
   localStorage.setItem('hasaki-lang', lang);
   const dict = I18N[lang];
+  const en = I18N.en;
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const k = el.getAttribute('data-i18n');
-    if (dict[k] !== undefined) el.textContent = dict[k];
-    else if (I18N.en[k] !== undefined) el.textContent = I18N.en[k];
+    const val = dict[k] !== undefined ? dict[k] : en[k];
+    if (val !== undefined) {
+      const attr = el.getAttribute('data-i18n-attr');
+      if (attr) el.setAttribute(attr, val);
+      else el.textContent = val;
+    }
   });
   document.querySelectorAll('.lang-current').forEach(el => el.textContent = LANG_LABELS[lang]);
   document.querySelectorAll('.lang-opt').forEach(b => {
