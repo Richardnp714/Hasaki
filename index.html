@@ -296,12 +296,19 @@
   <!-- Soft gradient backdrop -->
   <div class="absolute inset-0 bg-gradient-to-br from-blush via-cream to-hasakiPale"></div>
 
-  <!-- Decorative product silhouettes scattered -->
-  <div class="absolute inset-0 pointer-events-none hidden md:block">
-    <svg viewBox="0 0 100 160" class="absolute right-[8%] top-[18%] h-[55%] opacity-90" style="color:#306E51"><use href="#ic-perfume"/></svg>
-    <svg viewBox="0 0 100 160" class="absolute right-[26%] top-[32%] h-[40%] opacity-80" style="color:#9d2a4d"><use href="#ic-lipstick"/></svg>
-    <svg viewBox="0 0 100 160" class="absolute right-[40%] top-[22%] h-[48%] opacity-70" style="color:#1f4d38"><use href="#ic-dropper"/></svg>
-    <svg viewBox="0 0 100 160" class="absolute right-[52%] top-[40%] h-[35%] opacity-60" style="color:#a86b4a"><use href="#ic-jar"/></svg>
+  <!-- Hero product photo on right side -->
+  <div class="absolute inset-y-0 right-0 w-1/2 hidden md:block">
+    <div class="absolute inset-y-12 right-12 left-0 overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1631730486572-226d1f595b68?w=900&h=1200&fit=crop&q=80&auto=format"
+           alt="Hasaki beauty edit"
+           class="w-full h-full object-cover"
+           onerror="this.style.display='none'" />
+      <!-- Floating SVG fallback silhouettes (visible if image fails) -->
+      <svg viewBox="0 0 100 160" class="absolute right-[14%] top-[18%] h-[55%] opacity-90 -z-10" style="color:#306E51"><use href="#ic-perfume"/></svg>
+      <svg viewBox="0 0 100 160" class="absolute right-[44%] top-[36%] h-[40%] opacity-80 -z-10" style="color:#9d2a4d"><use href="#ic-lipstick"/></svg>
+      <svg viewBox="0 0 100 160" class="absolute left-[10%] top-[28%] h-[48%] opacity-70 -z-10" style="color:#1f4d38"><use href="#ic-dropper"/></svg>
+    </div>
+    <span class="absolute right-12 bottom-16 text-[10px] tracking-[0.3em] uppercase text-bone z-10 px-3 py-1.5 bg-ink/70 backdrop-blur">★ Save More Always</span>
   </div>
 
   <div class="relative max-w-[1500px] mx-auto px-6 pt-20 md:pt-28 pb-16 md:pb-24 min-h-[80vh] flex flex-col justify-end">
@@ -550,62 +557,62 @@
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-      <a href="#" class="group bg-bone aspect-[4/3] p-7 flex flex-col justify-between hover:bg-ink hover:text-bone transition">
-        <div class="flex items-start justify-between">
+      <a href="#" class="relative group bg-bone aspect-[4/3] overflow-hidden p-7 flex flex-col justify-between hover:bg-ink hover:text-bone transition"><img src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=600&h=450&fit=crop&q=80&auto=format" alt="Hydration" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-opacity duration-500" onerror="this.style.display='none'" />
+        <div class="relative z-10 flex items-start justify-between">
           <span class="text-[11px] tracking-[0.25em] uppercase text-hasaki group-hover:text-bone/70">01</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-[1.5] text-hasaki group-hover:text-bone group-hover:translate-x-1 group-hover:-translate-y-1 transition"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
         </div>
-        <div>
+        <div class="relative z-10">
           <h3 class="serif text-3xl md:text-4xl tracking-tightest">Hydration</h3>
           <p class="text-xs text-ink/55 group-hover:text-bone/70 mt-2">Dry, dull, dehydrated · 64 products</p>
         </div>
       </a>
-      <a href="#" class="group bg-bone aspect-[4/3] p-7 flex flex-col justify-between hover:bg-ink hover:text-bone transition">
-        <div class="flex items-start justify-between">
+      <a href="#" class="relative group bg-bone aspect-[4/3] overflow-hidden p-7 flex flex-col justify-between hover:bg-ink hover:text-bone transition"><img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600&h=450&fit=crop&q=80&auto=format" alt="Anti-Aging" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-opacity duration-500" onerror="this.style.display='none'" />
+        <div class="relative z-10 flex items-start justify-between">
           <span class="text-[11px] tracking-[0.25em] uppercase text-hasaki group-hover:text-bone/70">02</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-[1.5] text-hasaki group-hover:text-bone group-hover:translate-x-1 group-hover:-translate-y-1 transition"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
         </div>
-        <div>
+        <div class="relative z-10">
           <h3 class="serif text-3xl md:text-4xl tracking-tightest">Anti-Aging</h3>
           <p class="text-xs text-ink/55 group-hover:text-bone/70 mt-2">Fine lines, firmness · 89 products</p>
         </div>
       </a>
-      <a href="#" class="group bg-bone aspect-[4/3] p-7 flex flex-col justify-between hover:bg-ink hover:text-bone transition">
-        <div class="flex items-start justify-between">
+      <a href="#" class="relative group bg-bone aspect-[4/3] overflow-hidden p-7 flex flex-col justify-between hover:bg-ink hover:text-bone transition"><img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&h=450&fit=crop&q=80&auto=format" alt="Acne & Blemishes" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-opacity duration-500" onerror="this.style.display='none'" />
+        <div class="relative z-10 flex items-start justify-between">
           <span class="text-[11px] tracking-[0.25em] uppercase text-hasaki group-hover:text-bone/70">03</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-[1.5] text-hasaki group-hover:text-bone group-hover:translate-x-1 group-hover:-translate-y-1 transition"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
         </div>
-        <div>
+        <div class="relative z-10">
           <h3 class="serif text-3xl md:text-4xl tracking-tightest">Acne &amp; Blemishes</h3>
           <p class="text-xs text-ink/55 group-hover:text-bone/70 mt-2">Breakouts, congestion · 71 products</p>
         </div>
       </a>
-      <a href="#" class="group bg-bone aspect-[4/3] p-7 flex flex-col justify-between hover:bg-ink hover:text-bone transition">
-        <div class="flex items-start justify-between">
+      <a href="#" class="relative group bg-bone aspect-[4/3] overflow-hidden p-7 flex flex-col justify-between hover:bg-ink hover:text-bone transition"><img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=600&h=450&fit=crop&q=80&auto=format" alt="Brightening" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-opacity duration-500" onerror="this.style.display='none'" />
+        <div class="relative z-10 flex items-start justify-between">
           <span class="text-[11px] tracking-[0.25em] uppercase text-hasaki group-hover:text-bone/70">04</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-[1.5] text-hasaki group-hover:text-bone group-hover:translate-x-1 group-hover:-translate-y-1 transition"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
         </div>
-        <div>
+        <div class="relative z-10">
           <h3 class="serif text-3xl md:text-4xl tracking-tightest">Brightening</h3>
           <p class="text-xs text-ink/55 group-hover:text-bone/70 mt-2">Dark spots, dull tone · 53 products</p>
         </div>
       </a>
-      <a href="#" class="group bg-bone aspect-[4/3] p-7 flex flex-col justify-between hover:bg-ink hover:text-bone transition">
-        <div class="flex items-start justify-between">
+      <a href="#" class="relative group bg-bone aspect-[4/3] overflow-hidden p-7 flex flex-col justify-between hover:bg-ink hover:text-bone transition"><img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=600&h=450&fit=crop&q=80&auto=format" alt="Sensitive Skin" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-opacity duration-500" onerror="this.style.display='none'" />
+        <div class="relative z-10 flex items-start justify-between">
           <span class="text-[11px] tracking-[0.25em] uppercase text-hasaki group-hover:text-bone/70">05</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-[1.5] text-hasaki group-hover:text-bone group-hover:translate-x-1 group-hover:-translate-y-1 transition"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
         </div>
-        <div>
+        <div class="relative z-10">
           <h3 class="serif text-3xl md:text-4xl tracking-tightest">Sensitive Skin</h3>
           <p class="text-xs text-ink/55 group-hover:text-bone/70 mt-2">Calm, soothe · 42 products</p>
         </div>
       </a>
-      <a href="#" class="group bg-bone aspect-[4/3] p-7 flex flex-col justify-between hover:bg-ink hover:text-bone transition">
-        <div class="flex items-start justify-between">
+      <a href="#" class="relative group bg-bone aspect-[4/3] overflow-hidden p-7 flex flex-col justify-between hover:bg-ink hover:text-bone transition"><img src="https://images.unsplash.com/photo-1583241475880-083f84372725?w=600&h=450&fit=crop&q=80&auto=format" alt="Sun Protection" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-opacity duration-500" onerror="this.style.display='none'" />
+        <div class="relative z-10 flex items-start justify-between">
           <span class="text-[11px] tracking-[0.25em] uppercase text-hasaki group-hover:text-bone/70">06</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-[1.5] text-hasaki group-hover:text-bone group-hover:translate-x-1 group-hover:-translate-y-1 transition"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
         </div>
-        <div>
+        <div class="relative z-10">
           <h3 class="serif text-3xl md:text-4xl tracking-tightest">Sun Protection</h3>
           <p class="text-xs text-ink/55 group-hover:text-bone/70 mt-2">Daily SPF, after-sun · 38 products</p>
         </div>
@@ -911,7 +918,7 @@
 
     <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
       <!-- Niacinamide -->
-      <article class="group bg-cream p-7 md:p-9 aspect-[3/4] flex flex-col justify-between hover:bg-ink hover:text-bone transition relative overflow-hidden">
+      <article class="group bg-cream p-7 md:p-9 aspect-[3/4] flex flex-col justify-between hover:bg-ink hover:text-bone transition relative overflow-hidden [&>div]:relative [&>div]:z-10"><img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600&h=800&fit=crop&q=80&auto=format" alt="Niacinamide" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:opacity-40 transition-opacity duration-500" onerror="this.style.display='none'" />
         <div>
           <p class="text-[10px] tracking-[0.3em] uppercase text-hasaki group-hover:text-bone/70">B3 · Vitamin</p>
           <h3 class="serif text-3xl md:text-4xl tracking-tightest mt-3 leading-[0.95]">Niacinamide</h3>
@@ -927,7 +934,7 @@
       </article>
 
       <!-- Hyaluronic Acid -->
-      <article class="group bg-blush p-7 md:p-9 aspect-[3/4] flex flex-col justify-between hover:bg-ink hover:text-bone transition relative overflow-hidden">
+      <article class="group bg-blush p-7 md:p-9 aspect-[3/4] flex flex-col justify-between hover:bg-ink hover:text-bone transition relative overflow-hidden [&>div]:relative [&>div]:z-10"><img src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=600&h=800&fit=crop&q=80&auto=format" alt="Hyaluronic" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:opacity-40 transition-opacity duration-500" onerror="this.style.display='none'" />
         <div>
           <p class="text-[10px] tracking-[0.3em] uppercase text-hasaki group-hover:text-bone/70">Hydration</p>
           <h3 class="serif text-3xl md:text-4xl tracking-tightest mt-3 leading-[0.95]">Hyaluronic<br/>Acid</h3>
@@ -943,7 +950,7 @@
       </article>
 
       <!-- Vitamin C -->
-      <article class="group bg-cream p-7 md:p-9 aspect-[3/4] flex flex-col justify-between hover:bg-ink hover:text-bone transition relative overflow-hidden">
+      <article class="group bg-cream p-7 md:p-9 aspect-[3/4] flex flex-col justify-between hover:bg-ink hover:text-bone transition relative overflow-hidden [&>div]:relative [&>div]:z-10"><img src="https://images.unsplash.com/photo-1631730486572-226d1f595b68?w=600&h=800&fit=crop&q=80&auto=format" alt="Vitamin C" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:opacity-40 transition-opacity duration-500" onerror="this.style.display='none'" />
         <div>
           <p class="text-[10px] tracking-[0.3em] uppercase text-hasaki group-hover:text-bone/70">Antioxidant</p>
           <h3 class="serif text-3xl md:text-4xl tracking-tightest mt-3 leading-[0.95]">Vitamin C</h3>
@@ -959,7 +966,7 @@
       </article>
 
       <!-- Retinol -->
-      <article class="group bg-ink text-bone p-7 md:p-9 aspect-[3/4] flex flex-col justify-between hover:bg-hasaki transition relative overflow-hidden">
+      <article class="group bg-ink text-bone p-7 md:p-9 aspect-[3/4] flex flex-col justify-between hover:bg-hasaki transition relative overflow-hidden [&>div]:relative [&>div]:z-10"><img src="https://images.unsplash.com/photo-1547887537-6158d64c35b3?w=600&h=800&fit=crop&q=80&auto=format" alt="Retinol" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:opacity-40 transition-opacity duration-500" onerror="this.style.display='none'" />
         <div>
           <p class="text-[10px] tracking-[0.3em] uppercase text-hasaki group-hover:text-bone">Vitamin A</p>
           <h3 class="serif text-3xl md:text-4xl tracking-tightest mt-3 leading-[0.95]">Retinol</h3>
@@ -1254,7 +1261,12 @@
 
 <!-- PERFUME — full-bleed editorial -->
 <section id="fragrance" class="relative bg-ink text-bone overflow-hidden">
-  <!-- Floating perfume bottle row -->
+  <!-- Backdrop photo -->
+  <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=1900&h=1100&fit=crop&q=80&auto=format"
+       alt="Fragrance editorial"
+       class="absolute inset-0 w-full h-full object-cover opacity-50"
+       onerror="this.style.display='none'" />
+  <!-- Floating perfume bottle row (fallback / atmospheric) -->
   <div class="absolute inset-y-0 right-0 w-1/2 hidden md:block">
     <svg viewBox="0 0 100 160" class="absolute h-[60%] right-[6%] top-[15%] opacity-95" style="color:#cdb389"><use href="#ic-perfume"/></svg>
     <svg viewBox="0 0 100 160" class="absolute h-[45%] right-[28%] top-[28%] opacity-80" style="color:#9d2a4d"><use href="#ic-perfume"/></svg>
