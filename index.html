@@ -307,7 +307,7 @@
             <span class="absolute -top-0.5 -right-0.5 bg-ink text-bone text-[10px] w-4 h-4 rounded-full grid place-items-center" data-cart-count>0</span>
           </a>
           <!-- Cart drop-down preview -->
-          <div class="mega absolute right-0 top-full w-[380px] bg-bone border border-ink/10 shadow-2xl text-ink normal-case tracking-normal">
+          <div class="mega absolute right-0 top-full w-[380px] max-w-[calc(100vw-2rem)] bg-bone border border-ink/10 shadow-2xl text-ink normal-case tracking-normal">
             <!-- Header -->
             <div class="flex items-center justify-between px-5 py-4 border-b border-ink/10">
               <p class="serif text-lg leading-tight" data-i18n="cart.title">Your bag</p>
@@ -378,7 +378,7 @@
             <span data-i18n="hero.cta1">Shop bestsellers</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2 group-hover:translate-x-1 transition"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
-          <a href="#concerns" class="inline-flex items-center gap-3 border border-ink/40 hover:bg-ink hover:text-bone px-7 py-4 text-sm tracking-[0.18em] uppercase transition" data-i18n="hero.cta2">Take the skin quiz</a>
+          <a href="quiz.html" class="inline-flex items-center gap-3 border border-ink/40 hover:bg-ink hover:text-bone px-7 py-4 text-sm tracking-[0.18em] uppercase transition" data-i18n="hero.cta2">Take the skin quiz</a>
         </div>
         <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] tracking-[0.2em] uppercase text-ink/55 reveal">
           <span class="flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-3.5 h-3.5 stroke-[2] text-hasaki"><path d="M9 12l2 2 4-4"/></svg data-i18n="hero.trust1"> 100% Authentic</span>
@@ -457,7 +457,7 @@
         <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3" data-i18n="sec.cat.eyebrow">01 — Categories</p>
         <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]"><span data-i18n="cat.h.a">Shop by</span><br/><span class="italic text-hasaki" data-i18n="cat.h.b">mood.</span></h2>
       </div>
-      <a href="#" class="ulink hidden md:inline-block text-sm tracking-[0.18em] uppercase" data-i18n="ui.viewall">View all →</a>
+      <a href="category.html" class="ulink hidden md:inline-block text-sm tracking-[0.18em] uppercase" data-i18n="ui.viewall">View all →</a>
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-6 gap-3 md:gap-4">
@@ -565,7 +565,7 @@
       </p>
       <div class="mt-10 flex flex-wrap gap-4">
         <a href="#about" class="inline-flex items-center gap-2 border border-bone/40 hover:bg-hasaki hover:border-hasaki px-7 py-4 text-sm tracking-[0.18em] uppercase transition" data-i18n="rq.cta1">Our story</a>
-        <a href="#" class="ulink py-4 text-sm tracking-[0.18em] uppercase text-bone/80" data-i18n="rq.cta2">Find a store →</a>
+        <a href="stores.html" class="ulink py-4 text-sm tracking-[0.18em] uppercase text-bone/80" data-i18n="rq.cta2">Find a store →</a>
       </div>
 
       <div class="mt-16 grid grid-cols-4 gap-4 border-t border-bone/15 pt-10">
@@ -599,7 +599,7 @@
         <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]"><span data-i18n="con.h.a">Tell us about</span><br/><span class="italic text-hasaki" data-i18n="con.h.b">your skin.</span></h2>
         <p class="mt-5 text-ink/70 max-w-md" data-i18n="con.body">Six concerns. Six expert-curated routines. Find the one for you.</p>
       </div>
-      <a href="#" class="inline-flex items-center gap-3 bg-ink text-bone hover:bg-hasaki px-6 py-3 text-[12px] tracking-[0.18em] uppercase transition self-start md:self-end"><span data-i18n="con.cta">Take the skin quiz →</span></a>
+      <a href="quiz.html" class="inline-flex items-center gap-3 bg-ink text-bone hover:bg-hasaki px-6 py-3 text-[12px] tracking-[0.18em] uppercase transition self-start md:self-end"><span data-i18n="con.cta">Take the skin quiz →</span></a>
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
@@ -836,7 +836,7 @@
     </div>
 
     <div class="mt-14 text-center reveal">
-      <a href="#" class="inline-flex items-center gap-3 border border-ink hover:bg-ink hover:text-bone px-9 py-4 text-sm tracking-[0.18em] uppercase transition" data-i18n="best.viewall">View all 12,000+ products</a>
+      <a href="category.html" class="inline-flex items-center gap-3 border border-ink hover:bg-ink hover:text-bone px-9 py-4 text-sm tracking-[0.18em] uppercase transition" data-i18n="best.viewall">View all 12,000+ products</a>
     </div>
   </div>
 </section>
@@ -944,7 +944,7 @@
           <p class="text-sm text-ink/60 mt-1" data-i18n="subsave.body">Free shipping, free samples, skip or cancel any time.</p>
         </div>
       </div>
-      <a href="#" class="relative z-10 inline-flex items-center gap-3 bg-ink text-bone hover:bg-hasaki px-6 py-3 text-[12px] tracking-[0.18em] uppercase transition"><span data-i18n="subsave.cta">Set up subscription →</span></a>
+      <a href="rewards.html" class="relative z-10 inline-flex items-center gap-3 bg-ink text-bone hover:bg-hasaki px-6 py-3 text-[12px] tracking-[0.18em] uppercase transition"><span data-i18n="subsave.cta">Set up subscription →</span></a>
     </div>
   </div>
 </section>
@@ -1055,7 +1055,7 @@
       <span data-i18n="big.body">Real Quality. Real Value. The promise we made in 2016 — direct partnerships with the brands we love, no counterfeits, no markups. From our 300+ stores in Vietnam to our new flagship in Los Angeles.</span>
     </p>
     <div class="mt-10 flex flex-wrap justify-center gap-4 reveal">
-      <a href="#" class="inline-flex items-center gap-3 bg-ink text-bone hover:bg-bone hover:text-ink px-8 py-4 text-sm tracking-[0.18em] uppercase transition"><span data-i18n="big.cta1">Join Hasaki Member · Free</span></a>
+      <a href="rewards.html" class="inline-flex items-center gap-3 bg-ink text-bone hover:bg-bone hover:text-ink px-8 py-4 text-sm tracking-[0.18em] uppercase transition"><span data-i18n="big.cta1">Join Hasaki Member · Free</span></a>
       <a href="#about" class="inline-flex items-center gap-3 border border-bone/60 hover:bg-bone hover:text-hasaki px-8 py-4 text-sm tracking-[0.18em] uppercase transition" data-i18n="rq.cta1">Our story</a>
     </div>
   </div>
@@ -1069,7 +1069,7 @@
         <p class="text-xs tracking-[0.3em] uppercase text-ink/50 mb-3" data-i18n="sec.brand.eyebrow">06 — Brands</p>
         <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]"><span data-i18n="brand.h.a">500+ houses,</span><br/><span class="italic text-hasaki" data-i18n="brand.h.b">carefully curated.</span></h2>
       </div>
-      <a href="#" class="ulink hidden md:inline-block text-sm tracking-[0.18em] uppercase" data-i18n="brand.allbrands">All brands →</a>
+      <a href="category.html" class="ulink hidden md:inline-block text-sm tracking-[0.18em] uppercase" data-i18n="brand.allbrands">All brands →</a>
     </div>
 
     <div class="grid grid-cols-3 md:grid-cols-6 border border-ink/15">
@@ -1114,7 +1114,7 @@
         <span data-i18n="about.quote">"Save More Always isn't a tagline. It's a contract with every customer who walks through our doors."</span>
       </p>
       <div class="mt-10 flex flex-wrap gap-4">
-        <a href="#" class="inline-flex items-center gap-3 bg-hasaki text-bone hover:bg-hasakiDark px-7 py-4 text-sm tracking-[0.18em] uppercase transition" data-i18n="about.cta1">Visit LA flagship</a>
+        <a href="stores.html" class="inline-flex items-center gap-3 bg-hasaki text-bone hover:bg-hasakiDark px-7 py-4 text-sm tracking-[0.18em] uppercase transition" data-i18n="about.cta1">Visit LA flagship</a>
         <a href="#" class="ulink py-4 text-sm tracking-[0.18em] uppercase" data-i18n="about.cta2">Read our story →</a>
       </div>
     </div>
@@ -1330,8 +1330,8 @@
       </h2>
       <p class="mt-8 max-w-md text-bone/80 reveal" data-i18n="perf.body">Over 320 fragrances from niche houses to haute parfumerie. Discover your signature with our Fragrance Finder quiz.</p>
       <div class="mt-10 flex flex-wrap gap-4 reveal">
-        <a href="#" class="bg-bone text-ink px-7 py-4 text-sm tracking-[0.18em] uppercase hover:bg-hasaki hover:text-bone transition" data-i18n="perf.cta1">Take the quiz</a>
-        <a href="#" class="ulink text-sm tracking-[0.18em] uppercase text-bone/80 py-4" data-i18n="perf.cta2">Shop fragrance →</a>
+        <a href="quiz.html" class="bg-bone text-ink px-7 py-4 text-sm tracking-[0.18em] uppercase hover:bg-hasaki hover:text-bone transition" data-i18n="perf.cta1">Take the quiz</a>
+        <a href="category.html?cat=fragrance" class="ulink text-sm tracking-[0.18em] uppercase text-bone/80 py-4" data-i18n="perf.cta2">Shop fragrance →</a>
       </div>
     </div>
   </div>
@@ -1463,18 +1463,18 @@
       <div class="md:col-span-2">
         <h5 class="text-xs tracking-[0.25em] uppercase text-bone/60 mb-5" data-i18n="footer.help">Help</h5>
         <ul class="space-y-3 text-sm">
-          <li><a href="#" class="ulink text-bone/85" data-i18n="footer.helpcenter">Help center</a></li>
-          <li><a href="#" class="ulink text-bone/85" data-i18n="footer.shipping">Shipping</a></li>
+          <li><a href="help.html" class="ulink text-bone/85" data-i18n="footer.helpcenter">Help center</a></li>
+          <li><a href="help.html" class="ulink text-bone/85" data-i18n="footer.shipping">Shipping</a></li>
           <li><a href="#" class="ulink text-bone/85" data-i18n="footer.returns">Returns & refunds</a></li>
-          <li><a href="#" class="ulink text-bone/85" data-i18n="footer.track">Track your order</a></li>
-          <li><a href="#" class="ulink text-bone/85" data-i18n="footer.contactus">Contact us</a></li>
+          <li><a href="track.html" class="ulink text-bone/85" data-i18n="footer.track">Track your order</a></li>
+          <li><a href="help.html" class="ulink text-bone/85" data-i18n="footer.contactus">Contact us</a></li>
         </ul>
       </div>
       <div class="md:col-span-2">
         <h5 class="text-xs tracking-[0.25em] uppercase text-bone/60 mb-5" data-i18n="footer.about">About</h5>
         <ul class="space-y-3 text-sm">
           <li><a href="#" class="ulink text-bone/85" data-i18n="footer.story">Our story</a></li>
-          <li><a href="#" class="ulink text-bone/85" data-i18n="footer.locator">Store locator</a></li>
+          <li><a href="stores.html" class="ulink text-bone/85" data-i18n="footer.locator">Store locator</a></li>
           <li><a href="#" class="ulink text-bone/85" data-i18n="footer.clinic">Hasaki Clinic & Spa</a></li>
           <li><a href="#" class="ulink text-bone/85" data-i18n="footer.careers">Careers</a></li>
           <li><a href="#" class="ulink text-bone/85" data-i18n="footer.press">Press</a></li>

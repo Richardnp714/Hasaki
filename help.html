@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Help center — hasaki.</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/png" href="hasaki-logo.png" />
+<script>tailwind.config={theme:{extend:{fontFamily:{display:['Fraunces','serif'],body:['Inter','sans-serif'],logo:['"DM Sans"','Inter','sans-serif']},colors:{ink:'#0a0a0a',bone:'#f5f1ea',cream:'#ebe4d8',blush:'#e8d5cc',hasaki:'#306E51',hasakiDark:'#1f4d38',hasakiPale:'#e8efea'},letterSpacing:{tightest:'-.04em',mega:'-.06em'}}}}</script>
+<style>body{font-family:'Inter',sans-serif;background:#f5f1ea;color:#0a0a0a;-webkit-font-smoothing:antialiased}h1,h2,h3,.serif{font-family:'Fraunces',serif}.ulink{position:relative;display:inline-block}.ulink::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:1px;background:currentColor;transform:scaleX(1);transform-origin:right;transition:transform .5s}.ulink:hover::after{transform:scaleX(0);transform-origin:left}details summary::-webkit-details-marker{display:none}details[open] summary span:last-child{transform:rotate(45deg)}details summary span:last-child{transition:transform .3s;display:inline-block}</style>
+</head><body class="bg-bone text-ink">
+
+<header class="border-b border-ink/10">
+  <div class="max-w-[1500px] mx-auto px-6 h-20 grid grid-cols-3 items-center">
+    <a href="index.html" class="ulink text-[11px] tracking-[0.25em] uppercase text-ink/65">← Back to store</a>
+    <a href="index.html" class="justify-self-center inline-flex items-center gap-2 font-logo text-hasaki text-[26px] font-extrabold lowercase leading-none" style="letter-spacing:-0.04em;"><img src="hasaki-logo.png" alt="" class="w-9 h-9 rounded-full" /><span>hasaki<span class="text-hasakiDark">.</span></span></a>
+    <a href="cart.html" aria-label="Bag" class="justify-self-end relative p-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><path d="M6 7h12l-1.5 12.5a2 2 0 0 1-2 1.7H9.5a2 2 0 0 1-2-1.7L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg><span class="absolute -top-0.5 -right-0.5 bg-ink text-bone text-[10px] w-4 h-4 rounded-full grid place-items-center" data-cart-count>0</span></a>
+  </div>
+</header>
+
+<section class="py-14 md:py-20 border-b border-ink/10">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+    <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-3">Help center</p>
+    <h1 class="serif text-5xl md:text-6xl tracking-tightest leading-[0.95]">How can we <span class="italic text-hasaki">help</span>?</h1>
+    <p class="mt-5 text-ink/70">Find answers to common questions about orders, shipping, returns and your Hasaki Member account.</p>
+  </div>
+</section>
+
+<section class="py-12 md:py-16">
+  <div class="max-w-3xl mx-auto px-6 space-y-12">
+    <div>
+      <h2 class="serif text-3xl tracking-tightest mb-5">Shipping &amp; delivery</h2>
+      <div class="border-t border-ink/10">
+        <details class="border-b border-ink/10"><summary class="flex justify-between items-center py-5 cursor-pointer list-none"><span class="text-base">Is shipping really free over $35?</span><span class="text-ink/45 text-xl">+</span></summary><p class="pb-5 text-sm text-ink/75">Yes. Standard shipping is free on every order $35 or more (after discounts). Under $35, standard shipping is $5.99.</p></details>
+        <details class="border-b border-ink/10"><summary class="flex justify-between items-center py-5 cursor-pointer list-none"><span class="text-base">How fast is delivery?</span><span class="text-ink/45 text-xl">+</span></summary><p class="pb-5 text-sm text-ink/75">Standard delivery is 3–5 business days. Express delivery is 1–2 business days for $8. In LA, Hồ Chí Minh and Hà Nội we offer 2-hour delivery for $14 — order by 6pm.</p></details>
+        <details class="border-b border-ink/10"><summary class="flex justify-between items-center py-5 cursor-pointer list-none"><span class="text-base">Do you ship internationally?</span><span class="text-ink/45 text-xl">+</span></summary><p class="pb-5 text-sm text-ink/75">Yes — we ship to 30+ countries. International rates calculated at checkout based on destination.</p></details>
+      </div>
+    </div>
+
+    <div>
+      <h2 class="serif text-3xl tracking-tightest mb-5">Returns &amp; refunds</h2>
+      <div class="border-t border-ink/10">
+        <details class="border-b border-ink/10"><summary class="flex justify-between items-center py-5 cursor-pointer list-none"><span class="text-base">Can I return an opened product?</span><span class="text-ink/45 text-xl">+</span></summary><p class="pb-5 text-sm text-ink/75">Yes. We accept returns on opened products within 30 days of delivery, no questions asked. We pay for return shipping.</p></details>
+        <details class="border-b border-ink/10"><summary class="flex justify-between items-center py-5 cursor-pointer list-none"><span class="text-base">How long do refunds take?</span><span class="text-ink/45 text-xl">+</span></summary><p class="pb-5 text-sm text-ink/75">Refunds are processed within 3 business days of receiving your return and appear on your card within 5–10 business days, depending on your bank.</p></details>
+        <details class="border-b border-ink/10"><summary class="flex justify-between items-center py-5 cursor-pointer list-none"><span class="text-base">How do I start a return?</span><span class="text-ink/45 text-xl">+</span></summary><p class="pb-5 text-sm text-ink/75">Sign in to your account, go to Orders, and click "Start a return" next to the order. We'll email you a prepaid label.</p></details>
+      </div>
+    </div>
+
+    <div>
+      <h2 class="serif text-3xl tracking-tightest mb-5">Orders</h2>
+      <div class="border-t border-ink/10">
+        <details class="border-b border-ink/10"><summary class="flex justify-between items-center py-5 cursor-pointer list-none"><span class="text-base">Where is my order?</span><span class="text-ink/45 text-xl">+</span></summary><p class="pb-5 text-sm text-ink/75">You'll get a tracking link by email as soon as your order ships. You can also <a href="track.html" class="ulink">track your order</a> here at any time with your order number.</p></details>
+        <details class="border-b border-ink/10"><summary class="flex justify-between items-center py-5 cursor-pointer list-none"><span class="text-base">Can I change or cancel an order?</span><span class="text-ink/45 text-xl">+</span></summary><p class="pb-5 text-sm text-ink/75">You can cancel or modify your order within 30 minutes of placing it from your Order page. After that, it's already in our fulfilment center.</p></details>
+        <details class="border-b border-ink/10"><summary class="flex justify-between items-center py-5 cursor-pointer list-none"><span class="text-base">Where are my free samples?</span><span class="text-ink/45 text-xl">+</span></summary><p class="pb-5 text-sm text-ink/75">Every order comes with 3 free samples — you choose them at checkout. Pink Gold members get 5; Pink Diamond members get unlimited.</p></details>
+      </div>
+    </div>
+
+    <div>
+      <h2 class="serif text-3xl tracking-tightest mb-5">Hasaki Member &amp; account</h2>
+      <div class="border-t border-ink/10">
+        <details class="border-b border-ink/10"><summary class="flex justify-between items-center py-5 cursor-pointer list-none"><span class="text-base">How do I earn points?</span><span class="text-ink/45 text-xl">+</span></summary><p class="pb-5 text-sm text-ink/75">Earn 1 point per $1 spent. Tier multipliers apply: Pink Gold gets 1.6×, Pink Diamond gets 2×. <a href="rewards.html" class="ulink">See the full Rewards page →</a></p></details>
+        <details class="border-b border-ink/10"><summary class="flex justify-between items-center py-5 cursor-pointer list-none"><span class="text-base">How do I redeem my points?</span><span class="text-ink/45 text-xl">+</span></summary><p class="pb-5 text-sm text-ink/75">100 points = $5 off. Apply at checkout under "Use my points". You can stack points with promo codes.</p></details>
+        <details class="border-b border-ink/10"><summary class="flex justify-between items-center py-5 cursor-pointer list-none"><span class="text-base">I forgot my password</span><span class="text-ink/45 text-xl">+</span></summary><p class="pb-5 text-sm text-ink/75">Click "Sign in" then "Forgot password?" and we'll email you a reset link.</p></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-hasakiPale py-12 md:py-16 border-t border-ink/10">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+    <h2 class="serif text-3xl tracking-tightest mb-3">Still need help?</h2>
+    <p class="text-ink/65 mb-6">Our team is here 7 days a week.</p>
+    <div class="flex flex-wrap items-center justify-center gap-6 text-sm">
+      <a href="tel:18884272541" class="ulink"><span class="font-medium">1-888-427-2541</span> · 7:30am — 10:00pm ET</a>
+      <a href="mailto:care@hasaki.com" class="ulink">care@hasaki.com</a>
+      <a href="#" class="ulink">Live chat →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-ink text-bone py-12">
+  <div class="max-w-[1500px] mx-auto px-6 flex flex-wrap items-center justify-between gap-4 text-sm">
+    <div class="inline-flex items-center gap-3 font-logo text-3xl font-extrabold lowercase leading-none" style="letter-spacing:-0.04em;"><img src="hasaki-logo.png" alt="" class="w-10 h-10 rounded-full" /><span>hasaki<span class="text-hasaki">.</span></span></div>
+    <p class="text-xs text-bone/55">© 2026 Hasaki Beauty &amp; Clinic Joint Stock Company.</p>
+  </div>
+</footer>
+
+<script src="i18n.js" defer></script>
+<script src="app.js" defer></script>
+</body></html>

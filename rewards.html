@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hasaki Member · Rewards</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/png" href="hasaki-logo.png" />
+<script>tailwind.config={theme:{extend:{fontFamily:{display:['Fraunces','serif'],body:['Inter','sans-serif'],logo:['"DM Sans"','Inter','sans-serif']},colors:{ink:'#0a0a0a',bone:'#f5f1ea',cream:'#ebe4d8',blush:'#e8d5cc',hasaki:'#306E51',hasakiDark:'#1f4d38',hasakiPale:'#e8efea'},letterSpacing:{tightest:'-.04em',mega:'-.06em'}}}}</script>
+<style>body{font-family:'Inter',sans-serif;background:#f5f1ea;color:#0a0a0a;-webkit-font-smoothing:antialiased}h1,h2,h3,.serif{font-family:'Fraunces',serif}.ulink{position:relative;display:inline-block}.ulink::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:1px;background:currentColor;transform:scaleX(1);transform-origin:right;transition:transform .5s}.ulink:hover::after{transform:scaleX(0);transform-origin:left}</style>
+</head><body class="bg-bone text-ink">
+
+<header class="border-b border-ink/10">
+  <div class="max-w-[1500px] mx-auto px-6 h-20 grid grid-cols-3 items-center">
+    <a href="index.html" class="ulink text-[11px] tracking-[0.25em] uppercase text-ink/65">← Back to store</a>
+    <a href="index.html" class="justify-self-center inline-flex items-center gap-2 font-logo text-hasaki text-[26px] font-extrabold lowercase leading-none" style="letter-spacing:-0.04em;"><img src="hasaki-logo.png" alt="" class="w-9 h-9 rounded-full" /><span>hasaki<span class="text-hasakiDark">.</span></span></a>
+    <a href="cart.html" aria-label="Bag" class="justify-self-end relative p-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><path d="M6 7h12l-1.5 12.5a2 2 0 0 1-2 1.7H9.5a2 2 0 0 1-2-1.7L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg><span class="absolute -top-0.5 -right-0.5 bg-ink text-bone text-[10px] w-4 h-4 rounded-full grid place-items-center" data-cart-count>0</span></a>
+  </div>
+</header>
+
+<section class="py-16 md:py-24 bg-hasaki text-bone text-center">
+  <div class="max-w-3xl mx-auto px-6">
+    <p class="text-[11px] tracking-[0.4em] uppercase text-bone/80 mb-5">Hasaki Member · Free to join</p>
+    <h1 class="serif text-5xl md:text-7xl tracking-mega leading-[0.92]">Rewards that <span class="italic">feel like a gift.</span></h1>
+    <p class="mt-6 max-w-xl mx-auto text-bone/85">Earn 10% back in points on every purchase. Redeem for exclusive products, spa visits, and birthday treats. No fees, ever.</p>
+    <button data-open-account class="mt-8 inline-flex items-center gap-3 bg-ink text-bone hover:bg-bone hover:text-hasaki px-8 py-4 text-sm tracking-[0.18em] uppercase transition">Join free →</button>
+  </div>
+</section>
+
+<section class="py-16 md:py-24">
+  <div class="max-w-[1500px] mx-auto px-6">
+    <h2 class="serif text-4xl md:text-6xl tracking-tightest text-center mb-14">Three <span class="italic text-hasaki">tiers</span>. All free.</h2>
+    <div class="grid md:grid-cols-3 gap-5">
+      <article class="bg-bone border border-ink/15 p-7 md:p-9">
+        <div class="w-10 h-10 rounded-full bg-blush mb-5"></div>
+        <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-2">Tier 1</p>
+        <h3 class="serif text-3xl tracking-tightest mb-3">Pink</h3>
+        <p class="text-sm text-ink/65 mb-5">Spend up to $200 / year</p>
+        <ul class="space-y-2 text-sm text-ink/80">
+          <li class="flex gap-2"><span class="text-hasaki">·</span> 5% back in points</li>
+          <li class="flex gap-2"><span class="text-hasaki">·</span> 3 free samples each order</li>
+          <li class="flex gap-2"><span class="text-hasaki">·</span> Birthday gift</li>
+          <li class="flex gap-2"><span class="text-hasaki">·</span> Members-only sales</li>
+        </ul>
+      </article>
+      <article class="bg-bone border-2 border-hasaki p-7 md:p-9 relative">
+        <span class="absolute -top-3 left-7 bg-hasaki text-bone text-[10px] tracking-[0.25em] uppercase px-3 py-1">Most popular</span>
+        <div class="w-10 h-10 rounded-full" style="background:linear-gradient(135deg,#cdb389,#a07e4a)"></div>
+        <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-2 mt-5">Tier 2</p>
+        <h3 class="serif text-3xl tracking-tightest mb-3">Pink Gold</h3>
+        <p class="text-sm text-ink/65 mb-5">Spend $200 — $500 / year</p>
+        <ul class="space-y-2 text-sm text-ink/80">
+          <li class="flex gap-2"><span class="text-hasaki">·</span> 8% back in points</li>
+          <li class="flex gap-2"><span class="text-hasaki">·</span> 5 free samples each order</li>
+          <li class="flex gap-2"><span class="text-hasaki">·</span> Birthday gift + makeover</li>
+          <li class="flex gap-2"><span class="text-hasaki">·</span> Free express shipping</li>
+          <li class="flex gap-2"><span class="text-hasaki">·</span> Early access to launches</li>
+        </ul>
+      </article>
+      <article class="bg-ink text-bone p-7 md:p-9">
+        <div class="w-10 h-10 rounded-full" style="background:linear-gradient(135deg,#ebe4d8,#9a9a9a)"></div>
+        <p class="text-[11px] tracking-[0.3em] uppercase text-bone/70 mb-2 mt-5">Tier 3</p>
+        <h3 class="serif text-3xl tracking-tightest mb-3">Pink Diamond</h3>
+        <p class="text-sm text-bone/70 mb-5">Spend $500+ / year</p>
+        <ul class="space-y-2 text-sm text-bone/85">
+          <li class="flex gap-2"><span class="text-hasaki">·</span> 10% back in points</li>
+          <li class="flex gap-2"><span class="text-hasaki">·</span> Unlimited free samples</li>
+          <li class="flex gap-2"><span class="text-hasaki">·</span> Birthday gift + spa treatment</li>
+          <li class="flex gap-2"><span class="text-hasaki">·</span> Free 2-hour delivery</li>
+          <li class="flex gap-2"><span class="text-hasaki">·</span> Personal beauty advisor</li>
+          <li class="flex gap-2"><span class="text-hasaki">·</span> Annual product allowance</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="bg-cream py-16">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+    <h2 class="serif text-4xl tracking-tightest mb-4">How points <span class="italic text-hasaki">work</span>.</h2>
+    <p class="text-ink/70 mb-8">Earn 1 point for every $1 spent. Use them like cash on your next order: 100 points = $5 off.</p>
+    <div class="grid md:grid-cols-3 gap-5 text-left">
+      <div class="bg-bone p-6"><p class="text-[10px] tracking-[0.3em] uppercase text-hasaki mb-2">01</p><h3 class="serif text-xl">Shop</h3><p class="text-sm text-ink/65 mt-2">Earn 5–10% back automatically on every order, online and in-store.</p></div>
+      <div class="bg-bone p-6"><p class="text-[10px] tracking-[0.3em] uppercase text-hasaki mb-2">02</p><h3 class="serif text-xl">Save</h3><p class="text-sm text-ink/65 mt-2">Points stack with promo codes. They never expire while you're active.</p></div>
+      <div class="bg-bone p-6"><p class="text-[10px] tracking-[0.3em] uppercase text-hasaki mb-2">03</p><h3 class="serif text-xl">Treat yourself</h3><p class="text-sm text-ink/65 mt-2">Redeem at checkout, or splurge on a clinic service — the choice is yours.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-ink text-bone py-12">
+  <div class="max-w-[1500px] mx-auto px-6 flex flex-wrap items-center justify-between gap-4 text-sm">
+    <div class="inline-flex items-center gap-3 font-logo text-3xl font-extrabold lowercase leading-none" style="letter-spacing:-0.04em;"><img src="hasaki-logo.png" alt="" class="w-10 h-10 rounded-full" /><span>hasaki<span class="text-hasaki">.</span></span></div>
+    <p class="text-xs text-bone/55">© 2026 Hasaki Beauty &amp; Clinic Joint Stock Company.</p>
+  </div>
+</footer>
+
+<script src="i18n.js" defer></script>
+<script src="app.js" defer></script>
+</body></html>

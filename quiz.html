@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skin Quiz — hasaki.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="hasaki-logo.png" />
+  <script>
+    tailwind.config = { theme: { extend: {
+      fontFamily: { display: ['Fraunces','serif'], body: ['Inter','sans-serif'], logo: ['"DM Sans"','Inter','sans-serif'] },
+      colors: { ink:'#0a0a0a', soot:'#1a1a1a', bone:'#f5f1ea', cream:'#ebe4d8', blush:'#e8d5cc', moss:'#3d4a3a', hasaki:'#306E51', hasakiDark:'#1f4d38', hasakiPale:'#e8efea', ash:'#8a8580' },
+      letterSpacing: { tightest: '-.04em', mega: '-.06em' }
+    } } }
+  </script>
+  <style>
+    body{font-family:'Inter',sans-serif;background:#f5f1ea;color:#0a0a0a;-webkit-font-smoothing:antialiased}
+    h1,h2,h3,.serif{font-family:'Fraunces',serif;font-optical-sizing:auto}
+    .ulink{position:relative;display:inline-block}
+    .ulink::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:1px;background:currentColor;transform:scaleX(1);transform-origin:right;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+    .ulink:hover::after{transform:scaleX(0);transform-origin:left}
+    .qopt{display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:18px 20px;border:1px solid rgba(10,10,10,.18);text-align:left;cursor:pointer;transition:all .2s;background:#fff}
+    .qopt:hover{border-color:#0a0a0a}
+    .qopt.on{border-color:#306E51;background:#e8efea;border-width:2px;padding:17px 19px}
+    .pcard{position:relative;overflow:hidden}
+  </style>
+</head>
+<body class="bg-bone text-ink">
+
+<!-- Slim header (shared) -->
+<header class="border-b border-ink/10">
+  <div class="max-w-[1300px] mx-auto px-6 h-20 grid grid-cols-3 items-center">
+    <a href="index.html" class="ulink text-[11px] tracking-[0.25em] uppercase text-ink/65 inline-flex items-center gap-2">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to store
+    </a>
+    <a href="index.html" class="justify-self-center" aria-label="hasaki">
+      <span class="inline-flex items-center gap-2 font-logo text-hasaki text-[26px] font-extrabold lowercase leading-none" style="letter-spacing:-0.04em;">
+        <img src="hasaki-logo.png" alt="" class="w-9 h-9 rounded-full" />
+        <span>hasaki<span class="text-hasakiDark">.</span></span>
+      </span>
+    </a>
+    <p class="justify-self-end text-[11px] tracking-[0.25em] uppercase text-ink/55">60 seconds · 5 questions</p>
+  </div>
+</header>
+
+<main class="max-w-2xl mx-auto px-6 py-12 md:py-20">
+  <!-- Progress -->
+  <div class="flex items-center gap-2 mb-10">
+    <div id="bar" class="h-[2px] bg-ink transition-all" style="width:20%"></div>
+    <div class="h-[2px] flex-1 bg-ink/15"></div>
+    <span id="step" class="text-[11px] tracking-[0.25em] uppercase text-ink/55 ml-3">1 / 5</span>
+  </div>
+
+  <!-- Steps (only one visible at a time) -->
+  <section data-q="1">
+    <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-3">Step 1</p>
+    <h1 class="serif text-4xl md:text-5xl tracking-tightest leading-[0.95] mb-2">What's your <span class="italic text-hasaki">skin type</span>?</h1>
+    <p class="text-ink/65 mb-8">Choose the one that feels closest to you.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <button class="qopt" data-v="dry"><span class="serif text-xl">Dry</span><span class="text-xs text-ink/55">Tight, flaky, sometimes itchy</span></button>
+      <button class="qopt" data-v="oily"><span class="serif text-xl">Oily</span><span class="text-xs text-ink/55">Shiny by midday, large pores</span></button>
+      <button class="qopt" data-v="combo"><span class="serif text-xl">Combination</span><span class="text-xs text-ink/55">Oily T-zone, normal/dry cheeks</span></button>
+      <button class="qopt" data-v="sensitive"><span class="serif text-xl">Sensitive</span><span class="text-xs text-ink/55">Reacts easily, redness</span></button>
+      <button class="qopt" data-v="normal"><span class="serif text-xl">Normal</span><span class="text-xs text-ink/55">Balanced, not much trouble</span></button>
+    </div>
+  </section>
+
+  <section data-q="2" class="hidden">
+    <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-3">Step 2</p>
+    <h1 class="serif text-4xl md:text-5xl tracking-tightest leading-[0.95] mb-2">What are your <span class="italic text-hasaki">main concerns</span>?</h1>
+    <p class="text-ink/65 mb-8">Select up to 3 — we'll prioritize.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="concerns">
+      <button class="qopt" data-v="hydration"><span class="serif text-xl">Hydration</span></button>
+      <button class="qopt" data-v="aging"><span class="serif text-xl">Anti-aging</span></button>
+      <button class="qopt" data-v="acne"><span class="serif text-xl">Acne &amp; Blemishes</span></button>
+      <button class="qopt" data-v="bright"><span class="serif text-xl">Brightening</span></button>
+      <button class="qopt" data-v="sensitive"><span class="serif text-xl">Sensitivity</span></button>
+      <button class="qopt" data-v="spf"><span class="serif text-xl">Sun protection</span></button>
+    </div>
+    <button id="q2next" class="mt-7 bg-ink text-bone py-3 px-7 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition disabled:opacity-50" disabled>Next →</button>
+  </section>
+
+  <section data-q="3" class="hidden">
+    <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-3">Step 3</p>
+    <h1 class="serif text-4xl md:text-5xl tracking-tightest leading-[0.95] mb-2">When do you <span class="italic text-hasaki">do your routine</span>?</h1>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-8">
+      <button class="qopt" data-v="am"><span class="serif text-xl">Morning</span></button>
+      <button class="qopt" data-v="pm"><span class="serif text-xl">Evening</span></button>
+      <button class="qopt" data-v="both"><span class="serif text-xl">Both</span></button>
+    </div>
+  </section>
+
+  <section data-q="4" class="hidden">
+    <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-3">Step 4</p>
+    <h1 class="serif text-4xl md:text-5xl tracking-tightest leading-[0.95] mb-2">What's your <span class="italic text-hasaki">budget</span>?</h1>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-8">
+      <button class="qopt" data-v="low"><span class="serif text-xl">Under $20</span><span class="text-xs text-ink/55">Drugstore favorites</span></button>
+      <button class="qopt" data-v="mid"><span class="serif text-xl">$20 — $60</span><span class="text-xs text-ink/55">K-beauty &amp; cult picks</span></button>
+      <button class="qopt" data-v="hi"><span class="serif text-xl">$60+</span><span class="text-xs text-ink/55">Luxe &amp; haute beauty</span></button>
+    </div>
+  </section>
+
+  <section data-q="5" class="hidden">
+    <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-3">Step 5</p>
+    <h1 class="serif text-4xl md:text-5xl tracking-tightest leading-[0.95] mb-2">Want your <span class="italic text-hasaki">routine emailed</span>?</h1>
+    <p class="text-ink/65 mb-8">We'll send your personalized routine and a 10% off welcome code.</p>
+    <input id="quizEmail" type="email" placeholder="you@example.com" class="block w-full bg-transparent border-b border-ink/40 px-2 py-3 text-base focus:border-ink focus:outline-none mb-6" />
+    <div class="flex flex-wrap gap-3">
+      <button id="quizSubmit" class="bg-ink text-bone py-3 px-7 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">See my routine →</button>
+      <button id="quizSkip" class="ulink text-[11px] tracking-[0.25em] uppercase text-ink/65 py-3">Skip & see results</button>
+    </div>
+  </section>
+
+  <!-- Results -->
+  <section id="quizResults" class="hidden">
+    <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-3">Your routine</p>
+    <h1 class="serif text-4xl md:text-5xl tracking-tightest leading-[0.95] mb-3">Built for <span class="italic text-hasaki">your skin</span>.</h1>
+    <p class="text-ink/65 mb-8" id="quizSummary"></p>
+    <div id="quizPicks" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10"></div>
+    <div class="flex flex-wrap gap-3">
+      <button id="quizAddAll" class="bg-ink text-bone py-3.5 px-7 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">+ Add full routine to bag</button>
+      <a href="index.html" class="ulink text-[11px] tracking-[0.25em] uppercase py-3.5">Browse more →</a>
+    </div>
+  </section>
+</main>
+
+<footer class="border-t border-ink/10 py-6 mt-12">
+  <div class="max-w-[1300px] mx-auto px-6 text-xs text-ink/55 text-center">© 2026 Hasaki Beauty &amp; Clinic Joint Stock Company.</div>
+</footer>
+
+<script src="i18n.js" defer></script>
+<script src="app.js" defer></script>
+<script>
+(function(){
+  const answers = { skin:null, concerns:[], routine:null, budget:null, email:'' };
+  const sections = document.querySelectorAll('[data-q]');
+  const bar = document.getElementById('bar');
+  const stepEl = document.getElementById('step');
+  let cur = 1;
+  function show(n) {
+    sections.forEach(s => s.classList.toggle('hidden', +s.dataset.q !== n));
+    document.getElementById('quizResults').classList.add('hidden');
+    bar.style.width = (n * 20) + '%';
+    stepEl.textContent = n + ' / 5';
+    cur = n;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  function selectSingle(scope, v) {
+    scope.querySelectorAll('.qopt').forEach(b => b.classList.toggle('on', b.dataset.v === v));
+  }
+
+  // Step 1
+  document.querySelector('[data-q="1"]').querySelectorAll('.qopt').forEach(b => {
+    b.addEventListener('click', () => {
+      answers.skin = b.dataset.v;
+      selectSingle(b.parentElement, b.dataset.v);
+      setTimeout(() => show(2), 280);
+    });
+  });
+  // Step 2 (multi)
+  document.querySelectorAll('#concerns .qopt').forEach(b => {
+    b.addEventListener('click', () => {
+      const v = b.dataset.v;
+      const i = answers.concerns.indexOf(v);
+      if (i >= 0) { answers.concerns.splice(i, 1); b.classList.remove('on'); }
+      else if (answers.concerns.length < 3) { answers.concerns.push(v); b.classList.add('on'); }
+      document.getElementById('q2next').disabled = answers.concerns.length === 0;
+    });
+  });
+  document.getElementById('q2next').addEventListener('click', () => show(3));
+  // Step 3
+  document.querySelector('[data-q="3"]').querySelectorAll('.qopt').forEach(b => {
+    b.addEventListener('click', () => {
+      answers.routine = b.dataset.v;
+      selectSingle(b.parentElement, b.dataset.v);
+      setTimeout(() => show(4), 280);
+    });
+  });
+  // Step 4
+  document.querySelector('[data-q="4"]').querySelectorAll('.qopt').forEach(b => {
+    b.addEventListener('click', () => {
+      answers.budget = b.dataset.v;
+      selectSingle(b.parentElement, b.dataset.v);
+      setTimeout(() => show(5), 280);
+    });
+  });
+  // Step 5
+  function finish() {
+    answers.email = (document.getElementById('quizEmail').value || '').trim();
+    sections.forEach(s => s.classList.add('hidden'));
+    bar.style.width = '100%'; stepEl.textContent = '5 / 5';
+    document.getElementById('quizResults').classList.remove('hidden');
+    renderResults();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  document.getElementById('quizSubmit').addEventListener('click', finish);
+  document.getElementById('quizSkip').addEventListener('click', finish);
+
+  function renderResults() {
+    const cat = window.HasakiCart && window.HasakiCart.HasakiCATALOG; // not exposed
+    const fallback = [
+      { id:'p2', brand:'COSRX', name:'Snail 96 Mucin Essence', price:15, image:'images/products/cosrx-snail-essence.jpg', size:'100 ml', step:'Treat', why:'Repairs and hydrates your skin barrier.' },
+      { id:'p4', brand:'La Roche-Posay', name:'Anthelios SPF50+', price:22, image:'images/products/laroche-anthelios.jpg', size:'50 ml', step:'Protect', why:'Daily UV protection — non-negotiable for every type.' },
+      { id:'p8', brand:'The Ordinary', name:'Niacinamide 10%', price:12, image:'images/products/the-ordinary-niacinamide.jpg', size:'30 ml', step:'Treat', why:'Smooths tone and balances oil.' },
+    ];
+    let picks = fallback.slice();
+    // Tweak based on answers
+    if (answers.concerns.includes('aging')) picks = [
+      { id:'t4', brand:'Sulwhasoo', name:'First Care Activating Serum', price:78, image:'images/products/sulwhasoo-first-care.jpg', size:'60 ml', step:'Prep', why:'Boosts the rest of your routine and softens fine lines.' },
+      { id:'t2', brand:'Glow Recipe', name:'Watermelon Niacinamide Drops', price:46, image:'images/products/glow-recipe-watermelon.jpg', size:'40 ml', step:'Treat', why:'Brightens while plumping with hyaluronic acid.' },
+      { id:'p4', brand:'La Roche-Posay', name:'Anthelios SPF50+', price:22, image:'images/products/laroche-anthelios.jpg', size:'50 ml', step:'Protect', why:'The single best anti-aging step you can take.' },
+    ];
+    if (answers.concerns.includes('acne')) picks = [
+      { id:'p2', brand:'COSRX', name:'Snail 96 Mucin Essence', price:15, image:'images/products/cosrx-snail-essence.jpg', size:'100 ml', step:'Treat', why:'Calms and repairs while you fight breakouts.' },
+      { id:'p8', brand:'The Ordinary', name:'Niacinamide 10%', price:12, image:'images/products/the-ordinary-niacinamide.jpg', size:'30 ml', step:'Treat', why:'Reduces visible blemishes and pore size.' },
+      { id:'p4', brand:'La Roche-Posay', name:'Anthelios SPF50+', price:22, image:'images/products/laroche-anthelios.jpg', size:'50 ml', step:'Protect', why:'Non-comedogenic, perfect over treatments.' },
+    ];
+    if (answers.skin === 'dry' || answers.concerns.includes('hydration')) picks = [
+      { id:'p6', brand:'Innisfree', name:'Green Tea Hyaluronic Serum', price:17, image:'images/products/innisfree-green-tea.jpg', size:'50 ml', step:'Hydrate', why:'5 forms of hyaluronic acid for plump, dewy skin.' },
+      { id:'t2', brand:'Glow Recipe', name:'Watermelon Niacinamide Drops', price:46, image:'images/products/glow-recipe-watermelon.jpg', size:'40 ml', step:'Treat', why:'Lit-from-within glow that hydrates all day.' },
+      { id:'p1', brand:'Laneige', name:'Lip Sleeping Mask', price:18, image:'images/products/laneige-lip-sleeping-mask.jpg', size:'20 g', step:'Bonus', why:'Because dry lips deserve love too.' },
+    ];
+
+    // Budget filter (relaxed: just sort cheapest first if low budget)
+    if (answers.budget === 'low') picks.sort((a, b) => a.price - b.price);
+
+    document.getElementById('quizSummary').textContent =
+      `${(answers.skin || 'Balanced').replace('combo','combination')} skin · ${answers.concerns.join(' · ') || 'general care'} · ${answers.routine || 'AM + PM'} routine`;
+
+    document.getElementById('quizPicks').innerHTML = picks.map(p => `
+      <article class="bg-bone border border-ink/10 overflow-hidden" data-product="${p.id}" data-brand="${p.brand}" data-name="${p.name}" data-price="${p.price}" data-image="${p.image}" data-size="${p.size}">
+        <div class="aspect-[4/5] bg-cream"><img src="${p.image}" alt="" class="w-full h-full object-cover" /></div>
+        <div class="p-5">
+          <p class="text-[10px] tracking-[0.3em] uppercase text-hasaki mb-1">Step · ${p.step}</p>
+          <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">${p.brand}</p>
+          <h3 class="text-[15px] font-medium leading-snug mt-1.5"><a href="product.html?id=${p.id}">${p.name}</a></h3>
+          <p class="text-xs text-ink/65 mt-2 leading-relaxed">${p.why}</p>
+          <div class="flex items-baseline gap-2 mt-3">
+            <span class="font-bold">$${p.price}</span>
+            <span class="text-xs text-ink/55">· ${p.size}</span>
+          </div>
+          <button data-add-to-cart class="w-full mt-4 bg-ink text-bone py-2.5 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">+ Add to bag</button>
+        </div>
+      </article>
+    `).join('');
+
+    // Wire add buttons
+    document.querySelectorAll('#quizPicks [data-add-to-cart]').forEach(b => b.addEventListener('click', e => {
+      e.preventDefault();
+      const c = b.closest('[data-product]');
+      window.HasakiCart.add({ id: c.dataset.product, brand: c.dataset.brand, name: c.dataset.name, price: parseFloat(c.dataset.price), image: c.dataset.image, size: c.dataset.size });
+    }));
+
+    document.getElementById('quizAddAll').onclick = () => {
+      picks.forEach(p => window.HasakiCart.add({ id: p.id, brand: p.brand, name: p.name, price: p.price, image: p.image, size: p.size }));
+      setTimeout(() => window.location.href = 'cart.html', 400);
+    };
+
+    if (answers.email) localStorage.setItem('hasaki-quiz', JSON.stringify(answers));
+  }
+
+  show(1);
+})();
+</script>
+</body>
+</html>
