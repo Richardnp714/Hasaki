@@ -170,7 +170,7 @@ function paintGrid() {
   document.getElementById('makeupGrid').innerHTML = items.map(p => `
     <article class="pcard group" data-product="${p.id}" data-brand="${p.brand}" data-name="${p.name.replace(/"/g,'&quot;')}" data-price="${p.price}" data-image="${p.image}" data-size="${p.size}">
       <div class="relative aspect-[4/5] bg-cream overflow-hidden">
-        <img src="${p.image}" alt="${p.name}" loading="lazy" class="img absolute inset-0 w-full h-full object-cover" />
+        <img src="${p.photo||p.image}" alt="${p.name}" loading="lazy" class="img absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='${p.image}'" />
         <button aria-label="Save" data-wishlist="${p.id}" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-bone/85 backdrop-blur grid place-items-center hover:bg-ink hover:text-bone transition">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
         </button>
