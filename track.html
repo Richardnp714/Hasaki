@@ -14,7 +14,7 @@
 
 <header class="border-b border-ink/10">
   <div class="max-w-[1500px] mx-auto px-6 h-20 grid grid-cols-3 items-center">
-    <a href="index.html" class="ulink text-[11px] tracking-[0.25em] uppercase text-ink/65">← Back to store</a>
+    <a href="index.html" class="ulink text-[11px] tracking-[0.25em] uppercase text-ink/65" onclick="if(document.referrer&&document.referrer.indexOf(location.host)>-1){event.preventDefault();history.back()}">← Back to store</a>
     <a href="index.html" class="justify-self-center inline-flex items-center gap-2 font-logo text-hasaki text-[26px] font-extrabold lowercase leading-none" style="letter-spacing:-0.04em;"><img src="hasaki-logo.png" alt="" class="w-9 h-9 rounded-full" /><span>hasaki<span class="text-hasakiDark">.</span></span></a>
     <a href="help.html" class="justify-self-end ulink text-[11px] tracking-[0.25em] uppercase text-ink/65">Need help?</a>
   </div>

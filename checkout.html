@@ -308,7 +308,7 @@
       <a href="#" class="ulink" data-i18n="footer.terms">Terms</a>
       <a href="#" class="ulink" data-i18n="footer.privacy">Privacy</a>
       <a href="#" class="ulink" data-i18n="co.footer.contact">Contact</a>
-      <a href="index.html" class="ulink" data-i18n="co.footer.back">Back to store</a>
+      <a href="index.html" class="ulink" data-i18n="co.footer.back" onclick="if(document.referrer&&document.referrer.indexOf(location.host)>-1){event.preventDefault();history.back()}">Back to store</a>
     </div>
   </div>
 </footer>
