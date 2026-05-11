@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lost? — hasaki.</title>
+<meta name="description" content="We couldn't find that page. Head back to the store, or take the skin quiz." />
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/png" href="hasaki-logo.png" />
+<script>tailwind.config={theme:{extend:{fontFamily:{display:['Fraunces','serif'],body:['Inter','sans-serif'],logo:['"DM Sans"','Inter','sans-serif']},colors:{ink:'#0a0a0a',bone:'#f5f1ea',cream:'#ebe4d8',blush:'#e8d5cc',hasaki:'#306E51',hasakiDark:'#1f4d38',hasakiPale:'#e8efea'},letterSpacing:{tightest:'-.04em',mega:'-.06em'}}}}</script>
+<style>body{font-family:'Inter',sans-serif;background:#f5f1ea;color:#0a0a0a;-webkit-font-smoothing:antialiased;overflow-x:hidden}h1,.serif{font-family:'Fraunces',serif}.ulink{position:relative;display:inline-block}.ulink::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:1px;background:currentColor;transform:scaleX(1);transform-origin:right;transition:transform .5s}.ulink:hover::after{transform:scaleX(0);transform-origin:left}</style>
+</head><body class="bg-bone text-ink min-h-screen flex flex-col">
+
+<header class="border-b border-ink/10">
+  <div class="max-w-[1500px] mx-auto px-6 h-20 grid grid-cols-3 items-center">
+    <a href="index.html" class="ulink text-[11px] tracking-[0.25em] uppercase text-ink/65">← Back to store</a>
+    <a href="index.html" class="justify-self-center inline-flex items-center gap-2 font-logo text-hasaki text-[26px] font-extrabold lowercase leading-none" style="letter-spacing:-0.04em;"><img src="hasaki-logo.png" alt="" class="w-9 h-9 rounded-full" /><span>hasaki<span class="text-hasakiDark">.</span></span></a>
+    <a href="cart.html" aria-label="Bag" class="justify-self-end relative p-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><path d="M6 7h12l-1.5 12.5a2 2 0 0 1-2 1.7H9.5a2 2 0 0 1-2-1.7L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg><span class="absolute -top-0.5 -right-0.5 bg-ink text-bone text-[10px] w-4 h-4 rounded-full grid place-items-center" data-cart-count>0</span></a>
+  </div>
+</header>
+
+<main class="flex-1 grid place-items-center py-16 md:py-24">
+  <div class="max-w-2xl mx-auto px-6 text-center">
+    <p class="serif italic text-7xl md:text-9xl text-hasaki tracking-mega leading-none mb-6">404</p>
+    <h1 class="serif text-4xl md:text-6xl tracking-tightest leading-[0.95]">Looks like we <span class="italic text-hasaki">misplaced</span> that page.</h1>
+    <p class="mt-6 text-ink/65 text-[15px] max-w-md mx-auto">Maybe try one of these instead — they're where everyone else seems to be going.</p>
+    <div class="mt-10 flex flex-wrap justify-center gap-3">
+      <a href="index.html" class="inline-flex items-center gap-2 bg-ink text-bone px-7 py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">Back to home →</a>
+      <a href="new.html" class="inline-flex items-center gap-2 border border-ink text-ink px-7 py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-ink hover:text-bone transition">See what's new</a>
+      <a href="quiz.html" class="inline-flex items-center gap-2 border border-ink/20 text-ink px-7 py-3 text-[11px] tracking-[0.25em] uppercase hover:border-ink transition">Take the skin quiz</a>
+    </div>
+    <div class="mt-14 grid grid-cols-3 gap-3 max-w-lg mx-auto text-[11px] tracking-[0.25em] uppercase text-ink/55">
+      <a href="skincare.html" class="ulink py-3">Skincare</a>
+      <a href="makeup.html" class="ulink py-3">Makeup</a>
+      <a href="fragrance.html" class="ulink py-3">Fragrance</a>
+    </div>
+  </div>
+</main>
+
+<footer class="bg-ink text-bone py-12">
+  <div class="max-w-[1500px] mx-auto px-6 flex flex-wrap items-center justify-between gap-4 text-sm">
+    <div class="inline-flex items-center gap-3 font-logo text-3xl font-extrabold lowercase leading-none" style="letter-spacing:-0.04em;"><img src="hasaki-logo.png" alt="" class="w-10 h-10 rounded-full" /><span>hasaki<span class="text-hasaki">.</span></span></div>
+    <p class="text-xs text-bone/55">© 2026 Hasaki Beauty &amp; Clinic Joint Stock Company.</p>
+  </div>
+</footer>
+
+<script src="i18n.js" defer></script>
+<script src="app.js" defer></script>
+</body></html>

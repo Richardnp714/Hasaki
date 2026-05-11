@@ -210,6 +210,7 @@
 
   // ---------- DOM bindings ----------
   function init() {
+    injectPolishStyles();
     Cart.updateBadge();
     Cart.updatePreview();
     Wishlist.updateBadge();
@@ -221,6 +222,8 @@
     renderProductPage();
     initCookieBanner();
     initWelcomePopup();
+    initImageFadeIn();
+    initScrollReveal();
 
     // Add to bag (homepage product cards & sets)
     document.querySelectorAll('[data-add-to-cart]').forEach((btn) => {
@@ -1401,6 +1404,82 @@
         localStorage.setItem('hasaki:welcome-dismissed', '1');
       });
     }, 6000);
+  }
+
+  // ---------- polish: global styles ----------
+  function injectPolishStyles() {
+    if (document.getElementById('hasaki-polish-styles')) return;
+    const s = document.createElement('style');
+    s.id = 'hasaki-polish-styles';
+    s.textContent = `
+      /* Image fade-in on load */
+      img.fade-in-img { opacity: 0; transition: opacity .55s ease; }
+      img.fade-in-img.is-loaded { opacity: 1; }
+      /* Scroll-reveal */
+      .reveal-on-scroll { opacity: 0; transform: translateY(18px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+      .reveal-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
+      @media (prefers-reduced-motion: reduce) {
+        .reveal-on-scroll { opacity: 1; transform: none; transition: none; }
+        img.fade-in-img { opacity: 1; transition: none; }
+      }
+      /* Demo ribbon */
+      #demoRibbon { position:fixed; bottom:14px; right:14px; z-index:80; background:rgba(10,10,10,.9); color:#f5f1ea; padding:7px 13px; font-size:10px; letter-spacing:.25em; text-transform:uppercase; border-radius:999px; backdrop-filter:blur(6px); box-shadow:0 8px 24px rgba(0,0,0,.25); pointer-events:auto; cursor:pointer; transition:opacity .3s; }
+      #demoRibbon:hover { opacity: .85; }
+      #demoRibbon::before { content:''; display:inline-block; width:6px; height:6px; background:#306E51; border-radius:50%; margin-right:8px; animation:demoPulse 2.4s ease-in-out infinite; vertical-align:middle; }
+      @keyframes demoPulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+    `;
+    document.head.appendChild(s);
+
+    // Inject demo ribbon (skip on cart/checkout/thanks where it would feel weird)
+    const path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    const skipRibbon = ['checkout.html', 'thanks.html'];
+    if (!skipRibbon.includes(path) && !document.getElementById('demoRibbon')) {
+      const r = document.createElement('div');
+      r.id = 'demoRibbon';
+      r.textContent = 'Preview · US Launch';
+      r.title = 'This is a design preview for the Hasaki US launch — not a live store yet.';
+      document.body.appendChild(r);
+      r.addEventListener('click', () => { r.style.opacity = '0'; setTimeout(() => r.remove(), 300); });
+    }
+  }
+
+  // ---------- polish: image fade-in ----------
+  function initImageFadeIn() {
+    const imgs = document.querySelectorAll('img:not(.fade-in-img)');
+    imgs.forEach(img => {
+      // Skip the tiny logo/icon images and decorative <img> in headers
+      if (img.naturalWidth && img.naturalWidth < 100) return;
+      if (img.closest('header') && img.width < 80) return;
+      img.classList.add('fade-in-img');
+      if (img.complete && img.naturalHeight !== 0) {
+        img.classList.add('is-loaded');
+      } else {
+        img.addEventListener('load', () => img.classList.add('is-loaded'), { once: true });
+        img.addEventListener('error', () => img.classList.add('is-loaded'), { once: true });
+      }
+    });
+  }
+
+  // ---------- polish: scroll-reveal ----------
+  function initScrollReveal() {
+    if (typeof IntersectionObserver === 'undefined') return;
+    // Auto-target hero sections + cards/articles + section headings
+    const targets = document.querySelectorAll('section > .max-w-\\[1500px\\] > *, section > div > *');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -60px 0px', threshold: 0.05 });
+
+    document.querySelectorAll('section').forEach(sec => {
+      // Don't animate the announcement bar or page-title sections at the top
+      if (sec.offsetTop < 100) return;
+      sec.classList.add('reveal-on-scroll');
+      io.observe(sec);
+    });
   }
 
   // Click on a product card body (not buttons) navigates to its PDP
