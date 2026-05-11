@@ -1338,7 +1338,7 @@
             </div>
             <div style="padding:40px 36px;">
               <p style="font-family:'Fraunces',serif;font-size:26px;letter-spacing:-.03em;line-height:1.1;margin:0 0 8px;">Welcome to <span style="color:#306E51;font-style:italic;">hasaki</span>.</p>
-              <p style="font-size:14px;color:rgba(10,10,10,.65);margin:0 0 24px;line-height:1.5;">Join our list for early access to new drops, restocks, and member-only sales. Your 10% code shows up instantly.</p>
+              <p style="font-size:14px;color:rgba(10,10,10,.65);margin:0 0 24px;line-height:1.5;">Join our list for early access to new drops, restocks, and member-only sales. We'll send your code straight to your inbox.</p>
               <form id="welcomeForm" style="display:flex;flex-direction:column;gap:10px;">
                 <input id="welcomeEmail" type="email" required placeholder="Your email" style="background:transparent;border:1px solid rgba(10,10,10,.18);padding:14px 16px;font-size:14px;font-family:inherit;outline:none;"/>
                 <button type="submit" style="background:#0a0a0a;color:#f5f1ea;border:none;padding:15px;font-size:11px;letter-spacing:.25em;text-transform:uppercase;cursor:pointer;">Send my 10% code →</button>
@@ -1370,17 +1370,18 @@
         // Persist subscription + auto-apply WELCOME10 promo
         localStorage.setItem('hasaki:subscriber', email);
         try { Promo.set('WELCOME10'); } catch {}
+        const maskEmail = email.length > 24 ? email.slice(0, 22) + '…' : email;
         const grid = el.querySelector('#welcomeGrid');
         grid.innerHTML = `
           <div style="grid-column:1/-1;padding:50px 40px 44px;text-align:center;">
             <div style="width:64px;height:64px;border-radius:50%;background:#306E51;color:#f5f1ea;margin:0 auto 22px;display:grid;place-items:center;font-size:28px;">✓</div>
-            <p style="font-family:'Fraunces',serif;font-size:34px;letter-spacing:-.03em;line-height:1.1;margin:0 0 8px;">You're in.</p>
-            <p style="font-size:14px;color:rgba(10,10,10,.65);max-width:420px;margin:0 auto 22px;line-height:1.5;">Here's your 10% off code — we've also applied it to your bag automatically.</p>
+            <p style="font-family:'Fraunces',serif;font-size:34px;letter-spacing:-.03em;line-height:1.1;margin:0 0 8px;">Check your inbox.</p>
+            <p style="font-size:14px;color:rgba(10,10,10,.65);max-width:420px;margin:0 auto 22px;line-height:1.5;">We just sent your 10% code to <strong style="color:#0a0a0a;">${maskEmail}</strong>. It usually lands in about 60 seconds — try your spam folder if it doesn't.</p>
             <div id="welcomeCodeBox" style="display:inline-flex;align-items:center;gap:14px;background:#0a0a0a;color:#f5f1ea;padding:16px 22px;border-radius:6px;margin-bottom:6px;cursor:pointer;user-select:all;">
               <span style="font-family:monospace;font-size:22px;letter-spacing:.18em;font-weight:600;color:#306E51;">WELCOME10</span>
               <span id="welcomeCodeLabel" style="font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:rgba(245,241,234,.6);border-left:1px solid rgba(245,241,234,.2);padding-left:14px;">Tap to copy</span>
             </div>
-            <p style="font-size:11px;color:rgba(10,10,10,.45);margin:14px auto 22px;max-width:380px;line-height:1.5;">Save the code somewhere safe — you can also screenshot this. (We're a prototype, so no actual confirmation email will be sent.)</p>
+            <p style="font-size:11px;color:rgba(10,10,10,.45);margin:14px auto 22px;max-width:380px;line-height:1.5;">We've also applied the code to your bag — start shopping and the 10% is already in.</p>
             <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;">
               <button id="welcomeShop" style="background:#0a0a0a;color:#f5f1ea;border:none;padding:14px 28px;font-size:11px;letter-spacing:.25em;text-transform:uppercase;cursor:pointer;">Start shopping →</button>
               <a href="cart.html" style="display:inline-flex;align-items:center;background:transparent;color:#0a0a0a;border:1px solid rgba(10,10,10,.2);padding:14px 24px;font-size:11px;letter-spacing:.25em;text-transform:uppercase;text-decoration:none;">View bag</a>
