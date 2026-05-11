@@ -1416,8 +1416,8 @@
       /* Image fade-in on load */
       img.fade-in-img { opacity: 0; transition: opacity .55s ease; }
       img.fade-in-img.is-loaded { opacity: 1; }
-      /* Scroll-reveal */
-      .reveal-on-scroll { opacity: 0; transform: translateY(18px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+      /* Scroll-reveal — pointer-events stays auto so links remain clickable mid-animation */
+      .reveal-on-scroll { opacity: 0; transform: translateY(18px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); pointer-events: auto; }
       .reveal-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
       @media (prefers-reduced-motion: reduce) {
         .reveal-on-scroll { opacity: 1; transform: none; transition: none; }
@@ -1464,8 +1464,6 @@
   // ---------- polish: scroll-reveal ----------
   function initScrollReveal() {
     if (typeof IntersectionObserver === 'undefined') return;
-    // Auto-target hero sections + cards/articles + section headings
-    const targets = document.querySelectorAll('section > .max-w-\\[1500px\\] > *, section > div > *');
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
@@ -1478,10 +1476,27 @@
     document.querySelectorAll('section').forEach(sec => {
       // Don't animate the announcement bar or page-title sections at the top
       if (sec.offsetTop < 100) return;
+      // Skip sections explicitly opted out (interactive nav-style strips)
+      if (sec.hasAttribute('data-no-reveal')) return;
+      // Skip short sections under 200px tall — they're usually nav/promo strips, not editorial
+      if (sec.offsetHeight < 200) return;
       sec.classList.add('reveal-on-scroll');
       io.observe(sec);
+      // Defensive: if already in viewport at init, mark visible immediately so no click can land mid-animation
+      const rect = sec.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        sec.classList.add('is-visible');
+        io.unobserve(sec);
+      }
     });
   }
+
+  // Restore visibility on bfcache back-navigation so links remain clickable
+  window.addEventListener('pageshow', (e) => {
+    if (e.persisted) {
+      document.querySelectorAll('.reveal-on-scroll').forEach(el => el.classList.add('is-visible'));
+    }
+  });
 
   // Click on a product card body (not buttons) navigates to its PDP
   document.addEventListener('click', e => {
