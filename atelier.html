@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hasaki Atelier — Our in-house line</title>
+<meta name="description" content="Hasaki Atelier — our in-house line. Made in small batches at our Saigon lab. Clinical formulas, honest pricing, no fillers." />
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/png" href="hasaki-logo.png" />
+<script>tailwind.config={theme:{extend:{fontFamily:{display:['Fraunces','serif'],body:['Inter','sans-serif'],logo:['"DM Sans"','Inter','sans-serif']},colors:{ink:'#0a0a0a',soot:'#1a1a1a',bone:'#f5f1ea',cream:'#ebe4d8',blush:'#e8d5cc',hasaki:'#306E51',hasakiDark:'#1f4d38',hasakiPale:'#e8efea'},letterSpacing:{tightest:'-.04em',mega:'-.06em'}}}}</script>
+<style>body{font-family:'Inter',sans-serif;background:#f5f1ea;color:#0a0a0a;-webkit-font-smoothing:antialiased;overflow-x:hidden}h1,h2,h3,.serif{font-family:'Fraunces',serif}.ulink{position:relative;display:inline-block}.ulink::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:1px;background:currentColor;transform:scaleX(1);transform-origin:right;transition:transform .5s}.ulink:hover::after{transform:scaleX(0);transform-origin:left}img{max-width:100%;height:auto}.pcard .img{transition:transform .9s cubic-bezier(.2,.6,.2,1)}.pcard:hover .img{transform:scale(1.05)}</style>
+</head><body class="bg-bone text-ink">
+
+<header class="sticky top-0 z-50 bg-bone/85 backdrop-blur-xl border-b border-ink/10">
+  <div class="max-w-[1500px] mx-auto px-6">
+    <div class="h-20 grid grid-cols-[auto_1fr_auto] lg:grid-cols-3 items-center gap-3 lg:gap-0">
+      <nav class="hidden lg:flex items-center gap-8 text-[13px] tracking-[0.18em] uppercase">
+        <a href="new.html" class="ulink py-6" data-i18n="nav.new">New In</a>
+        <a href="skincare.html" class="ulink py-6" data-i18n="nav.skincare">Skincare</a>
+        <a href="makeup.html" class="ulink py-6" data-i18n="nav.makeup">Makeup</a>
+        <a href="fragrance.html" class="ulink py-6" data-i18n="nav.fragrance">Fragrance</a>
+        <a href="brands.html" class="ulink py-6" data-i18n="nav.brands">Brands</a>
+        <a href="sale.html" class="ulink py-6 text-hasaki font-medium" data-i18n="nav.sale">Sale</a>
+      </nav>
+      <a href="index.html" class="justify-self-center text-center leading-none flex flex-col items-center" aria-label="hasaki"><span class="inline-flex items-center gap-2.5 font-logo text-hasaki text-[26px] md:text-[32px] font-extrabold lowercase leading-none" style="letter-spacing:-0.04em;"><img src="hasaki-logo.png" alt="" class="w-8 h-8 md:w-10 md:h-10 shrink-0 rounded-full" /><span>hasaki<span class="text-hasakiDark">.</span></span></span><span class="inline-block text-[8px] md:text-[10px] tracking-[0.35em] md:tracking-[0.4em] uppercase text-ink/55 mt-1 md:mt-1.5 font-medium whitespace-nowrap">Save More Always</span></a>
+      <div class="flex items-center justify-end gap-2 md:gap-5">
+        <button data-open-mobile aria-label="Menu" class="lg:hidden p-2 mr-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        <button data-open-search aria-label="Search" class="p-2 hover:text-hasaki transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
+        <a href="account.html" aria-label="Account" class="hidden md:block p-2 hover:text-hasaki transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></a>
+        <a href="wishlist.html" aria-label="Wishlist" class="relative hidden md:block p-2 hover:text-hasaki transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span class="absolute -top-0.5 -right-0.5 bg-hasaki text-bone text-[10px] w-4 h-4 rounded-full grid place-items-center" data-wishlist-count style="display:none">0</span></a>
+        <a href="cart.html" aria-label="Bag" class="relative p-2 hover:text-hasaki transition"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><path d="M6 7h12l-1.5 12.5a2 2 0 0 1-2 1.7H9.5a2 2 0 0 1-2-1.7L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg><span class="absolute -top-0.5 -right-0.5 bg-ink text-bone text-[10px] w-4 h-4 rounded-full grid place-items-center" data-cart-count>0</span></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="relative bg-hasaki text-bone overflow-hidden">
+  <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=1500&h=900&fit=crop&q=80&auto=format" alt="" class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-luminosity" onerror="this.onerror=null;this.src='images/products/sulwhasoo-first-care.jpg'" />
+  <div class="relative z-10 max-w-[1500px] mx-auto px-6 py-24 md:py-32 grid md:grid-cols-12 gap-8 items-end">
+    <div class="md:col-span-7">
+      <p class="text-[11px] tracking-[0.3em] uppercase text-bone/70 mb-4">Hasaki Atelier · Our in-house line</p>
+      <h1 class="serif text-6xl md:text-9xl tracking-mega leading-[0.9]">Made in <span class="italic">Saigon</span>.<br/>Tested on <span class="italic">us</span>.</h1>
+      <p class="mt-7 text-bone/75 text-[15px] max-w-md">12 formulas. Made in small batches at our lab in Ho Chi Minh City. Clinical actives at clinic potency, honest pricing, no fillers, no fluff. Created by our chemists for what we couldn't find anywhere else.</p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="#atelier-shop" class="inline-flex items-center gap-2 bg-bone text-ink px-7 py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-ink hover:text-bone transition">Shop Atelier →</a>
+        <a href="#process" class="inline-flex items-center gap-2 border border-bone/30 text-bone px-7 py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-bone hover:text-ink transition">How it's made</a>
+      </div>
+    </div>
+    <div class="md:col-span-5 grid grid-cols-3 gap-2 text-[11px] tracking-[0.2em] uppercase text-bone/60">
+      <div><span class="block serif text-2xl text-bone tracking-tightest mb-1">12</span>formulas</div>
+      <div><span class="block serif text-2xl text-bone tracking-tightest mb-1">Small batch</span>made in Saigon</div>
+      <div><span class="block serif text-2xl text-bone tracking-tightest mb-1">Clean</span>no fillers ever</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY ATELIER -->
+<section class="py-20 md:py-28">
+  <div class="max-w-[1500px] mx-auto px-6">
+    <div class="grid md:grid-cols-12 gap-10 items-start">
+      <div class="md:col-span-5">
+        <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-3">01 — Why we made it</p>
+        <h2 class="serif text-4xl md:text-6xl tracking-tightest leading-[0.95]">The things we <span class="italic text-hasaki">couldn't find</span>.</h2>
+      </div>
+      <div class="md:col-span-7 space-y-6 text-ink/75 text-[15px] leading-relaxed">
+        <p>After ten years of stocking other people's brands, we noticed the same gaps over and over. The vitamin C that didn't oxidize in two months. The retinol that didn't sting. The SPF that didn't pill under makeup. The barrier cream that worked for sensitive skin and looked good on photos.</p>
+        <p>So we built them ourselves — in our Saigon lab, with our chemists, in batches small enough that we know every drop. Hasaki Atelier is what happens when a retailer stops complaining and starts making.</p>
+        <p class="serif italic text-2xl text-ink leading-snug border-l-2 border-hasaki pl-5 mt-8">"We refuse to put our name on anything we wouldn't use ourselves. That's not marketing — that's the formula brief."<span class="block text-sm not-italic font-medium tracking-wide mt-3 text-ink/60">— Linh Tran, Head Chemist · Hasaki Atelier</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE LINE -->
+<section id="atelier-shop" class="bg-hasakiPale py-20 md:py-28 border-y border-ink/10">
+  <div class="max-w-[1500px] mx-auto px-6">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+      <div>
+        <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-3">02 — The line</p>
+        <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">Twelve <span class="italic text-hasakiDark">formulas</span>.<br/>One promise.</h2>
+      </div>
+      <a href="category.html?q=hasaki+atelier" class="ulink text-[12px] tracking-[0.2em] uppercase self-start md:self-end">View all 12 →</a>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-3 gap-y-10 md:gap-x-4">
+      <!-- Featured Atelier products -->
+      <article class="pcard group">
+        <div class="relative aspect-[4/5] bg-bone overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600&h=750&fit=crop&q=80&auto=format" alt="" loading="lazy" class="img absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='images/products/the-ordinary-niacinamide.jpg'" />
+          <span class="absolute top-3 left-3 bg-hasaki text-bone text-[10px] tracking-[0.25em] uppercase px-2 py-1">Atelier</span>
+        </div>
+        <div class="pt-3.5 px-1">
+          <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Hasaki Atelier</p>
+          <h3 class="text-[15px] font-medium leading-snug mt-1.5">Vitamin C 15% + Ferulic</h3>
+          <div class="flex items-baseline gap-2 mt-3"><span class="font-bold text-base">$32</span><span class="text-xs text-ink/55">· 30 ml</span></div>
+        </div>
+      </article>
+      <article class="pcard group">
+        <div class="relative aspect-[4/5] bg-bone overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=600&h=750&fit=crop&q=80&auto=format" alt="" loading="lazy" class="img absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='images/products/cosrx-snail-essence.jpg'" />
+          <span class="absolute top-3 left-3 bg-hasaki text-bone text-[10px] tracking-[0.25em] uppercase px-2 py-1">Atelier</span>
+        </div>
+        <div class="pt-3.5 px-1">
+          <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Hasaki Atelier</p>
+          <h3 class="text-[15px] font-medium leading-snug mt-1.5">Barrier Recovery Cream</h3>
+          <div class="flex items-baseline gap-2 mt-3"><span class="font-bold text-base">$36</span><span class="text-xs text-ink/55">· 50 ml</span></div>
+        </div>
+      </article>
+      <article class="pcard group">
+        <div class="relative aspect-[4/5] bg-bone overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=600&h=750&fit=crop&q=80&auto=format" alt="" loading="lazy" class="img absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='images/products/sulwhasoo-first-care.jpg'" />
+          <span class="absolute top-3 left-3 bg-hasaki text-bone text-[10px] tracking-[0.25em] uppercase px-2 py-1">Atelier</span>
+        </div>
+        <div class="pt-3.5 px-1">
+          <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Hasaki Atelier</p>
+          <h3 class="text-[15px] font-medium leading-snug mt-1.5">Retinal 0.05% Encapsulated</h3>
+          <div class="flex items-baseline gap-2 mt-3"><span class="font-bold text-base">$44</span><span class="text-xs text-ink/55">· 30 ml</span></div>
+        </div>
+      </article>
+      <article class="pcard group">
+        <div class="relative aspect-[4/5] bg-bone overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1583241475880-083f84372725?w=600&h=750&fit=crop&q=80&auto=format" alt="" loading="lazy" class="img absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='images/products/laroche-anthelios.jpg'" />
+          <span class="absolute top-3 left-3 bg-hasaki text-bone text-[10px] tracking-[0.25em] uppercase px-2 py-1">Atelier</span>
+        </div>
+        <div class="pt-3.5 px-1">
+          <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Hasaki Atelier</p>
+          <h3 class="text-[15px] font-medium leading-snug mt-1.5">Lightweight Daily SPF50+</h3>
+          <div class="flex items-baseline gap-2 mt-3"><span class="font-bold text-base">$28</span><span class="text-xs text-ink/55">· 50 ml</span></div>
+        </div>
+      </article>
+      <article class="pcard group">
+        <div class="relative aspect-[4/5] bg-bone overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1631214540242-3a4d1c5fa3b8?w=600&h=750&fit=crop&q=80&auto=format" alt="" loading="lazy" class="img absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='images/products/innisfree-green-tea.jpg'" />
+          <span class="absolute top-3 left-3 bg-hasaki text-bone text-[10px] tracking-[0.25em] uppercase px-2 py-1">Atelier</span>
+        </div>
+        <div class="pt-3.5 px-1">
+          <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Hasaki Atelier</p>
+          <h3 class="text-[15px] font-medium leading-snug mt-1.5">Hyaluronic 5-Weight Serum</h3>
+          <div class="flex items-baseline gap-2 mt-3"><span class="font-bold text-base">$26</span><span class="text-xs text-ink/55">· 30 ml</span></div>
+        </div>
+      </article>
+      <article class="pcard group">
+        <div class="relative aspect-[4/5] bg-bone overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&h=750&fit=crop&q=80&auto=format" alt="" loading="lazy" class="img absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='images/products/glow-recipe-watermelon.jpg'" />
+          <span class="absolute top-3 left-3 bg-hasaki text-bone text-[10px] tracking-[0.25em] uppercase px-2 py-1">Atelier</span>
+        </div>
+        <div class="pt-3.5 px-1">
+          <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Hasaki Atelier</p>
+          <h3 class="text-[15px] font-medium leading-snug mt-1.5">Niacinamide 10% + Zinc</h3>
+          <div class="flex items-baseline gap-2 mt-3"><span class="font-bold text-base">$22</span><span class="text-xs text-ink/55">· 30 ml</span></div>
+        </div>
+      </article>
+      <article class="pcard group">
+        <div class="relative aspect-[4/5] bg-bone overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=600&h=750&fit=crop&q=80&auto=format" alt="" loading="lazy" class="img absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='images/products/anessa-perfect-uv.jpg'" />
+          <span class="absolute top-3 left-3 bg-hasaki text-bone text-[10px] tracking-[0.25em] uppercase px-2 py-1">Atelier</span>
+        </div>
+        <div class="pt-3.5 px-1">
+          <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Hasaki Atelier</p>
+          <h3 class="text-[15px] font-medium leading-snug mt-1.5">Gentle Foaming Cleanser</h3>
+          <div class="flex items-baseline gap-2 mt-3"><span class="font-bold text-base">$18</span><span class="text-xs text-ink/55">· 150 ml</span></div>
+        </div>
+      </article>
+      <article class="pcard group">
+        <div class="relative aspect-[4/5] bg-bone overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=600&h=750&fit=crop&q=80&auto=format" alt="" loading="lazy" class="img absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='images/products/laneige-lip-sleeping-mask.jpg'" />
+          <span class="absolute top-3 left-3 bg-hasaki text-bone text-[10px] tracking-[0.25em] uppercase px-2 py-1">Atelier</span>
+        </div>
+        <div class="pt-3.5 px-1">
+          <p class="text-[11px] tracking-[0.2em] uppercase text-ink/50">Hasaki Atelier</p>
+          <h3 class="text-[15px] font-medium leading-snug mt-1.5">Overnight Repair Mask</h3>
+          <div class="flex items-baseline gap-2 mt-3"><span class="font-bold text-base">$30</span><span class="text-xs text-ink/55">· 50 ml</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT'S MADE -->
+<section id="process" class="bg-ink text-bone py-20 md:py-28">
+  <div class="max-w-[1500px] mx-auto px-6">
+    <div class="text-center mb-14">
+      <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-3">03 — How it's made</p>
+      <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">From <span class="italic">brief</span> to <span class="italic">bottle</span>.</h2>
+    </div>
+    <div class="grid md:grid-cols-4 gap-px bg-bone/10">
+      <div class="bg-ink p-8">
+        <p class="text-[10px] tracking-[0.3em] uppercase text-hasaki mb-5">Step 01 — Brief</p>
+        <h3 class="serif text-2xl tracking-tightest mb-3">We notice a gap.</h3>
+        <p class="text-bone/65 text-sm leading-relaxed">Our buyers track what sells, what doesn't, what customers ask for. When the same gap shows up three times, we start a formula brief.</p>
+      </div>
+      <div class="bg-ink p-8">
+        <p class="text-[10px] tracking-[0.3em] uppercase text-hasaki mb-5">Step 02 — Formulate</p>
+        <h3 class="serif text-2xl tracking-tightest mb-3">12–18 months of R&D.</h3>
+        <p class="text-bone/65 text-sm leading-relaxed">Our in-house chemists run 40–60 iterations per formula. Then 6 weeks of in-vitro testing, then 12 weeks of human panel testing in three climates.</p>
+      </div>
+      <div class="bg-ink p-8">
+        <p class="text-[10px] tracking-[0.3em] uppercase text-hasaki mb-5">Step 03 — Small batch</p>
+        <h3 class="serif text-2xl tracking-tightest mb-3">Made in Saigon.</h3>
+        <p class="text-bone/65 text-sm leading-relaxed">Batches of 3,000 units max — small enough that every batch gets QA'd by hand. Cruelty-free. Tested in three climates before going live.</p>
+      </div>
+      <div class="bg-ink p-8">
+        <p class="text-[10px] tracking-[0.3em] uppercase text-hasaki mb-5">Step 04 — Honest price</p>
+        <h3 class="serif text-2xl tracking-tightest mb-3">No retailer markup.</h3>
+        <p class="text-bone/65 text-sm leading-relaxed">Because we sell direct, you pay the cost of the formula + 30% — not 4× like a typical luxury brand. That's how a $32 Vitamin C exists.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-20 md:py-28 bg-bone">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+    <h2 class="serif text-5xl md:text-7xl tracking-tightest leading-[0.95]">Start with the <span class="italic text-hasaki">essentials</span>.</h2>
+    <p class="mt-5 text-ink/65 text-[15px]">Cleanser + Vitamin C + SPF — the three formulas every routine needs. Bundle and save 20%.</p>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a href="category.html?q=hasaki+atelier" class="inline-flex items-center gap-2 bg-ink text-bone px-7 py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">Shop the line →</a>
+      <a href="consultation.html" class="inline-flex items-center gap-2 border border-ink text-ink px-7 py-3 text-[11px] tracking-[0.25em] uppercase hover:bg-ink hover:text-bone transition">Talk to a chemist</a>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-ink text-bone py-14">
+  <div class="max-w-[1500px] mx-auto px-6 grid md:grid-cols-4 gap-8 mb-10">
+    <div>
+      <div class="inline-flex items-center gap-3 font-logo text-3xl font-extrabold lowercase leading-none mb-3" style="letter-spacing:-0.04em;"><img src="hasaki-logo.png" alt="" class="w-10 h-10 rounded-full" /><span>hasaki<span class="text-hasaki">.</span></span></div>
+      <p class="text-[11px] tracking-[0.4em] uppercase text-bone/60">Save More Always</p>
+    </div>
+    <div><h5 class="text-xs tracking-[0.25em] uppercase text-bone/60 mb-3">Shop</h5><ul class="space-y-2 text-sm"><li><a href="skincare.html" class="ulink text-bone/85">Skincare</a></li><li><a href="makeup.html" class="ulink text-bone/85">Makeup</a></li><li><a href="fragrance.html" class="ulink text-bone/85">Fragrance</a></li><li><a href="atelier.html" class="ulink text-bone/85">Hasaki Atelier</a></li></ul></div>
+    <div><h5 class="text-xs tracking-[0.25em] uppercase text-bone/60 mb-3">Help</h5><ul class="space-y-2 text-sm"><li><a href="help.html" class="ulink text-bone/85">Help center</a></li><li><a href="consultation.html" class="ulink text-bone/85">Book a consultation</a></li><li><a href="track.html" class="ulink text-bone/85">Track order</a></li></ul></div>
+    <div><h5 class="text-xs tracking-[0.25em] uppercase text-bone/60 mb-3">About</h5><ul class="space-y-2 text-sm"><li><a href="account.html" class="ulink text-bone/85">My account</a></li><li><a href="rewards.html" class="ulink text-bone/85">Hasaki Member</a></li><li><a href="stores.html" class="ulink text-bone/85">Stores</a></li></ul></div>
+  </div>
+  <div class="border-t border-bone/15 pt-5 max-w-[1500px] mx-auto px-6 text-xs text-bone/55"><p>© 2026 Hasaki Beauty &amp; Clinic Joint Stock Company.</p></div>
+</footer>
+
+<script src="i18n.js" defer></script>
+<script src="app.js" defer></script>
+</body></html>
