@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Subscribe & save — hasaki.</title>
+<meta name="description" content="Subscribe to your beauty routine and save 15% on every order — pick your box, choose your delivery frequency, skip or cancel any time." />
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/png" href="hasaki-logo.png" />
+<script>tailwind.config={theme:{extend:{fontFamily:{display:['Fraunces','serif'],body:['Inter','sans-serif'],logo:['"DM Sans"','Inter','sans-serif']},colors:{ink:'#0a0a0a',bone:'#f5f1ea',cream:'#ebe4d8',blush:'#e8d5cc',hasaki:'#306E51',hasakiDark:'#1f4d38',hasakiPale:'#e8efea'},letterSpacing:{tightest:'-.04em',mega:'-.06em'}}}}</script>
+<style>
+body{font-family:'Inter',sans-serif;background:#f5f1ea;color:#0a0a0a;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,.serif{font-family:'Fraunces',serif}
+.ulink{position:relative;display:inline-block}.ulink::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:1px;background:currentColor;transform:scaleX(1);transform-origin:right;transition:transform .5s}.ulink:hover::after{transform:scaleX(0);transform-origin:left}
+img{max-width:100%;height:auto}
+.tier-card{cursor:pointer;border:1px solid rgba(10,10,10,.15);transition:all .25s ease;position:relative}
+.tier-card:hover{border-color:#306E51}
+.tier-card.is-on{border-color:#0a0a0a;border-width:2px;background:#0a0a0a;color:#f5f1ea}
+.tier-card.is-on .tier-eyebrow{color:#306E51!important}
+.tier-card.is-on .tier-perks li{color:rgba(245,241,234,.85)}
+.tier-card.is-on .tier-price-strike{color:rgba(245,241,234,.45)}
+.freq-pill{cursor:pointer;border:1px solid rgba(10,10,10,.18);padding:14px 22px;transition:all .2s;background:transparent}
+.freq-pill:hover{border-color:#306E51}
+.freq-pill.is-on{background:#0a0a0a;color:#f5f1ea;border-color:#0a0a0a}
+.check-dot{width:18px;height:18px;border-radius:50%;border:2px solid #306E51;display:inline-flex;align-items:center;justify-content:center;margin-right:8px;flex-shrink:0}
+.tier-card.is-on .check-dot{background:#306E51;color:#f5f1ea}
+.tier-card.is-on .check-dot::after{content:'✓';font-size:11px;line-height:1}
+</style>
+</head><body class="bg-bone text-ink">
+
+<header class="border-b border-ink/10 sticky top-0 bg-bone/95 backdrop-blur z-40">
+  <div class="max-w-[1500px] mx-auto px-6 h-20 grid grid-cols-3 items-center">
+    <a href="index.html" class="ulink text-[11px] tracking-[0.25em] uppercase text-ink/65" onclick="if(document.referrer&&document.referrer.indexOf(location.host)>-1){event.preventDefault();history.back()}">← Back to store</a>
+    <a href="index.html" class="justify-self-center inline-flex items-center gap-2 font-logo text-hasaki text-[26px] font-extrabold lowercase leading-none" style="letter-spacing:-0.04em;"><img src="hasaki-logo.png" alt="" class="w-9 h-9 rounded-full" /><span>hasaki<span class="text-hasakiDark">.</span></span></a>
+    <a href="cart.html" aria-label="Bag" class="justify-self-end relative p-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5 stroke-2"><path d="M6 7h12l-1.5 12.5a2 2 0 0 1-2 1.7H9.5a2 2 0 0 1-2-1.7L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg><span class="absolute -top-0.5 -right-0.5 bg-ink text-bone text-[10px] w-4 h-4 rounded-full grid place-items-center" data-cart-count>0</span></a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="bg-hasakiPale border-b border-ink/10">
+  <div class="max-w-[1500px] mx-auto px-6 py-14 md:py-20 grid md:grid-cols-12 gap-8 items-end">
+    <div class="md:col-span-7">
+      <p class="text-[11px] tracking-[0.3em] uppercase text-hasaki mb-3">Subscribe &amp; save</p>
+      <h1 class="serif text-5xl md:text-7xl tracking-mega leading-[0.95]">Your routine, <span class="italic text-hasaki">on auto</span>.</h1>
+      <p class="mt-6 text-ink/70 text-[15px] max-w-md">Pick a box, choose how often, never run out again. <strong class="text-ink">15% off every order</strong> + free shipping + 3 free samples. Skip, swap or cancel any time from your account.</p>
+    </div>
+    <div class="md:col-span-5 grid grid-cols-3 gap-2 text-[11px] tracking-[0.2em] uppercase text-ink/55">
+      <div><span class="block serif text-2xl text-ink tracking-tightest mb-1">15% off</span>every order</div>
+      <div><span class="block serif text-2xl text-ink tracking-tightest mb-1">Free</span>shipping always</div>
+      <div><span class="block serif text-2xl text-ink tracking-tightest mb-1">Any time</span>skip / cancel</div>
+    </div>
+  </div>
+</section>
+
+<!-- STEP 1 — Pick a box -->
+<section class="py-16 md:py-20">
+  <div class="max-w-[1500px] mx-auto px-6">
+    <div class="mb-10">
+      <p class="text-[11px] tracking-[0.25em] uppercase text-ink/55 mb-2">Step 01</p>
+      <h2 class="serif text-3xl md:text-5xl tracking-tightest">Pick your <span class="italic text-hasaki">box</span>.</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-4 md:gap-5">
+      <!-- Essentials -->
+      <article data-tier="essentials" data-price="35" data-discounted="29.75" class="tier-card p-7 md:p-9">
+        <div class="flex items-start justify-between mb-5">
+          <p class="tier-eyebrow text-[11px] tracking-[0.3em] uppercase text-hasaki">Box 1 · Essentials</p>
+          <span class="check-dot"></span>
+        </div>
+        <h3 class="serif text-3xl tracking-tightest mb-2">The Essentials</h3>
+        <p class="text-sm opacity-65 mb-5">3 cult skincare products · perfect starter</p>
+        <div class="flex items-baseline gap-3 mb-6">
+          <span class="serif text-3xl tracking-tightest">$29.75</span>
+          <span class="tier-price-strike text-sm line-through opacity-45">$35</span>
+          <span class="text-[10px] tracking-[0.25em] uppercase text-hasaki">15% off</span>
+        </div>
+        <ul class="tier-perks space-y-2 text-sm opacity-80">
+          <li>Cleanser · Serum · SPF</li>
+          <li>Free shipping</li>
+          <li>3 free samples each box</li>
+          <li>Skip or cancel any time</li>
+        </ul>
+      </article>
+
+      <!-- Glow — Most popular -->
+      <article data-tier="glow" data-price="65" data-discounted="55.25" class="tier-card is-on p-7 md:p-9">
+        <span class="absolute -top-3 left-6 bg-hasaki text-bone text-[10px] tracking-[0.25em] uppercase px-3 py-1 z-20">Most popular</span>
+        <div class="flex items-start justify-between mb-5">
+          <p class="tier-eyebrow text-[11px] tracking-[0.3em] uppercase text-hasaki">Box 2 · Glow</p>
+          <span class="check-dot"></span>
+        </div>
+        <h3 class="serif text-3xl tracking-tightest mb-2">The Glow</h3>
+        <p class="text-sm opacity-65 mb-5">5 products · skincare + a touch of color</p>
+        <div class="flex items-baseline gap-3 mb-6">
+          <span class="serif text-3xl tracking-tightest">$55.25</span>
+          <span class="tier-price-strike text-sm line-through opacity-45">$65</span>
+          <span class="text-[10px] tracking-[0.25em] uppercase text-hasaki">15% off</span>
+        </div>
+        <ul class="tier-perks space-y-2 text-sm opacity-80">
+          <li>Cleanser · Serum · Moisturizer · SPF · Lip</li>
+          <li>Free express shipping</li>
+          <li>5 free samples each box</li>
+          <li>Early access to new launches</li>
+          <li>Skip or cancel any time</li>
+        </ul>
+      </article>
+
+      <!-- Complete -->
+      <article data-tier="complete" data-price="120" data-discounted="102" class="tier-card p-7 md:p-9">
+        <div class="flex items-start justify-between mb-5">
+          <p class="tier-eyebrow text-[11px] tracking-[0.3em] uppercase text-hasaki">Box 3 · Complete</p>
+          <span class="check-dot"></span>
+        </div>
+        <h3 class="serif text-3xl tracking-tightest mb-2">The Complete</h3>
+        <p class="text-sm opacity-65 mb-5">8 products · skincare + makeup + fragrance</p>
+        <div class="flex items-baseline gap-3 mb-6">
+          <span class="serif text-3xl tracking-tightest">$102</span>
+          <span class="tier-price-strike text-sm line-through opacity-45">$120</span>
+          <span class="text-[10px] tracking-[0.25em] uppercase text-hasaki">15% off</span>
+        </div>
+        <ul class="tier-perks space-y-2 text-sm opacity-80">
+          <li>Full skincare routine + makeup + fragrance sample</li>
+          <li>Free 2-hour delivery in LA</li>
+          <li>Unlimited free samples</li>
+          <li>Personal beauty advisor</li>
+          <li>Skip or cancel any time</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- STEP 2 — Frequency -->
+<section class="bg-bone border-y border-ink/10 py-16 md:py-20">
+  <div class="max-w-[1500px] mx-auto px-6">
+    <div class="mb-10">
+      <p class="text-[11px] tracking-[0.25em] uppercase text-ink/55 mb-2">Step 02</p>
+      <h2 class="serif text-3xl md:text-5xl tracking-tightest">How <span class="italic text-hasaki">often</span>?</h2>
+      <p class="mt-3 text-ink/65 text-sm">Most customers go with 60 days — change it any time from your account.</p>
+    </div>
+    <div class="flex flex-wrap gap-3">
+      <button data-freq="30" class="freq-pill text-[12px] tracking-[0.15em] uppercase">Every 30 days</button>
+      <button data-freq="45" class="freq-pill text-[12px] tracking-[0.15em] uppercase">Every 45 days</button>
+      <button data-freq="60" class="freq-pill is-on text-[12px] tracking-[0.15em] uppercase">Every 60 days · popular</button>
+      <button data-freq="90" class="freq-pill text-[12px] tracking-[0.15em] uppercase">Every 90 days</button>
+    </div>
+  </div>
+</section>
+
+<!-- STEP 3 — Summary + start -->
+<section class="py-16 md:py-20">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="mb-10">
+      <p class="text-[11px] tracking-[0.25em] uppercase text-ink/55 mb-2">Step 03</p>
+      <h2 class="serif text-3xl md:text-5xl tracking-tightest">Your <span class="italic text-hasaki">subscription</span>.</h2>
+    </div>
+    <div class="bg-bone border border-ink/15 p-7 md:p-9">
+      <dl class="space-y-3 text-sm">
+        <div class="flex justify-between"><dt class="text-ink/60">Box</dt><dd id="sumBox" class="font-medium">The Glow · 5 products</dd></div>
+        <div class="flex justify-between"><dt class="text-ink/60">Delivery</dt><dd id="sumFreq" class="font-medium">Every 60 days</dd></div>
+        <div class="flex justify-between"><dt class="text-ink/60">Price</dt><dd id="sumPrice" class="font-medium">$55.25 / box <span class="text-ink/45 line-through ml-2" id="sumStrike">$65</span></dd></div>
+        <div class="flex justify-between text-hasaki"><dt>You save</dt><dd id="sumSave" class="font-medium">$9.75 every order</dd></div>
+      </dl>
+      <button id="subscribeBtn" class="w-full mt-7 bg-ink text-bone py-4 text-[11px] tracking-[0.25em] uppercase hover:bg-hasaki transition">Start my subscription →</button>
+      <p class="text-[11px] text-ink/55 mt-3 text-center">No commitment · skip or cancel from your account at any time</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="bg-hasakiPale py-16 md:py-20 border-y border-ink/10">
+  <div class="max-w-3xl mx-auto px-6">
+    <h2 class="serif text-3xl tracking-tightest text-center mb-10">Common <span class="italic text-hasaki">questions</span>.</h2>
+    <div class="border-t border-ink/10">
+      <details class="border-b border-ink/10"><summary class="flex justify-between items-center py-5 cursor-pointer list-none"><span class="text-base">Can I change my box later?</span><span class="text-ink/45 text-xl">+</span></summary><p class="pb-5 text-sm text-ink/75">Yes — swap, pause, or cancel from your account dashboard any time before your next ship date.</p></details>
+      <details class="border-b border-ink/10"><summary class="flex justify-between items-center py-5 cursor-pointer list-none"><span class="text-base">What's in each box?</span><span class="text-ink/45 text-xl">+</span></summary><p class="pb-5 text-sm text-ink/75">Our beauty team curates each box based on the season, your skin profile (built from the skin quiz), and the latest cult launches. You'll preview the contents 7 days before shipping and can swap individual items.</p></details>
+      <details class="border-b border-ink/10"><summary class="flex justify-between items-center py-5 cursor-pointer list-none"><span class="text-base">When am I charged?</span><span class="text-ink/45 text-xl">+</span></summary><p class="pb-5 text-sm text-ink/75">First box is charged today and ships within 48 hours. Future boxes are charged 24 hours before the ship date — you'll get an email reminder.</p></details>
+      <details class="border-b border-ink/10"><summary class="flex justify-between items-center py-5 cursor-pointer list-none"><span class="text-base">Do points still apply?</span><span class="text-ink/45 text-xl">+</span></summary><p class="pb-5 text-sm text-ink/75">Yes — every subscription order earns Hasaki Member points at your current tier. Subscriptions also qualify you for tier upgrades faster.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-ink text-bone py-12">
+  <div class="max-w-[1500px] mx-auto px-6 flex flex-wrap items-center justify-between gap-4 text-sm">
+    <div class="inline-flex items-center gap-3 font-logo text-3xl font-extrabold lowercase leading-none" style="letter-spacing:-0.04em;"><img src="hasaki-logo.png" alt="" class="w-10 h-10 rounded-full" /><span>hasaki<span class="text-hasaki">.</span></span></div>
+    <p class="text-xs text-bone/55">© 2026 Hasaki Beauty &amp; Clinic Joint Stock Company.</p>
+  </div>
+</footer>
+
+<script>
+// State
+let state = { tier: 'glow', freq: 60 };
+
+const TIERS = {
+  essentials: { label: 'The Essentials · 3 products', price: 35, discounted: 29.75 },
+  glow:       { label: 'The Glow · 5 products',       price: 65, discounted: 55.25 },
+  complete:   { label: 'The Complete · 8 products',   price: 120, discounted: 102 },
+};
+
+function paint() {
+  document.querySelectorAll('[data-tier]').forEach(el => {
+    el.classList.toggle('is-on', el.dataset.tier === state.tier);
+  });
+  document.querySelectorAll('[data-freq]').forEach(el => {
+    el.classList.toggle('is-on', parseInt(el.dataset.freq) === state.freq);
+  });
+  const t = TIERS[state.tier];
+  document.getElementById('sumBox').textContent = t.label;
+  document.getElementById('sumFreq').textContent = `Every ${state.freq} days`;
+  document.getElementById('sumPrice').innerHTML = `$${t.discounted.toFixed(2)} / box <span class="text-ink/45 line-through ml-2">$${t.price}</span>`;
+  document.getElementById('sumStrike').textContent = '$' + t.price;
+  document.getElementById('sumSave').textContent = `$${(t.price - t.discounted).toFixed(2)} every order`;
+}
+
+document.querySelectorAll('[data-tier]').forEach(el => {
+  el.addEventListener('click', () => { state.tier = el.dataset.tier; paint(); });
+});
+document.querySelectorAll('[data-freq]').forEach(el => {
+  el.addEventListener('click', () => { state.freq = parseInt(el.dataset.freq); paint(); });
+});
+
+document.getElementById('subscribeBtn').addEventListener('click', () => {
+  const t = TIERS[state.tier];
+  if (!window.Cart) { alert('Cart not loaded yet — please refresh.'); return; }
+  window.Cart.add({
+    id: 'sub-' + state.tier + '-' + state.freq + '-' + Date.now(),
+    brand: 'Hasaki Subscription',
+    name: `${t.label} · every ${state.freq} days`,
+    price: t.discounted,
+    image: 'hasaki-logo.png',
+    size: `Auto-ship subscription`,
+  });
+  const btn = document.getElementById('subscribeBtn');
+  btn.textContent = '✓ Added — view bag';
+  btn.style.background = '#306E51';
+  setTimeout(() => { window.location.href = 'cart.html'; }, 800);
+});
+
+paint();
+</script>
+
+<script src="i18n.js" defer></script>
+<script src="app.js" defer></script>
+</body></html>
